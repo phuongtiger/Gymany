@@ -156,3 +156,4 @@ D:\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Login.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Product\Index.cshtml.g.cs
 >>>>>>> main
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Customer\PTLogin.cshtml.g.cs
+D:\GitP\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Product\Index.cshtml.g.cs

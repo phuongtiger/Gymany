@@ -15,6 +15,13 @@ namespace Gymany.Controllers
             // TODO: Your code here
             return View();
         }
-        
+
+        public IActionResult PTLogin()
+        {
+            // TODO: Your code here
+            return View();
+        }
+
     }
+
 }

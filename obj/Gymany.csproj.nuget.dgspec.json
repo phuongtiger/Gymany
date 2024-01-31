@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "D:\\GitP\\Gymany\\Gymany\\Gymany.csproj": {}
   },
   "projects": {
@@ -12,6 +13,19 @@
         "projectPath": "D:\\GitP\\Gymany\\Gymany\\Gymany.csproj",
         "packagesPath": "C:\\Users\\Ducsi\\.nuget\\packages\\",
         "outputPath": "D:\\GitP\\Gymany\\Gymany\\obj\\",
+=======
+    "D:\\Gymany\\Gymany\\Gymany.csproj": {}
+  },
+  "projects": {
+    "D:\\Gymany\\Gymany\\Gymany.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Gymany\\Gymany\\Gymany.csproj",
+        "projectName": "Gymany",
+        "projectPath": "D:\\Gymany\\Gymany\\Gymany.csproj",
+        "packagesPath": "C:\\Users\\hoang\\.nuget\\packages\\",
+        "outputPath": "D:\\Gymany\\Gymany\\obj\\",
+>>>>>>> main
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ducsi\\AppData\\Roaming\\NuGet\\NuGet.Config",

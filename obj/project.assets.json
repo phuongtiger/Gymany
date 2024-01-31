@@ -6047,11 +6047,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "D:\\GitP\\Gymany\\Gymany\\Gymany.csproj",
       "projectName": "Gymany",
       "projectPath": "D:\\GitP\\Gymany\\Gymany\\Gymany.csproj",
       "packagesPath": "C:\\Users\\Ducsi\\.nuget\\packages\\",
       "outputPath": "D:\\GitP\\Gymany\\Gymany\\obj\\",
+=======
+      "projectUniqueName": "D:\\Gymany\\Gymany\\Gymany.csproj",
+      "projectName": "Gymany",
+      "projectPath": "D:\\Gymany\\Gymany\\Gymany.csproj",
+      "packagesPath": "C:\\Users\\hoang\\.nuget\\packages\\",
+      "outputPath": "D:\\Gymany\\Gymany\\obj\\",
+>>>>>>> main
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Ducsi\\AppData\\Roaming\\NuGet\\NuGet.Config",

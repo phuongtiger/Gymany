@@ -70,6 +70,7 @@ D:\Gymany\obj\Debug\net5.0\Gymany.dll
 D:\Gymany\obj\Debug\net5.0\ref\Gymany.dll
 D:\Gymany\obj\Debug\net5.0\Gymany.pdb
 D:\Gymany\obj\Debug\net5.0\Gymany.genruntimeconfig.cache
+<<<<<<< HEAD
 D:\GitP\Gymany\Gymany\bin\Debug\net5.0\appsettings.Development.json
 D:\GitP\Gymany\Gymany\bin\Debug\net5.0\appsettings.json
 D:\GitP\Gymany\Gymany\bin\Debug\net5.0\Gymany.StaticWebAssets.xml
@@ -150,3 +151,8 @@ D:\GitP\Gymany\Gymany\obj\Debug\net5.0\Gymany.pdb
 D:\GitP\Gymany\Gymany\obj\Debug\net5.0\Gymany.genruntimeconfig.cache
 D:\GitP\Gymany\Gymany\obj\Debug\net5.0\ref\Gymany.dll
 D:\GitP\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\PTLogin.cshtml.g.cs
+=======
+D:\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Login.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Views\Product\Index.cshtml.g.cs
+>>>>>>> main
+D:\Gymany\obj\Debug\net5.0\Razor\Views\Customer\PTLogin.cshtml.g.cs

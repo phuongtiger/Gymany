@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "J9MoekEqsURONShE1XBGGbFjQSn1ObLiVUtjhfbyts2Jh/29mXRpWOlCIwnLhxitlvGBb4rWzulqm3vCkrOHLg==",
+  "dgSpecHash": "gwHN/GqvG3SVznTfr662tsH/Fc6U5FSAyVbos3NPNxFvjH29UCgL1LPSEByc6uYdinnBXkOTqfMsnUQrHI8VRA==",
   "success": true,
-  "projectFilePath": "D:\\GitP\\Gymany\\Gymany\\Gymany.csproj",
+  "projectFilePath": "D:\\GitP\\Gymany\\Gymany.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ducsi\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Ducsi\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

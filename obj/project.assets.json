@@ -6047,11 +6047,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitP\\Gymany\\Gymany\\Gymany.csproj",
+      "projectUniqueName": "D:\\GitP\\Gymany\\Gymany.csproj",
       "projectName": "Gymany",
-      "projectPath": "D:\\GitP\\Gymany\\Gymany\\Gymany.csproj",
+      "projectPath": "D:\\GitP\\Gymany\\Gymany.csproj",
       "packagesPath": "C:\\Users\\Ducsi\\.nuget\\packages\\",
-      "outputPath": "D:\\GitP\\Gymany\\Gymany\\obj\\",
+      "outputPath": "D:\\GitP\\Gymany\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Ducsi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6120,7 +6120,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

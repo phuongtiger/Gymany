@@ -41,6 +41,67 @@ namespace Gymany.Controllers
                 return View("Index");
             }
         }
+        public IActionResult Product()
+        {
+            // TODO: Your code here
+            return View();
+        }
+
+        public IActionResult AddProduct()
+        {
+            // TODO: Your code here
+            return View();
+        }
+        public IActionResult UpdateProduct()
+        {
+            // TODO: Your code here
+            return View();
+        }
+        public IActionResult DeleteProduct()
+        {
+            // TODO: Your code here
+            return View();
+        }
+        public IActionResult Account()
+        {
+            // TODO: Your code here
+            return View();
+        }
+         public IActionResult AddAccount()
+        {
+            // TODO: Your code here
+            return View();
+        }
+         public IActionResult DeleteAccount()
+        {
+            // TODO: Your code here
+            return View();
+        }   
+        public IActionResult Post()
+        {
+            // TODO: Your code here
+            return View();
+        }
+         public IActionResult AddPost()
+        {
+            // TODO: Your code here
+            return View();
+        }
+         public IActionResult DeletePost()
+        {
+            // TODO: Your code here
+            return View();
+        }
+        public IActionResult Request()
+        {
+            // TODO: Your code here
+            return View();
+        }
+         public IActionResult ManageRequest()
+        {
+            // TODO: Your code here
+            return View();
+        }
 
 
     }

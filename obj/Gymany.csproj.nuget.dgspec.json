@@ -1,34 +1,20 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "D:\\GitP\\Gymany\\Gymany\\Gymany.csproj": {}
+    "E:\\chuyên ngành kì 5\\PRN211\\project_group_5\\Gymany\\Gymany.csproj": {}
   },
   "projects": {
-    "D:\\GitP\\Gymany\\Gymany\\Gymany.csproj": {
+    "E:\\chuyên ngành kì 5\\PRN211\\project_group_5\\Gymany\\Gymany.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitP\\Gymany\\Gymany\\Gymany.csproj",
+        "projectUniqueName": "E:\\chuyên ngành kì 5\\PRN211\\project_group_5\\Gymany\\Gymany.csproj",
         "projectName": "Gymany",
-        "projectPath": "D:\\GitP\\Gymany\\Gymany\\Gymany.csproj",
-        "packagesPath": "C:\\Users\\Ducsi\\.nuget\\packages\\",
-        "outputPath": "D:\\GitP\\Gymany\\Gymany\\obj\\",
-=======
-    "D:\\Gymany\\Gymany\\Gymany.csproj": {}
-  },
-  "projects": {
-    "D:\\Gymany\\Gymany\\Gymany.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\Gymany\\Gymany\\Gymany.csproj",
-        "projectName": "Gymany",
-        "projectPath": "D:\\Gymany\\Gymany\\Gymany.csproj",
-        "packagesPath": "C:\\Users\\hoang\\.nuget\\packages\\",
-        "outputPath": "D:\\Gymany\\Gymany\\obj\\",
->>>>>>> main
+        "projectPath": "E:\\chuyên ngành kì 5\\PRN211\\project_group_5\\Gymany\\Gymany.csproj",
+        "packagesPath": "C:\\Users\\Van-Khoi\\.nuget\\packages\\",
+        "outputPath": "E:\\chuyên ngành kì 5\\PRN211\\project_group_5\\Gymany\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Ducsi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Van-Khoi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -94,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

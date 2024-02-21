@@ -1,0 +1,52 @@
+@{
+    ViewData["Title"] = "Home";
+}
+@* using layout of Gymowner *@
+@{
+    Layout = "GymOwnerLayout";
+}
+
+<div class="container">
+    <div class="row text-light align-items-center justify-content-center" style="height: 10%;">
+        <h1 class="text-center">Welcome to Admin Home</h1>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Product Management</h5>
+                    <p class="card-text">Manage all gym products here.</p>
+                    <a asp-action="Product" class="btn btn-danger">Go to Product Manage</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Account Management</h5>
+                    <p class="card-text">Manage all user accounts here.</p>
+                    <a asp-action="Account" class="btn btn-danger">Go to Account Manage</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Post Management</h5>
+                    <p class="card-text">Manage all posts and articles here.</p>
+                    <a asp-action="Post" class="btn btn-danger">Go to Post Manage</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">PT Management</h5>
+                    <p class="card-text">Manage PT register from here.</p>
+                    <a asp-action="Request" class="btn btn-danger">Go to register Manage</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

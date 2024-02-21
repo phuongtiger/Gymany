@@ -59,8 +59,6 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  background-color: #000;
   margin-bottom: 60px;
 }
 .footer {

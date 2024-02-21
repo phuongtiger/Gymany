@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Project_SWP\\Web_Gymany\\Gymany\\Gymany.csproj": {}
+    "D:\\Gymany\\Gymany.csproj": {}
   },
   "projects": {
-    "D:\\Project_SWP\\Web_Gymany\\Gymany\\Gymany.csproj": {
+    "D:\\Gymany\\Gymany.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project_SWP\\Web_Gymany\\Gymany\\Gymany.csproj",
+        "projectUniqueName": "D:\\Gymany\\Gymany.csproj",
         "projectName": "Gymany",
-        "projectPath": "D:\\Project_SWP\\Web_Gymany\\Gymany\\Gymany.csproj",
-        "packagesPath": "C:\\Users\\THANH\\.nuget\\packages\\",
-        "outputPath": "D:\\Project_SWP\\Web_Gymany\\Gymany\\obj\\",
+        "projectPath": "D:\\Gymany\\Gymany.csproj",
+        "packagesPath": "C:\\Users\\hoang\\.nuget\\packages\\",
+        "outputPath": "D:\\Gymany\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\THANH\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\hoang\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -67,8 +65,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -80,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     }

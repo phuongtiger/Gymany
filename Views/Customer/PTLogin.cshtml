@@ -1,12 +1,62 @@
 @{
     ViewData["Title"] = "PTLogin";
 }
-<form asp-action="PTLogin">
-    Username: <input type="text">
-    <br>
-    Password: <input type="text">
-    <br>
-    <button type="submit">LOGIN</button>
-</form>
-<hr>
-<a asp-action="Login" class="btn btn-outline-primary">Back</a>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to right, #ff5733, #ffcc00); /* Gradient từ đỏ sang cam */
+    }
+    .container {
+        padding: 20px;
+    }
+    /* Áp dụng màu nền trắng cho phần form */
+    .form-container {
+        background-color: white;
+        padding: 20px;
+        margin-bottom: 70px;
+        border-radius: 10px; /* Bo góc cho form */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng đổ */
+    }
+    /* Thiết lập màu cho nút */
+    .btn-primary {
+        background-color: #000; /* Đen */
+        border-color: #000; /* Đen */
+    }
+    /* Hiệu ứng hover */
+    .btn-primary:hover {
+        background-color: #fff; /* Trắng */
+        color: #000; /* Màu chữ đen */
+    }
+
+    .bg{
+        background-color: black;
+    }
+</style>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card-header bg text-white text-center display-4">PT LOGIN</div>
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="card-body">
+                    <form asp-action="PTLogin">
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" class="form-control" id="username" name="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="text" class="form-control" id="password" name="password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">LOGIN</button>
+                    </form>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <a asp-action="PTRegister" class="btn btn-outline-primary btn-primary">Register</a>
+                <a asp-action="Login" class="btn btn-outline-primary btn-primary">Back</a>
+            </div>
+        </div>
+    </div>
+</div>

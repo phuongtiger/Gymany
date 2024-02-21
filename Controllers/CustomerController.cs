@@ -22,6 +22,20 @@ namespace Gymany.Controllers
             return View();
         }
 
+        public IActionResult Register()
+        {
+            // TODO: Your code here
+            return View();
+        }
+
+        public IActionResult PTRegister()
+        {
+            // TODO: Your code here
+            return View();
+        }
+        
+        
+
     }
 
 }

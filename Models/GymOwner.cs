@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Gymany.Models
 {
-    public class Customer
+    public class GymOwner
     {
         [Key]
-        public string CustomerID { get; set; }
+        public string AdminID { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -22,16 +22,7 @@ namespace Gymany.Models
         [StringLength(50)]
         public string Name { get; set; }
 
-        [StringLength(50)]
-        public string Address { get; set; }
-
         public DateTime? Age { get; set; }
-
-        [StringLength(200)]
-        public string Image { get; set; }
-
-        [StringLength(20)]
-        public string Phone { get; set; }
 
         [Required]
         [StringLength(50)]

@@ -50,7 +50,7 @@ namespace Gymany
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=GymOwner}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

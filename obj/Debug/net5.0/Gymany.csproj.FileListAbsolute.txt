@@ -240,3 +240,5 @@ D:\GitP\Gymany\obj\Debug\net5.0\Gymany.genruntimeconfig.cache
 D:\GitP\Gymany\obj\Debug\net5.0\ref\Gymany.dll
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Register.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Customer\PTRegister.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Views\Customer\PTRegister.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Register.cshtml.g.cs

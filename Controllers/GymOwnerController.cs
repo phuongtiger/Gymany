@@ -12,8 +12,6 @@ namespace Gymany.Controllers
     public class GymOwnerController : Controller
     {
 
-
-
         // page of admin after login successfull
           public IActionResult Home()
         {

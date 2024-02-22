@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyProductAttribute("Gymany")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+94397965a885960ec19b492b8efd2fec9ff97376")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Gymany.Views")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 

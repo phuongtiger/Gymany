@@ -9,7 +9,7 @@ a.navbar-brand {
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+  color: white;
 }
 
 .btn-primary {
@@ -62,6 +62,7 @@ body {
 .footer {
 }
 
+/* css login */
 body {
   margin: 0;
   padding: 0;

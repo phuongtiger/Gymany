@@ -323,8 +323,6 @@ E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\refint\Gy
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Gymany.pdb
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Gymany.genruntimeconfig.cache
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\ref\Gymany.dll
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Home.cshtml.g.cs
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Index.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Shared\GymOwnerLayout.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Product.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\AddProduct.cshtml.g.cs
@@ -338,25 +336,41 @@ E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Vie
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Account.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Post.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Request.cshtml.g.cs
-D:\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Account.cshtml.g.cs
-D:\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\AddAccount.cshtml.g.cs
-D:\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\AddPost.cshtml.g.cs
-D:\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\AddProduct.cshtml.g.cs
-D:\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\DeleteAccount.cshtml.g.cs
-D:\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\DeletePost.cshtml.g.cs
-D:\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\DeleteProduct.cshtml.g.cs
-D:\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Home.cshtml.g.cs
-D:\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Index.cshtml.g.cs
-D:\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\ManageRequest.cshtml.g.cs
-D:\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Post.cshtml.g.cs
-D:\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Product.cshtml.g.cs
-D:\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Request.cshtml.g.cs
-D:\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\UpdateProduct.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Shared\GymOwnerLayout.cshtml.g.cs
 >>>>>>> Khoi
 E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Gymany.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\refint\Gymany.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Gymany.pdb
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Account.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddAccount.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddPost.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddProduct.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteAccount.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeletePost.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteProduct.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Home.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Index.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\ManageRequest.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Post.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Product.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Request.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateProduct.cshtml.g.cs
+>>>>>>> 95779bebbb9849c0ad791cad2ed982c3eca77ab5
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Account.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddAccount.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddPost.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddProduct.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteAccount.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeletePost.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteProduct.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Home.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Index.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\ManageRequest.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Post.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Product.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Request.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateProduct.cshtml.g.cs
+>>>>>>> 978c79220d8b90c0f2d8c08a5468b63c1a4f3428
 E:\SE1707_Ky5\Project\project_G\Gymany\bin\Debug\net5.0\appsettings.Development.json
 E:\SE1707_Ky5\Project\project_G\Gymany\bin\Debug\net5.0\appsettings.json
 E:\SE1707_Ky5\Project\project_G\Gymany\bin\Debug\net5.0\Gymany.StaticWebAssets.xml
@@ -416,20 +430,6 @@ E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Log
 E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\Customer\PTLogin.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\Customer\PTRegister.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Register.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Account.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\AddAccount.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\AddPost.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\AddProduct.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\DeleteAccount.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\DeletePost.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\DeleteProduct.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Home.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Index.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\ManageRequest.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Post.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Product.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Request.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\UpdateProduct.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\Product\Index.cshtml.g.cs
@@ -452,3 +452,132 @@ E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.
 E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Gymany.csproj.CopyComplete
 E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Gymany.genruntimeconfig.cache
 E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\ref\Gymany.dll
+>>>>>>> thang
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\appsettings.Development.json
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\appsettings.json
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Gymany.StaticWebAssets.xml
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Gymany.exe
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Gymany.deps.json
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Gymany.runtimeconfig.json
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Gymany.runtimeconfig.dev.json
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Gymany.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Gymany.pdb
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Gymany.Views.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Gymany.Views.pdb
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Humanizer.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.Identity.Client.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Newtonsoft.Json.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\System.Runtime.Caching.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.csproj.AssemblyReference.cache
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.AssemblyInfoInputs.cache
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.AssemblyInfo.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.csproj.CoreCompileInputs.cache
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.MvcApplicationPartsAssemblyInfo.cache
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.RazorAssemblyInfo.cache
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.RazorAssemblyInfo.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.sourcelink.json
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.TagHelpers.input.cache
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.TagHelpers.output.cache
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.RazorCoreGenerate.cache
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Login.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\PTLogin.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\PTRegister.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Register.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Account.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\AddAccount.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\AddPost.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\AddProduct.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\DeleteAccount.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\DeletePost.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\DeleteProduct.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Home.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Index.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\ManageRequest.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Post.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Product.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Request.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\UpdateProduct.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Product\Index.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Shared\GymOwnerLayout.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.RazorTargetAssemblyInfo.cache
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.RazorTargetAssemblyInfo.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.Views.pdb
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\scopedcss\bundle\Gymany.styles.css
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.Manifest.cache
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.Pack.cache
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.Gymany.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.build.Gymany.props
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.Gymany.props
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.Gymany.props
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.csproj.CopyComplete
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.dll
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\refint\Gymany.dll
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.pdb
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.genruntimeconfig.cache
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\ref\Gymany.dll
+>>>>>>> thanh
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Account.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddAccount.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddPost.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddProduct.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteAccount.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeletePost.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteProduct.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Home.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Index.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\ManageRequest.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Post.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Product.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Request.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateProduct.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Shared\GymOwnerLayout.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Account.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddAccount.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddPost.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddProduct.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteAccount.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeletePost.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteProduct.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Home.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Index.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\ManageRequest.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Post.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Product.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Request.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateProduct.cshtml.g.cs

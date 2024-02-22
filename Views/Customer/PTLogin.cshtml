@@ -1,12 +1,33 @@
 @{
     ViewData["Title"] = "PTLogin";
 }
-<form asp-action="PTLogin">
-    Username: <input type="text">
-    <br>
-    Password: <input type="text">
-    <br>
-    <button type="submit">LOGIN</button>
-</form>
-<hr>
-<a asp-action="Login" class="btn btn-outline-primary">Back</a>
+<style>
+    
+</style>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card-header bg text-white text-center display-4">PT LOGIN</div>
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="card-body">
+                    <form asp-action="PTLogin">
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" class="form-control" id="username" name="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="text" class="form-control" id="password" name="password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">LOGIN</button>
+                    </form>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <a asp-action="PTRegister" class="btn btn-outline-primary btn-primary">Register</a>
+                <a asp-action="Login" class="btn btn-outline-primary btn-primary">Back</a>
+            </div>
+        </div>
+    </div>
+</div>

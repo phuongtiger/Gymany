@@ -16,11 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyProductAttribute("Gymany")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c93ebc2a6df6e5a31f665cce10dc40ee07ab0ab8")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+978c79220d8b90c0f2d8c08a5468b63c1a4f3428")]
->>>>>>> main
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dd318315bf68b4fe8fd8038ad4e3dd1a68e14cdb")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Gymany.Views")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 

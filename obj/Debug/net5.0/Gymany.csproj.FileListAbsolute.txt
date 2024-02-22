@@ -354,3 +354,6 @@ D:\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Request.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\UpdateProduct.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Shared\GymOwnerLayout.cshtml.g.cs
 >>>>>>> Khoi
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.dll
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\refint\Gymany.dll
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.pdb

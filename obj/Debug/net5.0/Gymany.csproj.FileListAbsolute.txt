@@ -213,7 +213,6 @@ D:\GitP\Gymany\obj\Debug\net5.0\Gymany.TagHelpers.input.cache
 D:\GitP\Gymany\obj\Debug\net5.0\Gymany.TagHelpers.output.cache
 D:\GitP\Gymany\obj\Debug\net5.0\Gymany.RazorCoreGenerate.cache
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Login.cshtml.g.cs
-D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Customer\PTLogin.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Product\Index.cshtml.g.cs
@@ -239,7 +238,6 @@ D:\GitP\Gymany\obj\Debug\net5.0\Gymany.pdb
 D:\GitP\Gymany\obj\Debug\net5.0\Gymany.genruntimeconfig.cache
 D:\GitP\Gymany\obj\Debug\net5.0\ref\Gymany.dll
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Register.cshtml.g.cs
-D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Customer\PTRegister.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Customer\PTRegister.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Register.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\appsettings.Development.json
@@ -580,3 +578,7 @@ D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Product.csht
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Request.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateProduct.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Shared\GymOwnerLayout.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\Index.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Shared\PTlayout.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\PTLogin.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\PTRegister.cshtml.g.cs

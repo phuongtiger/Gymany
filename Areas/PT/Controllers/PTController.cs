@@ -8,25 +8,25 @@ using Microsoft.Extensions.Logging;
 
 namespace Gymany.Controllers
 {
-    public class CustomerController : Controller
+    [Area("PT")]
+    public class PTController : Controller
     {
-        public IActionResult Login()
+        public IActionResult Index()
+        {
+            // TODO: Your code here
+            return View("Index");
+        }
+
+        public IActionResult PTRegister()
         {
             // TODO: Your code here
             return View();
         }
 
-        public IActionResult Register()
+        public IActionResult PTLogin()
         {
             // TODO: Your code here
             return View();
-        }
-
-        public IActionResult PTPage()
-        {
-            // Chuyển sang action khác trong cùng khu vực
-            return Redirect(Url.Action("PTLogin", "PT", new { area = "PT" }));
         }
     }
-
 }

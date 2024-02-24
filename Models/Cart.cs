@@ -5,21 +5,21 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Gymany.Models
+namespace Gymany_API.Models
 {
     public class Cart
     {
         [Key]
-        public string CartID { get; set; }
+        public int CartID { get; set; }
 
         public int? Quantity { get; set; }
 
         [ForeignKey("Customer")]
-        public string CustomerID { get; set; }
+        public int CustomerID { get; set; }
         public Customer Customer { get; set; }
 
         [ForeignKey("Product")]
-        public string ProductID { get; set; }
+        public int ProductID { get; set; }
         public Product Product { get; set; }
     }
 }

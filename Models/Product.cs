@@ -5,12 +5,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Gymany.Models
+namespace Gymany_API.Models
 {
     public class Product
     {
         [Key]
-        public string ProductID { get; set; }
+        public int ProductID { get; set; }
 
         [StringLength(50)]
         public string Name { get; set; }
@@ -25,7 +25,7 @@ namespace Gymany.Models
         public decimal? Price { get; set; }
 
         [ForeignKey("Category")]
-        public string CategoryID { get; set; }
+        public int CategoryID { get; set; }
         public Category Category { get; set; }
     }
 }

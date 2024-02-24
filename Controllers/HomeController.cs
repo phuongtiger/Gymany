@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Gymany.Models;
+using Gymany_API.Models;
 
 namespace Gymany.Controllers
 {

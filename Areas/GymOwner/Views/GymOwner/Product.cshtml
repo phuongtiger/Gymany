@@ -1,4 +1,57 @@
 @{
     ViewData["Title"] = "Product";
 }
-<h1>this is product</h1>
+
+@* using layout of Gymowner *@
+@{
+    Layout = "GymOwnerLayout";
+}
+
+@{
+    Layout = "GymOwnerLayout";
+}
+@* declare tag helper in areas *@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!-- Main content goes here -->
+<div class="container-fluid">
+    <a asp-action="AddProduct" asp-controller="GymOwner" class="btn btn-danger">Add new</a>
+    <hr>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ProductID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Image</th>
+                <th>Price</th>
+                <th>CategoryID</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.ProductID</td>
+                    <td>@product.Name</td>
+                    <td>@product.Description</td>
+                    <td>@product.Amount</td>
+                    <td>@product.Image</td>
+                    <td>@product.Price</td>
+                    <td>@product.CategoryID</td>
+                    <td>
+                        <a class="btn btn-success" asp-controller="GymOwner" asp-action="EditProduct"
+                            asp-route-id="@product.ProductID">Edit</a>
+                        <a class="btn btn-danger" asp-controller="GymOwner" asp-action="DeleteProduct"
+                            asp-route-id="@product.ProductID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+</div>
+
+
+</table>

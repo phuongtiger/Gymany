@@ -5,12 +5,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Gymany.Models
+namespace Gymany_API.Models
 {
     public class Post
     {
         [Key]
-        public string PostID { get; set; }
+        public int PostID { get; set; }
 
         public DateTime? Date { get; set; }
 
@@ -23,11 +23,11 @@ namespace Gymany.Models
         public string Image { get; set; }
 
         [ForeignKey("PersonalTrainer")]
-        public string PTID { get; set; }
+        public int PTID { get; set; }
         public PersonalTrainer PersonalTrainer { get; set; }
 
         [ForeignKey("Staff")]
-        public string StaffID { get; set; }
+        public int StaffID { get; set; }
         public Staff Staff { get; set; }
     }
 }

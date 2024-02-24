@@ -4,12 +4,12 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Gymany.Models
+namespace Gymany_API.Models
 {
     public class Category
     {
          [Key]
-        public string CategoryID { get; set; }
+        public int CategoryID { get; set; }
 
         [Required]
         [StringLength(50)]

@@ -9,7 +9,7 @@ namespace Gymany.Models
     public class PersonalTrainer
     {
         [Key]
-        public string PTID { get; set; }
+        public int PTID { get; set; }
 
         [Required]
         [StringLength(50)]

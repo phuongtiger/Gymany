@@ -10,7 +10,7 @@ namespace Gymany.Models
     public class Member
     {
         [Key]
-        public string MemberID { get; set; }
+        public int MemberID { get; set; }
 
         public DateTime? Date { get; set; }
 
@@ -18,7 +18,7 @@ namespace Gymany.Models
         public string Status { get; set; }
 
         [ForeignKey("Customer")]
-        public string CustomerID { get; set; }
+        public int CustomerID { get; set; }
         public Customer Customer { get; set; }
     }
 }

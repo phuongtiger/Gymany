@@ -9,7 +9,7 @@ namespace Gymany.Models
     public class Customer
     {
         [Key]
-        public string CustomerID { get; set; }
+        public int CustomerID { get; set; }
 
         [Required]
         [StringLength(50)]

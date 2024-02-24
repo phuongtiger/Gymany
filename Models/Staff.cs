@@ -9,7 +9,7 @@ namespace Gymany.Models
     public class Staff
     {
         [Key]
-        public string StaffID { get; set; }
+        public int StaffID { get; set; }
 
         [Required]
         [StringLength(50)]

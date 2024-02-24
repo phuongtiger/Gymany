@@ -57,11 +57,11 @@
                 <ul class="navbar-list">
 
                     <li>
-                        <a href="#home" class="navbar-link active" data-nav-link>Home</a>
+                        <a asp-controller="Home" asp-action="Index" class="navbar-link" data-nav-link>Home</a>
                     </li>
 
                     <li>
-                        <a href="#about" class="navbar-link" data-nav-link>About Us</a>
+                        <a asp-controller="Product" asp-action="Index" class="navbar-link" data-nav-link>Shop</a>
                     </li>
 
                     <li>
@@ -85,14 +85,14 @@
                             <input type="text" id="search-text" placeholder="Search"> <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </form>
                     </li>
-                    <a href="#"><img src="~/images/cart.png" width="30px" height="30px"></a>
+                    <a asp-controller="Cart" asp-action="Index"><img src="~/images/cart.png" width="30px" height="30px"></a>
 
                 </ul>
 
             </nav>
 
             <a href="#" class="btn btn-secondary">Join Now</a>
-            <button class="custom-button"><i class="fa-solid fa-user"></i></button>
+            <a asp-controller="Customer" asp-action="Login"><button class="custom-button"><i class="fa-solid fa-user"></i></button></a>
             <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
                 <span class="line"></span>
                 <span class="line"></span>

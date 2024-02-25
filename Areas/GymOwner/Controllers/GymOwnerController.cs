@@ -37,15 +37,7 @@ namespace Gymany.Controllers
             return View("Index", "GymOwnerLayout");
         }
 
-        public async Task<IActionResult> Product()
-        {
-            HttpResponseMessage response = await client.GetAsync(api);
-            string data = await response.Content.ReadAsStringAsync();
-            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            List<Product> list = JsonSerializer.Deserialize<List<Product>>(data, options);
-            return View(list);
-
-        }
+       
         //method being call after submit the login form
         [HttpPost]
         public IActionResult Login(string username, string password)
@@ -63,7 +55,16 @@ namespace Gymany.Controllers
                 return View("Index");
             }
         }
+        // Product Manage
+         public async Task<IActionResult> Product()
+        {
+            HttpResponseMessage response = await client.GetAsync(api);
+            string data = await response.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            List<Product> list = JsonSerializer.Deserialize<List<Product>>(data, options);
+            return View(list);
 
+        }
 
         public IActionResult AddProduct()
         {
@@ -93,6 +94,9 @@ namespace Gymany.Controllers
             // TODO: Your code here
             return View();
         }
+
+
+        
         public IActionResult Account()
         {
             // TODO: Your code here

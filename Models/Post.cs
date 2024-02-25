@@ -23,11 +23,11 @@ namespace Gymany.Models
         public string Image { get; set; }
 
         [ForeignKey("PersonalTrainer")]
-        public string PTID { get; set; }
+        public int PTID { get; set; }
         public PersonalTrainer PersonalTrainer { get; set; }
 
         [ForeignKey("Staff")]
-        public string StaffID { get; set; }
+        public int StaffID { get; set; }
         public Staff Staff { get; set; }
     }
 }

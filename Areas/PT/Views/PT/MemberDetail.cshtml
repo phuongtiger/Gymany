@@ -1,11 +1,11 @@
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "MemberDetail";
 }
 @{
     Layout = "PTLayout";
 }
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-<h1>this is PT index </h1>
+<h1 class="text-white">TÔI CHƯA LẤY ĐC DETAIL TỪNG THẰNG ĐƯỢC NỮA T LÀM SAU </h1>
 <div class="container">
     <table class="table bg-white shadow">
         <thead class="thead-dark">
@@ -29,16 +29,15 @@
             {
                 <tr>
                     <td>
-                        <span> @item.MemberID</span>
+                        <span> @item.CustomerID</span>
                     </td>
                     <td>
-                        <span> @item.Date</span>
+                        <span> @item.Username</span>
                     </td>
                     <td>
-                        <span> @item.Status</span>
+                        <span> @item.Password</span>
                     </td>
                     <td>
-                        <a asp-area="PT" asp-action="MemberDetail" asp-route-id="@item.CustomerID" class="btn btn-outline-success">Detail</a>
                     </td>
                 </tr>
             }

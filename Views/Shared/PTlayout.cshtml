@@ -7,7 +7,7 @@
     <title>PT</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-  
+
 
     <link rel="shortcut icon" href="~/favicon.svg" type="image/svg+xml">
 
@@ -49,51 +49,35 @@
                 <span class="span">Gymany</span>
             </a>
 
-            <nav class="navbar" data-navbar>
-
+            <nav class="navbar" data-navbar float-start>
                 <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
                     <ion-icon name="close-sharp" aria-hidden="true"></ion-icon>
                 </button>
 
                 <ul class="navbar-list">
+                    <div class="container navbar-list">
+                        <li>
+                            <a asp-controller="PT" asp-action="Index" class="navbar-link col" data-nav-link>Member</a>
+                        </li>
 
-                    <li>
-                        <a asp-controller="Home" asp-action="Index" class="navbar-link" data-nav-link>Home</a>
-                    </li>
+                        <li>
+                            <a href="#class"  class="navbar-link col" data-nav-link>Work Plan</a>
+                        </li>
 
-                    <li>
-                        <a asp-controller="Product" asp-action="Index" class="navbar-link" data-nav-link>Shop</a>
-                    </li>
-
-                    <li>
-                        <a href="#class" class="navbar-link" data-nav-link>Classes</a>
-                    </li>
-
-                    <li>
-                        <a href="#blog" class="navbar-link" data-nav-link>Blog</a>
-                    </li>
-
-
-                    <li>
-                        <a href="#shop" class="navbar-link" data-nav-link>Shop</a>
-                    </li>
-                    <li>
-                        <a href="#" class="navbar-link" data-nav-link>Contact Us</a>
-                    </li>
-
+                        <li>
+                            <a href="#class" class="navbar-link col" data-nav-link>Post</a>
+                        </li>
+                    </div>
                     <li>
                         <form action="" id="search-box">
-                            <input type="text" id="search-text" placeholder="Search"> <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            <input type="text" id="search-text" placeholder="Search"> <button id="search-btn"><i
+                                    class="fa-solid fa-magnifying-glass"></i></button>
                         </form>
                     </li>
-                    <a asp-controller="Cart" asp-action="Index"><img src="~/images/cart.png" width="30px" height="30px"></a>
-
                 </ul>
-
             </nav>
-
-            <a href="#" class="btn btn-secondary">Join Now</a>
-            <a asp-controller="Customer" asp-action="Login"><button class="custom-button"><i class="fa-solid fa-user"></i></button></a>
+            <a asp-controller="PT" asp-action="PTLogin"><button class="custom-button"><i
+                        class="fa-solid fa-user"></i></button></a>
             <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
                 <span class="line"></span>
                 <span class="line"></span>

@@ -578,7 +578,8 @@ D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Product.csht
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Request.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateProduct.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Shared\GymOwnerLayout.cshtml.g.cs
-D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\Index.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Shared\PTlayout.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\PTLogin.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\PTRegister.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\Index.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\MemberDetail.cshtml.g.cs

@@ -658,3 +658,4 @@ D:\Gymany\obj\Debug\net5.0\Razor\Views\Product\Create.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Product\Delete.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Product\Details.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Product\Edit.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Views\Notification\Index.cshtml.g.cs

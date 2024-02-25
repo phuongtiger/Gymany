@@ -27,14 +27,21 @@ namespace Gymany.Controllers
             this.api = "https://localhost:5002/api/Product";
             this.apiCategory = "https://localhost:5002/api/Category";
             this.api_ProductByID = "https://localhost:5002/api/Product/id";
+            
         }
         public async Task<ActionResult> Index()
         {
             HttpResponseMessage respone = await client.GetAsync(api);
             string data = await respone.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
-            List<Product> list = JsonSerializer.Deserialize<List<Product>>(data, options);
-            return View(list);
+            List<Product> products = JsonSerializer.Deserialize<List<Product>>(data, options);
+            List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
+            var viewModel = new ListModels
+            {
+                Products = products,
+                Notifications = notifications
+            };
+            return View(viewModel);
         }
         public async Task<ActionResult> Details(int? id)
         {
@@ -42,8 +49,14 @@ namespace Gymany.Controllers
             HttpResponseMessage respone = await client.GetAsync(api_ProductByID);
             string data = await respone.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
-            Product product = JsonSerializer.Deserialize<Product>(data, options);
-            return View(product);
+            Product productnew = JsonSerializer.Deserialize<Product>(data, options);
+            List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
+            var viewModel = new ListModels
+            {
+                product = productnew,
+                Notifications = notifications
+            };
+            return View(viewModel);
         }
         public async Task<ActionResult> Create()
         {

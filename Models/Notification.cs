@@ -10,7 +10,7 @@ namespace Gymany.Models
     public class Notification
     {
         [Key]
-        public string NotificationID { get; set; }
+        public int NotificationID { get; set; }
 
         public DateTime? Date { get; set; }
 
@@ -20,11 +20,11 @@ namespace Gymany.Models
         public string Type { get; set; }
 
         [ForeignKey("Customer")]
-        public string CustomerID { get; set; }
+        public int CustomerID { get; set; }
         public Customer Customer { get; set; }
 
         [ForeignKey("PersonalTrainer")]
-        public string PTID { get; set; }
+        public int PTID { get; set; }
         public PersonalTrainer PersonalTrainer { get; set; }
     }
 }

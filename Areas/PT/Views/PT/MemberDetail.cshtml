@@ -1,3 +1,4 @@
+@model Gymany.Models.Customer
 @{
     ViewData["Title"] = "MemberDetail";
 }
@@ -5,42 +6,58 @@
     Layout = "PTLayout";
 }
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-<h1 class="text-white">TÔI CHƯA LẤY ĐC DETAIL TỪNG THẰNG ĐƯỢC NỮA T LÀM SAU </h1>
-<div class="container">
-    <table class="table bg-white shadow">
-        <thead class="thead-dark">
-            <tr>
-                <th>
-                    <label>Id</label>
-                </th>
-                <th>
-                    <label>Date</label>
-                </th>
-                <th>
-                    <label>Status</label>
-                </th>
-                <th>
-                    <label></label>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        <span> @item.CustomerID</span>
-                    </td>
-                    <td>
-                        <span> @item.Username</span>
-                    </td>
-                    <td>
-                        <span> @item.Password</span>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
+
+<body>
+    <div class=" row bg-white shadow">
+                <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CustomerID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CustomerID)
+        </dd>
+                <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+                <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+                <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+                <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+                <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+                        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+                        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+    </div>
+    <hr>
+    <a asp-area="PT" asp-action="index" class="btn btn-outline-success btn-primary">Back</a>
+</body>

@@ -10,7 +10,7 @@ namespace Gymany.Models
     public class WorkoutPlan
     {
         [Key]
-        public string WorkoutPlanID { get; set; }
+        public int WorkoutPlanID { get; set; }
 
         [StringLength(50)]
         public string Name { get; set; }
@@ -26,11 +26,11 @@ namespace Gymany.Models
         public string Activity { get; set; }
 
         [ForeignKey("Member")]
-        public string MemberID { get; set; }
+        public int MemberID { get; set; }
         public Member Member { get; set; }
 
         [ForeignKey("PersonalTrainer")]
-        public string PTID { get; set; }
+        public int PTID { get; set; }
         public PersonalTrainer PersonalTrainer { get; set; }
     }
 }

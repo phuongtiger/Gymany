@@ -10,7 +10,7 @@ namespace Gymany.Models
     public class Post
     {
         [Key]
-        public string PostID { get; set; }
+        public int PostID { get; set; }
 
         public DateTime? Date { get; set; }
 

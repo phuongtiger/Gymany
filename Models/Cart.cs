@@ -10,16 +10,16 @@ namespace Gymany.Models
     public class Cart
     {
         [Key]
-        public string CartID { get; set; }
+        public int CartID { get; set; }
 
         public int? Quantity { get; set; }
 
         [ForeignKey("Customer")]
-        public string CustomerID { get; set; }
+        public int CustomerID { get; set; }
         public Customer Customer { get; set; }
 
         [ForeignKey("Product")]
-        public string ProductID { get; set; }
+        public int ProductID { get; set; }
         public Product Product { get; set; }
     }
 }

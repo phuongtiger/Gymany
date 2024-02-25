@@ -6,26 +6,40 @@
     Layout = "PTLayout";
 }
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-<div class="row">
-    <div class="col-md-4">
+<div class="row bg-light p-12">
+    <div class="col-md-12">
         <form asp-action="CreatePost">
             <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
+                <label asp-for="Title" class="control-label h3"></label>
+                <input asp-for="Title" class="form-control form-control-lg" />
             </div>
             <div class="form-group">
-                <label asp-for="Date" class="control-label"></label>
-                <input type="date" asp-for="Date" class="form-control" />
+                <label asp-for="Date" class="control-label h3"></label>
+                <input readonly type="date" asp-for="Date" class="form-control form-control-lg" />
             </div>
             <div class="form-group">
-                <label asp-for="Content" class="control-label"></label>
-                <input asp-for="Content" class="form-control" />
+                <label asp-for="Content" class="control-label h3"></label>
+                <textarea asp-for="Content" class="form-control form-control-lg text-justify"></textarea>
             </div>
             <div class="form-group">
-                <label asp-for="Image" class="control-label"></label>
-                <input asp-for="Image" class="form-control" />
+                <label asp-for="Image" class="control-label h3"></label>
+                <input asp-for="Image" class="form-control form-control-lg" />
             </div>
-            <button type="submit" class="btn btn-primary">Create</button>
+            <div class="form-group">
+                <label asp-for="PTID" class="control-label h3">PT Name</label>
+                <select asp-for="PTID" class="form-control form-control-lg" asp-items="ViewBag.PTID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="StaffID" class="control-label h3">StaffID</label>
+                <input asp-for="StaffID" class="form-control form-control-lg" />
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg">Create</button>
         </form>
     </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var currentDate = new Date().toISOString().substr(0, 10);
+        document.getElementById('Date').value = currentDate;
+    });
+</script>

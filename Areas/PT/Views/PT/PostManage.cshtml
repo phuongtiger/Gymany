@@ -23,7 +23,7 @@
                     </div>
                     <div class="card-footer d-flex justify-content-center">
                         <a asp-area="PT" asp-action="CreatePost" type="button" class="btn btn-secondary me-2">Edit</a>
-                        <a asp-area="PT" asp-action="DeletePost" type="button" class="btn btn-danger">Delete</a>
+                        <a asp-area="PT" asp-action="DeletePost" asp-route-id="@item.PostID" type="button" class="btn btn-danger">Delete</a>
                     </div>
                 </div>
             </div>

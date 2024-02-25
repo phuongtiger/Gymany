@@ -17,27 +17,36 @@ namespace Gymany.Controllers
     public class GymOwnerController : Controller
     {
         private readonly HttpClient client = null;
+
         private string api;
+
+        private string api_ProductByID;
+        private string apiCategory;
+
+
+
         public GymOwnerController()
         {
             client = new HttpClient();
             var contentType = new MediaTypeWithQualityHeaderValue("application/json");
             client.DefaultRequestHeaders.Accept.Add(contentType);
             this.api = "https://localhost:5002/api/Product";
+            this.api_ProductByID = "https://localhost:5002/api/Product/id";
+            this.apiCategory = "https://localhost:5002/api/Category";
         }
 
         // page of admin after login successfull
         public IActionResult Home()
         {
-            return View("Home", "GymOwnerLayout");
+            return View("Home", "GymManageLayout");
         }
         //page login for admin 
         public IActionResult Index()
         {
-            return View("Index", "GymOwnerLayout");
+            return View("Index", "GymManageLayout");
         }
 
-       
+
         //method being call after submit the login form
         [HttpPost]
         public IActionResult Login(string username, string password)
@@ -56,7 +65,7 @@ namespace Gymany.Controllers
             }
         }
         // Product Manage
-         public async Task<IActionResult> Product()
+        public async Task<IActionResult> Product()
         {
             HttpResponseMessage response = await client.GetAsync(api);
             string data = await response.Content.ReadAsStringAsync();
@@ -84,19 +93,79 @@ namespace Gymany.Controllers
             }
             return View(obj);
         }
-        public IActionResult UpdateProduct()
+        public async Task<IActionResult> UpdateProduct(int id)
         {
-            // TODO: Your code here
-            return View();
+            api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
+            HttpResponseMessage response = await client.GetAsync(api_ProductByID);
+            if (response.IsSuccessStatusCode)
+            {
+                var data = response.Content.ReadAsStringAsync().Result;
+                var product = JsonSerializer.Deserialize<Product>(data);
+                return View(product);
+            }
+            return NotFound();
         }
-        public IActionResult DeleteProduct()
+        [HttpPost]
+        public async Task<IActionResult> UpdateProduct(int id, Product obj)
         {
-            // TODO: Your code here
-            return View();
+            api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
+            obj.ProductID = id;
+            string data = JsonSerializer.Serialize(obj);
+            var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await client.PutAsync(api_ProductByID, content);
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Product");
+            }
+            return Redirect("UpdateProduct");
         }
 
 
-        
+        public async Task<IActionResult> DeleteProduct(int id)
+        {
+            api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
+            HttpResponseMessage response = await client.GetAsync(api_ProductByID);
+            if (response.IsSuccessStatusCode)
+            {
+                var data = response.Content.ReadAsStringAsync().Result;
+                var product = JsonSerializer.Deserialize<Product>(data);
+                return View(product);
+            }
+            return NotFound();
+        }
+        [HttpPost]
+        public async Task<ActionResult> DeleteProduct(int id, Product obj)
+        {
+            api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
+
+            try
+            {
+                // Tạo yêu cầu DeleteProduct
+                obj.ProductID = id;
+                HttpResponseMessage response = await client.DeleteAsync(api_ProductByID);
+                var data = response.Content.ReadAsStringAsync().Result;
+                var product = JsonSerializer.Deserialize<Product>(data);
+                // Kiểm tra kết quả trả về từ endpoint API
+                if (response.IsSuccessStatusCode)
+                {
+                    // Xử lý kết quả nếu xóa thành công, ví dụ chuyển hướng đến trang danh sách
+                    return RedirectToAction("Product");
+
+                }
+                else
+                {
+                    // Xử lý kết quả nếu xóa không thành công, ví dụ hiển thị thông báo lỗi
+                    return View();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi nếu có
+                return View("Error");
+            }
+        }
+
+
         public IActionResult Account()
         {
             // TODO: Your code here
@@ -107,7 +176,7 @@ namespace Gymany.Controllers
             // TODO: Your code here
             return View();
         }
-        public IActionResult DeleteAccount()
+        public IActionResult DeleteProductAccount()
         {
             // TODO: Your code here
             return View();
@@ -122,7 +191,7 @@ namespace Gymany.Controllers
             // TODO: Your code here
             return View();
         }
-        public IActionResult DeletePost()
+        public IActionResult DeleteProductPost()
         {
             // TODO: Your code here
             return View();

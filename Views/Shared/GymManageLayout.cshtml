@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymOwner Manage</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        #sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 250px;
+            overflow: hidden;
+            /* Hide the scrollbar */
+            -webkit-transition: all 0.5s;
+            transition: all 0.5s;
+        }
+
+        #sidebar .list-group {
+            background: #fff;
+            padding-top: 0;
+        }
+
+        #sidebar .list-group-item {
+            border-radius: 0;
+        }
+
+        #sidebar .list-group-item:first-child {
+            border-top-left-radius: 0.25rem;
+            border-top-right-radius: 0.25rem;
+        }
+
+        #sidebar .list-group-item:last-child {
+            border-bottom-left-radius: 0.25rem;
+            border-bottom-right-radius: 0.25rem;
+        }
+
+        #sidebar .list-group-item:hover {
+            color: #fb740d;
+        }
+
+        #sidebar .list-group-item.active {
+            background-color: #fc0202;
+            border-color: #01070f;
+        }
+
+        #sidebar .card {
+            border-width: 0;
+            border-radius: 0;
+        }
+
+        #sidebar .card-header {
+            padding: 0;
+            background-color: #ffffff;
+            border-bottom: 1px solid #fdfdfd;
+        }
+
+        #sidebar .card-title {
+            padding: 1rem;
+            margin-bottom: 0;
+            margin-left: 10%;
+            color: #fb740d;
+
+        }
+
+        #sidebar .card-text {
+            padding: 1rem;
+            color: #05111d;
+        }
+
+        #sidebar .card-img-top {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+
+</head>
+
+<body class="custom-bg">
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <div class="col-md-3 col-lg-2 p-0 bg-dark h-100" id="sidebar">
+                <!-- Sidebar content goes here -->
+                <div class="card mt-0">
+                    <div class="card-body">
+                        <h3 cl5ss="card-title custom-h4">GymOwner Page</h5>
+                            <hr>
+
+
+                    </div>
+                </div>
+                <div class="list-group list-group-flush h-100">
+                    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                        --------Dashboard-------
+                    </a>
+                    <a asp-area="GymOwner" asp-action="Product" class="list-group-item list-group-item-action">
+                        Product Management
+                    </a>
+                    <a asp-area="GymOwner" asp-action="Account" class="list-group-item list-group-item-action">
+                        Account Management
+                    </a>
+                    <a asp-area="GymOwner" asp-action="Post" class="list-group-item list-group-item-action">
+                        Post Management
+                    </a>
+                    <a asp-area="GymOwner" asp-action="Request" class="list-group-item list-group-item-action">
+                        PT Management
+                    </a>
+                </div>
+
+            </div>
+            <div class="col-md-9 col-lg-10 p-4">
+                <!-- Main content goes here -->
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+
+</html>

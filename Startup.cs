@@ -50,7 +50,7 @@ namespace Gymany
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
-            {
+            {   
                  endpoints.MapAreaControllerRoute(
                     name: "adminpage",
                     pattern: "{controller}/{action=Index}/{id?}",

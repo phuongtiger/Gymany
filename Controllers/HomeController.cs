@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Gymany.Models;
 
+
 namespace Gymany.Controllers
 {
     public class HomeController : Controller

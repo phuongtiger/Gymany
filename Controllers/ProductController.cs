@@ -1,20 +1,146 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using Gymany.Models;
+
 
 namespace Gymany.Controllers
 {
-    [Route("[controller]")]
     public class ProductController : Controller
     {
-       public IActionResult Index()
-       {
-           return View();
-       }
+        private readonly HttpClient client = null;
+        private string api;
+        private string api_ProductByID;
+        private string apiCategory;
+        public ProductController(){
+            client = new HttpClient();
+            var contentType = new MediaTypeWithQualityHeaderValue("application/json");
+            client.DefaultRequestHeaders.Accept.Add(contentType);
+            this.api = "https://localhost:5002/api/Product";
+            this.apiCategory = "https://localhost:5002/api/Category";
+            this.api_ProductByID = "https://localhost:5002/api/Product/id";
+        }
+        public async Task<ActionResult> Index()
+        {
+            HttpResponseMessage respone = await client.GetAsync(api);
+            string data = await respone.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+            List<Product> list = JsonSerializer.Deserialize<List<Product>>(data, options);
+            return View(list);
+        }
+        public async Task<ActionResult> Details(int? id)
+        {
+            api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
+            HttpResponseMessage respone = await client.GetAsync(api_ProductByID);
+            string data = await respone.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+            Product product = JsonSerializer.Deserialize<Product>(data, options);
+            return View(product);
+        }
+        public async Task<ActionResult> Create()
+        {
+            ViewBag.CategoryID = await GetSelectItem();
+            return View();
+        }
+
+       [HttpPost] 
+        public async Task<ActionResult> Create(Product obj)
+        {
+            if (ModelState.IsValid)
+            {
+               string data = JsonSerializer.Serialize(obj); 
+               var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+               HttpResponseMessage respone = await client.PostAsync(api, content);
+               if (respone.StatusCode == System.Net.HttpStatusCode.Created)
+               {
+                return RedirectToAction("Index");
+               }
+            }
+            return View(obj);
+        }
+        public async Task<ActionResult> Edit(int? id)
+        {
+            api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
+            HttpResponseMessage respone = await client.GetAsync(api_ProductByID);
+            string data = await respone.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+            Product product = JsonSerializer.Deserialize<Product>(data, options);
+            ViewBag.CategoryID = await GetSelectItem();
+            return View(product);
+        }
         
+        [HttpPost]
+        public async Task<ActionResult> Edit(int? id, Product obj){
+            api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
+            if (ModelState.IsValid)
+            {
+               string data = JsonSerializer.Serialize(obj); 
+               var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+               HttpResponseMessage respone = await client.PutAsync(api_ProductByID, content);
+               if (respone.StatusCode == System.Net.HttpStatusCode.Created)
+               {
+                return RedirectToAction("Index");
+               }
+            }
+            return View(obj);
+        }
+
+        public async Task<ActionResult> Delete(int? id)
+        {
+            api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
+            HttpResponseMessage respone = await client.GetAsync(api_ProductByID);
+            string data = await respone.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+            Product product = JsonSerializer.Deserialize<Product>(data, options);
+            return View(product);
+        }
+        
+        [HttpPost]
+        public async Task<ActionResult> Delete(int id){
+            api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
+            try
+            {
+                // Tạo yêu cầu DELETE
+                HttpResponseMessage response = await client.DeleteAsync(api_ProductByID);
+
+                // Kiểm tra kết quả trả về từ endpoint API
+                if (response.IsSuccessStatusCode)
+                {
+                    // Xử lý kết quả nếu xóa thành công, ví dụ chuyển hướng đến trang danh sách
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    // Xử lý kết quả nếu xóa không thành công, ví dụ hiển thị thông báo lỗi
+                    return View("Error");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi nếu có
+                return View("Error");
+            }
+        }
+        public async Task<List<SelectListItem>> GetSelectItem(){
+            HttpResponseMessage respone = await client.GetAsync(apiCategory);
+            string data = await respone.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+            List<Category> list = JsonSerializer.Deserialize<List<Category>>(data, options);
+            List<SelectListItem> yourData = list.Select(c => new SelectListItem
+            {
+                Value = c.CategoryID.ToString(), // ID của category là giá trị của mục
+                Text = c.Type // Tên của category là nội dung của mục
+            }).ToList();
+            return yourData;
+        }
     }
 }

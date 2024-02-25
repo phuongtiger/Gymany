@@ -9,7 +9,7 @@ namespace Gymany.Models
     public class GymOwner
     {
         [Key]
-        public string AdminID { get; set; }
+        public int AdminID { get; set; }
 
         [Required]
         [StringLength(50)]

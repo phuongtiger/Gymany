@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Gymany.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -13,35 +14,26 @@ namespace Gymany.Controllers
 {
     public class CartController : Controller
     {
-
+        
         private readonly HttpClient client = null;
-        public IActionResult Index()
+        private string api_CartById;
+ public CartController()
         {
-            // TODO: Your code here
-            return View();
+            client = new HttpClient();
+            var contentType = new MediaTypeWithQualityHeaderValue("application/json");
+            client.DefaultRequestHeaders.Accept.Add(contentType);
+            this.api_CartById = "https://localhost:5002/api/Cart";
         }
+       public async Task<ActionResult> Index()
+        {
+            HttpResponseMessage respone = await client.GetAsync(api_CartById);
+            string data = await respone.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            List<Cart> list = JsonSerializer.Deserialize<List<Cart>>(data, options);
+            return View(list);
+        }
+     
 
-
-        //   private readonly HttpClient client = null;
-        //         private string api;
-        //         private string api_ProductByID;
-        //         private string apiCategory;
-        //         public CartController(){
-        //             client = new HttpClient();
-        //             var contentType = new MediaTypeWithQualityHeaderValue("application/json");
-        //             client.DefaultRequestHeaders.Accept.Add(contentType);
-        //             this.api = "https://localhost:5002/api/Product";
-        //             this.apiCategory = "https://localhost:5002/api/Category";
-        //             this.api_ProductByID = "https://localhost:5002/api/Product/id";
-        //         }
-        //         public async Task<ActionResult> Index()
-        //         {
-        //             HttpResponseMessage respone = await client.GetAsync(api);
-        //             string data = await respone.Content.ReadAsStringAsync();
-        //             var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
-        //             List<Product> list = JsonSerializer.Deserialize<List<Product>>(data, options);
-        //             return View(list);
-        //         }
 
     }
 }

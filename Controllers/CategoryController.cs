@@ -25,5 +25,6 @@ namespace Gymany.Controllers
             client.DefaultRequestHeaders.Accept.Add(contentType);
             this.api = "https://localhost:5002/api/Category";
         }
+        
     }
 }

@@ -2,9 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using Gymany.Models;
 
 namespace Gymany.Controllers
 {
@@ -33,8 +37,8 @@ namespace Gymany.Controllers
             // TODO: Your code here
             return View();
         }
-        
-        
+
+
 
     }
 

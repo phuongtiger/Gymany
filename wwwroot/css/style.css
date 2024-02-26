@@ -740,7 +740,7 @@ body {
 
   .navbar-link {
     color: var(--white);
-    font-size: 1.2em;
+    font-size: 15px;
     padding: 0 10px;
     margin-block-end: 0;
   }
@@ -938,18 +938,17 @@ body {
 
 
 h1 {
-    text-transform: uppercase;
     font-weight: bold;
-    font-size: 2.5em;
+    font-size: 2em;
 }
 
 p {
   margin-left: 1em;
-    font-size: 1.5em;
+    font-size: 15px;
     color: #8a8a8a;
 }
 
-input {
+.input-quan {
     border: 0.3em solid #bbc3c6;
     padding: 0.5em 0.3em;
     font-size: 1em;
@@ -1041,6 +1040,7 @@ a {
 }
 
 .col-pro {
+  margin-left: 1em;
     width: 44%;
 }
 
@@ -1095,7 +1095,7 @@ a {
 
 a.qty {
     width: 1em;
-    line-height: 1em;
+    /* line-height: 1em; */
     border-radius: 2em;
     font-size: 2.5em;
     font-weight: bold;
@@ -1151,3 +1151,5 @@ a.qty:hover {
 }
 
 @media screen and (max-width: 591px) {}
+
+

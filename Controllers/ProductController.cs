@@ -21,7 +21,8 @@ namespace Gymany.Controllers
         private string api;
         private string api_ProductByID;
         private string apiCategory;
-        public ProductController(){
+        public ProductController()
+        {
             client = new HttpClient();
             var contentType = new MediaTypeWithQualityHeaderValue("application/json");
             client.DefaultRequestHeaders.Accept.Add(contentType);
@@ -33,7 +34,7 @@ namespace Gymany.Controllers
         {
             HttpResponseMessage respone = await client.GetAsync(api);
             string data = await respone.Content.ReadAsStringAsync();
-            var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             List<Product> list = JsonSerializer.Deserialize<List<Product>>(data, options);
             return View(list);
         }
@@ -42,7 +43,7 @@ namespace Gymany.Controllers
             api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
             HttpResponseMessage respone = await client.GetAsync(api_ProductByID);
             string data = await respone.Content.ReadAsStringAsync();
-            var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             Product product = JsonSerializer.Deserialize<Product>(data, options);
             return View(product);
         }
@@ -52,18 +53,18 @@ namespace Gymany.Controllers
             return View();
         }
 
-       [HttpPost] 
+        [HttpPost]
         public async Task<ActionResult> Create(Product obj)
         {
             if (ModelState.IsValid)
             {
-               string data = JsonSerializer.Serialize(obj); 
-               var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
-               HttpResponseMessage respone = await client.PostAsync(api, content);
-               if (respone.StatusCode == System.Net.HttpStatusCode.Created)
-               {
-                return RedirectToAction("Index");
-               }
+                string data = JsonSerializer.Serialize(obj);
+                var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+                HttpResponseMessage respone = await client.PostAsync(api, content);
+                if (respone.StatusCode == System.Net.HttpStatusCode.Created)
+                {
+                    return RedirectToAction("Index");
+                }
             }
             return View(obj);
         }
@@ -72,24 +73,25 @@ namespace Gymany.Controllers
             api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
             HttpResponseMessage respone = await client.GetAsync(api_ProductByID);
             string data = await respone.Content.ReadAsStringAsync();
-            var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             Product product = JsonSerializer.Deserialize<Product>(data, options);
             ViewBag.CategoryID = await GetSelectItem();
             return View(product);
         }
-        
+
         [HttpPost]
-        public async Task<ActionResult> Edit(int? id, Product obj){
+        public async Task<ActionResult> Edit(int? id, Product obj)
+        {
             api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
             if (ModelState.IsValid)
             {
-               string data = JsonSerializer.Serialize(obj); 
-               var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
-               HttpResponseMessage respone = await client.PutAsync(api_ProductByID, content);
-               if (respone.StatusCode == System.Net.HttpStatusCode.Created)
-               {
-                return RedirectToAction("Index");
-               }
+                string data = JsonSerializer.Serialize(obj);
+                var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+                HttpResponseMessage respone = await client.PutAsync(api_ProductByID, content);
+                if (respone.StatusCode == System.Net.HttpStatusCode.Created)
+                {
+                    return RedirectToAction("Index");
+                }
             }
             return View(obj);
         }
@@ -99,13 +101,14 @@ namespace Gymany.Controllers
             api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
             HttpResponseMessage respone = await client.GetAsync(api_ProductByID);
             string data = await respone.Content.ReadAsStringAsync();
-            var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             Product product = JsonSerializer.Deserialize<Product>(data, options);
             return View(product);
         }
-        
+
         [HttpPost]
-        public async Task<ActionResult> Delete(int id){
+        public async Task<ActionResult> Delete(int id)
+        {
             api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
             try
             {
@@ -130,10 +133,11 @@ namespace Gymany.Controllers
                 return View("Error");
             }
         }
-        public async Task<List<SelectListItem>> GetSelectItem(){
+        public async Task<List<SelectListItem>> GetSelectItem()
+        {
             HttpResponseMessage respone = await client.GetAsync(apiCategory);
             string data = await respone.Content.ReadAsStringAsync();
-            var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             List<Category> list = JsonSerializer.Deserialize<List<Category>>(data, options);
             List<SelectListItem> yourData = list.Select(c => new SelectListItem
             {

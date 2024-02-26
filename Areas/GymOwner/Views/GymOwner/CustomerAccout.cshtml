@@ -1,0 +1,61 @@
+@{
+    ViewData["Title"] = "CustomerAccout";
+}
+
+@* using layout of Gymowner *@
+@{
+    Layout = "GymManageLayout";
+}
+
+
+@* declare tag helper in areas *@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<style>
+    .container-fluid {
+        margin-left: 8rem;
+    }
+</style>
+
+<div class="container-fluid">
+    <a asp-action="AddCustomerAccout" asp-controller="GymOwner" class="btn btn-danger">Add new</a>
+    <a asp-action="CustomerAccout" asp-controller="GymOwner" class="btn btn-primary">Back to Customer Page</a>
+    <hr>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>CustomerID</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Age</th>
+                <th>Image</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+                <tr>
+                    <td>@customer.CustomerID</td>
+                    <td>@customer.Username</td>
+                    <td>@customer.Password</td>
+                    <td>@customer.Name</td>
+                    <td>@customer.Address</td>
+                    <td>@customer.Age</td>
+                    <td>@customer.Image</td>
+                    <td>@customer.Phone</td>
+                    <td>@customer.Email</td>
+                    <td>
+                        <a asp-controller="GymOwner" asp-action="UpdateCustomerAccout" class="btn btn-danger"
+                            asp-route-id="@customer.CustomerID">Update</a>
+                        <a asp-controller="GymOwner" asp-action="DeleteCustomerAccout" class="btn btn-danger"
+                            asp-route-id="@customer.CustomerID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

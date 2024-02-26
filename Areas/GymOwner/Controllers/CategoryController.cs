@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
-using Gymany_API.Models;
 using Gymany.Models;
 
 namespace Gymany.Controllers

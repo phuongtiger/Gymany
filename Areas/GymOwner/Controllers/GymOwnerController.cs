@@ -10,7 +10,6 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Gymany.Models;
-using Gymany_API.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -25,13 +24,13 @@ namespace Gymany.Controllers
         private readonly HttpClient client = null;
 
         private string api;
-
         private string api_ProductByID;
         private string apiCategory;
-
         private string api_GymOwner;
 
+        private string api_Customer;
 
+        private string api_CustomerById;
 
         public GymOwnerController()
         {
@@ -42,6 +41,9 @@ namespace Gymany.Controllers
             this.api_ProductByID = "https://localhost:5002/api/Product/id";
             this.apiCategory = "https://localhost:5002/api/Category";
             this.api_GymOwner = "https://localhost:5002/api/GymOwner/checklogin";
+
+            this.api_Customer = "https://localhost:5002/api/Customer";
+            this.api_CustomerById = "https://localhost:5002/api/Customer/id";
 
 
         }
@@ -58,8 +60,6 @@ namespace Gymany.Controllers
 
 
         //page login for admin 
-
-
         public IActionResult Index()
         {
             return View(new GymOwner());
@@ -92,10 +92,8 @@ namespace Gymany.Controllers
             }
         }
 
-        //method being call after submit the login form
 
-
-
+        //Produc Page
         public async Task<IActionResult> Product()
         {
             if (!checkLogin())
@@ -109,7 +107,6 @@ namespace Gymany.Controllers
             return View(list);
 
         }
-
         public IActionResult AddProduct()
         {
             // TODO: Your code here
@@ -156,7 +153,6 @@ namespace Gymany.Controllers
             return Redirect("UpdateProduct");
         }
 
-
         public async Task<IActionResult> DeleteProduct(int id)
         {
             api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
@@ -202,56 +198,125 @@ namespace Gymany.Controllers
         }
 
 
-        public IActionResult Account()
+        //Account Page
+        public async Task<IActionResult> CustomerAccout()
         {
             if (!checkLogin())
             {
                 return Redirect("/GymOwner/Index");
             }
-            return View();
+            HttpResponseMessage response = await client.GetAsync(api_Customer);
+            string data = await response.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            List<Customer> list = JsonSerializer.Deserialize<List<Customer>>(data, options);
+            return View(list);
+
         }
-        public IActionResult AddAccount()
+        //add customer
+        public IActionResult AddCustomerAccout()
         {
             // TODO: Your code here
             return View();
         }
-        public IActionResult DeleteProductAccount()
+        [HttpPost]
+        public async Task<IActionResult> AddCustomerAccout(Customer obj)
         {
-            // TODO: Your code here
-            return View();
-        }
-        public IActionResult Post()
-        {
-            if (!checkLogin())
+            if (ModelState.IsValid)
             {
-                return Redirect("/GymOwner/Index");
+                string data = JsonSerializer.Serialize(obj);
+                var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync(api_Customer, content);
+                if (response.StatusCode == System.Net.HttpStatusCode.Created)
+                    return RedirectToAction("CustomerAccout");
             }
-            return View();
-        }
-        public IActionResult AddPost()
-        {
-            // TODO: Your code here
-            return View();
-        }
-        public IActionResult DeleteProductPost()
-        {
-            // TODO: Your code here
-            return View();
-        }
-        public IActionResult Request()
-        {
-            // TODO: Your code here
-            return View();
-        }
-        public IActionResult ManageRequest()
-        {
-            if (!checkLogin())
-            {
-                return Redirect("/GymOwner/Index");
-            }
-            return View();
+            return View(obj);
         }
 
+
+        //update customer
+        public async Task<IActionResult> UpdateCustomerAccout(int id)
+        {
+            api_CustomerById = $"https://localhost:5002/api/Customer/id?id={id}";
+            HttpResponseMessage response = await client.GetAsync(api_CustomerById);
+            if (response.IsSuccessStatusCode)
+            {
+                var data = response.Content.ReadAsStringAsync().Result;
+                var product = JsonSerializer.Deserialize<Customer>(data);
+                return View(product);
+            }
+            return NotFound();
+        }
+        [HttpPost]
+        public async Task<IActionResult> UpdateCustomerAccout(int id, Customer obj)
+        {
+            api_CustomerById = $"https://localhost:5002/api/Customer/id?id={id}";
+            obj.CustomerID = id;
+            string data = JsonSerializer.Serialize(obj);
+            var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await client.PutAsync(api_CustomerById, content);
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction("CustomerAccout");
+            }
+            return Redirect("UpdateCustomerAccout");
+        }
+
+        //method delete customer
+        public async Task<IActionResult> DeleteCustomerAccout(int id)
+        {
+            api_CustomerById = $"https://localhost:5002/api/Customer/id?id={id}";
+            HttpResponseMessage response = await client.GetAsync(api_CustomerById);
+            if (response.IsSuccessStatusCode)
+            {
+                var data = response.Content.ReadAsStringAsync().Result;
+                var customer = JsonSerializer.Deserialize<Customer>(data);
+                return View(customer);
+            }
+            return NotFound();
+        }
+        [HttpPost]
+        public async Task<ActionResult> DeleteCustomerAccout(int id, Customer obj)
+        {
+            api_CustomerById = $"https://localhost:5002/api/Customer/id?id={id}";
+
+            try
+            {
+                // Tạo yêu cầu DeleteProduct
+                obj.CustomerID = id;
+                HttpResponseMessage response = await client.DeleteAsync(api_CustomerById);
+                var data = response.Content.ReadAsStringAsync().Result;
+                var customer = JsonSerializer.Deserialize<Customer>(data);
+                // Kiểm tra kết quả trả về từ endpoint API
+                if (response.IsSuccessStatusCode)
+                {
+                    // Xử lý kết quả nếu xóa thành công, ví dụ chuyển hướng đến trang danh sách
+                    return RedirectToAction("Customer ");
+
+                }
+                else
+                {
+                    // Xử lý kết quả nếu xóa không thành công, ví dụ hiển thị thông báo lỗi
+                    return View();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi nếu có
+                return View("Error");
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+        // ========================== another medthod ==========================================\\
         public async Task<List<SelectListItem>> GetSelectItem()
         {
             HttpResponseMessage respone = await client.GetAsync(apiCategory);

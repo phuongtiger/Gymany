@@ -1868,21 +1868,16 @@ input.num-product::-webkit-inner-spin-button {
 /*//////////////////////////////////////////////////////////////////
 [ Modal1 ]*/
 .wrap-modal1 {
-  position: fixed;
   width: 100%;
-  height: 100vh;
   top: 0;
   left: 0;
   z-index: 9000;
   overflow: auto;
-
+  padding-top: 15px;
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
   transition: all 0.4s;
-
-  visibility: hidden;
-  opacity: 0;
 }
 
 .overlay-modal1 {

@@ -96,10 +96,11 @@ namespace Gymany.Controllers
         {
             api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
             HttpResponseMessage response = await client.GetAsync(api_ProductByID);
+            string data = response.Content.ReadAsStringAsync().Result;
+            var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+            Product product = JsonSerializer.Deserialize<Product>(data, options);
             if (response.IsSuccessStatusCode)
             {
-                var data = response.Content.ReadAsStringAsync().Result;
-                var product = JsonSerializer.Deserialize<Product>(data);
                 return View(product);
             }
             return NotFound();

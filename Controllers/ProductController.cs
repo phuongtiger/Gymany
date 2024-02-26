@@ -55,109 +55,109 @@ namespace Gymany.Controllers
             };
             return View(viewModel);
         }
-        public async Task<ActionResult> Create()
-        {
-            ViewBag.CategoryID = await GetSelectItem();
-            List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
-            var viewModel = new ListModels
-            {
-                Notifications = notifications
-            };
-            return View(viewModel);
-        }
+    //     public async Task<ActionResult> Create()
+    //     {
+    //         ViewBag.CategoryID = await GetSelectItem();
+    //         List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
+    //         var viewModel = new ListModels
+    //         {
+    //             Notifications = notifications
+    //         };
+    //         return View(viewModel);
+    //     }
 
-       [HttpPost] 
-        public async Task<ActionResult> Create(ListModels obj)
-        {
-            System.Console.WriteLine("Test");
-            if (ModelState.IsValid)
-            {
-               string data = JsonSerializer.Serialize(obj.product); 
-               var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
-               HttpResponseMessage respone = await client.PostAsync(api, content);
-               if (respone.StatusCode == System.Net.HttpStatusCode.Created)
-               {
-                return RedirectToAction("Index");
-               }
-            }
-            return View(obj);
-        }
-        public async Task<ActionResult> Edit(int? id)
-        {
-            api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
-            HttpResponseMessage respone = await client.GetAsync(api_ProductByID);
-            string data = await respone.Content.ReadAsStringAsync();
-            var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
-            Product productnew = JsonSerializer.Deserialize<Product>(data, options);
-            ViewBag.CategoryID = await GetSelectItem();
-            List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
-            var viewModel = new ListModels
-            {
-                product = productnew,
-                Notifications = notifications
-            };
-            return View(viewModel);
-        }
+    //    [HttpPost] 
+    //     public async Task<ActionResult> Create(ListModels obj)
+    //     {
+    //         System.Console.WriteLine("Test");
+    //         if (ModelState.IsValid)
+    //         {
+    //            string data = JsonSerializer.Serialize(obj.product); 
+    //            var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+    //            HttpResponseMessage respone = await client.PostAsync(api, content);
+    //            if (respone.StatusCode == System.Net.HttpStatusCode.Created)
+    //            {
+    //             return RedirectToAction("Index");
+    //            }
+    //         }
+    //         return View(obj);
+    //     }
+    //     public async Task<ActionResult> Edit(int? id)
+    //     {
+    //         api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
+    //         HttpResponseMessage respone = await client.GetAsync(api_ProductByID);
+    //         string data = await respone.Content.ReadAsStringAsync();
+    //         var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+    //         Product productnew = JsonSerializer.Deserialize<Product>(data, options);
+    //         ViewBag.CategoryID = await GetSelectItem();
+    //         List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
+    //         var viewModel = new ListModels
+    //         {
+    //             product = productnew,
+    //             Notifications = notifications
+    //         };
+    //         return View(viewModel);
+    //     }
         
-        [HttpPost]
-        public async Task<ActionResult> Edit(int? id, ListModels obj){
-            api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
-            if (ModelState.IsValid)
-            {
-               string data = JsonSerializer.Serialize(obj.product); 
-               var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
-               HttpResponseMessage respone = await client.PutAsync(api_ProductByID, content);
-               if (respone.StatusCode == System.Net.HttpStatusCode.Created)
-               {
-                return RedirectToAction("Index");
-               }
-            }
-            return View(obj);
-        }
+    //     [HttpPost]
+    //     public async Task<ActionResult> Edit(int? id, ListModels obj){
+    //         api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
+    //         if (ModelState.IsValid)
+    //         {
+    //            string data = JsonSerializer.Serialize(obj.product); 
+    //            var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+    //            HttpResponseMessage respone = await client.PutAsync(api_ProductByID, content);
+    //            if (respone.StatusCode == System.Net.HttpStatusCode.Created)
+    //            {
+    //             return RedirectToAction("Index");
+    //            }
+    //         }
+    //         return View(obj);
+    //     }
 
-        public async Task<ActionResult> Delete(int? id)
-        {
-            api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
-            HttpResponseMessage respone = await client.GetAsync(api_ProductByID);
-            string data = await respone.Content.ReadAsStringAsync();
-            var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
-            Product productnew = JsonSerializer.Deserialize<Product>(data, options);
-            List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
-            var viewModel = new ListModels
-            {
-                product = productnew,
-                Notifications = notifications
-            };
-            return View(viewModel);
-        }
+    //     public async Task<ActionResult> Delete(int? id)
+    //     {
+    //         api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
+    //         HttpResponseMessage respone = await client.GetAsync(api_ProductByID);
+    //         string data = await respone.Content.ReadAsStringAsync();
+    //         var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+    //         Product productnew = JsonSerializer.Deserialize<Product>(data, options);
+    //         List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
+    //         var viewModel = new ListModels
+    //         {
+    //             product = productnew,
+    //             Notifications = notifications
+    //         };
+    //         return View(viewModel);
+    //     }
         
-        [HttpPost]
-        public async Task<ActionResult> Delete(int id){
-            api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
-            try
-            {
-                // Tạo yêu cầu DELETE
-                HttpResponseMessage response = await client.DeleteAsync(api_ProductByID);
+    //     [HttpPost]
+    //     public async Task<ActionResult> Delete(int id){
+    //         api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
+    //         try
+    //         {
+    //             // Tạo yêu cầu DELETE
+    //             HttpResponseMessage response = await client.DeleteAsync(api_ProductByID);
 
-                // Kiểm tra kết quả trả về từ endpoint API
-                if (response.IsSuccessStatusCode)
-                {
-                    // Xử lý kết quả nếu xóa thành công, ví dụ chuyển hướng đến trang danh sách
-                    return RedirectToAction("Index");
-                }
-                else
-                {
-                    // Xử lý kết quả nếu xóa không thành công, ví dụ hiển thị thông báo lỗi
-                    return View("Error");
-                }
-            }
-            catch (Exception ex)
-            {
-                // Xử lý lỗi nếu có
-                System.Console.WriteLine(ex);
-                return View("Error");
-            }
-        }
+    //             // Kiểm tra kết quả trả về từ endpoint API
+    //             if (response.IsSuccessStatusCode)
+    //             {
+    //                 // Xử lý kết quả nếu xóa thành công, ví dụ chuyển hướng đến trang danh sách
+    //                 return RedirectToAction("Index");
+    //             }
+    //             else
+    //             {
+    //                 // Xử lý kết quả nếu xóa không thành công, ví dụ hiển thị thông báo lỗi
+    //                 return View("Error");
+    //             }
+    //         }
+    //         catch (Exception ex)
+    //         {
+    //             // Xử lý lỗi nếu có
+    //             System.Console.WriteLine(ex);
+    //             return View("Error");
+    //         }
+    //     }
         public async Task<List<SelectListItem>> GetSelectItem(){
             HttpResponseMessage respone = await client.GetAsync(apiCategory);
             string data = await respone.Content.ReadAsStringAsync();

@@ -1,3 +1,21 @@
 @{
     ViewData["Title"] = "ManageRequest";
 }
+
+@* using layout of Gymowner *@
+@{
+    Layout = "GymManageLayout";
+}
+
+
+@* declare tag helper in areas *@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<style>
+    .container-fluid{
+        margin-left :8rem;
+    }
+</style>
+
+<div class="container-fluid">
+    <h1>this is manage request page</h1>
+</div>

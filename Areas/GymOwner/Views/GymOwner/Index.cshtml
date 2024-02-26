@@ -1,3 +1,4 @@
+@model Gymany_API.Models.GymOwner
 @{
     ViewData["Title"] = "Index";
 }
@@ -15,17 +16,19 @@
                     <h2 class="card-title text-center">GymOwner Login</h2>
                     <form asp-area="GymOwner" asp-controller="GymOwner" method="post" asp-action="Login">
                         <div class="form-group">
-                            <label for="username">Username:</label>
-                            <input type="text" class="form-control" name="username" placeholder="Enter username">
+                            <label asp-for="Username" >Username:</label>
+                            <input type="text" class="form-control" asp-for="Username" name="Username" placeholder="Enter username">
                         </div>
                         <div class="form-group">
-                            <label for="password">Password:</label>
-                            <input type="password" class="form-control" name="password" placeholder="Enter password">
+                            <label asp-for="Password">Password:</label>
+                            <input type="password" class="form-control" asp-for="Password" name="Password" placeholder="Enter password">
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">Login</button>
                     </form>
                 </div>
             </div>
         </div>
+        @* asp-for="Username"
+        asp-for="Password" *@
     </div>
 </div>

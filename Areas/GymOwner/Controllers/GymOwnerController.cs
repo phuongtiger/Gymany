@@ -4,11 +4,17 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Net.Http.Json;
+using System.Security.Claims;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Gymany.Models;
 using Gymany_API.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 
 namespace Gymany.Controllers
@@ -23,6 +29,8 @@ namespace Gymany.Controllers
         private string api_ProductByID;
         private string apiCategory;
 
+        private string api_GymOwner;
+
 
 
         public GymOwnerController()
@@ -33,40 +41,67 @@ namespace Gymany.Controllers
             this.api = "https://localhost:5002/api/Product";
             this.api_ProductByID = "https://localhost:5002/api/Product/id";
             this.apiCategory = "https://localhost:5002/api/Category";
+            this.api_GymOwner = "https://localhost:5002/api/GymOwner/checklogin";
+
+
         }
 
         // page of admin after login successfull
         public IActionResult Home()
         {
+            if (!checkLogin())
+            {
+                return Redirect("/GymOwner/Index");
+            }
             return View("Home", "GymManageLayout");
         }
+
+
         //page login for admin 
+
+
         public IActionResult Index()
         {
-            return View("Index", "GymManageLayout");
+            return View(new GymOwner());
         }
-
-
-        //method being call after submit the login form
         [HttpPost]
-        public IActionResult Login(string username, string password)
+        public async Task<IActionResult> Login(string username, string password)
         {
-
-
-            if (string.Equals(username, "admin") && string.Equals(password, "pass"))
+            api_GymOwner = $"https://localhost:5002/api/GymOwner/checklogin?username={username}&password={password}";
+            var gymOwner = new GymOwner { Username = username, Password = password };
+            var content = new StringContent(JsonSerializer.Serialize(gymOwner), Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await client.PostAsync(api_GymOwner, content);
+            Console.WriteLine(gymOwner);
+            if (response.IsSuccessStatusCode)
             {
-                // username and password is correct, redirect to Page home
-                return RedirectToAction("Home");
+                System.Console.WriteLine("1");
+                // var user = await response.Content.ReadFromJsonAsync<GymOwner>();
+                // Lưu thông tin người dùng vào session hoặc cookie
+                HttpContext.Session.SetString("Username", username);
+                HttpContext.Session.SetString("Password", password);
+                // Chuyển hướng đến trang chủ
+                return RedirectToAction("Home", "GymOwner");
             }
             else
             {
-                // username and password is incorrect, redirect back to login
-                return View("Index");
+                System.Console.WriteLine("2");
+                Console.WriteLine($"Error: {response.StatusCode}");
+                // Hiển thị thông báo lỗi
+                ViewData["Error"] = "Invalid username or password";
+                return View("Index", gymOwner);
             }
         }
-        // Product Manage
+
+        //method being call after submit the login form
+
+
+
         public async Task<IActionResult> Product()
         {
+            if (!checkLogin())
+            {
+                return Redirect("/GymOwner/Index");
+            }
             HttpResponseMessage response = await client.GetAsync(api);
             string data = await response.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
@@ -97,6 +132,7 @@ namespace Gymany.Controllers
         {
             api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
             HttpResponseMessage response = await client.GetAsync(api_ProductByID);
+            ViewBag.CategoryID = await GetSelectItem();
             if (response.IsSuccessStatusCode)
             {
                 var data = response.Content.ReadAsStringAsync().Result;
@@ -168,7 +204,10 @@ namespace Gymany.Controllers
 
         public IActionResult Account()
         {
-            // TODO: Your code here
+            if (!checkLogin())
+            {
+                return Redirect("/GymOwner/Index");
+            }
             return View();
         }
         public IActionResult AddAccount()
@@ -183,7 +222,10 @@ namespace Gymany.Controllers
         }
         public IActionResult Post()
         {
-            // TODO: Your code here
+            if (!checkLogin())
+            {
+                return Redirect("/GymOwner/Index");
+            }
             return View();
         }
         public IActionResult AddPost()
@@ -203,10 +245,39 @@ namespace Gymany.Controllers
         }
         public IActionResult ManageRequest()
         {
-            // TODO: Your code here
+            if (!checkLogin())
+            {
+                return Redirect("/GymOwner/Index");
+            }
             return View();
         }
 
+        public async Task<List<SelectListItem>> GetSelectItem()
+        {
+            HttpResponseMessage respone = await client.GetAsync(apiCategory);
+            string data = await respone.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            List<Category> list = JsonSerializer.Deserialize<List<Category>>(data, options);
+            List<SelectListItem> yourData = list.Select(c => new SelectListItem
+            {
+                Value = c.CategoryID.ToString(), // ID của category là giá trị của mục
+                Text = c.Type // Tên của category là nội dung của mục
+            }).ToList();
+            return yourData;
+        }
+
+
+        //method check session
+        public bool checkLogin()
+        {
+            var email = HttpContext.Session.GetString("Username");
+            var pass = HttpContext.Session.GetString("Password");
+            if (email != null && pass != null)
+            {
+                return true;
+            }
+            return false;
+        }
 
     }
 }

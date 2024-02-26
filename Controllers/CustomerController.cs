@@ -44,19 +44,18 @@ namespace Gymany.Controllers
             return View(viewModel);
         }
 
-        public IActionResult PTRegister()
+        public IActionResult PTPage()
         {
             // TODO: Your code here
-            List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
-            var viewModel = new ListModels
-            {
-                Notifications = notifications
-            };
-            return View(viewModel);
+            // List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
+            // var viewModel = new ListModels
+            // {
+            //     Notifications = notifications
+            // };
+            // return View(viewModel);
+            // Chuyển sang action khác trong cùng khu vực
+            return Redirect(Url.Action("PTLogin", "PT", new { area = "PT" }));
         }
-        
-        
-
     }
 
 }

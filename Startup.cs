@@ -56,11 +56,17 @@ namespace Gymany
 
             app.UseEndpoints(endpoints =>
             {
-                 endpoints.MapAreaControllerRoute(
+                endpoints.MapAreaControllerRoute(
+                   name: "adminpage",
+                   pattern: "{controller}/{action=Index}/{id?}",
+                   areaName: "GymOwner"
+                   );
+
+                endpoints.MapAreaControllerRoute(
                     name: "adminpage",
                     pattern: "{controller}/{action=Index}/{id?}",
-                    areaName: "GymOwner"
-                    );
+                    areaName: "PT"
+                );
 
                 endpoints.MapControllerRoute(
                     name: "default",

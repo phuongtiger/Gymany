@@ -743,3 +743,4 @@ D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\PostManage.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\CreatePost.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\DeletePost.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\EditPost.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\PTProfile.cshtml.g.cs

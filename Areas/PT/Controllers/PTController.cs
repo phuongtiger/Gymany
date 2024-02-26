@@ -10,6 +10,7 @@ using Gymany.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Newtonsoft.Json.Linq;
 
 namespace Gymany.Controllers
 {
@@ -35,7 +36,8 @@ namespace Gymany.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            if(!checkLogin()){
+            if (!checkLogin())
+            {
                 return RedirectToAction("PTLogin");
             }
             HttpResponseMessage response = await client.GetAsync(api);
@@ -46,14 +48,37 @@ namespace Gymany.Controllers
         }
         public async Task<IActionResult> PostManage()
         {
-            if(!checkLogin()){
+            if (!checkLogin())
+            {
                 return RedirectToAction("PTLogin");
+            }
+            string id = HttpContext.Session.GetString("ID");
+
+            // Kiểm tra xem ID có tồn tại không
+            if (!string.IsNullOrEmpty(id))
+            {
+                // Đã lấy được ID từ Session, bạn có thể sử dụng nó ở đây
+                Console.WriteLine("ID từ Session: " + id);
+            }
+            else
+            {
+                // ID không tồn tại trong Session, xử lý tùy ý
+                Console.WriteLine("ID không tồn tại trong Session.");
             }
             HttpResponseMessage response = await client.GetAsync(api_post);
             string data = await response.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             List<Post> list = JsonSerializer.Deserialize<List<Post>>(data, options);
             return View(list);
+        }
+
+        public IActionResult PTProfile()
+        {
+            if (!checkLogin())
+            {
+                return RedirectToAction("PTLogin");
+            }
+            return View();
         }
         public async Task<ActionResult> MemberDetail(int? id)
         {
@@ -155,28 +180,35 @@ namespace Gymany.Controllers
 
         public IActionResult BackToLogin()
         {
-            
+
             return Redirect(Url.Action("Login", "Customer"));
         }
 
         public IActionResult PTRegister()
         {
-            
+
             return View();
         }
 
         public async Task<ActionResult> PTLogin(string email, string password)
         {
-              api_post = $"https://localhost:5002/api/PT/checklogin?email={email}&password={password}";
+            api_post = $"https://localhost:5002/api/PT/checklogin?email={email}&password={password}";
             var gymOwner = new GymOwner { Username = email, Password = password };
             var content = new StringContent(JsonSerializer.Serialize(gymOwner), Encoding.UTF8, "application/json");
             HttpResponseMessage response = await client.PostAsync(api_post, content);
-            Console.WriteLine(gymOwner);
+            Console.WriteLine(response.Content.ToString());
             if (response.IsSuccessStatusCode)
             {
-                System.Console.WriteLine("1");
-                // var user = await response.Content.ReadFromJsonAsync<GymOwner>();
-                // Lưu thông tin người dùng vào session hoặc cookie
+                string jsonString = await response.Content.ReadAsStringAsync();
+
+                JObject jsonObject = JObject.Parse(jsonString);
+
+                // Lấy giá trị của trường "id"
+                string id = (string)jsonObject["ptid"];
+
+                // In ra ID
+                Console.WriteLine("đay la pt: " + id);
+                HttpContext.Session.SetString("ID", id);
                 HttpContext.Session.SetString("Email", email);
                 HttpContext.Session.SetString("Password", password);
                 // Chuyển hướng đến trang chủ
@@ -184,7 +216,6 @@ namespace Gymany.Controllers
             }
             else
             {
-                System.Console.WriteLine("2");
                 Console.WriteLine($"Error: {response.StatusCode}");
                 // Hiển thị thông báo lỗi
                 ViewData["Error"] = "Invalid username or password";
@@ -205,6 +236,7 @@ namespace Gymany.Controllers
             }).ToList();
             return yourData;
         }
+
 
         [HttpPost]
         public bool checkLogin()

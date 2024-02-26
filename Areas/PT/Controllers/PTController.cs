@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Gymany.Models;
@@ -34,7 +35,9 @@ namespace Gymany.Controllers
         }
         public async Task<IActionResult> Index()
         {
-
+            if(!checkLogin()){
+                return RedirectToAction("PTLogin");
+            }
             HttpResponseMessage response = await client.GetAsync(api);
             string data = await response.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
@@ -43,7 +46,9 @@ namespace Gymany.Controllers
         }
         public async Task<IActionResult> PostManage()
         {
-
+            if(!checkLogin()){
+                return RedirectToAction("PTLogin");
+            }
             HttpResponseMessage response = await client.GetAsync(api_post);
             string data = await response.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
@@ -162,9 +167,29 @@ namespace Gymany.Controllers
 
         public async Task<ActionResult> PTLogin(string email, string password)
         {
-            System.Console.WriteLine(email);
-            System.Console.WriteLine(password);
-            return View();
+              api_post = $"https://localhost:5002/api/PT/checklogin?email={email}&password={password}";
+            var gymOwner = new GymOwner { Username = email, Password = password };
+            var content = new StringContent(JsonSerializer.Serialize(gymOwner), Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await client.PostAsync(api_post, content);
+            Console.WriteLine(gymOwner);
+            if (response.IsSuccessStatusCode)
+            {
+                System.Console.WriteLine("1");
+                // var user = await response.Content.ReadFromJsonAsync<GymOwner>();
+                // Lưu thông tin người dùng vào session hoặc cookie
+                HttpContext.Session.SetString("Email", email);
+                HttpContext.Session.SetString("Password", password);
+                // Chuyển hướng đến trang chủ
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                System.Console.WriteLine("2");
+                Console.WriteLine($"Error: {response.StatusCode}");
+                // Hiển thị thông báo lỗi
+                ViewData["Error"] = "Invalid username or password";
+                return View("PTLogin");
+            }
         }
 
         public async Task<List<SelectListItem>> GetPTNameSelected()
@@ -181,6 +206,7 @@ namespace Gymany.Controllers
             return yourData;
         }
 
+        [HttpPost]
         public bool checkLogin()
         {
             var email = HttpContext.Session.GetString("Email");

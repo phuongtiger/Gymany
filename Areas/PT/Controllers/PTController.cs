@@ -6,6 +6,7 @@ using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Gymany.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -33,6 +34,7 @@ namespace Gymany.Controllers
         }
         public async Task<IActionResult> Index()
         {
+
             HttpResponseMessage response = await client.GetAsync(api);
             string data = await response.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
@@ -41,6 +43,7 @@ namespace Gymany.Controllers
         }
         public async Task<IActionResult> PostManage()
         {
+
             HttpResponseMessage response = await client.GetAsync(api_post);
             string data = await response.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
@@ -147,19 +150,20 @@ namespace Gymany.Controllers
 
         public IActionResult BackToLogin()
         {
-            // TODO: Your code here
+            
             return Redirect(Url.Action("Login", "Customer"));
         }
 
         public IActionResult PTRegister()
         {
-            // TODO: Your code here
+            
             return View();
         }
 
-        public IActionResult PTLogin()
+        public async Task<ActionResult> PTLogin(string email, string password)
         {
-            // TODO: Your code here
+            System.Console.WriteLine(email);
+            System.Console.WriteLine(password);
             return View();
         }
 
@@ -175,6 +179,17 @@ namespace Gymany.Controllers
                 Text = c.Name // Tên của category là nội dung của mục
             }).ToList();
             return yourData;
+        }
+
+        public bool checkLogin()
+        {
+            var email = HttpContext.Session.GetString("Email");
+            var pass = HttpContext.Session.GetString("Password");
+            if (email != null && pass != null)
+            {
+                return true;
+            }
+            return false;
         }
 
     }

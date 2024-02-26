@@ -88,8 +88,10 @@ namespace Gymany.Controllers
             Post post = JsonSerializer.Deserialize<Post>(data, options);
             return View(post);
         }
+
         [HttpPost]
-        public async Task<ActionResult> DeletePost(int id){
+        public async Task<ActionResult> DeletePost(int id)
+        {
             api_GetPostID = $"https://localhost:5002/api/Post/id?id={id}";
             try
             {
@@ -115,6 +117,33 @@ namespace Gymany.Controllers
             }
         }
 
+        public async Task<ActionResult> EditPost(int? id)
+        {
+            api_GetPostID = $"https://localhost:5002/api/Post/id?id={id}";
+            HttpResponseMessage respone = await client.GetAsync(api_GetPostID);
+            string data = await respone.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            Post post = JsonSerializer.Deserialize<Post>(data, options);
+            ViewBag.PTID = await GetPTNameSelected();
+            return View(post);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> EditPost(int? id, Post obj)
+        {
+            api_GetPostID = $"https://localhost:5002/api/Post/id?id={id}";
+            if (ModelState.IsValid)
+            {
+                string data = JsonSerializer.Serialize(obj);
+                var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+                HttpResponseMessage respone = await client.PutAsync(api_GetPostID, content);
+                if (respone.StatusCode == System.Net.HttpStatusCode.Created)
+                {
+                    return RedirectToAction("PostManage");
+                }
+            }
+            return View(obj);
+        }
 
         public IActionResult BackToLogin()
         {
@@ -129,12 +158,6 @@ namespace Gymany.Controllers
         }
 
         public IActionResult PTLogin()
-        {
-            // TODO: Your code here
-            return View();
-        }
-
-        public IActionResult ActionName()
         {
             // TODO: Your code here
             return View();

@@ -23,13 +23,14 @@ namespace Gymany.Controllers
         private string api_post;
         private string api_PT;
         private string api_GetPostID;
+        private string api_GetPostPTID;
         public PTController()
         {
             client = new HttpClient();
             var contentType = new MediaTypeWithQualityHeaderValue("application/json");
             client.DefaultRequestHeaders.Accept.Add(contentType);
             this.api = "https://localhost:5002/api/Member";
-            this.api_GetCustomerByID = "https://localhost:5002/api/Customer/id";
+            // this.api_GetCustomerByID = "https://localhost:5002/api/Customer/id";
             this.api_post = "https://localhost:5002/api/Post";
             this.api_PT = "https://localhost:5002/api/PT";
             this.api_GetPostID = "https://localhost:5002/api/Post/id";
@@ -65,10 +66,12 @@ namespace Gymany.Controllers
                 // ID không tồn tại trong Session, xử lý tùy ý
                 Console.WriteLine("ID không tồn tại trong Session.");
             }
-            HttpResponseMessage response = await client.GetAsync(api_post);
+            api_GetPostPTID = $"https://localhost:5002/api/Post/ptid?ptid={id}";
+            HttpResponseMessage response = await client.GetAsync(api_GetPostPTID);
             string data = await response.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             List<Post> list = JsonSerializer.Deserialize<List<Post>>(data, options);
+
             return View(list);
         }
 
@@ -92,7 +95,11 @@ namespace Gymany.Controllers
 
         public async Task<IActionResult> CreatePost()
         {
-            ViewBag.PTID = await GetPTNameSelected();
+            // Gọi PTID đã lữu trong session
+            int ptid = Convert.ToInt32(HttpContext.Session.GetString("ID"));
+
+            // Gán PTID vào ViewBag để sử dụng trong view
+            ViewBag.PTID = ptid;
             return View();
         }
 
@@ -206,8 +213,6 @@ namespace Gymany.Controllers
                 // Lấy giá trị của trường "id"
                 string id = (string)jsonObject["ptid"];
 
-                // In ra ID
-                Console.WriteLine("đay la pt: " + id);
                 HttpContext.Session.SetString("ID", id);
                 HttpContext.Session.SetString("Email", email);
                 HttpContext.Session.SetString("Password", password);

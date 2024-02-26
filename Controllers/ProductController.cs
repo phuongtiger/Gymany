@@ -61,15 +61,21 @@ namespace Gymany.Controllers
         public async Task<ActionResult> Create()
         {
             ViewBag.CategoryID = await GetSelectItem();
-            return View();
+            List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
+            var viewModel = new ListModels
+            {
+                Notifications = notifications
+            };
+            return View(viewModel);
         }
 
        [HttpPost] 
-        public async Task<ActionResult> Create(Product obj)
+        public async Task<ActionResult> Create(ListModels obj)
         {
+            System.Console.WriteLine("Test");
             if (ModelState.IsValid)
             {
-               string data = JsonSerializer.Serialize(obj); 
+               string data = JsonSerializer.Serialize(obj.product); 
                var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
                HttpResponseMessage respone = await client.PostAsync(api, content);
                if (respone.StatusCode == System.Net.HttpStatusCode.Created)
@@ -85,17 +91,23 @@ namespace Gymany.Controllers
             HttpResponseMessage respone = await client.GetAsync(api_ProductByID);
             string data = await respone.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
-            Product product = JsonSerializer.Deserialize<Product>(data, options);
+            Product productnew = JsonSerializer.Deserialize<Product>(data, options);
             ViewBag.CategoryID = await GetSelectItem();
-            return View(product);
+            List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
+            var viewModel = new ListModels
+            {
+                product = productnew,
+                Notifications = notifications
+            };
+            return View(viewModel);
         }
         
         [HttpPost]
-        public async Task<ActionResult> Edit(int? id, Product obj){
+        public async Task<ActionResult> Edit(int? id, ListModels obj){
             api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
             if (ModelState.IsValid)
             {
-               string data = JsonSerializer.Serialize(obj); 
+               string data = JsonSerializer.Serialize(obj.product); 
                var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
                HttpResponseMessage respone = await client.PutAsync(api_ProductByID, content);
                if (respone.StatusCode == System.Net.HttpStatusCode.Created)
@@ -112,8 +124,14 @@ namespace Gymany.Controllers
             HttpResponseMessage respone = await client.GetAsync(api_ProductByID);
             string data = await respone.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
-            Product product = JsonSerializer.Deserialize<Product>(data, options);
-            return View(product);
+            Product productnew = JsonSerializer.Deserialize<Product>(data, options);
+            List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
+            var viewModel = new ListModels
+            {
+                product = productnew,
+                Notifications = notifications
+            };
+            return View(viewModel);
         }
         
         [HttpPost]
@@ -139,6 +157,7 @@ namespace Gymany.Controllers
             catch (Exception ex)
             {
                 // Xử lý lỗi nếu có
+                System.Console.WriteLine(ex);
                 return View("Error");
             }
         }

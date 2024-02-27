@@ -32,6 +32,10 @@ namespace Gymany.Controllers
 
         private string api_CustomerById;
 
+        private string api_PersonalTrainer;
+
+        private string api_PersonalTrainerById;
+
         public GymOwnerController()
         {
             client = new HttpClient();
@@ -44,11 +48,14 @@ namespace Gymany.Controllers
 
             this.api_Customer = "https://localhost:5002/api/Customer";
             this.api_CustomerById = "https://localhost:5002/api/Customer/id";
+            this.api_PersonalTrainer = "https://localhost:5002/api/PT";
+            this.api_PersonalTrainerById = "https://localhost:5002/api/PT/id";
+
 
 
         }
 
-        // page of admin after login successfull
+        // ------------------page of admin after login successfull-------------------------
         public IActionResult Home()
         {
             if (!checkLogin())
@@ -93,7 +100,7 @@ namespace Gymany.Controllers
         }
 
 
-        //Produc Page
+        //-------------------Produc Page-----------------------------
         public async Task<IActionResult> Product()
         {
             if (!checkLogin())
@@ -206,7 +213,7 @@ namespace Gymany.Controllers
         }
 
 
-        //Account Page
+        //-----------------Account Customer Page----------------------------------
         public async Task<IActionResult> CustomerAccout()
         {
             if (!checkLogin())
@@ -318,6 +325,114 @@ namespace Gymany.Controllers
         }
 
 
+        //---------------------------Personal trainer account-----------------------
+
+        public async Task<IActionResult> PersonalTrainer()
+        {
+            if (!checkLogin())
+            {
+                return Redirect("/GymOwner/Index");
+            }
+            HttpResponseMessage response = await client.GetAsync(api_PersonalTrainer);
+            string data = await response.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            List<PersonalTrainer> list = JsonSerializer.Deserialize<List<PersonalTrainer>>(data, options);
+            return View(list);
+
+        }
+        //method acc pt accout
+        public IActionResult AddPtAccout()
+        {
+            // TODO: Your code here
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddPtAccout(PersonalTrainer obj)
+        {
+            if (ModelState.IsValid)
+            {
+                string data = JsonSerializer.Serialize(obj);
+                var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync(api_PersonalTrainer, content);
+                if (response.StatusCode == System.Net.HttpStatusCode.Created)
+                    return RedirectToAction("PersonalTrainer");
+            }
+            return View(obj);
+        }
+        //method update pt accout
+        public async Task<IActionResult> UpdatePtAccout(int id)
+        {
+            api_PersonalTrainerById = $"https://localhost:5002/api/PT/id?id={id}";
+            HttpResponseMessage response = await client.GetAsync(api_PersonalTrainerById);
+            ViewBag.PTID = id;
+
+            if (response.IsSuccessStatusCode)
+            {
+
+                var data = response.Content.ReadAsStringAsync().Result;
+                var pt = JsonSerializer.Deserialize<PersonalTrainer>(data);
+                return View(pt);
+            }
+            return NotFound();
+        }
+        [HttpPost]
+        public async Task<IActionResult> UpdatePtAccout(int id, PersonalTrainer obj)
+        {
+            api_PersonalTrainerById = $"https://localhost:5002/api/PT/id?id={id}";
+            obj.PTID = id;
+            string data = JsonSerializer.Serialize(obj);
+            var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await client.PutAsync(api_PersonalTrainerById, content);
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction("PersonalTrainer");
+            }
+            return Redirect("UpdatePtAccout");
+        }
+        //method delete Pt accout
+        public async Task<IActionResult> DeletePtAccout(int id)
+        {
+            api_PersonalTrainerById = $"https://localhost:5002/api/PT/id?id={id}";
+            HttpResponseMessage response = await client.GetAsync(api_PersonalTrainerById);
+            if (response.IsSuccessStatusCode)
+            {
+                var data = response.Content.ReadAsStringAsync().Result;
+                var pt = JsonSerializer.Deserialize<PersonalTrainer>(data);
+                return View(pt);
+            }
+            return NotFound();
+        }
+        [HttpPost]
+        public async Task<ActionResult> DeletePtAccout(int id, PersonalTrainer obj)
+        {
+            api_PersonalTrainerById = $"https://localhost:5002/api/PT/id?id={id}";
+
+            try
+            {
+                // Tạo yêu cầu DeletePT
+                obj.PTID = id;
+                HttpResponseMessage response = await client.DeleteAsync(api_PersonalTrainerById);
+                var data = response.Content.ReadAsStringAsync().Result;
+                var pt = JsonSerializer.Deserialize<PersonalTrainer>(data);
+                // Kiểm tra kết quả trả về từ endpoint API
+                if (response.IsSuccessStatusCode)
+                {
+                    // Xử lý kết quả nếu xóa thành công, ví dụ chuyển hướng đến trang danh sách
+                    return RedirectToAction("PersonalTrainer");
+
+                }
+                else
+                {
+                    // Xử lý kết quả nếu xóa không thành công, ví dụ hiển thị thông báo lỗi
+                    return View();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi nếu có
+                return View("Error");
+            }
+        }
 
 
 

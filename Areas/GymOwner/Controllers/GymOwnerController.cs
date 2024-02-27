@@ -36,6 +36,11 @@ namespace Gymany.Controllers
 
         private string api_PersonalTrainerById;
 
+        private string api_Post;
+
+        private string api_PostById;
+
+
         public GymOwnerController()
         {
             client = new HttpClient();
@@ -50,6 +55,8 @@ namespace Gymany.Controllers
             this.api_CustomerById = "https://localhost:5002/api/Customer/id";
             this.api_PersonalTrainer = "https://localhost:5002/api/PT";
             this.api_PersonalTrainerById = "https://localhost:5002/api/PT/id";
+            this.api_Post = "https://localhost:5002/api/Post";
+            this.api_PostById = "https://localhost:5002/api/Post/id";
 
 
 
@@ -433,8 +440,114 @@ namespace Gymany.Controllers
                 return View("Error");
             }
         }
+        //---------------------------Post Managae -----------------------
+        public async Task<IActionResult> Post()
+        {
+            if (!checkLogin())
+            {
+                return Redirect("/GymOwner/Index");
+            }
+            HttpResponseMessage response = await client.GetAsync(api_Post);
+            string data = await response.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            List<Post> list = JsonSerializer.Deserialize<List<Post>>(data, options);
+            return View(list);
 
+        }
+        //method acc pt accout
+        public IActionResult AddPost()
+        {
+            // TODO: Your code here
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddPost(Post obj)
+        {
+            if (ModelState.IsValid)
+            {
+                string data = JsonSerializer.Serialize(obj);
+                var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync(api_Post, content);
+                if (response.StatusCode == System.Net.HttpStatusCode.Created)
+                    return RedirectToAction("Post");
+            }
+            return View(obj);
+        }
+        //method update pt accout
+        public async Task<IActionResult> UpdatePost(int id)
+        {
+            api_Post = $"https://localhost:5002/api/Post/id?id={id}";
+            HttpResponseMessage response = await client.GetAsync(api_Post);
+            ViewBag.PostID = id;
 
+            if (response.IsSuccessStatusCode)
+            {
+
+                var data = response.Content.ReadAsStringAsync().Result;
+                var post = JsonSerializer.Deserialize<Post>(data);
+                return View(post);
+            }
+            return NotFound();
+        }
+        [HttpPost]
+        public async Task<IActionResult> UpdatePost(int id, Post obj)
+        {
+            api_Post = $"https://localhost:5002/api/Post/id?id={id}";
+            obj.PostID = id;
+            string data = JsonSerializer.Serialize(obj);
+            var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await client.PutAsync(api_Post, content);
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Post");
+            }
+            return View("UpdatePost");
+        }
+
+        //method delete Pt accout
+        public async Task<IActionResult> DeletePost(int id)
+        {
+            api_Post = $"https://localhost:5002/api/Post/id?id={id}";
+            HttpResponseMessage response = await client.GetAsync(api_Post);
+            if (response.IsSuccessStatusCode)
+            {
+                var data = response.Content.ReadAsStringAsync().Result;
+                var post = JsonSerializer.Deserialize<Post>(data);
+                return View(post);
+            }
+            return NotFound();
+        }
+        [HttpPost]
+        public async Task<ActionResult> DeletePost(int id, Post obj)
+        {
+            api_Post = $"https://localhost:5002/api/Post/id?id={id}";
+
+            try
+            {
+                // Tạo yêu cầu DeletePT
+                obj.PostID = id;
+                HttpResponseMessage response = await client.DeleteAsync(api_Post);
+                var data = response.Content.ReadAsStringAsync().Result;
+                var post = JsonSerializer.Deserialize<Post>(data);
+                // Kiểm tra kết quả trả về từ endpoint API
+                if (response.IsSuccessStatusCode)
+                {
+                    // Xử lý kết quả nếu xóa thành công, ví dụ chuyển hướng đến trang danh sách
+                    return RedirectToAction("Post");
+
+                }
+                else
+                {
+                    // Xử lý kết quả nếu xóa không thành công, ví dụ hiển thị thông báo lỗi
+                    return View();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi nếu có
+                return View("Error");
+            }
+        }
 
 
 

@@ -1,0 +1,74 @@
+@model Gymany.Models.Post
+@{
+    ViewData["Title"] = "AddPost";
+}
+@* using layout of Gymowner *@
+@{
+    Layout = "GymManageLayout";
+}
+
+
+@* declare tag helper in areas *@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<style>
+    .container-fluid {
+        margin-left: 12rem;
+    }
+</style>
+
+
+<div class="text-center">
+    <h2 class="display-4">Add Post</h2>
+</div>
+
+<form asp-controller="GymOwner" asp-action="AddPost" method="post" class="container">
+    <div class="form-group row">
+        <label asp-for="Title" class="col-sm-2 col-form-label">Title:</label>
+        <div class="col-sm-10">
+            <input type="text" asp-for="Title" class="form-control" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label asp-for="Content" class="col-sm-2 col-form-label">Content:</label>
+        <div class="col-sm-10">
+            <textarea asp-for="Content" rows="5" class="form-control" required></textarea>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label asp-for="Image" class="col-sm-2 col-form-label">Image:</label>
+        <div class="col-sm-10">
+            <input type="text" asp-for="Image" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label asp-for="Date" class="col-sm-2 col-form-label">Date:</label>
+        <div class="col-sm-10">
+            <input type="datetime-local" asp-for="Date" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label asp-for="PTID" class="col-sm-2 col-form-label">Personal Trainer ID:</label>
+        <div class="col-sm-10">
+            <input type="number" asp-for="PTID" class="form-control" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label asp-for="StaffID" class="col-sm-2 col-form-label">Staff ID:</label>
+        <div class="col-sm-10">
+            <input type="number" asp-for="StaffID" class="form-control" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-10 offset-sm-2">
+            <input type="submit" value="Submit" class="btn btn-primary">
+            <a asp-action="PersonalTrainer" asp-controller="GymOwner" class="btn btn-danger">Back to Personal
+                Trainer</a>
+        </div>
+    </div>
+</form>

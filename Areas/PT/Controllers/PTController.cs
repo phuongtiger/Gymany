@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -64,15 +65,19 @@ namespace Gymany.Controllers
             else
             {
                 // ID không tồn tại trong Session, xử lý tùy ý
-                Console.WriteLine("ID không tồn tại trong Session.");
+                return RedirectToAction("PTLogin");
             }
             api_GetPostPTID = $"https://localhost:5002/api/Post/ptid?ptid={id}";
             HttpResponseMessage response = await client.GetAsync(api_GetPostPTID);
-            string data = await response.Content.ReadAsStringAsync();
-            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            List<Post> list = JsonSerializer.Deserialize<List<Post>>(data, options);
-
-            return View(list);
+            if (response.StatusCode == HttpStatusCode.NotFound)
+            {
+                return View();
+            }else{
+                string data = await response.Content.ReadAsStringAsync();
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                List<Post> list = JsonSerializer.Deserialize<List<Post>>(data, options);
+                return View(list);
+            }
         }
 
         public IActionResult PTProfile()
@@ -171,7 +176,7 @@ namespace Gymany.Controllers
         [HttpPost]
         public async Task<ActionResult> EditPost(int? id, Post obj)
         {
-            api_GetPostID = $"https://localhost:5002/api/Post/id?id={id}";
+            api_GetPostID = $"https://localhost:5002/api/Post/Id?id={id}";
             if (ModelState.IsValid)
             {
                 string data = JsonSerializer.Serialize(obj);

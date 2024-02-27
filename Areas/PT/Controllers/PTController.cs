@@ -208,7 +208,6 @@ namespace Gymany.Controllers
             var gymOwner = new GymOwner { Username = email, Password = password };
             var content = new StringContent(JsonSerializer.Serialize(gymOwner), Encoding.UTF8, "application/json");
             HttpResponseMessage response = await client.PostAsync(api_post, content);
-            
             if (response.IsSuccessStatusCode)
             {
                 string jsonString = await response.Content.ReadAsStringAsync();

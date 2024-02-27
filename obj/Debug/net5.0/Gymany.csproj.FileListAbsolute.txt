@@ -745,3 +745,7 @@ E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Vie
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateProduct.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Shared\GymManageLayout.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Shared\GymManageLayout.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\PTProfile.cshtml.g.cs
+>>>>>>> 8396375dd69c69fb0274d781f7379701f54397ff
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\PTProfile.cshtml.g.cs
+>>>>>>> db8f8d497b0b36e452faedd5c7d95aef7f4a262a

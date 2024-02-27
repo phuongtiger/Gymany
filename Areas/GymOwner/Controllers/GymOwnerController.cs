@@ -129,11 +129,19 @@ namespace Gymany.Controllers
         {
             api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
             HttpResponseMessage response = await client.GetAsync(api_ProductByID);
-            ViewBag.CategoryID = await GetSelectItem();
+
+            ViewBag.ProductID = id;
+            //khai báo list trước khi lấy id của category
+            List<SelectListItem> selectItems = await GetSelectItem();
+
+            // Lấy ID của category cần thiết từ danh sách mục select rồi Gán ID của category vào ViewBag
+            ViewBag.CategoryID = selectItems.FirstOrDefault()?.Value;
+
             if (response.IsSuccessStatusCode)
             {
                 var data = response.Content.ReadAsStringAsync().Result;
                 var product = JsonSerializer.Deserialize<Product>(data);
+
                 return View(product);
             }
             return NotFound();
@@ -238,8 +246,11 @@ namespace Gymany.Controllers
         {
             api_CustomerById = $"https://localhost:5002/api/Customer/id?id={id}";
             HttpResponseMessage response = await client.GetAsync(api_CustomerById);
+            ViewBag.CustomerID = id;
+            ViewBag.CategoryID = await GetSelectItem();
             if (response.IsSuccessStatusCode)
             {
+
                 var data = response.Content.ReadAsStringAsync().Result;
                 var product = JsonSerializer.Deserialize<Customer>(data);
                 return View(product);

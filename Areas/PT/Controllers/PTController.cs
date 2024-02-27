@@ -1,13 +1,17 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Gymany.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Newtonsoft.Json.Linq;
 
 namespace Gymany.Controllers
 {
@@ -20,19 +24,24 @@ namespace Gymany.Controllers
         private string api_post;
         private string api_PT;
         private string api_GetPostID;
+        private string api_GetPostPTID;
         public PTController()
         {
             client = new HttpClient();
             var contentType = new MediaTypeWithQualityHeaderValue("application/json");
             client.DefaultRequestHeaders.Accept.Add(contentType);
             this.api = "https://localhost:5002/api/Member";
-            this.api_GetCustomerByID = "https://localhost:5002/api/Customer/id";
+            // this.api_GetCustomerByID = "https://localhost:5002/api/Customer/id";
             this.api_post = "https://localhost:5002/api/Post";
             this.api_PT = "https://localhost:5002/api/PT";
             this.api_GetPostID = "https://localhost:5002/api/Post/id";
         }
         public async Task<IActionResult> Index()
         {
+            if (!checkLogin())
+            {
+                return RedirectToAction("PTLogin");
+            }
             HttpResponseMessage response = await client.GetAsync(api);
             string data = await response.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
@@ -41,11 +50,43 @@ namespace Gymany.Controllers
         }
         public async Task<IActionResult> PostManage()
         {
-            HttpResponseMessage response = await client.GetAsync(api_post);
-            string data = await response.Content.ReadAsStringAsync();
-            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            List<Post> list = JsonSerializer.Deserialize<List<Post>>(data, options);
-            return View(list);
+            if (!checkLogin())
+            {
+                return RedirectToAction("PTLogin");
+            }
+            string id = HttpContext.Session.GetString("ID");
+
+            // Kiểm tra xem ID có tồn tại không
+            if (!string.IsNullOrEmpty(id))
+            {
+                // Đã lấy được ID từ Session, bạn có thể sử dụng nó ở đây
+                Console.WriteLine("ID từ Session: " + id);
+            }
+            else
+            {
+                // ID không tồn tại trong Session, xử lý tùy ý
+                return RedirectToAction("PTLogin");
+            }
+            api_GetPostPTID = $"https://localhost:5002/api/Post/ptid?ptid={id}";
+            HttpResponseMessage response = await client.GetAsync(api_GetPostPTID);
+            if (response.StatusCode == HttpStatusCode.NotFound)
+            {
+                return View();
+            }else{
+                string data = await response.Content.ReadAsStringAsync();
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                List<Post> list = JsonSerializer.Deserialize<List<Post>>(data, options);
+                return View(list);
+            }
+        }
+
+        public IActionResult PTProfile()
+        {
+            if (!checkLogin())
+            {
+                return RedirectToAction("PTLogin");
+            }
+            return View();
         }
         public async Task<ActionResult> MemberDetail(int? id)
         {
@@ -59,7 +100,11 @@ namespace Gymany.Controllers
 
         public async Task<IActionResult> CreatePost()
         {
-            ViewBag.PTID = await GetPTNameSelected();
+            // Gọi PTID đã lữu trong session
+            int ptid = Convert.ToInt32(HttpContext.Session.GetString("ID"));
+
+            // Gán PTID vào ViewBag để sử dụng trong view
+            ViewBag.PTID = ptid;
             return View();
         }
 
@@ -147,20 +192,45 @@ namespace Gymany.Controllers
 
         public IActionResult BackToLogin()
         {
-            // TODO: Your code here
+
             return Redirect(Url.Action("Login", "Customer"));
         }
 
         public IActionResult PTRegister()
         {
-            // TODO: Your code here
+
             return View();
         }
 
-        public IActionResult PTLogin()
+        public async Task<ActionResult> PTLogin(string email, string password)
         {
-            // TODO: Your code here
-            return View();
+            api_post = $"https://localhost:5002/api/PT/checklogin?email={email}&password={password}";
+            var gymOwner = new GymOwner { Username = email, Password = password };
+            var content = new StringContent(JsonSerializer.Serialize(gymOwner), Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await client.PostAsync(api_post, content);
+            
+            if (response.IsSuccessStatusCode)
+            {
+                string jsonString = await response.Content.ReadAsStringAsync();
+
+                JObject jsonObject = JObject.Parse(jsonString);
+
+                // Lấy giá trị của trường "id"
+                string id = (string)jsonObject["ptid"];
+
+                HttpContext.Session.SetString("ID", id);
+                HttpContext.Session.SetString("Email", email);
+                HttpContext.Session.SetString("Password", password);
+                // Chuyển hướng đến trang chủ
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                Console.WriteLine($"Error: {response.StatusCode}");
+                // Hiển thị thông báo lỗi
+                ViewData["Error"] = "Invalid username or password";
+                return View("PTLogin");
+            }
         }
 
         public async Task<List<SelectListItem>> GetPTNameSelected()
@@ -175,6 +245,19 @@ namespace Gymany.Controllers
                 Text = c.Name // Tên của category là nội dung của mục
             }).ToList();
             return yourData;
+        }
+
+
+        [HttpPost]
+        public bool checkLogin()
+        {
+            var email = HttpContext.Session.GetString("Email");
+            var pass = HttpContext.Session.GetString("Password");
+            if (email != null && pass != null)
+            {
+                return true;
+            }
+            return false;
         }
 
     }

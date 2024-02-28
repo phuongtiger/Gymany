@@ -322,33 +322,20 @@ E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\ref\Gyman
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Shared\GymOwnerLayout.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Shared\GymOwnerLayout.cshtml.g.cs
 >>>>>>> Khoi
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Account.cshtml.g.cs
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddAccount.cshtml.g.cs
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddPost.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddProduct.cshtml.g.cs
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteAccount.cshtml.g.cs
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeletePost.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteProduct.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Home.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Index.cshtml.g.cs
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\ManageRequest.cshtml.g.cs
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Post.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Product.cshtml.g.cs
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Request.cshtml.g.cs
 >>>>>>> 95779bebbb9849c0ad791cad2ed982c3eca77ab5
-D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Account.cshtml.g.cs
-D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddAccount.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddPost.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddProduct.cshtml.g.cs
-D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteAccount.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeletePost.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteProduct.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Home.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Index.cshtml.g.cs
-D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\ManageRequest.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Post.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Product.cshtml.g.cs
-D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Request.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateProduct.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\bin\Debug\net5.0\appsettings.Development.json
 E:\SE1707_Ky5\Project\project_G\Gymany\bin\Debug\net5.0\appsettings.json
@@ -749,3 +736,27 @@ D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\PTProfile.cshtml.g.cs
 >>>>>>> 8396375dd69c69fb0274d781f7379701f54397ff
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\PTProfile.cshtml.g.cs
 >>>>>>> db8f8d497b0b36e452faedd5c7d95aef7f4a262a
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\CustomerAccout.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddCustomerAccout.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateCustomerAccout.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteCustomerAccout.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Shared\testLayout.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\PersonalTrainer.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddPtAccout.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdatePtAccout.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeletePtAccout.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Post.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddPost.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdatePost.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeletePost.cshtml.g.cs
+>>>>>>> b01a12d2cb7a9f451a8e8beee9b4fd79535fdfea
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddCustomerAccout.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddPtAccout.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\CustomerAccout.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteCustomerAccout.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeletePtAccout.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\PersonalTrainer.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateCustomerAccout.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdatePost.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdatePtAccout.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Views\Shared\testLayout.cshtml.g.cs

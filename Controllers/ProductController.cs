@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Gymany.Models;
 
+
 namespace Gymany.Controllers
 {
     public class ProductController : Controller
@@ -17,7 +18,8 @@ namespace Gymany.Controllers
         private string api;
         private string api_ProductByID;
         private string apiCategory;
-        public ProductController(){
+        public ProductController()
+        {
             client = new HttpClient();
             var contentType = new MediaTypeWithQualityHeaderValue("application/json");
             client.DefaultRequestHeaders.Accept.Add(contentType);
@@ -161,7 +163,7 @@ namespace Gymany.Controllers
         public async Task<List<SelectListItem>> GetSelectItem(){
             HttpResponseMessage respone = await client.GetAsync(apiCategory);
             string data = await respone.Content.ReadAsStringAsync();
-            var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             List<Category> list = JsonSerializer.Deserialize<List<Category>>(data, options);
             List<SelectListItem> yourData = list.Select(c => new SelectListItem
             {

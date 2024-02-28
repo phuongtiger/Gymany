@@ -294,7 +294,6 @@ E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Gymany.Ta
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Gymany.TagHelpers.output.cache
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Gymany.RazorCoreGenerate.cache
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Login.cshtml.g.cs
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Customer\PTLogin.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Product\Index.cshtml.g.cs
@@ -325,8 +324,6 @@ D:\Gymany\obj\Debug\net5.0\Razor\Views\Shared\GymOwnerLayout.cshtml.g.cs
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.dll
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\refint\Gymany.dll
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.pdb
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Account.cshtml.g.cs
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddAccount.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddPost.cshtml.g.cs
 >>>>>>> thanh
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddProduct.cshtml.g.cs
@@ -731,7 +728,6 @@ D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\EditPost.cshtml.g.cs
 >>>>>>> c57a4f93dbb967c326e0aa3cc9c7773b8eda18ce
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\EditPost.cshtml.g.cs
 >>>>>>> sieu
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Customer\PTRegister.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Register.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateProduct.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Shared\GymManageLayout.cshtml.g.cs
@@ -846,3 +842,95 @@ D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Profile.c
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Cart\Index.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Profile.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Form.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.AspNetCore.Razor.Language.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.CodeAnalysis.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.CodeAnalysis.Razor.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.CodeAnalysis.Workspaces.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\dotnet-aspnet-codegenerator-design.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\System.Composition.AttributedModel.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\System.Composition.Convention.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\System.Composition.Hosting.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\System.Composition.Runtime.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\System.Composition.TypedParts.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\CreatePost.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\DeletePost.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\EditPost.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\Index.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\MemberDetail.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\PostManage.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\PTLogin.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\PTProfile.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\PTRegister.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Cart\Index.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Form.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Profile.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Notification\Index.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Product\Create.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Product\Delete.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Product\Details.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Product\Edit.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Shared\PTlayout.cshtml.g.cs

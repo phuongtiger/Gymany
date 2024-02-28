@@ -128,10 +128,11 @@ namespace Gymany.Controllers
         public async Task<IActionResult> AddProduct(Product obj)
         {
             if (ModelState.IsValid)
-            {
+            {   
                 string data = JsonSerializer.Serialize(obj);
                 var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(api, content);
+                ViewBag.CategoryID = await GetSelectItem();
                 if (response.StatusCode == System.Net.HttpStatusCode.Created)
                     return RedirectToAction("Product");
             }

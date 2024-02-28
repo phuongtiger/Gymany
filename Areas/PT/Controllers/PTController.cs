@@ -59,8 +59,6 @@ namespace Gymany.Controllers
             // Kiểm tra xem ID có tồn tại không
             if (!string.IsNullOrEmpty(id))
             {
-                // Đã lấy được ID từ Session, bạn có thể sử dụng nó ở đây
-                Console.WriteLine("ID từ Session: " + id);
             }
             else
             {

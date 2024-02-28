@@ -155,7 +155,6 @@ D:\GitP\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\PTLogin.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Login.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Product\Index.cshtml.g.cs
 >>>>>>> main
-D:\Gymany\obj\Debug\net5.0\Razor\Views\Customer\PTLogin.cshtml.g.cs
 D:\GitP\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Product\Index.cshtml.g.cs
 D:\GitP\Gymany\bin\Debug\net5.0\appsettings.Development.json
 D:\GitP\Gymany\bin\Debug\net5.0\appsettings.json
@@ -213,7 +212,6 @@ D:\GitP\Gymany\obj\Debug\net5.0\Gymany.TagHelpers.input.cache
 D:\GitP\Gymany\obj\Debug\net5.0\Gymany.TagHelpers.output.cache
 D:\GitP\Gymany\obj\Debug\net5.0\Gymany.RazorCoreGenerate.cache
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Login.cshtml.g.cs
-D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Customer\PTLogin.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Product\Index.cshtml.g.cs
@@ -239,8 +237,6 @@ D:\GitP\Gymany\obj\Debug\net5.0\Gymany.pdb
 D:\GitP\Gymany\obj\Debug\net5.0\Gymany.genruntimeconfig.cache
 D:\GitP\Gymany\obj\Debug\net5.0\ref\Gymany.dll
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Register.cshtml.g.cs
-D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Customer\PTRegister.cshtml.g.cs
-D:\Gymany\obj\Debug\net5.0\Razor\Views\Customer\PTRegister.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Register.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\appsettings.Development.json
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\appsettings.json
@@ -298,7 +294,6 @@ E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Gymany.Ta
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Gymany.TagHelpers.output.cache
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Gymany.RazorCoreGenerate.cache
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Login.cshtml.g.cs
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Customer\PTLogin.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Product\Index.cshtml.g.cs
@@ -326,25 +321,25 @@ E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\ref\Gyman
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Shared\GymOwnerLayout.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Shared\GymOwnerLayout.cshtml.g.cs
 >>>>>>> Khoi
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.dll
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\refint\Gymany.dll
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.pdb
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddPost.cshtml.g.cs
+>>>>>>> thanh
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddProduct.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteProduct.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Home.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Index.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Product.cshtml.g.cs
 >>>>>>> 95779bebbb9849c0ad791cad2ed982c3eca77ab5
-D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Account.cshtml.g.cs
-D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddAccount.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddPost.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddProduct.cshtml.g.cs
-D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteAccount.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeletePost.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteProduct.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Home.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Index.cshtml.g.cs
-D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\ManageRequest.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Post.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Product.cshtml.g.cs
-D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Request.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateProduct.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\bin\Debug\net5.0\appsettings.Development.json
 E:\SE1707_Ky5\Project\project_G\Gymany\bin\Debug\net5.0\appsettings.json
@@ -405,20 +400,6 @@ E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Log
 E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\Customer\PTLogin.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\Customer\PTRegister.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Register.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Account.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\AddAccount.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\AddPost.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\AddProduct.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\DeleteAccount.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\DeletePost.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\DeleteProduct.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Home.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Index.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\ManageRequest.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Post.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Product.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Request.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\UpdateProduct.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\Product\Index.cshtml.g.cs
@@ -504,20 +485,6 @@ D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Login.csh
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\PTLogin.cshtml.g.cs
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\PTRegister.cshtml.g.cs
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Register.cshtml.g.cs
-D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Account.cshtml.g.cs
-D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\AddAccount.cshtml.g.cs
-D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\AddPost.cshtml.g.cs
-D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\AddProduct.cshtml.g.cs
-D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\DeleteAccount.cshtml.g.cs
-D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\DeletePost.cshtml.g.cs
-D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\DeleteProduct.cshtml.g.cs
-D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Home.cshtml.g.cs
-D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Index.cshtml.g.cs
-D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\ManageRequest.cshtml.g.cs
-D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Post.cshtml.g.cs
-D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Product.cshtml.g.cs
-D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\Request.cshtml.g.cs
-D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\GymOwner\UpdateProduct.cshtml.g.cs
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Product\Index.cshtml.g.cs
@@ -538,12 +505,8 @@ D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.build.
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.Gymany.props
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.Gymany.props
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.csproj.CopyComplete
-D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.dll
-D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\refint\Gymany.dll
-D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.pdb
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.genruntimeconfig.cache
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\ref\Gymany.dll
->>>>>>> thanh
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Account.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddAccount.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddPost.cshtml.g.cs
@@ -559,10 +522,220 @@ D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Product.csht
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Request.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateProduct.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Shared\GymOwnerLayout.cshtml.g.cs
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Customer\PTRegister.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Shared\PTlayout.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\PTLogin.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\PTRegister.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\Index.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\MemberDetail.cshtml.g.cs
+>>>>>>> 978c79220d8b90c0f2d8c08a5468b63c1a4f3428
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Account.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddAccount.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddPost.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddProduct.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteAccount.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeletePost.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteProduct.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Home.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Index.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\ManageRequest.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Post.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Product.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Request.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateProduct.cshtml.g.cs
+D:\Gymany\bin\Debug\net5.0\Microsoft.AspNetCore.Razor.Language.dll
+D:\Gymany\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Gymany\bin\Debug\net5.0\Microsoft.CodeAnalysis.dll
+D:\Gymany\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\Gymany\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\Gymany\bin\Debug\net5.0\Microsoft.CodeAnalysis.Razor.dll
+D:\Gymany\bin\Debug\net5.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
+D:\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+D:\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+D:\Gymany\bin\Debug\net5.0\dotnet-aspnet-codegenerator-design.dll
+D:\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+D:\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+D:\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+D:\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+D:\Gymany\bin\Debug\net5.0\System.Composition.AttributedModel.dll
+D:\Gymany\bin\Debug\net5.0\System.Composition.Convention.dll
+D:\Gymany\bin\Debug\net5.0\System.Composition.Hosting.dll
+D:\Gymany\bin\Debug\net5.0\System.Composition.Runtime.dll
+D:\Gymany\bin\Debug\net5.0\System.Composition.TypedParts.dll
+D:\Gymany\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\Gymany\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\Gymany\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\Gymany\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\Gymany\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\Gymany\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\Gymany\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\Gymany\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\Gymany\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\Gymany\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\Gymany\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\Gymany\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\Gymany\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Gymany\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Gymany\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Gymany\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Gymany\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Gymany\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Gymany\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Gymany\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Gymany\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Gymany\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Gymany\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Gymany\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Gymany\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Gymany\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Gymany\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Gymany\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Gymany\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Gymany\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Gymany\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Gymany\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Gymany\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Gymany\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Gymany\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Gymany\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Gymany\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Gymany\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Gymany\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Gymany\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Gymany\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Gymany\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Gymany\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Gymany\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Gymany\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Gymany\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Gymany\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Gymany\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Gymany\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Gymany\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Gymany\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Gymany\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Gymany\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
+D:\Gymany\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
+D:\Gymany\obj\Debug\net5.0\Razor\Views\Product\Create.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Views\Product\Delete.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Views\Product\Details.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Views\Product\Edit.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Views\Notification\Index.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Account.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddAccount.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddPost.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddProduct.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteAccount.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeletePost.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteProduct.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Home.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Index.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\ManageRequest.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Post.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Product.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Request.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateProduct.cshtml.g.cs
+D:\GitP\Gymany\bin\Debug\net5.0\Microsoft.AspNetCore.Razor.Language.dll
+D:\GitP\Gymany\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\GitP\Gymany\bin\Debug\net5.0\Microsoft.CodeAnalysis.dll
+D:\GitP\Gymany\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\GitP\Gymany\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\GitP\Gymany\bin\Debug\net5.0\Microsoft.CodeAnalysis.Razor.dll
+D:\GitP\Gymany\bin\Debug\net5.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\GitP\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
+D:\GitP\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+D:\GitP\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+D:\GitP\Gymany\bin\Debug\net5.0\dotnet-aspnet-codegenerator-design.dll
+D:\GitP\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+D:\GitP\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+D:\GitP\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+D:\GitP\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+D:\GitP\Gymany\bin\Debug\net5.0\System.Composition.AttributedModel.dll
+D:\GitP\Gymany\bin\Debug\net5.0\System.Composition.Convention.dll
+D:\GitP\Gymany\bin\Debug\net5.0\System.Composition.Hosting.dll
+D:\GitP\Gymany\bin\Debug\net5.0\System.Composition.Runtime.dll
+D:\GitP\Gymany\bin\Debug\net5.0\System.Composition.TypedParts.dll
+D:\GitP\Gymany\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\GitP\Gymany\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
+D:\GitP\Gymany\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Product\Create.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Product\Delete.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Product\Details.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Product\Edit.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\PostManage.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\CreatePost.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\DeletePost.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\CreatePost.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\DeletePost.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\Index.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\MemberDetail.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\PostManage.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\PTLogin.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\PTRegister.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Views\Shared\PTlayout.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\EditPost.cshtml.g.cs
+>>>>>>> c57a4f93dbb967c326e0aa3cc9c7773b8eda18ce
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\EditPost.cshtml.g.cs
+>>>>>>> sieu
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Register.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateProduct.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Shared\GymManageLayout.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Views\Shared\GymManageLayout.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\PTProfile.cshtml.g.cs
+>>>>>>> 8396375dd69c69fb0274d781f7379701f54397ff
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\PTProfile.cshtml.g.cs
+>>>>>>> db8f8d497b0b36e452faedd5c7d95aef7f4a262a
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\CustomerAccout.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddCustomerAccout.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateCustomerAccout.cshtml.g.cs
@@ -573,6 +746,191 @@ E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Are
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdatePtAccout.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeletePtAccout.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Post.cshtml.g.cs
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddPost.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdatePost.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeletePost.cshtml.g.cs
+>>>>>>> b01a12d2cb7a9f451a8e8beee9b4fd79535fdfea
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddCustomerAccout.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddPtAccout.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\CustomerAccout.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteCustomerAccout.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeletePtAccout.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\PersonalTrainer.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateCustomerAccout.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdatePost.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdatePtAccout.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Views\Shared\testLayout.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.AspNetCore.Razor.Language.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.CodeAnalysis.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.CodeAnalysis.Razor.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\dotnet-aspnet-codegenerator-design.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\System.Composition.AttributedModel.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\System.Composition.Convention.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\System.Composition.Hosting.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\System.Composition.Runtime.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\System.Composition.TypedParts.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Product\Create.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Product\Delete.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Product\Details.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Product\Edit.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Cart\Index.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Profile.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Views\Cart\Index.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Profile.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Form.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.AspNetCore.Razor.Language.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.CodeAnalysis.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.CodeAnalysis.Razor.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.CodeAnalysis.Workspaces.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\dotnet-aspnet-codegenerator-design.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\System.Composition.AttributedModel.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\System.Composition.Convention.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\System.Composition.Hosting.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\System.Composition.Runtime.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\System.Composition.TypedParts.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\CreatePost.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\DeletePost.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\EditPost.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\Index.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\MemberDetail.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\PostManage.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\PTLogin.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\PTProfile.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\PTRegister.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Cart\Index.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Form.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Profile.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Notification\Index.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Product\Create.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Product\Delete.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Product\Details.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Product\Edit.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Shared\PTlayout.cshtml.g.cs

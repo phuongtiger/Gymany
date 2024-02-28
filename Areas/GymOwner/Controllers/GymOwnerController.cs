@@ -85,10 +85,8 @@ namespace Gymany.Controllers
             var gymOwner = new GymOwner { Username = username, Password = password };
             var content = new StringContent(JsonSerializer.Serialize(gymOwner), Encoding.UTF8, "application/json");
             HttpResponseMessage response = await client.PostAsync(api_GymOwner, content);
-            Console.WriteLine(gymOwner);
             if (response.IsSuccessStatusCode)
             {
-                System.Console.WriteLine("1");
                 // var user = await response.Content.ReadFromJsonAsync<GymOwner>();
                 // Lưu thông tin người dùng vào session hoặc cookie
                 HttpContext.Session.SetString("Username", username);
@@ -215,6 +213,7 @@ namespace Gymany.Controllers
             catch (Exception ex)
             {
                 // Xử lý lỗi nếu có
+                System.Console.WriteLine(ex);
                 return View("Error");
             }
         }
@@ -326,6 +325,7 @@ namespace Gymany.Controllers
             }
             catch (Exception ex)
             {
+                System.Console.WriteLine(ex);
                 // Xử lý lỗi nếu có
                 return View("Error");
             }
@@ -436,6 +436,7 @@ namespace Gymany.Controllers
             }
             catch (Exception ex)
             {
+                System.Console.WriteLine(ex);
                 // Xử lý lỗi nếu có
                 return View("Error");
             }
@@ -544,6 +545,7 @@ namespace Gymany.Controllers
             }
             catch (Exception ex)
             {
+                System.Console.WriteLine(ex);
                 // Xử lý lỗi nếu có
                 return View("Error");
             }

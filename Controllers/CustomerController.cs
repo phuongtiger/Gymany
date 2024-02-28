@@ -40,7 +40,7 @@ namespace Gymany.Controllers
             if(!checkLogin()){
                     return RedirectToAction("Form");
             }
-            string id = HttpContext.Session.GetString("ID");
+            string id = HttpContext.Session.GetString("CustomerID");
             api_CustomerByID = $"https://localhost:5002/api/Customer/id?id={id}";
             HttpResponseMessage respone = await client.GetAsync(api_CustomerByID);
             string data = await respone.Content.ReadAsStringAsync();
@@ -93,11 +93,9 @@ namespace Gymany.Controllers
                 string jsonString = await response.Content.ReadAsStringAsync();
                 //lấy tất cả thông tin từ id của customer
                 JObject jsonObject = JObject.Parse(jsonString);
-
-                // Lấy giá trị của trường "id"
                 string id = (string)jsonObject["customerID"];
 
-                HttpContext.Session.SetString("ID", id);
+                HttpContext.Session.SetString("CustomerID", id);
                 HttpContext.Session.SetString("Username", username);
                 HttpContext.Session.SetString("Password", password);
                 // Chuyển hướng đến trang chủ
@@ -105,8 +103,6 @@ namespace Gymany.Controllers
             }
             else
             {
-                Console.WriteLine($"Error: {response.StatusCode}");
-                // Hiển thị thông báo lỗi
                 ViewData["Error"] = "Invalid username or password";
                 return RedirectToAction("Form");
             }

@@ -153,8 +153,8 @@ namespace Gymany.Controllers
             if (response.IsSuccessStatusCode)
             {
                 var data = response.Content.ReadAsStringAsync().Result;
-                var product = JsonSerializer.Deserialize<Product>(data);
-
+                var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+                var product = JsonSerializer.Deserialize<Product>(data, options);
                 return View(product);
             }
             return NotFound();
@@ -181,7 +181,8 @@ namespace Gymany.Controllers
             if (response.IsSuccessStatusCode)
             {
                 var data = response.Content.ReadAsStringAsync().Result;
-                var product = JsonSerializer.Deserialize<Product>(data);
+                var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+                var product = JsonSerializer.Deserialize<Product>(data, options);
                 return View(product);
             }
             return NotFound();
@@ -264,9 +265,9 @@ namespace Gymany.Controllers
             ViewBag.CategoryID = await GetSelectItem();
             if (response.IsSuccessStatusCode)
             {
-
+                var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
                 var data = response.Content.ReadAsStringAsync().Result;
-                var product = JsonSerializer.Deserialize<Customer>(data);
+                var product = JsonSerializer.Deserialize<Customer>(data, options);
                 return View(product);
             }
             return NotFound();
@@ -294,7 +295,8 @@ namespace Gymany.Controllers
             if (response.IsSuccessStatusCode)
             {
                 var data = response.Content.ReadAsStringAsync().Result;
-                var customer = JsonSerializer.Deserialize<Customer>(data);
+                var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+                var customer = JsonSerializer.Deserialize<Customer>(data, options);
                 return View(customer);
             }
             return NotFound();
@@ -376,9 +378,9 @@ namespace Gymany.Controllers
 
             if (response.IsSuccessStatusCode)
             {
-
+                var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
                 var data = response.Content.ReadAsStringAsync().Result;
-                var pt = JsonSerializer.Deserialize<PersonalTrainer>(data);
+                var pt = JsonSerializer.Deserialize<PersonalTrainer>(data, options);
                 return View(pt);
             }
             return NotFound();
@@ -405,7 +407,8 @@ namespace Gymany.Controllers
             if (response.IsSuccessStatusCode)
             {
                 var data = response.Content.ReadAsStringAsync().Result;
-                var pt = JsonSerializer.Deserialize<PersonalTrainer>(data);
+                var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+                var pt = JsonSerializer.Deserialize<PersonalTrainer>(data, options);
                 return View(pt);
             }
             return NotFound();
@@ -484,9 +487,9 @@ namespace Gymany.Controllers
 
             if (response.IsSuccessStatusCode)
             {
-
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                 var data = response.Content.ReadAsStringAsync().Result;
-                var post = JsonSerializer.Deserialize<Post>(data);
+                var post = JsonSerializer.Deserialize<Post>(data, options);
                 return View(post);
             }
             return NotFound();
@@ -513,8 +516,9 @@ namespace Gymany.Controllers
             HttpResponseMessage response = await client.GetAsync(api_Post);
             if (response.IsSuccessStatusCode)
             {
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                 var data = response.Content.ReadAsStringAsync().Result;
-                var post = JsonSerializer.Deserialize<Post>(data);
+                var post = JsonSerializer.Deserialize<Post>(data, options);
                 return View(post);
             }
             return NotFound();

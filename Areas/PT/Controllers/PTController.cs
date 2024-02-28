@@ -98,7 +98,7 @@ namespace Gymany.Controllers
             return View(customer);
         }
 
-        public async Task<IActionResult> CreatePost()
+        public IActionResult CreatePost()
         {
             // Gọi PTID đã lữu trong session
             int ptid = Convert.ToInt32(HttpContext.Session.GetString("ID"));
@@ -158,6 +158,7 @@ namespace Gymany.Controllers
             catch (Exception ex)
             {
                 // Xử lý lỗi nếu có
+                System.Console.WriteLine(ex);
                 return View("Error");
             }
         }

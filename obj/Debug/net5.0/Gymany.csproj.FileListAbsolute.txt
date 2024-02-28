@@ -580,4 +580,5 @@ E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Vie
 E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Product.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Request.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateProduct.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\Product\Index1.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\Blog\Index.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\Blog\blogdetail.cshtml.g.cs

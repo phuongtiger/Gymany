@@ -1998,6 +1998,7 @@ input.num-product::-webkit-inner-spin-button {
 /*//////////////////////////////////////////////////////////////////
 [ S-Text 0 - 15 ]*/
 .stext-101 {
+  color: #000;
   font-family: Poppins-Medium;
   font-size: 15px;
   line-height: 1.466667;
@@ -2060,6 +2061,7 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 .stext-111 {
+  color:#000;
   font-family: Poppins-Regular;
   font-size: 13px;
   line-height: 1.6923;
@@ -2243,6 +2245,7 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 .ltext-108 {
+  color: #000;
   font-family: Poppins-Bold;
   font-size: 26px;
   line-height: 1.3846;

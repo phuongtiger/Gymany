@@ -85,7 +85,7 @@ namespace Gymany.Controllers
             if (!checkLogin())
             {
                 return RedirectToAction("PTLogin");
-            }
+            } 
             return View();
         }
         public async Task<ActionResult> MemberDetail(int? id)
@@ -205,14 +205,15 @@ namespace Gymany.Controllers
         public async Task<ActionResult> PTLogin(string email, string password)
         {
             api_post = $"https://localhost:5002/api/PT/checklogin?email={email}&password={password}";
-            var gymOwner = new GymOwner { Username = email, Password = password };
-            var content = new StringContent(JsonSerializer.Serialize(gymOwner), Encoding.UTF8, "application/json");
+            var PT = new PersonalTrainer { Username = email, Password = password };
+            var content = new StringContent(JsonSerializer.Serialize(PT), Encoding.UTF8, "application/json");
             HttpResponseMessage response = await client.PostAsync(api_post, content);
             Console.WriteLine(response.Content.ToString());
             if (response.IsSuccessStatusCode)
             {
+                //Đọc dữ liệu
                 string jsonString = await response.Content.ReadAsStringAsync();
-
+                //cho dữ liệu vào jsonObject
                 JObject jsonObject = JObject.Parse(jsonString);
 
                 // Lấy giá trị của trường "id"

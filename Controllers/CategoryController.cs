@@ -13,7 +13,7 @@ using Gymany.Models;
 
 namespace Gymany.Controllers
 {
-    [Route("[controller]")]
+    
     public class CategoryController : Controller
     {
         private readonly HttpClient client = null;
@@ -24,5 +24,6 @@ namespace Gymany.Controllers
             client.DefaultRequestHeaders.Accept.Add(contentType);
             this.api = "https://localhost:5002/api/Category";
         }
+        
     }
 }

@@ -20,7 +20,6 @@
                     <label>Status</label>
                 </th>
                 <th>
-                    <label></label>
                 </th>
             </tr>
         </thead>
@@ -39,6 +38,7 @@
                     </td>
                     <td>
                         <a asp-area="PT" asp-action="MemberDetail" asp-route-id="@item.CustomerID" class="btn btn-outline-success">Detail</a>
+                        <a asp-area="PT" asp-action="SendMessage" asp-route-id="@item.CustomerID" class="btn btn-outline-danger">Send Message</a>
                     </td>
                 </tr>
             }

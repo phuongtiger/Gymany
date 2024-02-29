@@ -228,7 +228,7 @@ namespace Gymany.Controllers
 
 
         //-----------------Account Customer Page----------------------------------
-        public async Task<IActionResult> CustomerAccout()
+        public async Task<IActionResult> CustomerAccount()
         {
             if (!checkLogin())
             {
@@ -242,13 +242,13 @@ namespace Gymany.Controllers
 
         }
         //add customer
-        public IActionResult AddCustomerAccout()
+        public IActionResult AddCustomerAccount()
         {
             // TODO: Your code here
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> AddCustomerAccout(Customer obj)
+        public async Task<IActionResult> AddCustomerAccount(Customer obj)
         {
             if (ModelState.IsValid)
             {
@@ -256,14 +256,14 @@ namespace Gymany.Controllers
                 var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(api_Customer, content);
                 if (response.StatusCode == System.Net.HttpStatusCode.Created)
-                    return RedirectToAction("CustomerAccout");
+                    return RedirectToAction("CustomerAccount");
             }
             return View(obj);
         }
 
 
         //update customer
-        public async Task<IActionResult> UpdateCustomerAccout(int id)
+        public async Task<IActionResult> UpdateCustomerAccount(int id)
         {
             api_CustomerById = $"https://localhost:5002/api/Customer/id?id={id}";
             HttpResponseMessage response = await client.GetAsync(api_CustomerById);
@@ -279,7 +279,7 @@ namespace Gymany.Controllers
             return NotFound();
         }
         [HttpPost]
-        public async Task<IActionResult> UpdateCustomerAccout(int id, Customer obj)
+        public async Task<IActionResult> UpdateCustomerAccount(int id, Customer obj)
         {
             api_CustomerById = $"https://localhost:5002/api/Customer/id?id={id}";
             obj.CustomerID = id;
@@ -288,13 +288,13 @@ namespace Gymany.Controllers
             HttpResponseMessage response = await client.PutAsync(api_CustomerById, content);
             if (response.IsSuccessStatusCode)
             {
-                return RedirectToAction("CustomerAccout");
+                return RedirectToAction("CustomerAccount");
             }
-            return Redirect("UpdateCustomerAccout");
+            return Redirect("UpdateCustomerAccount");
         }
 
         //method delete customer
-        public async Task<IActionResult> DeleteCustomerAccout(int id)
+        public async Task<IActionResult> DeleteCustomerAccount(int id)
         {
             api_CustomerById = $"https://localhost:5002/api/Customer/id?id={id}";
             HttpResponseMessage response = await client.GetAsync(api_CustomerById);
@@ -308,7 +308,7 @@ namespace Gymany.Controllers
             return NotFound();
         }
         [HttpPost]
-        public async Task<ActionResult> DeleteCustomerAccout(int id, Customer obj)
+        public async Task<ActionResult> DeleteCustomerAccount(int id, Customer obj)
         {
             api_CustomerById = $"https://localhost:5002/api/Customer/id?id={id}";
 
@@ -322,13 +322,11 @@ namespace Gymany.Controllers
                 // Kiểm tra kết quả trả về từ endpoint API
                 if (response.IsSuccessStatusCode)
                 {
-                    // Xử lý kết quả nếu xóa thành công, ví dụ chuyển hướng đến trang danh sách
-                    return RedirectToAction("Customer ");
+                    return RedirectToAction("CustomerAccount");
 
                 }
                 else
                 {
-                    // Xử lý kết quả nếu xóa không thành công, ví dụ hiển thị thông báo lỗi
                     return View();
                 }
             }
@@ -357,13 +355,13 @@ namespace Gymany.Controllers
 
         }
         //method acc pt accout
-        public IActionResult AddPtAccout()
+        public IActionResult AddPtAccount()
         {
             // TODO: Your code here
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> AddPtAccout(PersonalTrainer obj)
+        public async Task<IActionResult> AddPtAccount(PersonalTrainer obj)
         {
             if (ModelState.IsValid)
             {
@@ -376,7 +374,7 @@ namespace Gymany.Controllers
             return View(obj);
         }
         //method update pt accout
-        public async Task<IActionResult> UpdatePtAccout(int id)
+        public async Task<IActionResult> UpdatePtAccount(int id)
         {
             api_PersonalTrainerById = $"https://localhost:5002/api/PT/id?id={id}";
             HttpResponseMessage response = await client.GetAsync(api_PersonalTrainerById);
@@ -392,7 +390,7 @@ namespace Gymany.Controllers
             return NotFound();
         }
         [HttpPost]
-        public async Task<IActionResult> UpdatePtAccout(int id, PersonalTrainer obj)
+        public async Task<IActionResult> UpdatePtAccount(int id, PersonalTrainer obj)
         {
             api_PersonalTrainerById = $"https://localhost:5002/api/PT/id?id={id}";
             obj.PTID = id;
@@ -403,10 +401,10 @@ namespace Gymany.Controllers
             {
                 return RedirectToAction("PersonalTrainer");
             }
-            return Redirect("UpdatePtAccout");
+            return Redirect("UpdatePtAccount");
         }
         //method delete Pt accout
-        public async Task<IActionResult> DeletePtAccout(int id)
+        public async Task<IActionResult> DeletePtAccount(int id)
         {
             api_PersonalTrainerById = $"https://localhost:5002/api/PT/id?id={id}";
             HttpResponseMessage response = await client.GetAsync(api_PersonalTrainerById);
@@ -420,7 +418,7 @@ namespace Gymany.Controllers
             return NotFound();
         }
         [HttpPost]
-        public async Task<ActionResult> DeletePtAccout(int id, PersonalTrainer obj)
+        public async Task<ActionResult> DeletePtAccount(int id, PersonalTrainer obj)
         {
             api_PersonalTrainerById = $"https://localhost:5002/api/PT/id?id={id}";
 

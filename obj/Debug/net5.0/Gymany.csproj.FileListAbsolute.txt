@@ -736,15 +736,8 @@ D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\PTProfile.cshtml.g.cs
 >>>>>>> 8396375dd69c69fb0274d781f7379701f54397ff
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\PTProfile.cshtml.g.cs
 >>>>>>> db8f8d497b0b36e452faedd5c7d95aef7f4a262a
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\CustomerAccout.cshtml.g.cs
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddCustomerAccout.cshtml.g.cs
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateCustomerAccout.cshtml.g.cs
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteCustomerAccout.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Shared\testLayout.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\PersonalTrainer.cshtml.g.cs
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddPtAccout.cshtml.g.cs
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdatePtAccout.cshtml.g.cs
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeletePtAccout.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Post.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdatePost.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeletePost.cshtml.g.cs
@@ -934,3 +927,10 @@ E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Vie
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Product\Details.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Product\Edit.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Shared\PTlayout.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddCustomerAccount.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\CustomerAccount.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteCustomerAccount.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateCustomerAccount.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddPtAccount.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeletePtAccount.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdatePtAccount.cshtml.g.cs

@@ -5,7 +5,6 @@ D:\Gymany\bin\Debug\net5.0\Gymany.deps.json
 D:\Gymany\bin\Debug\net5.0\Gymany.runtimeconfig.json
 D:\Gymany\bin\Debug\net5.0\Gymany.runtimeconfig.dev.json
 D:\Gymany\bin\Debug\net5.0\Gymany.dll
-D:\Gymany\bin\Debug\net5.0\ref\Gymany.dll
 D:\Gymany\bin\Debug\net5.0\Gymany.pdb
 D:\Gymany\bin\Debug\net5.0\Gymany.Views.dll
 D:\Gymany\bin\Debug\net5.0\Gymany.Views.pdb
@@ -50,7 +49,6 @@ D:\Gymany\obj\Debug\net5.0\Gymany.MvcApplicationPartsAssemblyInfo.cache
 D:\Gymany\obj\Debug\net5.0\Gymany.RazorAssemblyInfo.cache
 D:\Gymany\obj\Debug\net5.0\Gymany.RazorAssemblyInfo.cs
 D:\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.Manifest.cache
-D:\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.xml
 D:\Gymany\obj\Debug\net5.0\scopedcss\bundle\Gymany.styles.css
 D:\Gymany\obj\Debug\net5.0\Gymany.TagHelpers.input.cache
 D:\Gymany\obj\Debug\net5.0\Gymany.TagHelpers.output.cache
@@ -65,7 +63,6 @@ D:\Gymany\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Gymany.RazorTargetAssemblyInfo.cache
 D:\Gymany\obj\Debug\net5.0\Gymany.RazorTargetAssemblyInfo.cs
 D:\Gymany\obj\Debug\net5.0\Gymany.Views.pdb
-D:\Gymany\obj\Debug\net5.0\Gymany.csproj.CopyComplete
 D:\Gymany\obj\Debug\net5.0\Gymany.dll
 D:\Gymany\obj\Debug\net5.0\ref\Gymany.dll
 D:\Gymany\obj\Debug\net5.0\Gymany.pdb
@@ -580,3 +577,12 @@ E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Vie
 E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Product.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Request.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateProduct.cshtml.g.cs
+D:\Gymany\bin\Debug\net5.0\Gymany.StaticWebAssets.xml
+D:\Gymany\obj\Debug\net5.0\Gymany.sourcelink.json
+D:\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.Pack.cache
+D:\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.Gymany.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.build.Gymany.props
+D:\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.Gymany.props
+D:\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.Gymany.props
+D:\Gymany\obj\Debug\net5.0\Gymany.csproj.Up2Date
+D:\Gymany\obj\Debug\net5.0\refint\Gymany.dll

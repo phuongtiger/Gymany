@@ -76,13 +76,16 @@ namespace Gymany.Controllers
 
 
         //page login for admin 
-        public IActionResult Index()
+        public IActionResult Index(string error = null)
         {
+            ViewData["Error"] = error;
             return View(new GymOwner());
         }
         [HttpPost]
         public async Task<IActionResult> Login(string username, string password)
         {
+
+
             api_GymOwner = $"https://localhost:5002/api/GymOwner/checklogin?username={username}&password={password}";
             var gymOwner = new GymOwner { Username = username, Password = password };
             var content = new StringContent(JsonSerializer.Serialize(gymOwner), Encoding.UTF8, "application/json");
@@ -98,10 +101,8 @@ namespace Gymany.Controllers
             }
             else
             {
-                System.Console.WriteLine("2");
-                Console.WriteLine($"Error: {response.StatusCode}");
                 // Hiển thị thông báo lỗi
-                ViewData["Error"] = "Invalid username or password";
+                ViewData["Error"] = "Username or password is wrong, Please input again!";
                 return View("Index", gymOwner);
             }
         }

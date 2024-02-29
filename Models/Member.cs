@@ -12,9 +12,10 @@ namespace Gymany.Models
         [Key]
         public int MemberID { get; set; }
 
+        [Required(ErrorMessage = "Date is required.")]
         public DateTime? Date { get; set; }
 
-        [StringLength(50)]
+        [StringLength(50, ErrorMessage = "Status length cannot exceed 50 characters.")]
         public string Status { get; set; }
 
         [ForeignKey("Customer")]

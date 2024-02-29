@@ -26,7 +26,7 @@ namespace Gymany.Models
         [Range(0, int.MaxValue, ErrorMessage = "Product amount must be a non-negative number.")]
         public int? Amount { get; set; }
 
-        [StringLength(200, ErrorMessage = "Image path cannot exceed 200 characters.")]
+        [StringLength(100, ErrorMessage = "Image path cannot exceed 100 characters.")]
         public string Image { get; set; }
 
         [Required(ErrorMessage = "Product price is required.")]

@@ -40,7 +40,9 @@ namespace Gymany.Controllers
 
         private string api_PostById;
 
+        private string api_Staff;
 
+        private string api_StaffById;
         public GymOwnerController()
         {
             client = new HttpClient();
@@ -57,8 +59,8 @@ namespace Gymany.Controllers
             this.api_PersonalTrainerById = "https://localhost:5002/api/PT/id";
             this.api_Post = "https://localhost:5002/api/Post";
             this.api_PostById = "https://localhost:5002/api/Post/id";
-
-
+            this.api_Staff = "https://localhost:5002/api/Staff";
+            this.api_StaffById = "https://localhost:5002/api/Staff/api";
 
         }
 
@@ -119,20 +121,23 @@ namespace Gymany.Controllers
             return View(list);
 
         }
-        public IActionResult AddProduct()
+        public async Task<IActionResult> AddProductAsync()
         {
+            ViewBag.CategoryID = await GetSelectItem();
             // TODO: Your code here
             return View();
         }
         [HttpPost]
         public async Task<IActionResult> AddProduct(Product obj)
         {
+            ViewBag.CategoryID = await GetSelectItem();
             if (ModelState.IsValid)
-            {   
+            {
+
                 string data = JsonSerializer.Serialize(obj);
                 var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(api, content);
-                ViewBag.CategoryID = await GetSelectItem();
+
                 if (response.StatusCode == System.Net.HttpStatusCode.Created)
                     return RedirectToAction("Product");
             }
@@ -140,20 +145,18 @@ namespace Gymany.Controllers
         }
         public async Task<IActionResult> UpdateProduct(int id)
         {
+
             api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
             HttpResponseMessage response = await client.GetAsync(api_ProductByID);
 
             ViewBag.ProductID = id;
-            //khai báo list trước khi lấy id của category
-            List<SelectListItem> selectItems = await GetSelectItem();
+            ViewBag.CategoryID = await GetSelectItem();
 
-            // Lấy ID của category cần thiết từ danh sách mục select rồi Gán ID của category vào ViewBag
-            ViewBag.CategoryID = selectItems.FirstOrDefault()?.Value;
 
             if (response.IsSuccessStatusCode)
             {
                 var data = response.Content.ReadAsStringAsync().Result;
-                var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                 var product = JsonSerializer.Deserialize<Product>(data, options);
                 return View(product);
             }
@@ -164,6 +167,8 @@ namespace Gymany.Controllers
         {
             api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
             obj.ProductID = id;
+            ViewBag.ProductID = id;
+            ViewBag.CategoryID = await GetSelectItem();
             string data = JsonSerializer.Serialize(obj);
             var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
             HttpResponseMessage response = await client.PutAsync(api_ProductByID, content);
@@ -181,7 +186,7 @@ namespace Gymany.Controllers
             if (response.IsSuccessStatusCode)
             {
                 var data = response.Content.ReadAsStringAsync().Result;
-                var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                 var product = JsonSerializer.Deserialize<Product>(data, options);
                 return View(product);
             }
@@ -265,7 +270,7 @@ namespace Gymany.Controllers
             ViewBag.CategoryID = await GetSelectItem();
             if (response.IsSuccessStatusCode)
             {
-                var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                 var data = response.Content.ReadAsStringAsync().Result;
                 var product = JsonSerializer.Deserialize<Customer>(data, options);
                 return View(product);
@@ -295,7 +300,7 @@ namespace Gymany.Controllers
             if (response.IsSuccessStatusCode)
             {
                 var data = response.Content.ReadAsStringAsync().Result;
-                var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                 var customer = JsonSerializer.Deserialize<Customer>(data, options);
                 return View(customer);
             }
@@ -378,7 +383,7 @@ namespace Gymany.Controllers
 
             if (response.IsSuccessStatusCode)
             {
-                var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                 var data = response.Content.ReadAsStringAsync().Result;
                 var pt = JsonSerializer.Deserialize<PersonalTrainer>(data, options);
                 return View(pt);
@@ -407,7 +412,7 @@ namespace Gymany.Controllers
             if (response.IsSuccessStatusCode)
             {
                 var data = response.Content.ReadAsStringAsync().Result;
-                var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                 var pt = JsonSerializer.Deserialize<PersonalTrainer>(data, options);
                 return View(pt);
             }
@@ -460,14 +465,17 @@ namespace Gymany.Controllers
 
         }
         //method acc pt accout
-        public IActionResult AddPost()
+        public async Task<IActionResult> AddPost()
         {
-            // TODO: Your code here
+            ViewBag.Name = await GetPtId();
+            ViewBag.NameStaff = await GetStaffId();
             return View();
         }
         [HttpPost]
         public async Task<IActionResult> AddPost(Post obj)
         {
+            ViewBag.Name = await GetPtId();
+            ViewBag.NameStaff = await GetStaffId();
             if (ModelState.IsValid)
             {
                 string data = JsonSerializer.Serialize(obj);
@@ -481,6 +489,8 @@ namespace Gymany.Controllers
         //method update pt accout
         public async Task<IActionResult> UpdatePost(int id)
         {
+            ViewBag.Name = await GetPtId();
+            ViewBag.NameStaff = await GetStaffId();
             api_Post = $"https://localhost:5002/api/Post/id?id={id}";
             HttpResponseMessage response = await client.GetAsync(api_Post);
             ViewBag.PostID = id;
@@ -497,6 +507,8 @@ namespace Gymany.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdatePost(int id, Post obj)
         {
+            ViewBag.Name = await GetPtId();
+            ViewBag.NameStaff = await GetStaffId();
             api_Post = $"https://localhost:5002/api/Post/id?id={id}";
             obj.PostID = id;
             string data = JsonSerializer.Serialize(obj);
@@ -576,6 +588,34 @@ namespace Gymany.Controllers
             }).ToList();
             return yourData;
         }
+
+        public async Task<List<SelectListItem>> GetPtId()
+        {
+            HttpResponseMessage respone = await client.GetAsync(api_PersonalTrainer);
+            string data = await respone.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            List<PersonalTrainer> list = JsonSerializer.Deserialize<List<PersonalTrainer>>(data, options);
+            List<SelectListItem> yourData = list.Select(c => new SelectListItem
+            {
+                Value = c.PTID.ToString(), // ID của category là giá trị của mục
+                Text = c.Name // Tên của category là nội dung của mục
+            }).ToList();
+            return yourData;
+        }
+        public async Task<List<SelectListItem>> GetStaffId()
+        {
+            HttpResponseMessage respone = await client.GetAsync(api_Staff);
+            string data = await respone.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            List<Staff> list = JsonSerializer.Deserialize<List<Staff>>(data, options);
+            List<SelectListItem> yourData = list.Select(c => new SelectListItem
+            {
+                Value = c.StaffID.ToString(), // ID của category là giá trị của mục
+                Text = c.Name // Tên của category là nội dung của mục
+            }).ToList();
+            return yourData;
+        }
+
 
 
         //method check session

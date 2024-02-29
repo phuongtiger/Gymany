@@ -835,14 +835,6 @@ D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Profile.c
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Cart\Index.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Profile.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Form.cshtml.g.cs
-D:\Gymany\obj\Debug\net5.0\Gymany.sourcelink.json
-D:\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.Pack.cache
-D:\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.Gymany.Microsoft.AspNetCore.StaticWebAssets.props
-D:\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.build.Gymany.props
-D:\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.Gymany.props
-D:\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.Gymany.props
-D:\Gymany\obj\Debug\net5.0\Gymany.csproj.Up2Date
-D:\Gymany\obj\Debug\net5.0\refint\Gymany.dll
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\CustomerAccount.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddCustomerAccount.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateCustomerAccount.cshtml.g.cs
@@ -850,3 +842,13 @@ D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteCustomerAcc
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddPtAccount.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeletePtAccount.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdatePtAccount.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\Blog\Index.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\Blog\blogdetail.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\Classes\Index.cshtml.g.cs
+>>>>>>> d763362224e5424d3f7afc59c71368d61a563ae1
+D:\Gymany\obj\Debug\net5.0\Razor\Views\Blog\blogdetail.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Views\Blog\Index.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Views\Classes\Index.cshtml.g.cs
+D:\Gymany\bin\Debug\net5.0\ref\Gymany.dll
+D:\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.xml
+D:\Gymany\obj\Debug\net5.0\Gymany.csproj.CopyComplete

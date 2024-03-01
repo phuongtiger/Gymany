@@ -1,0 +1,40 @@
+@model Gymany.Models.Post
+@{
+    ViewData["Title"] = "EditPost";
+}
+@{
+    Layout = "PTLayout";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<div class="row bg-light p-12">
+    <div class="col-md-12">
+        <form asp-action="EditPost">
+            <input type="hidden" asp-for="PostID">
+            <div class="form-group">
+                <label asp-for="Title" class="control-label h3"></label>
+                <input asp-for="Title" class="form-control form-control-lg" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label h3"></label>
+                <input readonly type="date" asp-for="Date" class="form-control form-control-lg" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Content" class="control-label h3"></label>
+                <textarea asp-for="Content" class="form-control form-control-lg text-justify"></textarea>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image" class="control-label h3"></label>
+                <input asp-for="Image" class="form-control form-control-lg" />
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="PTID" class="form-control form-control-lg" value="@ViewBag.PTID" />              
+            </div>
+            <div class="form-group">
+                <label asp-for="StaffID" class="control-label h3">StaffID</label>
+                <input readonly asp-for="StaffID" class="form-control form-control-lg" />
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg">Update</button>
+        </form>
+    </div>
+</div>
+

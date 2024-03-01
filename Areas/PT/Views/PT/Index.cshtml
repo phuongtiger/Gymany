@@ -1,0 +1,47 @@
+@{
+    ViewData["Title"] = "Index";
+}
+@{
+    Layout = "PTLayout";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<h1 class="text-white text-center">MEMBER</h1>
+<div class="container">
+    <table class="table bg-white shadow">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    <label>Id</label>
+                </th>
+                <th>
+                    <label>Date</label>
+                </th>
+                <th>
+                    <label>Status</label>
+                </th>
+                <th>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <span> @item.MemberID</span>
+                    </td>
+                    <td>
+                        <span> @item.Date</span>
+                    </td>
+                    <td>
+                        <span> @item.Status</span>
+                    </td>
+                    <td>
+                        <a asp-area="PT" asp-action="MemberDetail" asp-route-id="@item.CustomerID" class="btn btn-outline-success">Detail</a>
+                        <a asp-area="PT" asp-action="SendMessage" asp-route-id="@item.CustomerID" class="btn btn-outline-danger">Send Message</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

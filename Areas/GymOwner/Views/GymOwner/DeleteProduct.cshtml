@@ -1,0 +1,18 @@
+@model Gymany.Models.Product
+
+@{
+    Layout = "GymOwnerLayout";
+}
+@* declare tag helper in areas *@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<form asp-action="DeleteProduct" method="post">
+    <input type="hidden" asp-for="ProductID" />
+     <div class="text-center">
+        <h2 class="display-4">Are You Want to delete this product</h2>
+    </div>
+    <div class="text-center">
+         <button type="submit" class="btn btn-danger">Delete</button> Or <a asp-action="Product" asp-controller="GymOwner" class="btn btn-success">Back to Product</a>
+    </div>
+   
+
+</form>

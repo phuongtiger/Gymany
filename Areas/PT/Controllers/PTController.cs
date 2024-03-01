@@ -23,6 +23,7 @@ namespace Gymany.Controllers
         private string api_GetCustomerByID;
         private string api_post;
         private string api_PT;
+        private string api_Nof;
         private string api_GetPostID;
         private string api_GetPostPTID;
         public PTController()
@@ -33,6 +34,7 @@ namespace Gymany.Controllers
             this.api = "https://localhost:5002/api/Member";
             // this.api_GetCustomerByID = "https://localhost:5002/api/Customer/id";
             this.api_post = "https://localhost:5002/api/Post";
+            this.api_Nof = "https://localhost:5002/api/Notification";
             this.api_PT = "https://localhost:5002/api/PT";
             this.api_GetPostID = "https://localhost:5002/api/Post/id";
         }
@@ -40,7 +42,7 @@ namespace Gymany.Controllers
         {
             if (!checkLogin())
             {
-                return RedirectToAction("PTLogin");
+                return RedirectToAction("Form");
             }
             HttpResponseMessage response = await client.GetAsync(api);
             string data = await response.Content.ReadAsStringAsync();
@@ -52,27 +54,27 @@ namespace Gymany.Controllers
         {
             if (!checkLogin())
             {
-                return RedirectToAction("PTLogin");
+                return RedirectToAction("Form");
             }
             string id = HttpContext.Session.GetString("ID");
 
             // Kiểm tra xem ID có tồn tại không
             if (!string.IsNullOrEmpty(id))
             {
-                // Đã lấy được ID từ Session, bạn có thể sử dụng nó ở đây
-                Console.WriteLine("ID từ Session: " + id);
             }
             else
             {
                 // ID không tồn tại trong Session, xử lý tùy ý
-                return RedirectToAction("PTLogin");
+                return RedirectToAction("Form");
             }
             api_GetPostPTID = $"https://localhost:5002/api/Post/ptid?ptid={id}";
             HttpResponseMessage response = await client.GetAsync(api_GetPostPTID);
             if (response.StatusCode == HttpStatusCode.NotFound)
             {
                 return View();
-            }else{
+            }
+            else
+            {
                 string data = await response.Content.ReadAsStringAsync();
                 var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                 List<Post> list = JsonSerializer.Deserialize<List<Post>>(data, options);
@@ -84,7 +86,7 @@ namespace Gymany.Controllers
         {
             if (!checkLogin())
             {
-                return RedirectToAction("PTLogin");
+                return RedirectToAction("Form");
             }
             return View();
         }
@@ -98,11 +100,14 @@ namespace Gymany.Controllers
             return View(customer);
         }
 
-        public async Task<IActionResult> CreatePost()
+        public IActionResult CreatePost()
         {
+            if (!checkLogin())
+            {
+                return RedirectToAction("Form");
+            }
             // Gọi PTID đã lữu trong session
             int ptid = Convert.ToInt32(HttpContext.Session.GetString("ID"));
-
             // Gán PTID vào ViewBag để sử dụng trong view
             ViewBag.PTID = ptid;
             return View();
@@ -126,6 +131,10 @@ namespace Gymany.Controllers
 
         public async Task<ActionResult> DeletePost(int? id)
         {
+            if (!checkLogin())
+            {
+                return RedirectToAction("Form");
+            }
             api_GetPostID = $"https://localhost:5002/api/Post/id?id={id}";
             HttpResponseMessage respone = await client.GetAsync(api_GetPostID);
             string data = await respone.Content.ReadAsStringAsync();
@@ -158,6 +167,7 @@ namespace Gymany.Controllers
             catch (Exception ex)
             {
                 // Xử lý lỗi nếu có
+                System.Console.WriteLine(ex);
                 return View("Error");
             }
         }
@@ -169,7 +179,9 @@ namespace Gymany.Controllers
             string data = await respone.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             Post post = JsonSerializer.Deserialize<Post>(data, options);
-            ViewBag.PTID = await GetPTNameSelected();
+            int ptid = Convert.ToInt32(HttpContext.Session.GetString("ID"));
+            // Gán PTID vào ViewBag để sử dụng trong view
+            ViewBag.PTID = ptid;
             return View(post);
         }
 
@@ -190,29 +202,51 @@ namespace Gymany.Controllers
             return View(obj);
         }
 
+        public async Task<ActionResult> SendMessage(int? id)
+        {
+            int ptid = Convert.ToInt32(HttpContext.Session.GetString("ID"));
+            ViewBag.cusid = id;
+            ViewBag.ptid = ptid;
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> SendMessage(Notification obj)
+        {
+            if (ModelState.IsValid)
+            {
+                string data = JsonSerializer.Serialize(obj);
+                var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync(api_Nof, content);
+                if (response.StatusCode == System.Net.HttpStatusCode.Created){
+                    return RedirectToAction("Index");
+                } 
+            }
+            return View(obj);
+        }
+
         public IActionResult BackToLogin()
         {
 
             return Redirect(Url.Action("Login", "Customer"));
         }
 
-        public IActionResult PTRegister()
+        public IActionResult Form()
         {
-
             return View();
         }
 
         public async Task<ActionResult> PTLogin(string email, string password)
         {
             api_post = $"https://localhost:5002/api/PT/checklogin?email={email}&password={password}";
-            var gymOwner = new GymOwner { Username = email, Password = password };
-            var content = new StringContent(JsonSerializer.Serialize(gymOwner), Encoding.UTF8, "application/json");
+            var PT = new PersonalTrainer { Username = email, Password = password };
+            var content = new StringContent(JsonSerializer.Serialize(PT), Encoding.UTF8, "application/json");
             HttpResponseMessage response = await client.PostAsync(api_post, content);
-            Console.WriteLine(response.Content.ToString());
             if (response.IsSuccessStatusCode)
             {
+                //Đọc dữ liệu
                 string jsonString = await response.Content.ReadAsStringAsync();
-
+                //cho dữ liệu vào jsonObject
                 JObject jsonObject = JObject.Parse(jsonString);
 
                 // Lấy giá trị của trường "id"
@@ -229,9 +263,17 @@ namespace Gymany.Controllers
                 Console.WriteLine($"Error: {response.StatusCode}");
                 // Hiển thị thông báo lỗi
                 ViewData["Error"] = "Invalid username or password";
-                return View("PTLogin");
+                return View("Form");
             }
         }
+
+        public async Task<ActionResult> DeleteSession()
+        {
+            //xóa hết session đang lưu hiện tại
+            HttpContext.Session.Clear();
+            return View("form");
+        }
+
 
         public async Task<List<SelectListItem>> GetPTNameSelected()
         {

@@ -30,6 +30,7 @@ namespace Gymany
             services.AddDistributedMemoryCache();
             services.AddSession((option) =>
             {
+                option.Cookie.Name = "Username";
                 option.Cookie.Name = "Email";
                 option.IdleTimeout = new TimeSpan(0, 30, 0);
             });
@@ -48,21 +49,29 @@ namespace Gymany
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            
+            //đăng ký session
             app.UseSession();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
-            {
+            {   
+                 endpoints.MapAreaControllerRoute(
+                    name: "PTPage",
+                    pattern: "{controller}/{action=Index}/{id?}",
+                    areaName: "PT"
+                );
                 endpoints.MapAreaControllerRoute(
-                   name: "adminpage",
-                   pattern: "{controller}/{action=Index}/{id?}",
-                   areaName: "GymOwner"
-                   );
+                    name: "GymOwnerPage",
+                    pattern: "{controller}/{action=Index}/{id?}",
+                    areaName: "GymOwner"
+                );
 
                 endpoints.MapControllerRoute(
                     name: "default",

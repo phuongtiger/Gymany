@@ -10,12 +10,21 @@
 @* declare tag helper in areas *@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 <style>
-    .container-fluid{
-        margin-left :8rem;
+    .container-fluid {
+        margin-left: 8rem;
+    }
+
+    .text-center h1.display-4 {
+        font-weight: bold;
+        font-size: 5em;
     }
 </style>
+<div class="text-center">
+    <h1 class="display-4">Post Manage</h1>
+</div>
+<br>
 <div class="container-fluid">
-    <a asp-action="AddPost" asp-controller="GymOwner" class="btn btn-danger">Add new</a>
+    <a asp-action="AddPost" asp-controller="GymOwner" class="btn btn-danger">Add new Post</a>
     <a asp-action="Home" asp-controller="GymOwner" class="btn btn-primary">Back to PersonalTrainer Page</a>
     <hr>
     <table class="table">
@@ -43,8 +52,10 @@
                     <td>@post.PTID</td>
                     <td>@post.StaffID</td>
                     <td>
-                        <a asp-controller="GymOwner" asp-action="UpdatePost" class="btn btn-danger" asp-route-id="@post.PostID">Update</a>
-                        <a asp-controller="GymOwner" asp-action="DeletePost" class="btn btn-danger" asp-route-id="@post.PostID">Delete</a>
+                        <a asp-controller="GymOwner" asp-action="UpdatePost" class="btn btn-danger"
+                            asp-route-id="@post.PostID">Update</a>
+                        <a asp-controller="GymOwner" asp-action="DeletePost" class="btn btn-danger"
+                            asp-route-id="@post.PostID">Delete</a>
                     </td>
                 </tr>
             }

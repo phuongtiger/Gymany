@@ -12,6 +12,7 @@ namespace Gymany.Models
         [Key]
         public int CartID { get; set; }
 
+        [Required(ErrorMessage = "Quantity is required.")]
         public int? Quantity { get; set; }
 
         [ForeignKey("Customer")]

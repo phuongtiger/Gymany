@@ -40,7 +40,9 @@ namespace Gymany.Controllers
 
         private string api_PostById;
 
+        private string api_Staff;
 
+        private string api_StaffById;
         public GymOwnerController()
         {
             client = new HttpClient();
@@ -57,8 +59,8 @@ namespace Gymany.Controllers
             this.api_PersonalTrainerById = "https://localhost:5002/api/PT/id";
             this.api_Post = "https://localhost:5002/api/Post";
             this.api_PostById = "https://localhost:5002/api/Post/id";
-
-
+            this.api_Staff = "https://localhost:5002/api/Staff";
+            this.api_StaffById = "https://localhost:5002/api/Staff/api";
 
         }
 
@@ -74,21 +76,22 @@ namespace Gymany.Controllers
 
 
         //page login for admin 
-        public IActionResult Index()
+        public IActionResult Index(string error = null)
         {
+            ViewData["Error"] = error;
             return View(new GymOwner());
         }
         [HttpPost]
         public async Task<IActionResult> Login(string username, string password)
         {
+
+
             api_GymOwner = $"https://localhost:5002/api/GymOwner/checklogin?username={username}&password={password}";
             var gymOwner = new GymOwner { Username = username, Password = password };
             var content = new StringContent(JsonSerializer.Serialize(gymOwner), Encoding.UTF8, "application/json");
             HttpResponseMessage response = await client.PostAsync(api_GymOwner, content);
-            Console.WriteLine(gymOwner);
             if (response.IsSuccessStatusCode)
             {
-                System.Console.WriteLine("1");
                 // var user = await response.Content.ReadFromJsonAsync<GymOwner>();
                 // Lưu thông tin người dùng vào session hoặc cookie
                 HttpContext.Session.SetString("Username", username);
@@ -98,10 +101,8 @@ namespace Gymany.Controllers
             }
             else
             {
-                System.Console.WriteLine("2");
-                Console.WriteLine($"Error: {response.StatusCode}");
                 // Hiển thị thông báo lỗi
-                ViewData["Error"] = "Invalid username or password";
+                ViewData["Error"] = "Username or password is wrong, Please input again!";
                 return View("Index", gymOwner);
             }
         }
@@ -121,19 +122,23 @@ namespace Gymany.Controllers
             return View(list);
 
         }
-        public IActionResult AddProduct()
+        public async Task<IActionResult> AddProductAsync()
         {
+            ViewBag.CategoryID = await GetSelectItem();
             // TODO: Your code here
             return View();
         }
         [HttpPost]
         public async Task<IActionResult> AddProduct(Product obj)
         {
+            ViewBag.CategoryID = await GetSelectItem();
             if (ModelState.IsValid)
             {
+
                 string data = JsonSerializer.Serialize(obj);
                 var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(api, content);
+
                 if (response.StatusCode == System.Net.HttpStatusCode.Created)
                     return RedirectToAction("Product");
             }
@@ -141,21 +146,19 @@ namespace Gymany.Controllers
         }
         public async Task<IActionResult> UpdateProduct(int id)
         {
+
             api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
             HttpResponseMessage response = await client.GetAsync(api_ProductByID);
 
             ViewBag.ProductID = id;
-            //khai báo list trước khi lấy id của category
-            List<SelectListItem> selectItems = await GetSelectItem();
+            ViewBag.CategoryID = await GetSelectItem();
 
-            // Lấy ID của category cần thiết từ danh sách mục select rồi Gán ID của category vào ViewBag
-            ViewBag.CategoryID = selectItems.FirstOrDefault()?.Value;
 
             if (response.IsSuccessStatusCode)
             {
                 var data = response.Content.ReadAsStringAsync().Result;
-                var product = JsonSerializer.Deserialize<Product>(data);
-
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                var product = JsonSerializer.Deserialize<Product>(data, options);
                 return View(product);
             }
             return NotFound();
@@ -165,6 +168,8 @@ namespace Gymany.Controllers
         {
             api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
             obj.ProductID = id;
+            ViewBag.ProductID = id;
+            ViewBag.CategoryID = await GetSelectItem();
             string data = JsonSerializer.Serialize(obj);
             var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
             HttpResponseMessage response = await client.PutAsync(api_ProductByID, content);
@@ -182,7 +187,8 @@ namespace Gymany.Controllers
             if (response.IsSuccessStatusCode)
             {
                 var data = response.Content.ReadAsStringAsync().Result;
-                var product = JsonSerializer.Deserialize<Product>(data);
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                var product = JsonSerializer.Deserialize<Product>(data, options);
                 return View(product);
             }
             return NotFound();
@@ -215,13 +221,14 @@ namespace Gymany.Controllers
             catch (Exception ex)
             {
                 // Xử lý lỗi nếu có
+                System.Console.WriteLine(ex);
                 return View("Error");
             }
         }
 
 
         //-----------------Account Customer Page----------------------------------
-        public async Task<IActionResult> CustomerAccout()
+        public async Task<IActionResult> CustomerAccount()
         {
             if (!checkLogin())
             {
@@ -235,13 +242,13 @@ namespace Gymany.Controllers
 
         }
         //add customer
-        public IActionResult AddCustomerAccout()
+        public IActionResult AddCustomerAccount()
         {
             // TODO: Your code here
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> AddCustomerAccout(Customer obj)
+        public async Task<IActionResult> AddCustomerAccount(Customer obj)
         {
             if (ModelState.IsValid)
             {
@@ -249,14 +256,14 @@ namespace Gymany.Controllers
                 var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(api_Customer, content);
                 if (response.StatusCode == System.Net.HttpStatusCode.Created)
-                    return RedirectToAction("CustomerAccout");
+                    return RedirectToAction("CustomerAccount");
             }
             return View(obj);
         }
 
 
         //update customer
-        public async Task<IActionResult> UpdateCustomerAccout(int id)
+        public async Task<IActionResult> UpdateCustomerAccount(int id)
         {
             api_CustomerById = $"https://localhost:5002/api/Customer/id?id={id}";
             HttpResponseMessage response = await client.GetAsync(api_CustomerById);
@@ -264,15 +271,15 @@ namespace Gymany.Controllers
             ViewBag.CategoryID = await GetSelectItem();
             if (response.IsSuccessStatusCode)
             {
-
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                 var data = response.Content.ReadAsStringAsync().Result;
-                var product = JsonSerializer.Deserialize<Customer>(data);
+                var product = JsonSerializer.Deserialize<Customer>(data, options);
                 return View(product);
             }
             return NotFound();
         }
         [HttpPost]
-        public async Task<IActionResult> UpdateCustomerAccout(int id, Customer obj)
+        public async Task<IActionResult> UpdateCustomerAccount(int id, Customer obj)
         {
             api_CustomerById = $"https://localhost:5002/api/Customer/id?id={id}";
             obj.CustomerID = id;
@@ -281,26 +288,27 @@ namespace Gymany.Controllers
             HttpResponseMessage response = await client.PutAsync(api_CustomerById, content);
             if (response.IsSuccessStatusCode)
             {
-                return RedirectToAction("CustomerAccout");
+                return RedirectToAction("CustomerAccount");
             }
-            return Redirect("UpdateCustomerAccout");
+            return Redirect("UpdateCustomerAccount");
         }
 
         //method delete customer
-        public async Task<IActionResult> DeleteCustomerAccout(int id)
+        public async Task<IActionResult> DeleteCustomerAccount(int id)
         {
             api_CustomerById = $"https://localhost:5002/api/Customer/id?id={id}";
             HttpResponseMessage response = await client.GetAsync(api_CustomerById);
             if (response.IsSuccessStatusCode)
             {
                 var data = response.Content.ReadAsStringAsync().Result;
-                var customer = JsonSerializer.Deserialize<Customer>(data);
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                var customer = JsonSerializer.Deserialize<Customer>(data, options);
                 return View(customer);
             }
             return NotFound();
         }
         [HttpPost]
-        public async Task<ActionResult> DeleteCustomerAccout(int id, Customer obj)
+        public async Task<ActionResult> DeleteCustomerAccount(int id, Customer obj)
         {
             api_CustomerById = $"https://localhost:5002/api/Customer/id?id={id}";
 
@@ -314,18 +322,17 @@ namespace Gymany.Controllers
                 // Kiểm tra kết quả trả về từ endpoint API
                 if (response.IsSuccessStatusCode)
                 {
-                    // Xử lý kết quả nếu xóa thành công, ví dụ chuyển hướng đến trang danh sách
-                    return RedirectToAction("Customer ");
+                    return RedirectToAction("CustomerAccount");
 
                 }
                 else
                 {
-                    // Xử lý kết quả nếu xóa không thành công, ví dụ hiển thị thông báo lỗi
                     return View();
                 }
             }
             catch (Exception ex)
             {
+                System.Console.WriteLine(ex);
                 // Xử lý lỗi nếu có
                 return View("Error");
             }
@@ -348,13 +355,13 @@ namespace Gymany.Controllers
 
         }
         //method acc pt accout
-        public IActionResult AddPtAccout()
+        public IActionResult AddPtAccount()
         {
             // TODO: Your code here
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> AddPtAccout(PersonalTrainer obj)
+        public async Task<IActionResult> AddPtAccount(PersonalTrainer obj)
         {
             if (ModelState.IsValid)
             {
@@ -367,7 +374,7 @@ namespace Gymany.Controllers
             return View(obj);
         }
         //method update pt accout
-        public async Task<IActionResult> UpdatePtAccout(int id)
+        public async Task<IActionResult> UpdatePtAccount(int id)
         {
             api_PersonalTrainerById = $"https://localhost:5002/api/PT/id?id={id}";
             HttpResponseMessage response = await client.GetAsync(api_PersonalTrainerById);
@@ -375,15 +382,15 @@ namespace Gymany.Controllers
 
             if (response.IsSuccessStatusCode)
             {
-
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                 var data = response.Content.ReadAsStringAsync().Result;
-                var pt = JsonSerializer.Deserialize<PersonalTrainer>(data);
+                var pt = JsonSerializer.Deserialize<PersonalTrainer>(data, options);
                 return View(pt);
             }
             return NotFound();
         }
         [HttpPost]
-        public async Task<IActionResult> UpdatePtAccout(int id, PersonalTrainer obj)
+        public async Task<IActionResult> UpdatePtAccount(int id, PersonalTrainer obj)
         {
             api_PersonalTrainerById = $"https://localhost:5002/api/PT/id?id={id}";
             obj.PTID = id;
@@ -394,23 +401,24 @@ namespace Gymany.Controllers
             {
                 return RedirectToAction("PersonalTrainer");
             }
-            return Redirect("UpdatePtAccout");
+            return Redirect("UpdatePtAccount");
         }
         //method delete Pt accout
-        public async Task<IActionResult> DeletePtAccout(int id)
+        public async Task<IActionResult> DeletePtAccount(int id)
         {
             api_PersonalTrainerById = $"https://localhost:5002/api/PT/id?id={id}";
             HttpResponseMessage response = await client.GetAsync(api_PersonalTrainerById);
             if (response.IsSuccessStatusCode)
             {
                 var data = response.Content.ReadAsStringAsync().Result;
-                var pt = JsonSerializer.Deserialize<PersonalTrainer>(data);
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                var pt = JsonSerializer.Deserialize<PersonalTrainer>(data, options);
                 return View(pt);
             }
             return NotFound();
         }
         [HttpPost]
-        public async Task<ActionResult> DeletePtAccout(int id, PersonalTrainer obj)
+        public async Task<ActionResult> DeletePtAccount(int id, PersonalTrainer obj)
         {
             api_PersonalTrainerById = $"https://localhost:5002/api/PT/id?id={id}";
 
@@ -436,6 +444,7 @@ namespace Gymany.Controllers
             }
             catch (Exception ex)
             {
+                System.Console.WriteLine(ex);
                 // Xử lý lỗi nếu có
                 return View("Error");
             }
@@ -455,14 +464,17 @@ namespace Gymany.Controllers
 
         }
         //method acc pt accout
-        public IActionResult AddPost()
+        public async Task<IActionResult> AddPost()
         {
-            // TODO: Your code here
+            ViewBag.Name = await GetPtId();
+            ViewBag.NameStaff = await GetStaffId();
             return View();
         }
         [HttpPost]
         public async Task<IActionResult> AddPost(Post obj)
         {
+            ViewBag.Name = await GetPtId();
+            ViewBag.NameStaff = await GetStaffId();
             if (ModelState.IsValid)
             {
                 string data = JsonSerializer.Serialize(obj);
@@ -476,15 +488,17 @@ namespace Gymany.Controllers
         //method update pt accout
         public async Task<IActionResult> UpdatePost(int id)
         {
+            ViewBag.Name = await GetPtId();
+            ViewBag.NameStaff = await GetStaffId();
             api_Post = $"https://localhost:5002/api/Post/id?id={id}";
             HttpResponseMessage response = await client.GetAsync(api_Post);
             ViewBag.PostID = id;
 
             if (response.IsSuccessStatusCode)
             {
-
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                 var data = response.Content.ReadAsStringAsync().Result;
-                var post = JsonSerializer.Deserialize<Post>(data);
+                var post = JsonSerializer.Deserialize<Post>(data, options);
                 return View(post);
             }
             return NotFound();
@@ -492,6 +506,8 @@ namespace Gymany.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdatePost(int id, Post obj)
         {
+            ViewBag.Name = await GetPtId();
+            ViewBag.NameStaff = await GetStaffId();
             api_Post = $"https://localhost:5002/api/Post/id?id={id}";
             obj.PostID = id;
             string data = JsonSerializer.Serialize(obj);
@@ -511,8 +527,9 @@ namespace Gymany.Controllers
             HttpResponseMessage response = await client.GetAsync(api_Post);
             if (response.IsSuccessStatusCode)
             {
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                 var data = response.Content.ReadAsStringAsync().Result;
-                var post = JsonSerializer.Deserialize<Post>(data);
+                var post = JsonSerializer.Deserialize<Post>(data, options);
                 return View(post);
             }
             return NotFound();
@@ -544,6 +561,7 @@ namespace Gymany.Controllers
             }
             catch (Exception ex)
             {
+                System.Console.WriteLine(ex);
                 // Xử lý lỗi nếu có
                 return View("Error");
             }
@@ -569,6 +587,34 @@ namespace Gymany.Controllers
             }).ToList();
             return yourData;
         }
+
+        public async Task<List<SelectListItem>> GetPtId()
+        {
+            HttpResponseMessage respone = await client.GetAsync(api_PersonalTrainer);
+            string data = await respone.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            List<PersonalTrainer> list = JsonSerializer.Deserialize<List<PersonalTrainer>>(data, options);
+            List<SelectListItem> yourData = list.Select(c => new SelectListItem
+            {
+                Value = c.PTID.ToString(), // ID của category là giá trị của mục
+                Text = c.Name // Tên của category là nội dung của mục
+            }).ToList();
+            return yourData;
+        }
+        public async Task<List<SelectListItem>> GetStaffId()
+        {
+            HttpResponseMessage respone = await client.GetAsync(api_Staff);
+            string data = await respone.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            List<Staff> list = JsonSerializer.Deserialize<List<Staff>>(data, options);
+            List<SelectListItem> yourData = list.Select(c => new SelectListItem
+            {
+                Value = c.StaffID.ToString(), // ID của category là giá trị của mục
+                Text = c.Name // Tên của category là nội dung của mục
+            }).ToList();
+            return yourData;
+        }
+
 
 
         //method check session

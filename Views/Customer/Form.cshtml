@@ -1,0 +1,36 @@
+@{
+    ViewData["Title"] = "Login Form";
+}
+
+
+<style>
+
+</style>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card-header bg text-white text-center display-4">LOGIN</div>
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="card-body">
+                    <form asp-action="Login" method="post">
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" class="form-control" id="username" name="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" class="form-control" id="password" name="password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">LOGIN</button>
+                    </form>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <a asp-action="Register" class="btn btn-outline-primary btn-primary">Register</a>
+                <a asp-action="PTPage" class="btn btn-outline-primary btn-primary">PT Login</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -10,12 +10,21 @@
 @* declare tag helper in areas *@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 <style>
-    .container-fluid{
-        margin-left :8rem;
+    .container-fluid {
+        margin-left: 8rem;
+    }
+
+    .text-center h1.display-4 {
+        font-weight: bold;
+        font-size: 5em;
     }
 </style>
+<div class="text-center">
+    <h1 class="display-4">Personal Trainer Manage</h1>
+</div>
+<br>
 <div class="container-fluid">
-    <a asp-action="AddPtAccout" asp-controller="GymOwner" class="btn btn-danger">Add new</a>
+    <a asp-action="AddPtAccount" asp-controller="GymOwner" class="btn btn-danger">Add new PT Accout</a>
     <a asp-action="Home" asp-controller="GymOwner" class="btn btn-primary">Back to GymOwner Page</a>
     <hr>
     <table class="table">
@@ -45,8 +54,10 @@
                     <td>@trainer.Salary</td>
                     <td>@trainer.Email</td>
                     <td>
-                        <a asp-controller="GymOwner" asp-action="UpdatePtAccout" class="btn btn-danger" asp-route-id="@trainer.PTID">Update</a>
-                        <a asp-controller="GymOwner" asp-action="DeletePtAccout" class="btn btn-danger" asp-route-id="@trainer.PTID">Delete</a>
+                        <a asp-controller="GymOwner" asp-action="UpdatePtAccount" class="btn btn-danger"
+                            asp-route-id="@trainer.PTID">Update</a>
+                        <a asp-controller="GymOwner" asp-action="DeletePtAccount" class="btn btn-danger"
+                            asp-route-id="@trainer.PTID">Delete</a>
                     </td>
                 </tr>
             }

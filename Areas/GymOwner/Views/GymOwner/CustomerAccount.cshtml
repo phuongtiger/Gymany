@@ -1,0 +1,69 @@
+@{
+    ViewData["Title"] = "CustomerAccount";
+}
+
+@* using layout of Gymowner *@
+@{
+    Layout = "GymManageLayout";
+}
+
+
+@* declare tag helper in areas *@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<style>
+    .container-fluid {
+        margin-left: 8rem;
+    }
+
+    .text-center h1.display-4 {
+        font-weight: bold;
+        font-size: 5em;
+    }
+</style>
+<div class="text-center">
+    <h1 class="display-4">Customer Manage</h1>
+</div>
+<br>
+<div class="container-fluid">
+    <a asp-action="AddCustomerAccount" asp-controller="GymOwner" class="btn btn-danger">Add new Customer Accout</a>
+    <a asp-action="Home" asp-controller="GymOwner" class="btn btn-primary">Back to GymOwner Page</a>
+    <hr>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>CustomerID</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Age</th>
+                <th>Image</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+                <tr>
+                    <td>@customer.CustomerID</td>
+                    <td>@customer.Username</td>
+                    <td>@customer.Password</td>
+                    <td>@customer.Name</td>
+                    <td>@customer.Address</td>
+                    <td>@customer.Age</td>
+                    <td>@customer.Image</td>
+                    <td>@customer.Phone</td>
+                    <td>@customer.Email</td>
+                    <td>
+                        <a asp-controller="GymOwner" asp-action="UpdateCustomerAccount" class="btn btn-danger"
+                            asp-route-id="@customer.CustomerID">Update</a>
+                        <a asp-controller="GymOwner" asp-action="DeleteCustomerAccount" class="btn btn-danger"
+                            asp-route-id="@customer.CustomerID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,22 @@
+@model Gymany.Models.Customer
+
+@{
+    ViewData["Title"] = "DeleteCustomerAccount";
+}
+
+@{
+    Layout = "GymOwnerLayout";
+}
+@* declare tag helper in areas *@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<form asp-action="DeleteCustomerAccount" method="post">
+    <input type="hidden" asp-for="CustomerID" />
+     <div class="text-center">
+        <h2 class="display-4">Are You Want to delete this Customer accout</h2>
+    </div>
+    <div class="text-center">
+         <button type="submit">Delete</button> Or <a asp-action="CustomerAccount" asp-controller="GymOwner" class="btn btn-danger">Back to Customer</a>
+    </div>
+   
+
+</form>

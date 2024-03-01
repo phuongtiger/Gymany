@@ -12,8 +12,10 @@ namespace Gymany.Models
         [Key]
         public int PaymentID { get; set; }
 
+        [Required(ErrorMessage = "Date is required.")]
         public DateTime? Date { get; set; }
 
+        [Required(ErrorMessage = "Quantity is required.")]
         public int? Quantity { get; set; }
 
         [ForeignKey("Customer")]

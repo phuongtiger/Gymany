@@ -202,7 +202,7 @@ namespace Gymany.Controllers
             return View(obj);
         }
 
-        public async Task<ActionResult> SendMessage(int? id)
+        public IActionResult SendMessage(int? id)
         {
             int ptid = Convert.ToInt32(HttpContext.Session.GetString("ID"));
             ViewBag.cusid = id;
@@ -265,7 +265,7 @@ namespace Gymany.Controllers
             }
         }
 
-        public async Task<ActionResult> DeleteSession()
+        public IActionResult DeleteSession()
         {
             //xóa hết session đang lưu hiện tại
             HttpContext.Session.Clear();

@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model Gymany.Models.ListModels
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -48,7 +49,7 @@
                 <span class="span">Gymany</span>
             </a>
 
-            <nav class="navbar" data-navbar>
+            <nav class="navbar header__navbar" data-navbar>
 
                 <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
                     <ion-icon name="close-sharp" aria-hidden="true"></ion-icon>
@@ -71,13 +72,6 @@
                     <li>
                         <a href="#blog" class="navbar-link" data-nav-link>Blog</a>
                     </li>
-
-
-                  
-                    <li>
-                        <a href="#" class="navbar-link" data-nav-link>Contact Us</a>
-                    </li>
-
                     <li>
                         <form action="" id="search-box">
                             <input type="text" id="search-text" placeholder="Search"> <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -89,14 +83,47 @@
             </nav>
 
             <a href="#" class="btn btn-secondary">Join Now</a>
-            <a asp-controller="Customer" asp-action="Login"><button class="custom-button"><i class="fa-solid fa-user"></i></button></a>
+            <a asp-controller="Customer" asp-action="Profile"><button class="custom-button"><i class="fa-solid fa-user"></i></button></a>
             <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
                 <span class="line"></span>
                 <span class="line"></span>
                 <span class="line"></span>
             </button>
+            <div class="notification-icon">
+                <!-- Icon được lấy từ Font Awesome -->
+                <a href="#"><i style="font-size: 25px;color:#ff9500;" class="fas fa-bell" id="notification-icon"></i></a>
+                <!-- Hiển thị số lượng thông báo bên cạnh icon -->
+                <span class="notification-badge">0</span>
+            </div>
+            <div class="no_popup_main">
+                <div class="notification-popup" id="notification-popup">
+                    <span class="close-btn" onclick="closeNotificationPopup()">&times;</span>
+                    <h2 style="padding-bottom: 20px;">Notification</h2>
+                    @* @if(Model.Notifications != null){
+                        @foreach (var item in Model.Notifications)
+                        {
+                            <div class="noti_block">
+                                <p class="notification-header">Thông báo từ PT</p>
+                                <p class="notification-message">@Html.DisplayFor(modelItem => item.Context) </p>
+                            </div>
+                        }
+                    }else{
+                        <p class="notification-header">Bạn không có thông báo vui lòng đăng nhập!</p>
+                    }
+                </div> *@
+            </div>
+            <script>
+                // Hiển thị popup khi nhấn vào icon
+                document.getElementById('notification-icon').addEventListener('click', function() {
+                    document.getElementById('notification-popup').style.display = 'block';
+                });
 
-        </div>
+                // Đóng popup khi nhấn vào nút đóng
+                function closeNotificationPopup() {
+                    document.getElementById('notification-popup').style.display = 'none';
+                }
+            </script>
+        
     </header>
     <div class="container container-main">
         <main role="main" class="pb-3">

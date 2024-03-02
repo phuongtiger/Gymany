@@ -21,7 +21,14 @@ namespace Gymany.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            List<Product> products = null;
+            List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
+            var viewModel = new ListModels
+            {
+                Products = products,
+                Notifications = notifications
+            };
+            return View(viewModel);
         }
 
         public IActionResult Privacy()

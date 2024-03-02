@@ -17,7 +17,7 @@ namespace Gymany.Controllers
         
         private readonly HttpClient client = null;
         private string api_CartById;
- public CartController()
+        public CartController()
         {
             client = new HttpClient();
             var contentType = new MediaTypeWithQualityHeaderValue("application/json");
@@ -30,7 +30,8 @@ namespace Gymany.Controllers
             string data = await respone.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             List<Cart> list = JsonSerializer.Deserialize<List<Cart>>(data, options);
-            return View(list);
+            ListModels model = new ListModels();
+            return View(model);
         }
      
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -13,72 +14,126 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 
-
 namespace Gymany.Controllers
 {
     public class CustomerController : Controller
     {
 
-         private readonly HttpClient client = null;
-        private string apiCustomer;
-        private string api_CustomerByID;
 
-          public CustomerController(){
+        private readonly HttpClient client = null;
+
+        private string apiCustomer;
+        private string apiWorkoutPlan;
+        private string api_CustomerByID;
+        private string api_WorkoutPlanByID;
+        private string api_MemberByCusID;
+
+        public CustomerController()
+        {
             client = new HttpClient();
             var contentType = new MediaTypeWithQualityHeaderValue("application/json");
             client.DefaultRequestHeaders.Accept.Add(contentType);
             this.apiCustomer = "https://localhost:5002/api/Customer";
-            this.api_CustomerByID="https://localhost:5002/api/Customer/id";
-           
+            this.api_CustomerByID = "https://localhost:5002/api/Customer/id";
+            this.api_WorkoutPlanByID = "https://localhost:5002/api/WorkoutPlan/id";
+            this.api_MemberByCusID = "https://localhost:5002/api/Member/customerID";
+
         }
-           public async Task<ActionResult> Profile()
+        public IActionResult Form()
         {
-            if(!checkLogin()){
-                    return RedirectToAction("Login");
+            ListModels model = new ListModels();
+            return View(model);
+        }
+        public async Task<ActionResult> Profile()
+        {
+            if (!checkLogin())
+            {
+                return RedirectToAction("Form");
             }
             string id = HttpContext.Session.GetString("ID");
+            ViewBag.ID=id;
             api_CustomerByID = $"https://localhost:5002/api/Customer/id?id={id}";
             HttpResponseMessage respone = await client.GetAsync(api_CustomerByID);
             string data = await respone.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            Customer customer = JsonSerializer.Deserialize<Customer>(data, options);
-            return View(customer);
+            Customer customernew = JsonSerializer.Deserialize<Customer>(data, options);
+            List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
+            var viewModel = new ListModels
+            {
+                customer = customernew,
+                Notifications = notifications
+            };
+            return View(viewModel);
         }
 
-            public async Task<ActionResult> EditProfile(int? id)
+        public async Task<ActionResult> EditProfile(int? id)
         {
+            
             api_CustomerByID = $"https://localhost:5002/api/Customer/id?id={id}";
             HttpResponseMessage respone = await client.GetAsync(api_CustomerByID);
             string data = await respone.Content.ReadAsStringAsync();
-            var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
-            Customer customer = JsonSerializer.Deserialize<Customer>(data, options);
-            // ViewBag.CutomerID = await GetSelectItem();
-            return View(customer);
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            Customer customer1 = JsonSerializer.Deserialize<Customer>(data, options);
+             var viewModel = new ListModels
+            {
+                customer = customer1
+            };
+            return View(viewModel);
         }
-        
+
         [HttpPost]
-        public async Task<ActionResult> EditProfile(int? id, Customer obj){
+        public async Task<ActionResult> EditProfile(int? id,Customer obj)
+        { 
             api_CustomerByID = $"https://localhost:5002/api/Customer/id?id={id}";
             if (ModelState.IsValid)
             {
-               string data = JsonSerializer.Serialize(obj); 
-               var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
-               HttpResponseMessage respone = await client.PutAsync(api_CustomerByID, content);
-               if (respone.StatusCode == System.Net.HttpStatusCode.Created)
-               {
-                return RedirectToAction("Profile");
-               }
+                string data = JsonSerializer.Serialize(obj);
+                var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+                HttpResponseMessage respone = await client.PutAsync(api_CustomerByID, content);
+                if (respone.StatusCode == System.Net.HttpStatusCode.Created)
+                {
+                    return RedirectToAction("Profile");
+                }
             }
             return View(obj);
         }
 
-    public async Task<ActionResult> Login(string username, string password)
+
+
+
+        public async Task<IActionResult> WorkoutPlan()
+        {
+
+            string id = Convert.ToString(HttpContext.Session.GetString("ID"));
+
+            api_MemberByCusID = $"https://localhost:5002/api/Member/customerID?customerID={id}";
+            HttpResponseMessage response = await client.GetAsync(api_MemberByCusID);
+            if (response.StatusCode == HttpStatusCode.NotFound)
+            {
+                return View();
+            }
+            else
+            {
+                string data = await response.Content.ReadAsStringAsync();
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                Member membernew = JsonSerializer.Deserialize<Member>(data, options);
+                var viewModel = new ListModels
+                {
+                    member = membernew
+
+                };
+                return View(viewModel);
+            }
+        }
+
+
+
+        public async Task<ActionResult> Login(string username, string password)
         {
             apiCustomer = $"https://localhost:5002/api/Customer/checklogin?username={username}&password={password}";
             var customer = new Customer { Username = username, Password = password };
             var content = new StringContent(JsonSerializer.Serialize(customer), Encoding.UTF8, "application/json");
             HttpResponseMessage response = await client.PostAsync(apiCustomer, content);
-            Console.WriteLine(response.Content.ToString());
             if (response.IsSuccessStatusCode)
             {
                 string jsonString = await response.Content.ReadAsStringAsync();
@@ -87,44 +142,62 @@ namespace Gymany.Controllers
 
                 // Lấy giá trị của trường "id"
                 string id = (string)jsonObject["customerID"];
-                System.Console.WriteLine(id);
 
                 HttpContext.Session.SetString("ID", id);
                 HttpContext.Session.SetString("Username", username);
                 HttpContext.Session.SetString("Password", password);
                 // Chuyển hướng đến trang chủ
-                return RedirectToAction("Profile");
+                return RedirectToAction("Index", "Notification");
             }
             else
             {
                 Console.WriteLine($"Error: {response.StatusCode}");
                 // Hiển thị thông báo lỗi
                 ViewData["Error"] = "Invalid username or password";
-                return View("Login");
+                return RedirectToAction("Form");
             }
         }
-   
+
+
+
 
         public IActionResult PTLogin()
         {
             // TODO: Your code here
-            return View();
+            List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
+            var viewModel = new ListModels
+            {
+                Notifications = notifications
+            };
+            return View(viewModel);
         }
 
         public IActionResult Register()
         {
             // TODO: Your code here
-            return View();
+            List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
+            var viewModel = new ListModels
+            {
+                Notifications = notifications
+            };
+            return View(viewModel);
         }
 
-        public IActionResult PTRegister()
+        public IActionResult PTPage()
         {
             // TODO: Your code here
-            return View();
+            // List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
+            // var viewModel = new ListModels
+            // {
+            //     Notifications = notifications
+            // };
+            // return View(viewModel);
+            // Chuyển sang action khác trong cùng khu vực
+            return Redirect(Url.Action("PTLogin", "PT", new { area = "PT" }));
         }
-        
 
-    [HttpPost]
+
+        [HttpPost]
         public bool checkLogin()
         {
             var username = HttpContext.Session.GetString("Username");
@@ -135,6 +208,19 @@ namespace Gymany.Controllers
             }
             return false;
         }
+
+        public async Task<IActionResult> DeleteSession()
+        {
+            // if(HttpContext.Session.GetString("Username")!= null){
+            //     HttpContext.Session.Remove("Username");
+            // }else
+            // {
+            //     return RedirectToAction("Profile");
+            // }
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Home");
+        }
+
     }
 
 }

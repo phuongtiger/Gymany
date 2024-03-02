@@ -47,17 +47,19 @@ namespace Gymany.Controllers
             if(!checkLogin()){
                     return RedirectToAction("Form");
             }
-            string id = HttpContext.Session.GetString("ID");
+            string id = HttpContext.Session.GetString("CustomerID");
             api_CustomerByID = $"https://localhost:5002/api/Customer/id?id={id}";
             HttpResponseMessage respone = await client.GetAsync(api_CustomerByID);
             string data = await respone.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             Customer customernew = JsonSerializer.Deserialize<Customer>(data, options);
             List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
+            string number = HttpContext.Session.GetString("NumberNoti");
             var viewModel = new ListModels
             {
                 customer = customernew,
-                Notifications = notifications
+                Notifications = notifications,
+                NumberNoti = number
             };
             return View(viewModel);
         }
@@ -100,11 +102,9 @@ namespace Gymany.Controllers
                 string jsonString = await response.Content.ReadAsStringAsync();
                 //lấy tất cả thông tin từ id của customer
                 JObject jsonObject = JObject.Parse(jsonString);
-
-                // Lấy giá trị của trường "id"
                 string id = (string)jsonObject["customerID"];
 
-                HttpContext.Session.SetString("ID", id);
+                HttpContext.Session.SetString("CustomerID", id);
                 HttpContext.Session.SetString("Username", username);
                 HttpContext.Session.SetString("Password", password);
                 // Chuyển hướng đến trang chủ
@@ -112,8 +112,6 @@ namespace Gymany.Controllers
             }
             else
             {
-                Console.WriteLine($"Error: {response.StatusCode}");
-                // Hiển thị thông báo lỗi
                 ViewData["Error"] = "Invalid username or password";
                 return RedirectToAction("Form");
             }
@@ -197,36 +195,18 @@ namespace Gymany.Controllers
 
         public IActionResult PTLogin()
         {
-            // TODO: Your code here
-            List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
-            var viewModel = new ListModels
-            {
-                Notifications = notifications
-            };
+            var viewModel = new ListModels();
             return View(viewModel);
         }
 
         public IActionResult Register()
         {
-            // TODO: Your code here
-            List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
-            var viewModel = new ListModels
-            {
-                Notifications = notifications
-            };
+            var viewModel = new ListModels();
             return View(viewModel);
         }
 
         public IActionResult PTPage()
         {
-            // TODO: Your code here
-            // List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
-            // var viewModel = new ListModels
-            // {
-            //     Notifications = notifications
-            // };
-            // return View(viewModel);
-            // Chuyển sang action khác trong cùng khu vực
             return Redirect(Url.Action("PTLogin", "PT", new { area = "PT" }));
         }
         

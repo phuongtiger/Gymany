@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 =======
 >>>>>>> 6a35df892d9302b3b761ea986ea056300af1e160
 using Gymany.Models;
+using Microsoft.AspNetCore.Http;
 
 
 namespace Gymany.Controllers
@@ -33,17 +34,24 @@ namespace Gymany.Controllers
             this.api_ProductByID = "https://localhost:5002/api/Product/id";
             
         }
-        public async Task<ActionResult> Index()
-        {
+        public async Task<List<Product>> GetProduct(){
             HttpResponseMessage respone = await client.GetAsync(api);
             string data = await respone.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
             List<Product> products = JsonSerializer.Deserialize<List<Product>>(data, options);
+            return products;
+        }
+        public async Task<ActionResult> Index()
+        {
+
+            List<Product> products = await GetProduct();
             List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
+            string number = HttpContext.Session.GetString("NumberNoti");
             var viewModel = new ListModels
             {
                 Products = products,
-                Notifications = notifications
+                Notifications = notifications,
+                NumberNoti = number
             };
             return View(viewModel);
         }
@@ -55,10 +63,12 @@ namespace Gymany.Controllers
             var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
             Product productnew = JsonSerializer.Deserialize<Product>(data, options);
             List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
+            string number = HttpContext.Session.GetString("NumberNoti");
             var viewModel = new ListModels
             {
                 product = productnew,
-                Notifications = notifications
+                Notifications = notifications,
+                NumberNoti = number
             };
             return View(viewModel);
         }

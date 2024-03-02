@@ -46,6 +46,13 @@
                                 <input type="password" class="form-control" asp-for="Password" name="Password"
                                     placeholder="Enter password">
                             </div>
+                            @if (ViewData["Error"] != null)
+                            {
+                                <div class="alert alert-danger" role="alert">
+                                    @ViewData["Error"]
+                                </div>
+                            }
+
                             <button type="submit" class="btn btn-primary btn-block">Login</button>
                         </form>
                     </div>

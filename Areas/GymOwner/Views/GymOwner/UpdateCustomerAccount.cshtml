@@ -12,9 +12,9 @@
 <div class="text-center">
     <h2 class="display-4">Update Customer</h2>
 </div>
-<form asp-controller="GymOwner" asp-action="UpdateCustomerAccout" method="post" class="container">
+<form asp-controller="GymOwner" asp-action="UpdateCustomerAccount" method="post" class="container" style="max-width: 1100px;">
 
-      <div class="form-group row">
+    <div class="form-group row">
         <label asp-for="CustomerID" class="col-sm-2 col-form-label">Customer ID:</label>
         <div class="col-sm-10">
             <input type="text" asp-for="CustomerID" value="@ViewBag.CustomerID" class="form-control" readonly>
@@ -80,7 +80,7 @@
     <div class="form-group row">
         <div class="col-sm-10 offset-sm-2">
             <input type="submit" value="Update" class="btn btn-primary">
-            <a asp-action="CustomerAccout" asp-controller="GymOwner" class="btn btn-danger">Back to Customer</a>
+            <a asp-action="CustomerAccount" asp-controller="GymOwner" class="btn btn-danger">Back to Customer</a>
         </div>
     </div>
 </form>

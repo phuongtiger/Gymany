@@ -1,4 +1,5 @@
 ﻿@model Gymany.Models.ListModels
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,7 +72,7 @@
     <header class="header" data-header>
         <div class="container">
 
-            <a href="#" class="logo">
+            <a asp-controller="Home" asp-action="Index" class="logo">
                 <ion-icon name="barbell-sharp" aria-hidden="true"></ion-icon>
 
                 <span class="span">Gymany</span>

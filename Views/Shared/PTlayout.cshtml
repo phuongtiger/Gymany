@@ -1,3 +1,4 @@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,7 +72,7 @@
     <header class="header" data-header>
         <div class="container">
 
-            <a href="#" class="logo">
+            <a asp-controller="PT" asp-aciton="Index" class="logo">
                 <ion-icon name="barbell-sharp" aria-hidden="true"></ion-icon>
 
                 <span class="span">Gymany</span>
@@ -89,7 +90,7 @@
                         </li>
 
                         <li style="text-wrap:nowrap;">
-                            <a href="#class"  class="navbar-link col" data-nav-link>Work Plan</a>
+                             <a asp-controller="WorkOut" asp-action="Index"  class="navbar-link col" data-nav-link>Work Plan</a>
                         </li>
 
                         <li>

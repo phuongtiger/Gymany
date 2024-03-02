@@ -1,0 +1,121 @@
+@model Gymany.Models.GymOwner
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "GymOwnerLayout";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Profile page</h4>
+            </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <div class="d-md-flex">
+                    <ol class="breadcrumb ms-auto">
+                        <li><a href="#" class="fw-normal">Dashboard</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <!-- Row -->
+        <div class="row">
+            <!-- Column -->
+            <div class="col-lg-4 col-xlg-3 col-md-12">
+                <div class="white-box">
+                    <div class="user-bg"> <img width="100%" alt="user" src="/plugins/images/large/img1.jpg">
+                        <div class="overlay-box">
+                            <div class="user-content">
+                                <a href="javascript:void(0)"><img src="/plugins/images/users/genu.jpg"
+                                        class="thumb-lg img-circle" alt="img"></a>
+                                <h4 class="text-white mt-2">@Model.Name</h4>
+                                <h5 class="text-white mt-2">@Model.Email</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-btm-box mt-5 d-md-flex">
+                        <div class="col-md-4 col-sm-4 text-center">
+                            <h1>258</h1>
+                        </div>
+                        <div class="col-md-4 col-sm-4 text-center">
+                            <h1>125</h1>
+                        </div>
+                        <div class="col-md-4 col-sm-4 text-center">
+                            <h1>556</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+            <!-- Column -->
+
+            <div class="col-lg-8 col-xlg-9 col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form asp-controller="GymOwner" asp-action="Profile" method="post">
+                            <div class="form-group mb-4">
+                                <label asp-for="@Model.AdminID" class="col-md-12 p-0">AdminID</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <input type="number" asp-for="@Model.AdminID" class="form-control p-0 border-0">
+                                </div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label asp-for="@Model.Name" class="col-md-12 p-0">Name</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <input type="text" asp-for="@Model.Name" class="form-control p-0 border-0"
+                                        placeholder="@Model.Name">
+                                </div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label asp-for="@Model.Username" class="col-md-12 p-0">Username</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <input type="text" asp-for="@Model.Username" class="form-control p-0 border-0"
+                                        placeholder="@Model.Username">
+                                </div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label asp-for="@Model.Email" class="col-md-12 p-0">Email</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <input type="email" asp-for="@Model.Email" placeholder="@Model.Email"
+                                        class="form-control p-0 border-0">
+                                </div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label asp-for="@Model.Password" class="col-md-12 p-0">Password</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <input asp-for="@Model.Password" type="password" placeholder="@Model.Password" class="form-control p-0 border-0" required>
+                                </div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label asp-for="@Model.Age" class="col-md-12 p-0">Age</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <input asp-for="@Model.Age" type="date" placeholder="@Model.Age"
+                                        class="form-control p-0 border-0">
+                                </div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <div class="col-sm-12">
+                                    <input type="submit" value="Update Profile" class="btn btn-success">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+        </div>

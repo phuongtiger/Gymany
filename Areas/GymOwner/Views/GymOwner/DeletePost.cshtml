@@ -1,7 +1,4 @@
 @model Gymany.Models.Post
-@{
-    ViewData["Title"] = "DeletePost";
-}
 
 @{
     Layout = "GymOwnerLayout";
@@ -11,10 +8,10 @@
 <form asp-action="DeletePost" method="post">
     <input type="hidden" asp-for="PostID" />
      <div class="text-center">
-        <h2 class="display-4">Are You Want to delete this Customer accout</h2>
+        <h2 class="display-4">Are You Want to delete this Post</h2>
     </div>
     <div class="text-center">
-         <button type="submit">Delete</button> Or <a asp-action="Post" asp-controller="GymOwner" class="btn btn-danger">Back to Customer</a>
+         <button type="submit" class="btn btn-danger">Delete</button> Or <a asp-action="Post" asp-controller="GymOwner" class="btn btn-success">Back to Post</a>
     </div>
    
 

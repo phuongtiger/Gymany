@@ -1,22 +1,18 @@
 @model Gymany.Models.PersonalTrainer
-@{
-    ViewData["Title"] = "DeletePtAccount";
-}
+
 @{
     Layout = "GymOwnerLayout";
 }
 @* declare tag helper in areas *@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-
-<form asp-action="DeletePtAccount" method="post">
+<form asp-action="DeletePTAccount" method="post">
     <input type="hidden" asp-for="PTID" />
-    <div class="text-center">
-        <h2 class="display-4">Are You Want to delete this Personal Trainer accout</h2>
+     <div class="text-center">
+        <h2 class="display-4">Are You Want to delete this PT</h2>
     </div>
     <div class="text-center">
-        <button type="submit">Delete</button> Or <a asp-action="PersonalTrainer" asp-controller="GymOwner"
-            class="btn btn-danger">Back to Personal Trainer</a>
+         <button type="submit" class="btn btn-danger">Delete</button> Or <a asp-action="PersonalTrainer" asp-controller="GymOwner" class="btn btn-success">Back to PT</a>
     </div>
-
+   
 
 </form>

@@ -62,6 +62,8 @@ namespace Gymany.Controllers
             this.api_Staff = "https://localhost:5002/api/Staff";
             this.api_StaffById = "https://localhost:5002/api/Staff/api";
 
+
+
         }
 
         // ------------------page of admin after login successfull-------------------------
@@ -71,7 +73,7 @@ namespace Gymany.Controllers
             {
                 return Redirect("/GymOwner/Index");
             }
-            return View("Home", "GymManageLayout");
+            return View("Home");
         }
 
 
@@ -84,8 +86,6 @@ namespace Gymany.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(string username, string password)
         {
-
-
             api_GymOwner = $"https://localhost:5002/api/GymOwner/checklogin?username={username}&password={password}";
             var gymOwner = new GymOwner { Username = username, Password = password };
             var content = new StringContent(JsonSerializer.Serialize(gymOwner), Encoding.UTF8, "application/json");
@@ -101,8 +101,10 @@ namespace Gymany.Controllers
             }
             else
             {
+                System.Console.WriteLine("2");
+                Console.WriteLine($"Error: {response.StatusCode}");
                 // Hiển thị thông báo lỗi
-                ViewData["Error"] = "Username or password is wrong, Please input again!";
+                ViewData["Error"] = "Invalid username or password";
                 return View("Index", gymOwner);
             }
         }
@@ -122,7 +124,7 @@ namespace Gymany.Controllers
             return View(list);
 
         }
-        public async Task<IActionResult> AddProductAsync()
+        public async Task<IActionResult> AddProduct()
         {
             ViewBag.CategoryID = await GetSelectItem();
             // TODO: Your code here
@@ -134,11 +136,9 @@ namespace Gymany.Controllers
             ViewBag.CategoryID = await GetSelectItem();
             if (ModelState.IsValid)
             {
-
                 string data = JsonSerializer.Serialize(obj);
                 var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(api, content);
-
                 if (response.StatusCode == System.Net.HttpStatusCode.Created)
                     return RedirectToAction("Product");
             }
@@ -146,12 +146,11 @@ namespace Gymany.Controllers
         }
         public async Task<IActionResult> UpdateProduct(int id)
         {
-
             api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
             HttpResponseMessage response = await client.GetAsync(api_ProductByID);
-
             ViewBag.ProductID = id;
             ViewBag.CategoryID = await GetSelectItem();
+            // Lấy ID của category cần thiết từ danh sách mục select rồi Gán ID của category vào ViewBag
 
 
             if (response.IsSuccessStatusCode)
@@ -322,11 +321,13 @@ namespace Gymany.Controllers
                 // Kiểm tra kết quả trả về từ endpoint API
                 if (response.IsSuccessStatusCode)
                 {
+                    // Xử lý kết quả nếu xóa thành công, ví dụ chuyển hướng đến trang danh sách
                     return RedirectToAction("CustomerAccount");
 
                 }
                 else
                 {
+                    // Xử lý kết quả nếu xóa không thành công, ví dụ hiển thị thông báo lỗi
                     return View();
                 }
             }
@@ -587,7 +588,7 @@ namespace Gymany.Controllers
             }).ToList();
             return yourData;
         }
-
+        //method get pt Id
         public async Task<List<SelectListItem>> GetPtId()
         {
             HttpResponseMessage respone = await client.GetAsync(api_PersonalTrainer);
@@ -601,6 +602,7 @@ namespace Gymany.Controllers
             }).ToList();
             return yourData;
         }
+        // method get Staff id
         public async Task<List<SelectListItem>> GetStaffId()
         {
             HttpResponseMessage respone = await client.GetAsync(api_Staff);
@@ -614,8 +616,6 @@ namespace Gymany.Controllers
             }).ToList();
             return yourData;
         }
-
-
 
         //method check session
         public bool checkLogin()

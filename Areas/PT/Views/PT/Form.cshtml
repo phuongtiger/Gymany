@@ -1,0 +1,36 @@
+@{
+    ViewData["Title"] = "Form";
+}
+@{
+    Layout = "PTLayout";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<style>
+
+</style>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card-header bg text-white text-center display-4">PT LOGIN</div>
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="card-body">
+                    <form asp-action="PTLogin">
+                        <div class="form-group">
+                            <label for="username" class="h5"><b>Username:</b></label>
+                            <input type="text" class="form-control form-control-lg" id="email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="h5"><b>Password:</b></label>
+                            <input type="password" class="form-control form-control-lg" id="password" name="password">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg"><b>LOGIN</b></button>
+                    </form>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <a asp-area="PT" asp-action="BackToLogin" class="btn btn-outline-primary btn-primary">Back</a>
+            </div>
+        </div>
+    </div>
+</div>

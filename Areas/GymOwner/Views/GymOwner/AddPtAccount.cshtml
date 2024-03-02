@@ -1,6 +1,6 @@
 @model Gymany.Models.PersonalTrainer
 @{
-    ViewData["Title"] = "AddPtAccount";
+    ViewData["Title"] = "AddPtAccout";
 }
 @{
     Layout = "GymOwnerLayout";
@@ -10,7 +10,7 @@
 <div class="text-center">
     <h2 class="display-4">Add Personal Trainer</h2>
 </div>
-<form asp-controller="GymOwner" asp-action="AddPtAccount" method="post" class="container">
+<form asp-controller="GymOwner" asp-action="AddPtAccount" method="post" class="container" style="max-width: 1100px;">
     <div class="form-group row">
         <label asp-for="Username" class="col-sm-2 col-form-label">Username:</label>
         <div class="col-sm-10">
@@ -66,6 +66,7 @@
             <span asp-validation-for="Email" class="text-danger"></span>
         </div>
     </div>
+
 
     <div class="form-group row">
         <div class="col-sm-10 offset-sm-2">

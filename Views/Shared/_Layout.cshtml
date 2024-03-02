@@ -121,7 +121,12 @@
                 <!-- Icon được lấy từ Font Awesome -->
                 <a href="#"><i style="font-size: 25px;color:#ff9500;" class="fas fa-bell" id="notification-icon"></i></a>
                 <!-- Hiển thị số lượng thông báo bên cạnh icon -->
-                <span class="notification-badge">0</span>
+                @if(@Model.NumberNoti != null){
+                    <span class="notification-badge">@Model.NumberNoti</span>
+                }else{
+                    <span class="notification-badge">0</span>
+                }
+                
             </div>
             <div class="no_popup_main">
                 <div class="notification-popup" id="notification-popup">

@@ -88,6 +88,10 @@ namespace Gymany.Controllers
         }
         public async Task<IActionResult> Profile()
         {
+            if (!checkLogin())
+            {
+                return Redirect("/GymOwner/Index");
+            }
             ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
             string id = HttpContext.Session.GetString("GymOwnerID");
             apiGetGymOwnerByID = $"https://localhost:5002/api/GymOwner/id?id={id}";
@@ -100,6 +104,7 @@ namespace Gymany.Controllers
         [HttpPost]
         public async Task<IActionResult> Profile(GymOwner obj)
         {
+            
             ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
             string id = HttpContext.Session.GetString("GymOwnerID");
             apiGetGymOwnerByID = $"https://localhost:5002/api/GymOwner/Id?id={id}";

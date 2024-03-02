@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "E:\\chuyên ngành kì 5\\PRN211\\project_group_5\\Gymany\\Gymany.csproj": {}
+    "D:\\Gymany\\Gymany.csproj": {}
   },
   "projects": {
-    "E:\\chuyên ngành kì 5\\PRN211\\project_group_5\\Gymany\\Gymany.csproj": {
+    "D:\\Gymany\\Gymany.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\chuyên ngành kì 5\\PRN211\\project_group_5\\Gymany\\Gymany.csproj",
+        "projectUniqueName": "D:\\Gymany\\Gymany.csproj",
         "projectName": "Gymany",
-        "projectPath": "E:\\chuyên ngành kì 5\\PRN211\\project_group_5\\Gymany\\Gymany.csproj",
-        "packagesPath": "C:\\Users\\Van-Khoi\\.nuget\\packages\\",
-        "outputPath": "E:\\chuyên ngành kì 5\\PRN211\\project_group_5\\Gymany\\obj\\",
+        "projectPath": "D:\\Gymany\\Gymany.csproj",
+        "packagesPath": "C:\\Users\\hoang\\.nuget\\packages\\",
+        "outputPath": "D:\\Gymany\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Van-Khoi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\hoang\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -79,8 +77,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -92,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -858,3 +858,12 @@ D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\form.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\SendMessage.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\Form.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\SendMessage.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\WorkOut\index.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\WorkOut\Create.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\WorkOut\Delete.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\WorkOut\Edit.cshtml.g.cs
+>>>>>>> b387bab3bea2a6e8329365640681481c2bf1cb2b
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\WorkOut\Create.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\WorkOut\Delete.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\WorkOut\Edit.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\WorkOut\index.cshtml.g.cs

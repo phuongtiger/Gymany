@@ -1,0 +1,55 @@
+@model Gymany.Models.WorkoutPlan
+@{
+    ViewData["Title"] = "Create";
+}
+@{
+    Layout = "PTLayout";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<div class="row bg-light p-12">
+    <div class="col-md-12">
+        <form asp-action="Create">
+            <div class="form-group">
+                <label asp-for="Name" class="control-label h3"></label>
+                <input asp-for="Name" class="form-control form-control-lg" />
+            </div>
+            <div class="form-group">
+                <label asp-for="StartDate" class="control-label h3"></label>
+                <input readonly type="date" asp-for="StartDate" class="form-control form-control-lg" />
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDate" class="control-label h3"></label>
+                <input type="date" asp-for="EndDate" class="form-control form-control-lg" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label h3"></label>
+                <textarea asp-for="Description" class="form-control form-control-lg text-justify"></textarea>
+            </div>
+            <div class="form-group">
+                <label asp-for="Session" class="control-label h3"></label>
+                <input asp-for="Session" class="form-control form-control-lg" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Activity" class="control-label h3"></label>
+                <input asp-for="Activity" class="form-control form-control-lg" />
+            </div>
+            <div class="form-group">
+                <!-- Sử dụng trường ẩn để lưu trữ giá trị PTID -->
+                <input readonly type="hidden" asp-for="PTID" class="form-control form-control-lg" value="@ViewBag.PTID" />
+            </div>
+            <div class="form-group">
+                <label asp-for="MemberID" class="control-label h3"></label>
+                <select asp-for="MemberID" class="form-control form-control-lg" asp-items="ViewBag.cusid"></select>
+            </div>
+            <div class="card-footer d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary btn-lg">Create</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var currentDate = new Date().toISOString().substr(0, 10);
+        document.getElementById('StartDate').value = currentDate;
+    });
+</script>

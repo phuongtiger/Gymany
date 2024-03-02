@@ -82,13 +82,22 @@ namespace Gymany.Controllers
             }
         }
 
-        public IActionResult PTProfile()
+        public async Task<ActionResult> PTProfile()
         {
             if (!checkLogin())
             {
                 return RedirectToAction("Form");
             }
-            return View();
+            int ptid = Convert.ToInt32(HttpContext.Session.GetString("ID"));
+            // Gán PTID vào ViewBag để sử dụng trong view
+            ViewBag.PTID = ptid;
+
+            api_PT = $"https://localhost:5002/api/PT/id?id={ptid}";
+            HttpResponseMessage respone = await client.GetAsync(api_PT);
+            string data = await respone.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            PersonalTrainer PT = JsonSerializer.Deserialize<PersonalTrainer>(data, options);
+            return View(PT);
         }
         public async Task<ActionResult> MemberDetail(int? id)
         {

@@ -47,10 +47,12 @@ namespace Gymany.Controllers
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             Customer customernew = JsonSerializer.Deserialize<Customer>(data, options);
             List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
+            string number = HttpContext.Session.GetString("NumberNoti");
             var viewModel = new ListModels
             {
                 customer = customernew,
-                Notifications = notifications
+                Notifications = notifications,
+                NumberNoti = number
             };
             return View(viewModel);
         }
@@ -111,36 +113,18 @@ namespace Gymany.Controllers
 
         public IActionResult PTLogin()
         {
-            // TODO: Your code here
-            List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
-            var viewModel = new ListModels
-            {
-                Notifications = notifications
-            };
+            var viewModel = new ListModels();
             return View(viewModel);
         }
 
         public IActionResult Register()
         {
-            // TODO: Your code here
-            List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
-            var viewModel = new ListModels
-            {
-                Notifications = notifications
-            };
+            var viewModel = new ListModels();
             return View(viewModel);
         }
 
         public IActionResult PTPage()
         {
-            // TODO: Your code here
-            // List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
-            // var viewModel = new ListModels
-            // {
-            //     Notifications = notifications
-            // };
-            // return View(viewModel);
-            // Chuyển sang action khác trong cùng khu vực
             return Redirect(Url.Action("PTLogin", "PT", new { area = "PT" }));
         }
         

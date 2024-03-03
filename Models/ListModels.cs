@@ -11,5 +11,7 @@ namespace Gymany.Models
         public Customer customer {get; set;}
         public List<Product> Products { get; set; }
         public List<Notification> Notifications { get; set; }
+        public List<Category> Categories { get; set; }
+        public string NumberNoti { get; set; }
     }
 }

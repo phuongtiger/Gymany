@@ -1,4 +1,5 @@
 ﻿@model Gymany.Models.ListModels
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,7 +72,7 @@
     <header class="header" data-header>
         <div class="container">
 
-            <a href="#" class="logo">
+            <a asp-controller="Home" asp-action="Index" class="logo">
                 <ion-icon name="barbell-sharp" aria-hidden="true"></ion-icon>
 
                 <span class="span">Gymany</span>
@@ -101,8 +102,8 @@
                         <a asp-controller="Blog" asp-action="Index" class="navbar-link" data-nav-link>Blog</a>
                     </li>
                     <li>
-                        <form action="" id="search-box">
-                            <input type="text" id="search-text" placeholder="Search"> <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <form asp-controller="Home" asp-action="Search" id="search-box" method="post">
+                            <input type="text" id="search-text" placeholder="Search" name="SearchContent"> <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </form>
                     </li>
                     <a asp-controller="Cart" asp-action="Index"><img src="~/images/cart.png" width="30px" height="30px"></a>
@@ -121,7 +122,12 @@
                 <!-- Icon được lấy từ Font Awesome -->
                 <a href="#"><i style="font-size: 25px;color:#ff9500;" class="fas fa-bell" id="notification-icon"></i></a>
                 <!-- Hiển thị số lượng thông báo bên cạnh icon -->
-                <span class="notification-badge">0</span>
+                @if(@Model.NumberNoti != null){
+                    <span class="notification-badge">@Model.NumberNoti</span>
+                }else{
+                    <span class="notification-badge">0</span>
+                }
+                
             </div>
             <div class="no_popup_main">
                 <div class="notification-popup" id="notification-popup">

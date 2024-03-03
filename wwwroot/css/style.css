@@ -735,7 +735,8 @@ body {
   }
 
   #search-text {
-    margin-right: 5px;
+    padding: 6px;
+    border: 1px solid #d6550f;
   }
 
   .navbar-link {
@@ -890,10 +891,10 @@ body {
   
 #search-btn {
   border: none;
-  background-color: transparent;
+  background-color: #fff;
   cursor: pointer;
-  padding: 8px;
-  border-radius: 8px;
+  border: 1px solid #d6550f;
+  padding: 6px;
   transition: background-color 0.3s ease; 
 }
 

@@ -31,6 +31,12 @@ namespace Gymany.Controllers
             var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
             List<Notification> list = JsonSerializer.Deserialize<List<Notification>>(data, options);
             HttpContext.Session.SetObjectAsJson("Notifications", list);
+            int count = 0;
+            foreach (var item in list)
+            {
+                count++;
+            }
+            HttpContext.Session.SetString("NumberNoti", Convert.ToString(count));
             return RedirectToAction("Index", "Home");
         }
     }

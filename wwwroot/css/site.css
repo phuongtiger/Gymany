@@ -121,6 +121,7 @@ body {
   max-width: 300px;
   text-align: center;
   word-wrap: break-word; 
+  overflow: auto;
 }
 .noti_block{
   border: 2px solid #ccc;
@@ -158,6 +159,7 @@ body {
 .bg{
   background-color: black;
 }
+
 
 footer{
   background-color: white;

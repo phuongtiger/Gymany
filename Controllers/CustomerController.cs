@@ -19,70 +19,76 @@ namespace Gymany.Controllers
     public class CustomerController : Controller
     {
 
-         private readonly HttpClient client = null;
+        private readonly HttpClient client = null;
         private string apiCustomer;
         private string api_CustomerByID;
 
-          public CustomerController(){
+        public CustomerController()
+        {
             client = new HttpClient();
             var contentType = new MediaTypeWithQualityHeaderValue("application/json");
             client.DefaultRequestHeaders.Accept.Add(contentType);
             this.apiCustomer = "https://localhost:5002/api/Customer";
-            this.api_CustomerByID="https://localhost:5002/api/Customer/id";
-           
+            this.api_CustomerByID = "https://localhost:5002/api/Customer/id";
+
         }
-        public IActionResult Form(){
+        public IActionResult Form()
+        {
             ListModels model = new ListModels();
             return View(model);
         }
-           public async Task<ActionResult> Profile()
+        public async Task<ActionResult> Profile()
         {
-            if(!checkLogin()){
-                    return RedirectToAction("Form");
+            if (!checkLogin())
+            {
+                return RedirectToAction("Form");
             }
-            string id = HttpContext.Session.GetString("ID");
+            string id = HttpContext.Session.GetString("CustomerID");
             api_CustomerByID = $"https://localhost:5002/api/Customer/id?id={id}";
             HttpResponseMessage respone = await client.GetAsync(api_CustomerByID);
             string data = await respone.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             Customer customernew = JsonSerializer.Deserialize<Customer>(data, options);
             List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
+            string number = HttpContext.Session.GetString("NumberNoti");
             var viewModel = new ListModels
             {
                 customer = customernew,
-                Notifications = notifications
+                Notifications = notifications,
+                NumberNoti = number
             };
             return View(viewModel);
         }
 
-            public async Task<ActionResult> EditProfile(int? id)
+        public async Task<ActionResult> EditProfile(int? id)
         {
             api_CustomerByID = $"https://localhost:5002/api/Customer/id?id={id}";
             HttpResponseMessage respone = await client.GetAsync(api_CustomerByID);
             string data = await respone.Content.ReadAsStringAsync();
-            var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             Customer customer = JsonSerializer.Deserialize<Customer>(data, options);
             // ViewBag.CutomerID = await GetSelectItem();
             return View(customer);
         }
-        
+
         [HttpPost]
-        public async Task<ActionResult> EditProfile(int? id, Customer obj){
+        public async Task<ActionResult> EditProfile(int? id, Customer obj)
+        {
             api_CustomerByID = $"https://localhost:5002/api/Customer/id?id={id}";
             if (ModelState.IsValid)
             {
-               string data = JsonSerializer.Serialize(obj); 
-               var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
-               HttpResponseMessage respone = await client.PutAsync(api_CustomerByID, content);
-               if (respone.StatusCode == System.Net.HttpStatusCode.Created)
-               {
-                return RedirectToAction("Profile");
-               }
+                string data = JsonSerializer.Serialize(obj);
+                var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+                HttpResponseMessage respone = await client.PutAsync(api_CustomerByID, content);
+                if (respone.StatusCode == System.Net.HttpStatusCode.Created)
+                {
+                    return RedirectToAction("Profile");
+                }
             }
             return View(obj);
         }
 
-    public async Task<ActionResult> Login(string username, string password)
+        public async Task<ActionResult> Login(string username, string password)
         {
             apiCustomer = $"https://localhost:5002/api/Customer/checklogin?username={username}&password={password}";
             var customer = new Customer { Username = username, Password = password };
@@ -93,63 +99,56 @@ namespace Gymany.Controllers
                 string jsonString = await response.Content.ReadAsStringAsync();
                 //lấy tất cả thông tin từ id của customer
                 JObject jsonObject = JObject.Parse(jsonString);
-
-                // Lấy giá trị của trường "id"
                 string id = (string)jsonObject["customerID"];
 
-                HttpContext.Session.SetString("ID", id);
+                HttpContext.Session.SetString("CustomerID", id);
                 HttpContext.Session.SetString("Username", username);
                 HttpContext.Session.SetString("Password", password);
                 // Chuyển hướng đến trang chủ
-                return RedirectToAction("Index","Notification");
+                return RedirectToAction("Index", "Notification");
             }
             else
             {
-                Console.WriteLine($"Error: {response.StatusCode}");
-                // Hiển thị thông báo lỗi
                 ViewData["Error"] = "Invalid username or password";
                 return RedirectToAction("Form");
             }
         }
-   
+
 
         public IActionResult PTLogin()
         {
-            // TODO: Your code here
-            List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
-            var viewModel = new ListModels
-            {
-                Notifications = notifications
-            };
-            return View(viewModel);
+            ListModels model = new ListModels();
+            return View(model);
         }
 
-        public IActionResult Register()
+        public IActionResult RegisterForm()
         {
-            // TODO: Your code here
-            List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
-            var viewModel = new ListModels
+            
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RegisterForm(Customer obj)
+        {
+            if (ModelState.IsValid)
             {
-                Notifications = notifications
-            };
-            return View(viewModel);
+
+                string data = JsonSerializer.Serialize(obj);
+                var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync(apiCustomer, content);
+                if (response.StatusCode == System.Net.HttpStatusCode.Created)
+                    return RedirectToAction("Form");
+            }
+            return View(obj);
         }
 
         public IActionResult PTPage()
         {
-            // TODO: Your code here
-            // List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
-            // var viewModel = new ListModels
-            // {
-            //     Notifications = notifications
-            // };
-            // return View(viewModel);
-            // Chuyển sang action khác trong cùng khu vực
             return Redirect(Url.Action("PTLogin", "PT", new { area = "PT" }));
         }
-        
 
-    [HttpPost]
+
+        [HttpPost]
         public bool checkLogin()
         {
             var username = HttpContext.Session.GetString("Username");

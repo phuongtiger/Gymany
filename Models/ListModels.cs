@@ -11,5 +11,11 @@ namespace Gymany.Models
         public Customer customer {get; set;}
         public List<Product> Products { get; set; }
         public List<Notification> Notifications { get; set; }
+        public string NumberNoti { get; set; }
+
+        public static implicit operator ListModels(Customer v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

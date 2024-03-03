@@ -12,14 +12,17 @@ namespace Gymany.Models
         [Key]
         public int PostID { get; set; }
 
+        [Required(ErrorMessage = "Please provide a date.")]
         public DateTime? Date { get; set; }
 
+        [Required(ErrorMessage = "Please provide content.")]
         public string Content { get; set; }
 
-        [StringLength(100)]
+        [Required(ErrorMessage = "Please provide a title.")]
+        [StringLength(100, ErrorMessage = "Title length cannot exceed 100 characters.")]
         public string Title { get; set; }
 
-        [StringLength(200)]
+        [StringLength(100, ErrorMessage = "Image URL length cannot exceed 100 characters.")]
         public string Image { get; set; }
 
         [ForeignKey("PersonalTrainer")]

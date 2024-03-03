@@ -1,0 +1,31 @@
+@model Gymany.Models.WorkoutPlan
+@{
+    ViewData["Title"] = "Delete";
+}
+@{
+    Layout = "PTLayout";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<div class="card mb-4 shadow-sm">
+    <div class="card-header">
+        <h2 class="my-0 font-weight-normal">@Html.DisplayFor(model => model.Name)</h2>
+    </div>
+    <div class="card-body">
+        <p class="card-text">@Html.DisplayFor(model => model.Description)</p>
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>Start Date:</strong> @Html.DisplayFor(model => model.StartDate)</p>
+                <p><strong>End Date:</strong> @Html.DisplayFor(model => model.EndDate)</p>
+                <p><strong>Session:</strong> @Html.DisplayFor(model => model.Session)</p>
+            </div>
+            <div class="col-md-6">
+                <p><strong>Activity:</strong> @Html.DisplayFor(model => model.Activity)</p>
+                <p><strong>Member ID:</strong> @Html.DisplayFor(model => model.MemberID)</p>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<form asp-action="Delete">
+    <input type="submit" value="Delete" class="btn btn-danger" /> 
+</form>

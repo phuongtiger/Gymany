@@ -12,7 +12,7 @@ namespace Gymany.Models
         [Key]
         public int WorkoutPlanID { get; set; }
 
-        [StringLength(50)]
+        [StringLength(50, ErrorMessage = "Name length cannot exceed 50 characters.")]
         public string Name { get; set; }
 
         public DateTime? StartDate { get; set; }

@@ -24,31 +24,33 @@
     </div>
     <div class="col-xl-8">
         <!-- Account details card-->
-        <div class="row bg-light p-12">
-            <div class="col-md-12">
-                <form asp-action="EditProfile">
+        <div class="card mb-4">
+                <div class="card-header">Account Details</div>
+                <div class="card-body">
+                <form asp-action="EditProfile" method="post">
                     <!-- Form Group (id)-->
-                    <div class="mb-3">
-                        <input class="form-control" id="inputName" type="text" asp-for="@Model.customer.CustomerID">
-                    </div>
 
-                    <div class="mb-3">
-                        <label asp-for="@Model.customer.Username" class="control-label h3"></label>
-                        <input asp-for="@Model.customer.Username" class="form-control form-control-lg" />
+                    <input class="form-control" id="inputName" type="hidden" asp-for="@Model.customer.CustomerID">
 
-                    </div>
+
+                       <!-- Form Group (username)-->
+
+                    <input type="hidden" asp-for="@Model.customer.Username" class="form-control form-control-lg" />
+
+
                     <!-- Form Group (name)-->
                     <div class="mb-3">
-                        <label asp-for="@Model.customer.Name" class="control-label h3"></label>
+                        <label class="small mb-1" for="inputAddress">Name</label>
                         <input asp-for="@Model.customer.Name" class="form-control form-control-lg" />
 
                     </div>
                     <!-- Form Group (password)-->
-                    <div class="mb-3">
 
-                        <input class="form-control" id="inputName" type="hidden" placeholder="Enter your username" asp-for="@Model.customer.Password">
 
-                    </div>
+                    <input class="form-control" id="inputName" type="hidden" placeholder="Enter your username"
+                        asp-for="@Model.customer.Password">
+
+
                     <!-- Form Group (Address)-->
                     <div class="mb-3">
                         <label class="small mb-1" for="inputAddress">Address</label>
@@ -74,14 +76,14 @@
                         <!-- Form Group (birthday)-->
                         <div class="col-md-6">
                             <label class="small mb-1" for="inputBirthday">Birthday</label>
-                            <input class="form-control" id="inputBirthday" type="text" name="birthday"
+                            <input class="form-control" id="inputBirthday" type="datetime" name="birthday"
                                 placeholder="Enter your birthday" asp-for="@Model.customer.Age">
                         </div>
                     </div>
                     <!-- Save changes button-->
                     <button type="submit" class="btn btn-primary btn-lg">Update</button>
                 </form>
-            </div>
-        </div>
+                </div>
+            </div>       
     </div>
 </div>

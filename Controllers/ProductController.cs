@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Gymany.Models;
+using Microsoft.AspNetCore.Http;
 
 
 namespace Gymany.Controllers
@@ -28,17 +29,26 @@ namespace Gymany.Controllers
             this.api_ProductByID = "https://localhost:5002/api/Product/id";
             
         }
-        public async Task<ActionResult> Index()
-        {
+        public async Task<List<Product>> GetProduct(){
             HttpResponseMessage respone = await client.GetAsync(api);
             string data = await respone.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
             List<Product> products = JsonSerializer.Deserialize<List<Product>>(data, options);
+            return products;
+        }
+        public async Task<ActionResult> Index()
+        {
+
+            List<Product> products = await GetProduct();
             List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
+            string number = HttpContext.Session.GetString("NumberNoti");
+            List<Category> categories = await GetCategory();
             var viewModel = new ListModels
             {
                 Products = products,
-                Notifications = notifications
+                Notifications = notifications,
+                NumberNoti = number,
+                Categories = categories
             };
             return View(viewModel);
         }
@@ -50,10 +60,12 @@ namespace Gymany.Controllers
             var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
             Product productnew = JsonSerializer.Deserialize<Product>(data, options);
             List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
+            string number = HttpContext.Session.GetString("NumberNoti");
             var viewModel = new ListModels
             {
                 product = productnew,
-                Notifications = notifications
+                Notifications = notifications,
+                NumberNoti = number
             };
             return View(viewModel);
         }
@@ -160,6 +172,13 @@ namespace Gymany.Controllers
     //             return View("Error");
     //         }
     //     }
+        public async Task<List<Category>> GetCategory(){
+            HttpResponseMessage respone = await client.GetAsync(apiCategory);
+            string data = await respone.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            List<Category> list = JsonSerializer.Deserialize<List<Category>>(data, options);
+            return list;
+        }
         public async Task<List<SelectListItem>> GetSelectItem(){
             HttpResponseMessage respone = await client.GetAsync(apiCategory);
             string data = await respone.Content.ReadAsStringAsync();

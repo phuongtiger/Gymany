@@ -4,7 +4,7 @@
 @{
     ViewData["Title"] = "Profile";
 }
-
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
  <div class="row">
         <div class="col-xl-4">
             <!-- Profile picture card-->
@@ -41,7 +41,7 @@
                         <!-- Form Group (email address)-->
                         <div class="mb-3">
                             <label class="small mb-1" for="inputEmailAddress">Email address</label>
-                            <input readonly class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value="@Html.DisplayFor(model => model.customer.Email)">
+                            <input readonly class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value="@Model.customer.Email">
                         </div>
                         <!-- Form Row-->
                         <div class="row gx-3 mb-3">

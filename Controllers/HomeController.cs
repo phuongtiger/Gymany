@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Gymany.Models;
+using Microsoft.AspNetCore.Http;
 
 
 namespace Gymany.Controllers
@@ -13,33 +14,46 @@ namespace Gymany.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        public ProductController productController;
+        public HomeController()
         {
-            _logger = logger;
+            productController = new ProductController();
         }
 
         public IActionResult Index()
         {
-            List<Product> products = null;
+            List<Product> products = productController.GetProduct().Result;
             List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
+            string number = HttpContext.Session.GetString("NumberNoti");
+            List<Category> categories = productController.GetCategory().Result;
             var viewModel = new ListModels
             {
                 Products = products,
-                Notifications = notifications
+                NumberNoti = number,
+                Notifications = notifications,
+                Categories = categories
             };
             return View(viewModel);
         }
 
-        public IActionResult Privacy()
+        [HttpPost]
+        public IActionResult Search(string SearchContent)
         {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            List<Product> products = productController.GetProduct().Result;
+            if (!String.IsNullOrEmpty(SearchContent))
+            {
+                products = products.Where(s => s.Name.ToLower().Contains(SearchContent.ToLower())).ToList();
+            }else{
+                return RedirectToAction("Index");
+            }
+            ListModels listModels = new ListModels
+            {
+                Products = products,
+                NumberNoti = HttpContext.Session.GetString("NumberNoti"),
+                Notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications"),
+                Categories = productController.GetCategory().Result
+            };
+            return View(listModels);
         }
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -13,7 +14,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 
-
 namespace Gymany.Controllers
 {
     public class CustomerController : Controller
@@ -21,7 +21,11 @@ namespace Gymany.Controllers
 
         private readonly HttpClient client = null;
         private string apiCustomer;
+        private string apiWorkoutPlan;
         private string api_CustomerByID;
+        private string api_WorkoutPlanByID;
+        private string api_MemberByCusID;
+        private string api_WorkoutPlanByMemberID;
 
         public CustomerController()
         {
@@ -30,6 +34,9 @@ namespace Gymany.Controllers
             client.DefaultRequestHeaders.Accept.Add(contentType);
             this.apiCustomer = "https://localhost:5002/api/Customer";
             this.api_CustomerByID = "https://localhost:5002/api/Customer/id";
+            this.api_WorkoutPlanByID = "https://localhost:5002/api/WorkoutPlan/id";
+            this.api_MemberByCusID = "https://localhost:5002/api/Member/customerID";
+            this.api_WorkoutPlanByMemberID = "https://localhost:5002/api/WorkoutPlan/memberID";
 
         }
         public IActionResult Form()
@@ -44,6 +51,7 @@ namespace Gymany.Controllers
                 return RedirectToAction("Form");
             }
             string id = HttpContext.Session.GetString("CustomerID");
+            ViewBag.ID = id;
             api_CustomerByID = $"https://localhost:5002/api/Customer/id?id={id}";
             HttpResponseMessage respone = await client.GetAsync(api_CustomerByID);
             string data = await respone.Content.ReadAsStringAsync();
@@ -66,27 +74,36 @@ namespace Gymany.Controllers
             HttpResponseMessage respone = await client.GetAsync(api_CustomerByID);
             string data = await respone.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            Customer customer = JsonSerializer.Deserialize<Customer>(data, options);
+            Customer customernew = JsonSerializer.Deserialize<Customer>(data, options);
+            var viewModel = new ListModels
+            {
+                customer = customernew
+            };
             // ViewBag.CutomerID = await GetSelectItem();
-            return View(customer);
+            return View(viewModel);
         }
 
         [HttpPost]
-        public async Task<ActionResult> EditProfile(int? id, Customer obj)
+        public async Task<ActionResult> EditProfile(int? id, ListModels obj)
         {
             api_CustomerByID = $"https://localhost:5002/api/Customer/id?id={id}";
-            if (ModelState.IsValid)
+            Customer customer = obj.customer;
+            string data = JsonSerializer.Serialize(customer);
+            var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+            HttpResponseMessage respone = await client.PutAsync(api_CustomerByID, content);
+            if (respone.StatusCode == System.Net.HttpStatusCode.Created)
             {
-                string data = JsonSerializer.Serialize(obj);
-                var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
-                HttpResponseMessage respone = await client.PutAsync(api_CustomerByID, content);
-                if (respone.StatusCode == System.Net.HttpStatusCode.Created)
-                {
-                    return RedirectToAction("Profile");
-                }
+                return RedirectToAction("Profile");
             }
             return View(obj);
         }
+
+
+
+
+     
+
+
 
         public async Task<ActionResult> Login(string username, string password)
         {
@@ -113,6 +130,9 @@ namespace Gymany.Controllers
                 return RedirectToAction("Form");
             }
         }
+
+
+
 
 
         public IActionResult PTLogin()
@@ -159,6 +179,19 @@ namespace Gymany.Controllers
             }
             return false;
         }
+
+        public async Task<IActionResult> DeleteSession()
+        {
+            // if(HttpContext.Session.GetString("Username")!= null){
+            //     HttpContext.Session.Remove("Username");
+            // }else
+            // {
+            //     return RedirectToAction("Profile");
+            // }
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Home");
+        }
+
     }
 
 }

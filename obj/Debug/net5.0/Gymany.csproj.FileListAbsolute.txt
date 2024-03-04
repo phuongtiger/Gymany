@@ -234,7 +234,6 @@ D:\GitP\Gymany\obj\Debug\net5.0\Gymany.pdb
 D:\GitP\Gymany\obj\Debug\net5.0\Gymany.genruntimeconfig.cache
 D:\GitP\Gymany\obj\Debug\net5.0\ref\Gymany.dll
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Register.cshtml.g.cs
-D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Customer\PTRegister.cshtml.g.cs
 >>>>>>> 271c9ff5bab09a2508d917c74dbfb1b3d8a45527
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Register.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\appsettings.Development.json
@@ -971,7 +970,6 @@ D:\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\WorkOut\Create.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\WorkOut\Delete.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\WorkOut\Edit.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\WorkOut\index.cshtml.g.cs
-<<<<<<< HEAD
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddCustomerAccount.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddPtAccount.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\CustomerAccount.cshtml.g.cs
@@ -984,7 +982,6 @@ D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Blog\blogdetail.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Blog\Index.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Classes\Index.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Customer\RegisterForm.cshtml.g.cs
-=======
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Profile.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Category.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddCategory.cshtml.g.cs
@@ -1013,4 +1010,9 @@ D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\WorkOut\i
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Blog\blogdetail.cshtml.g.cs
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Blog\Index.cshtml.g.cs
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Classes\Index.cshtml.g.cs
->>>>>>> main
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddCategory.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Category.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteCategory.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateCategory.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Customer\EditProfile.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Home\Search.cshtml.g.cs

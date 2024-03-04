@@ -1,3 +1,4 @@
+@model Gymany.Models.PersonalTrainer
 @{
     ViewData["Title"] = "Form";
 }
@@ -14,9 +15,9 @@
             <div class="card-header bg text-white text-center display-4" style="background:#343a40;">PT LOGIN</div>
             <div class="card shadow-lg p-3 mb-5 bg-white rounded">
                 <div class="card-body">
-                    <form asp-action="PTLogin">
+                    <form id="loginForm" asp-action="PTLogin" onsubmit="return validateForm()">
                         <div class="form-group">
-                            <label for="username" class="h5"><b>Username:</b></label>
+                            <label for="email" class="h5"><b>Email:</b></label>
                             <input type="text" class="form-control form-control-lg" id="email" name="email">
                         </div>
                         <div class="form-group">
@@ -24,6 +25,7 @@
                             <input type="password" class="form-control form-control-lg" id="password" name="password">
                         </div>
                         <button type="submit" class="btn btn-primary btn-lg"><b>LOGIN</b></button>
+                        <div id="error-message" class="text-danger" style="display:none;"></div>
                     </form>
                 </div>
             </div>
@@ -34,3 +36,53 @@
         </div>
     </div>
 </div>
+@section Scripts {
+    <script>
+        // Hàm để lưu thông báo lỗi và thời gian hiển thị vào localStorage
+        function saveErrorMessage(message) {
+            var errorMessage = {
+                message: message,
+                timestamp: new Date().getTime() + 2000 // Thời gian hiển thị là 30 giây
+            };
+            localStorage.setItem('errorMessage', JSON.stringify(errorMessage));
+        }
+
+        // Hàm để kiểm tra và hiển thị thông báo lỗi từ localStorage
+        function checkAndDisplayErrorMessage() {
+            var errorMessage = localStorage.getItem('errorMessage');
+            if (errorMessage) {
+                errorMessage = JSON.parse(errorMessage);
+                if (errorMessage.timestamp > new Date().getTime()) {
+                    // Nếu thời gian hiển thị lớn hơn hiện tại, hiển thị thông báo lỗi
+                    var errorMessageElement = document.getElementById("error-message");
+                    errorMessageElement.innerText = errorMessage.message;
+                    errorMessageElement.style.display = "block";
+                } else {
+                    // Nếu thời gian hiển thị đã hết, xóa thông báo lỗi từ localStorage
+                    localStorage.removeItem('errorMessage');
+                }
+            }
+        }
+
+        // Gọi hàm checkAndDisplayErrorMessage() khi trang được tải lại
+        window.onload = checkAndDisplayErrorMessage;
+        function validateForm() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var errorMessage = document.getElementById("error-message");
+
+            // Kiểm tra xem các trường input có được điền đầy đủ hay không
+            if (email.trim() == '' || password.trim() == '') {
+                errorMessage.innerText = "Please fill in all fields.";
+                errorMessage.style.display = "block";
+                saveErrorMessage(errorMessage.innerText); // Lưu thông báo lỗi vào localStorage
+                return false; // Ngăn form được submit nếu có trường input trống
+            } else {
+                errorMessage.innerText = "Incorrect email or password.";
+                errorMessage.style.display = "block";
+                saveErrorMessage(errorMessage.innerText); // Lưu thông báo lỗi vào localStorage
+            }
+        }
+    </script>
+
+}

@@ -27,7 +27,6 @@ namespace Gymany.Controllers
         private string api_MemberByCusID;
         private string api_WorkoutPlanByMemberID;
 
-
         public CustomerController()
         {
             client = new HttpClient();
@@ -138,14 +137,29 @@ namespace Gymany.Controllers
 
         public IActionResult PTLogin()
         {
-            var viewModel = new ListModels();
-            return View(viewModel);
+            ListModels model = new ListModels();
+            return View(model);
         }
 
-        public IActionResult Register()
+        public IActionResult RegisterForm()
         {
-            var viewModel = new ListModels();
-            return View(viewModel);
+            
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RegisterForm(Customer obj)
+        {
+            if (ModelState.IsValid)
+            {
+
+                string data = JsonSerializer.Serialize(obj);
+                var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync(apiCustomer, content);
+                if (response.StatusCode == System.Net.HttpStatusCode.Created)
+                    return RedirectToAction("Form");
+            }
+            return View(obj);
         }
 
         public IActionResult PTPage()

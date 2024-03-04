@@ -15,5 +15,10 @@ namespace Gymany.Models
         public string NumberNoti { get; set; }
         public Member member {get ; set ;}
          public List<WorkoutPlan> workoutPlans { get; set; }
+
+        public static implicit operator ListModels(Customer v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

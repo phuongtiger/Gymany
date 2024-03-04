@@ -680,15 +680,16 @@ body {
   }
 
   .header {
-    background-color: hsl(210deg 45.7% 8.46%);
+    background-color: #343a40;
     box-shadow: none;
-    padding-block: 30px;
+    padding-block: 20px;
     transition: var(--transition-1);
   }
 
   .header.active {
     transform: translateY(-100%);
-    background-color: var(--white);
+    background-color: #343a40;
+    color: var(--white);
     padding-block: 20px;
     box-shadow: var(--shadow-1);
     animation: slideIn 0.5s ease forwards;
@@ -713,7 +714,7 @@ body {
   }
 
   .header.active .logo {
-    color: var(--rich-black-fogra-29-1);
+    color: var(--white);
   }
 
   .navbar,
@@ -736,7 +737,6 @@ body {
 
   #search-text {
     padding: 6px;
-    border: 1px solid #d6550f;
   }
 
   .navbar-link {
@@ -747,7 +747,7 @@ body {
   }
 
   .header.active .navbar-link {
-    color: var(--rich-black-fogra-29-1);
+    color: var(--white);
   }
 
   .header .navbar-link:is(:hover, :focus, .active) {
@@ -893,7 +893,7 @@ body {
   border: none;
   background-color: #fff;
   cursor: pointer;
-  border: 1px solid #d6550f;
+  margin-left: 2px;
   padding: 6px;
   transition: background-color 0.3s ease; 
 }

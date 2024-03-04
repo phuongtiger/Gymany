@@ -11,31 +11,32 @@ namespace Gymany.Models
         [Key]
         public int PTID { get; set; }
 
-        [Required(ErrorMessage = "Username is required.")]
-        [StringLength(50, ErrorMessage = "Username length cannot exceed 50 characters.")]
+        [Required]
+        [StringLength(50)]
         public string Username { get; set; }
 
-        [Required(ErrorMessage = "Password is required.")]
-        [StringLength(50, ErrorMessage = "Password length cannot exceed 50 characters.")]
+        [Required]
+        [StringLength(50)]
         public string Password { get; set; }
 
-         [Required(ErrorMessage = "Name is required.")]
-        [StringLength(50, ErrorMessage = "Name length cannot exceed 50 characters.")]
+        [StringLength(50)]
         public string Name { get; set; }
 
-        [DataType(DataType.Date)]
         public DateTime? Age { get; set; }
 
-        [StringLength(50, ErrorMessage = "Address length cannot exceed 50 characters.")]
+        [StringLength(50)]
         public string Address { get; set; }
 
-        [Required(ErrorMessage = "Salary is required.")]
-        [Range(0.01, double.MaxValue, ErrorMessage = "Salary must be greater than 0.")]
         public decimal? Salary { get; set; }
 
-        [Required(ErrorMessage = "Email is required.")]
-        [StringLength(50, ErrorMessage = "Email length cannot exceed 50 characters.")]
-        [EmailAddress(ErrorMessage = "Invalid email format.")]
+        [Required]
+        [StringLength(50)]
         public string Email { get; set; }
+
+        [StringLength(200)]
+        public string Image { get; set; }
+
+        [StringLength(20)]
+        public string Phone { get; set; }
     }
 }

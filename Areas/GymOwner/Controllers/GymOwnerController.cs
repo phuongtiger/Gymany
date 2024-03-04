@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -26,6 +27,7 @@ namespace Gymany.Controllers
         private string api;
         private string api_ProductByID;
         private string apiCategory;
+        private string apiCategory_ById;
         private string api_GymOwner;
         private string apiGetGymOwnerByID;
 
@@ -52,6 +54,7 @@ namespace Gymany.Controllers
             this.api = "https://localhost:5002/api/Product";
             this.api_ProductByID = "https://localhost:5002/api/Product/id";
             this.apiCategory = "https://localhost:5002/api/Category";
+            this.apiCategory_ById = "https://localhost:5002/api/Category/id";
             this.api_GymOwner = "https://localhost:5002/api/GymOwner/checklogin";
             this.apiGetGymOwnerByID = "https://localhost:5002/api/GymOwner";
             this.api_Customer = "https://localhost:5002/api/Customer";
@@ -118,8 +121,8 @@ namespace Gymany.Controllers
             }
             return RedirectToAction("Profile");
         }
-        
-        
+
+
         [HttpPost]
         public async Task<IActionResult> Login(string username, string password)
         {
@@ -176,10 +179,22 @@ namespace Gymany.Controllers
         [HttpPost]
         public async Task<IActionResult> AddProduct(Product obj)
         {
+            
             ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
             ViewBag.CategoryID = await GetSelectItem();
             if (ModelState.IsValid)
             {
+                if (obj.ImageUpload != null)
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(obj.ImageUpload.FileName) + Path.GetExtension(obj.ImageUpload.FileName);
+                    string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/Product", fileName);
+                    using (var stream = new FileStream(path, FileMode.Create))
+                    {
+                        await obj.ImageUpload.CopyToAsync(stream);
+                    }
+                    obj.Image = "/images/Product/" + fileName;
+                    
+                }
                 string data = JsonSerializer.Serialize(obj);
                 var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(api, content);
@@ -195,9 +210,6 @@ namespace Gymany.Controllers
             HttpResponseMessage response = await client.GetAsync(api_ProductByID);
             ViewBag.ProductID = id;
             ViewBag.CategoryID = await GetSelectItem();
-            // Lấy ID của category cần thiết từ danh sách mục select rồi Gán ID của category vào ViewBag
-
-
             if (response.IsSuccessStatusCode)
             {
                 var data = response.Content.ReadAsStringAsync().Result;
@@ -210,6 +222,16 @@ namespace Gymany.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateProduct(int id, Product obj)
         {
+            if (obj.ImageUpload != null)
+            {
+                string fileName = Path.GetFileNameWithoutExtension(obj.ImageUpload.FileName) + Path.GetExtension(obj.ImageUpload.FileName);
+                string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/Product", fileName);
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await obj.ImageUpload.CopyToAsync(stream);
+                }
+                obj.Image = "/images/Product/" + fileName;
+            }
             ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
             api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
             obj.ProductID = id;
@@ -633,6 +655,121 @@ namespace Gymany.Controllers
             }
         }
 
+        // ------------------------Manage Category -------------------------------------\\
+        public async Task<IActionResult> Category()
+        {
+
+            if (!checkLogin())
+            {
+                return Redirect("/GymOwner/Index");
+            }
+            HttpResponseMessage response = await client.GetAsync(apiCategory);
+            string data = await response.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            List<Category> list = JsonSerializer.Deserialize<List<Category>>(data, options);
+            return View(list);
+        }
+        public async Task<IActionResult> AddCategory()
+        {
+            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
+
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddCategory(Category obj)
+        {
+            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
+            ViewBag.CategoryID = await GetSelectItem();
+            if (ModelState.IsValid)
+            {
+                string data = JsonSerializer.Serialize(obj);
+                var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync(apiCategory, content);
+                if (response.StatusCode == System.Net.HttpStatusCode.Created)
+                    return RedirectToAction("Category");
+            }
+            return View(obj);
+        }
+        //method update category
+        public async Task<IActionResult> UpdateCategory(int id)
+        {
+            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
+            apiCategory = $"https://localhost:5002/api/Category/id?id={id}";
+            HttpResponseMessage response = await client.GetAsync(apiCategory);
+            // Lấy ID của category cần thiết từ danh sách mục select rồi Gán ID của category vào ViewBag
+
+
+            if (response.IsSuccessStatusCode)
+            {
+                var data = response.Content.ReadAsStringAsync().Result;
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                var category = JsonSerializer.Deserialize<Category>(data, options);
+                return View(category);
+            }
+            return NotFound();
+        }
+        [HttpPost]
+        public async Task<IActionResult> UpdateCategory(int id, Category obj)
+        {
+            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
+            apiCategory_ById = $"https://localhost:5002/api/Category/id?id={id}";
+            string data = JsonSerializer.Serialize(obj);
+            var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await client.PutAsync(apiCategory_ById, content);
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Category");
+            }
+            return Redirect("UpdateCategory");
+        }
+
+        //method delete Pt accout
+        public async Task<IActionResult> DeleteCategory(int id)
+        {
+            apiCategory_ById = $"https://localhost:5002/api/Category/id?id={id}";
+            HttpResponseMessage response = await client.GetAsync(apiCategory_ById);
+            if (response.IsSuccessStatusCode)
+            {
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                var data = response.Content.ReadAsStringAsync().Result;
+                var category = JsonSerializer.Deserialize<Category>(data, options);
+                return View(category);
+            }
+            return NotFound();
+        }
+        [HttpPost]
+        public async Task<ActionResult> DeleteCategory(int id, Category obj)
+        {
+            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
+            apiCategory_ById = $"https://localhost:5002/api/Category/id?id={id}";
+
+            try
+            {
+                // Tạo yêu cầu DeletePT
+                obj.CategoryID = id;
+                HttpResponseMessage response = await client.DeleteAsync(apiCategory_ById);
+                var data = response.Content.ReadAsStringAsync().Result;
+                var category = JsonSerializer.Deserialize<Category>(data);
+                // Kiểm tra kết quả trả về từ endpoint API
+                if (response.IsSuccessStatusCode)
+                {
+                    // Xử lý kết quả nếu xóa thành công, ví dụ chuyển hướng đến trang danh sách
+                    return RedirectToAction("Post");
+
+                }
+                else
+                {
+                    // Xử lý kết quả nếu xóa không thành công, ví dụ hiển thị thông báo lỗi
+                    return View();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(ex);
+                // Xử lý lỗi nếu có
+                return View("Error");
+            }
+        }
 
 
 

@@ -1018,3 +1018,4 @@ D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateCatego
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Customer\EditProfile.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Home\Search.cshtml.g.cs
 >>>>>>> 9ed717760eab49122cc912a27e9a68dda860b424
+D:\Gymany\obj\Debug\net5.0\Razor\Views\WorkoutPlan\Index.cshtml.g.cs

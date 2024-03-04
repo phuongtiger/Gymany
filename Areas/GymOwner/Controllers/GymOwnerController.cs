@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -189,10 +190,22 @@ namespace Gymany.Controllers
         [HttpPost]
         public async Task<IActionResult> AddProduct(Product obj)
         {
+            
             ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
             ViewBag.CategoryID = await GetSelectItem();
             if (ModelState.IsValid)
             {
+                if (obj.ImageUpload != null)
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(obj.ImageUpload.FileName) + Path.GetExtension(obj.ImageUpload.FileName);
+                    string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/Product", fileName);
+                    using (var stream = new FileStream(path, FileMode.Create))
+                    {
+                        await obj.ImageUpload.CopyToAsync(stream);
+                    }
+                    obj.Image = "/images/Product/" + fileName;
+                    
+                }
                 string data = JsonSerializer.Serialize(obj);
                 var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(api, content);
@@ -208,9 +221,6 @@ namespace Gymany.Controllers
             HttpResponseMessage response = await client.GetAsync(api_ProductByID);
             ViewBag.ProductID = id;
             ViewBag.CategoryID = await GetSelectItem();
-            // Lấy ID của category cần thiết từ danh sách mục select rồi Gán ID của category vào ViewBag
-
-
             if (response.IsSuccessStatusCode)
             {
                 var data = response.Content.ReadAsStringAsync().Result;
@@ -223,6 +233,16 @@ namespace Gymany.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateProduct(int id, Product obj)
         {
+            if (obj.ImageUpload != null)
+            {
+                string fileName = Path.GetFileNameWithoutExtension(obj.ImageUpload.FileName) + Path.GetExtension(obj.ImageUpload.FileName);
+                string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/Product", fileName);
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await obj.ImageUpload.CopyToAsync(stream);
+                }
+                obj.Image = "/images/Product/" + fileName;
+            }
             ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
             api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
             obj.ProductID = id;

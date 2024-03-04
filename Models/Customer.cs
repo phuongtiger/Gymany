@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,6 +21,12 @@ namespace Gymany.Models
         public string Password { get; set; }
         [Required(ErrorMessage = "Name is required and not null.")]
         [StringLength(50, ErrorMessage = "Name length cannot exceed 50 characters.")]
+
+       [NotMapped]
+        [DataType(DataType.Password)]
+        [Compare("Password", ErrorMessage = "Xác nhận mật khẩu không khớp.")]
+        [Display(Name = "Xác nhận mật khẩu")]
+        public string ConfirmPassword { get; set; } 
         public string Name { get; set; }
         [Required(ErrorMessage = "Address is required and not null.")]
         [StringLength(50, ErrorMessage = "Address length cannot exceed 50 characters.")]

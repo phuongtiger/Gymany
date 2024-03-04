@@ -211,7 +211,7 @@ namespace Gymany.Controllers
             return View(obj);
         }
 
-        public async Task<ActionResult> SendMessage(int? id)
+        public IActionResult SendMessage(int? id)
         {
             int ptid = Convert.ToInt32(HttpContext.Session.GetString("ID"));
             ViewBag.cusid = id;
@@ -227,9 +227,7 @@ namespace Gymany.Controllers
                 string data = JsonSerializer.Serialize(obj);
                 var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(api_Nof, content);
-                if (response.StatusCode == System.Net.HttpStatusCode.Created){
-                    return RedirectToAction("Index");
-                } 
+                return RedirectToAction("Index");
             }
             return View(obj);
         }
@@ -276,7 +274,7 @@ namespace Gymany.Controllers
             }
         }
 
-        public async Task<ActionResult> DeleteSession()
+        public IActionResult DeleteSession()
         {
             //xóa hết session đang lưu hiện tại
             HttpContext.Session.Clear();

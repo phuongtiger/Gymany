@@ -7,6 +7,7 @@ using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Gymany.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -17,7 +18,7 @@ namespace Gymany.Controllers
         
         private readonly HttpClient client = null;
         private string api_CartById;
- public CartController()
+        public CartController()
         {
             client = new HttpClient();
             var contentType = new MediaTypeWithQualityHeaderValue("application/json");
@@ -30,7 +31,11 @@ namespace Gymany.Controllers
             string data = await respone.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             List<Cart> list = JsonSerializer.Deserialize<List<Cart>>(data, options);
-            return View(list);
+            ListModels model = new ListModels{
+                Notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications"),
+                NumberNoti = HttpContext.Session.GetString("NumberNoti"),
+            };
+            return View(model);
         }
      
 

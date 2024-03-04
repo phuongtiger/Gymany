@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Gymany.Models;
+using Microsoft.AspNetCore.Http;
 
 
 namespace Gymany.Controllers
@@ -21,18 +22,17 @@ namespace Gymany.Controllers
 
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            ProductController productController = new ProductController();
+            List<Product> products = productController.GetProduct().Result;
+            List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
+            string number = HttpContext.Session.GetString("NumberNoti");
+            var viewModel = new ListModels
+            {
+                Products = products,
+                NumberNoti = number,
+                Notifications = notifications
+            };
+            return View(viewModel);
         }
     }
 }

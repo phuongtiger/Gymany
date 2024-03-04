@@ -1,18 +1,21 @@
-@model Gymany.Models.Customer
+@model Gymany.Models.ListModels
 
 
 @{
     ViewData["Title"] = "Profile";
 }
 
- <div class="row">
+
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+  <div class="row">
         <div class="col-xl-4">
             <!-- Profile picture card-->
             <div class="card mb-4 mb-xl-0">
                 <div class="card-header">Profile Picture</div>
                 <div class="card-body text-center">
                     <!-- Profile picture image-->
-                    <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                    <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" style="margin-right: auto; margin-left: auto;">
                     <!-- Profile picture help block-->
                     <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
                     <!-- Profile picture upload button-->
@@ -24,40 +27,45 @@
             <!-- Account details card-->
             <div class="card mb-4">
                 <div class="card-header">Account Details</div>
-                <div class="card-body">
-                
+                <div class="card-body">             
                     <form>
+                        <input readonly class="form-control" id="inputId" type="hidden" placeholder="Enter your username" value="@Html.DisplayFor(model => model.customer.CustomerID)">
                         <!-- Form Group (username)-->
                         <div class="mb-3">
                             <label class="small mb-1">Name</label>                      
-                            <input readonly class="form-control" id="inputName" type="text" placeholder="Enter your username" value=" @Html.DisplayFor(model => model.Name)">
+                            <input readonly class="form-control" id="inputName" type="text" placeholder="Enter your username" value="@Html.DisplayFor(model => model.customer.Name)">
                         </div>
+                        <!-- Form Group (Password)-->
+
+                            <input readonly class="form-control" id="inputAddress" type="hidden" placeholder="Enter your address" value="@Html.DisplayFor(model => model.customer.Password)" >
                         <!-- Form Group (Address)-->
                         <div class="mb-3">
                             <label class="small mb-1" for="inputAddress">Address</label>
-                            <input readonly class="form-control" id="inputAddress" type="text" placeholder="Enter your address" value="@Html.DisplayFor(model => model.Address)" >
+                            <input readonly class="form-control" id="inputAddress" type="text" placeholder="Enter your address" value="@Html.DisplayFor(model => model.customer.Address)" >
                         </div>
                     
                         <!-- Form Group (email address)-->
                         <div class="mb-3">
                             <label class="small mb-1" for="inputEmailAddress">Email address</label>
-                            <input readonly class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value="@Html.DisplayFor(model => model.Email)">
+                            <input readonly class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value="@Model.customer.Email">
                         </div>
                         <!-- Form Row-->
                         <div class="row gx-3 mb-3">
                             <!-- Form Group (phone number)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputPhone">Phone number</label>
-                                <input readonly class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" value="@Html.DisplayFor(model => model.Phone)">
+                                <input readonly class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" value="@Html.DisplayFor(model => model.customer.Phone)">
                             </div>
                             <!-- Form Group (birthday)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputBirthday">Birthday</label>
-                                <input readonly class="form-control" id="inputBirthday" type="text" name="birthday" placeholder="Enter your birthday" value="@Html.DisplayFor(model => model.Age, "{MM/dd/yyyy}")">
+                                <input readonly class="form-control" id="inputBirthday" type="text" name="birthday" placeholder="Enter your birthday" value="@Html.DisplayFor(model => model.customer.Age)">
                             </div>
                         </div>
                         <!-- Save changes button-->
-                        <a  asp-action="EditProfile" class="btn btn-primary" type="button">Changes</a>
+                        <a  asp-action="EditProfile" asp-route-id="@ViewBag.ID" class="btn btn-primary" type="button">Changes</a>
+                        <a  asp-action="WorkoutPlan"  class="btn btn-primary" type="button">View Workout Plan</a>
+                        <a  asp-action="DeleteSession"  class="btn btn-primary" type="button">Logout</a>
                     </form>                    
                 </div>
             </div>

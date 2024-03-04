@@ -983,3 +983,7 @@ E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Are
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\WorkOut\Edit.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\WorkOut\index.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Home\Search.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\MemberAccount.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteMember.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddMember.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateMember.cshtml.g.cs

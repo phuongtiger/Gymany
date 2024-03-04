@@ -45,6 +45,10 @@ namespace Gymany.Controllers
         private string api_Staff;
 
         private string api_StaffById;
+
+        private string api_Member;
+
+        private string api_MemberById;
         public GymOwnerController()
         {
             client = new HttpClient();
@@ -64,8 +68,8 @@ namespace Gymany.Controllers
             this.api_PostById = "https://localhost:5002/api/Post/id";
             this.api_Staff = "https://localhost:5002/api/Staff";
             this.api_StaffById = "https://localhost:5002/api/Staff/api";
-
-
+            this.api_Member = "https://localhost:5002/api/Member";
+            this.api_MemberById = "https://localhost:5002/api/Member/id";
 
         }
 
@@ -106,7 +110,7 @@ namespace Gymany.Controllers
         [HttpPost]
         public async Task<IActionResult> Profile(GymOwner obj)
         {
-            
+
             ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
             string id = HttpContext.Session.GetString("GymOwnerID");
             apiGetGymOwnerByID = $"https://localhost:5002/api/GymOwner/Id?id={id}";
@@ -153,7 +157,7 @@ namespace Gymany.Controllers
         }
 
         //lougout and delete session
-         public IActionResult DeleteSession()
+        public IActionResult DeleteSession()
         {
             //xóa hết session đang lưu hiện tại
             HttpContext.Session.Clear();
@@ -757,7 +761,130 @@ namespace Gymany.Controllers
                 return View("Error");
             }
         }
+        // ------------------------------------Member Manage --------------------------------\\
+        public async Task<IActionResult> MemberAccount()
+        {
 
+            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
+            if (!checkLogin())
+            {
+                return Redirect("/GymOwner/Index");
+            }
+            HttpResponseMessage response = await client.GetAsync(api_Member);
+            string data = await response.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            List<Member> list = JsonSerializer.Deserialize<List<Member>>(data, options);
+            return View(list);
+
+        }
+        //method add member
+        public async Task<IActionResult> AddMember()
+        {
+
+
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddMember(Member obj)
+        {
+
+            if (ModelState.IsValid)
+            {
+                string data = JsonSerializer.Serialize(obj);
+                var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync(api_Post, content);
+                if (response.StatusCode == System.Net.HttpStatusCode.Created)
+                    return RedirectToAction("MemberAccount");
+            }
+            return View(obj);
+        }
+
+        //method delete Pt member
+        public async Task<IActionResult> DeleteMember(int id)
+        {
+            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
+            api_MemberById = $"https://localhost:5002/api/Member/id?id={id}";
+            HttpResponseMessage response = await client.GetAsync(api_MemberById);
+            if (response.IsSuccessStatusCode)
+            {
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                var data = response.Content.ReadAsStringAsync().Result;
+                var member = JsonSerializer.Deserialize<Member>(data, options);
+                return View(member);
+            }
+            return NotFound();
+        }
+        [HttpPost]
+        public async Task<ActionResult> DeleteMember(int id, Member obj)
+        {
+            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
+            api_MemberById = $"https://localhost:5002/api/Member/id?id={id}";
+
+            try
+            {
+                // Tạo yêu cầu DeletePT
+                obj.MemberID = id;
+                HttpResponseMessage response = await client.DeleteAsync(api_MemberById);
+                var data = response.Content.ReadAsStringAsync().Result;
+                var member = JsonSerializer.Deserialize<Member>(data);
+                // Kiểm tra kết quả trả về từ endpoint API
+                if (response.IsSuccessStatusCode)
+                {
+                    // Xử lý kết quả nếu xóa thành công, ví dụ chuyển hướng đến trang danh sách
+                    return RedirectToAction("MemberAccount");
+
+                }
+                else
+                {
+                    // Xử lý kết quả nếu xóa không thành công, ví dụ hiển thị thông báo lỗi
+                    return View();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(ex);
+                // Xử lý lỗi nếu có
+                return View("Error");
+            }
+        }
+
+        //method update Status Member
+        public async Task<IActionResult> UpdateMember(int id)
+        {
+            ViewBag.CustomerId = await GetCustomerId();
+            ViewBag.MemberId = id;
+            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
+            api_MemberById = $"https://localhost:5002/api/Member/id?id={id}";
+            HttpResponseMessage response = await client.GetAsync(api_MemberById);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                var data = response.Content.ReadAsStringAsync().Result;
+                var member = JsonSerializer.Deserialize<Member>(data, options);
+                return View(member);
+            }
+            return NotFound();
+        }
+        [HttpPost]
+        public async Task<IActionResult> UpdateMember(int id, Member obj)
+        {
+
+
+            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
+            api_MemberById = $"https://localhost:5002/api/Member/id?id={id}";
+            obj.MemberID = id;
+            ViewBag.CustomerId = await GetCustomerId();
+            ViewBag.MemberId = id;
+            string data = JsonSerializer.Serialize(obj);
+            var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await client.PutAsync(api_MemberById, content);
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction("MemberAccount");
+            }
+            return View("UpdateMember");
+        }
 
 
 
@@ -802,6 +929,20 @@ namespace Gymany.Controllers
             {
                 Value = c.StaffID.ToString(), // ID của category là giá trị của mục
                 Text = c.Name // Tên của category là nội dung của mục
+            }).ToList();
+            return yourData;
+        }
+
+        public async Task<List<SelectListItem>> GetCustomerId()
+        {
+            HttpResponseMessage respone = await client.GetAsync(api_Customer);
+            string data = await respone.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            List<Customer> list = JsonSerializer.Deserialize<List<Customer>>(data, options);
+            List<SelectListItem> yourData = list.Select(c => new SelectListItem
+            {
+                Value = c.CustomerID.ToString(), // ID của category là giá trị của mục
+                Text = c.Name                                // Tên của category là nội dung của mục
             }).ToList();
             return yourData;
         }

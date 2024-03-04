@@ -141,6 +141,7 @@
     "C:\\Users\\THANH\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\THANH\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
+<<<<<<< HEAD
   "logs": [
     {
       "code": "Undefined",
@@ -149,4 +150,7 @@
       "message": "Problem reading the cache file D:\\Project_SWP\\Web_Gymany\\Gymany\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'logs[0].warningLevel', line 149, position 0."
     }
   ]
+=======
+  "logs": []
+>>>>>>> dc76602b0a85ea129341f83858f0bf57a4cc0fd6
 }

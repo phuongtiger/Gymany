@@ -20,5 +20,6 @@ namespace Gymany.Models
         {
             throw new NotImplementedException();
         }
+        public List<Member> members {get ; set ;}
     }
 }

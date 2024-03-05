@@ -714,7 +714,6 @@ D:\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\EditPost.cshtml.g.cs
 >>>>>>> sieu
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Register.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateProduct.cshtml.g.cs
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Shared\GymManageLayout.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\PTProfile.cshtml.g.cs
 >>>>>>> 8396375dd69c69fb0274d781f7379701f54397ff
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\PTProfile.cshtml.g.cs
@@ -944,9 +943,6 @@ E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\Classes\Inde
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Blog\blogdetail.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Blog\Index.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Classes\Index.cshtml.g.cs
-D:\Gymany\bin\Debug\net5.0\ref\Gymany.dll
-D:\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.xml
-D:\Gymany\obj\Debug\net5.0\Gymany.csproj.CopyComplete
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddCustomerAccout.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddPtAccout.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\CustomerAccout.cshtml.g.cs
@@ -998,3 +994,29 @@ D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\WorkOut\i
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Blog\blogdetail.cshtml.g.cs
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Blog\Index.cshtml.g.cs
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Classes\Index.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Profile.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Category.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddCategory.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateCategory.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteCategory.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddCategory.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Category.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteCategory.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateCategory.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Views\Home\Search.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddCategory.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Category.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteCategory.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateCategory.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Home\Search.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\JoinMember.cshtml.g.cs
+D:\Gymany\bin\Debug\net5.0\Gymany.StaticWebAssets.xml
+D:\Gymany\obj\Debug\net5.0\Gymany.sourcelink.json
+D:\Gymany\obj\Debug\net5.0\Razor\Views\Customer\JoinMember.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.Pack.cache
+D:\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.Gymany.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.build.Gymany.props
+D:\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.Gymany.props
+D:\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.Gymany.props
+D:\Gymany\obj\Debug\net5.0\Gymany.csproj.Up2Date
+D:\Gymany\obj\Debug\net5.0\refint\Gymany.dll

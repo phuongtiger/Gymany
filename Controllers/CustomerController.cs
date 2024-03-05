@@ -182,12 +182,6 @@ namespace Gymany.Controllers
 
         public async Task<IActionResult> DeleteSession()
         {
-            // if(HttpContext.Session.GetString("Username")!= null){
-            //     HttpContext.Session.Remove("Username");
-            // }else
-            // {
-            //     return RedirectToAction("Profile");
-            // }
             HttpContext.Session.Clear();
             return RedirectToAction("Index", "Home");
         }

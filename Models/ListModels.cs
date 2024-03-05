@@ -14,8 +14,8 @@ namespace Gymany.Models
         public List<Category> Categories { get; set; }
         public string NumberNoti { get; set; }
         public Member member {get ; set ;}
-         public List<WorkoutPlan> workoutPlans { get; set; }
-
+        public List<WorkoutPlan> workoutPlans { get; set; }
+        public bool CheckMember;
         public static implicit operator ListModels(Customer v)
         {
             throw new NotImplementedException();

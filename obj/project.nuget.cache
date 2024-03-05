@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "9+nZXD8SJeOcyXBbQUoklQtfRd8Ie2bu67cEMnBMVp/ok7lDQLAgc92AaEXqYneQxPI/q0tJwlG2Y4WEbJbWMQ==",
+=======
+  "dgSpecHash": "uThi1SN2bkh26LpGoVL+V7aR5J+rF8t67+e4dOvFP6OgSgH16jwL068O9V5fPxnyQCYouuzKxVI+k611BVwH6g==",
+>>>>>>> bebbc7c38c8041651d9e71ecb5120e5617201b89
   "success": true,
   "projectFilePath": "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\Gymany.csproj",
   "expectedPackageFiles": [

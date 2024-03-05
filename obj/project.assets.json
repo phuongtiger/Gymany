@@ -7854,19 +7854,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Van-Khoi\\.nuget\\packages\\": {}
+    "C:\\Users\\hoang\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\chuyên ngành kì 5\\PRN211\\project_group_5\\Gymany\\Gymany.csproj",
+      "projectUniqueName": "D:\\Gymany\\Gymany.csproj",
       "projectName": "Gymany",
-      "projectPath": "E:\\chuyên ngành kì 5\\PRN211\\project_group_5\\Gymany\\Gymany.csproj",
-      "packagesPath": "C:\\Users\\Van-Khoi\\.nuget\\packages\\",
-      "outputPath": "E:\\chuyên ngành kì 5\\PRN211\\project_group_5\\Gymany\\obj\\",
+      "projectPath": "D:\\Gymany\\Gymany.csproj",
+      "packagesPath": "C:\\Users\\hoang\\.nuget\\packages\\",
+      "outputPath": "D:\\Gymany\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Van-Khoi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\hoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7886,6 +7886,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -7944,7 +7949,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

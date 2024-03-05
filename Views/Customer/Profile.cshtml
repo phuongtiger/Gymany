@@ -85,10 +85,10 @@
                             </div>
                         </div>
                         <!-- Save changes button-->
-                        <a  asp-action="EditProfile" asp-route-id="@ViewBag.ID" class="btn btn-primary" type="button">Changes</a>
-                        <a  asp-action="WorkoutPlan"  class="btn btn-primary" type="button">View Workout Plan</a>
-                        <a  asp-action="DeleteSession"  class="btn btn-primary" type="button">Logout</a>
-                    </form>                    
+                        <a asp-controller="Customer" asp-action="EditProfile" asp-route-id="@Model.customer.CustomerID" class="btn btn-primary" type="button">Update Profile</a>
+                        <a  asp-action="BecomeMember" class="btn btn-primary" type="button">Become Member</a>
+                    </form>    
+     
                 </div>
             </div>
         </div>

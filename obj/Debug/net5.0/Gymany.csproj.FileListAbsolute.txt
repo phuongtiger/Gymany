@@ -995,6 +995,15 @@ D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Category.cshtml.g
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteCategory.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateCategory.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Home\Search.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\WorkOut\Create.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\WorkOut\Delete.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\WorkOut\Edit.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\WorkOut\index.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Home\Search.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\MemberAccount.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteMember.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddMember.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateMember.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Customer\EditProfile.cshtml.g.cs
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddCustomerAccount.cshtml.g.cs
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddPtAccount.cshtml.g.cs
@@ -1029,6 +1038,13 @@ D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\Gym
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Home\Search.cshtml.g.cs
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\JoinMember.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Customer\JoinMember.cshtml.g.cs
+>>>>>>> 94172ee9ff5a07174c81a173c034eabf3dafaca4
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Customer\EditProfile.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Customer\RegisterForm.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddMember.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteMember.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\MemberAccount.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateMember.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.Pack.cache
 D:\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.Gymany.Microsoft.AspNetCore.StaticWebAssets.props
 D:\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.build.Gymany.props

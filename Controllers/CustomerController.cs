@@ -89,6 +89,7 @@ namespace Gymany.Controllers
         {
             api_CustomerByID = $"https://localhost:5002/api/Customer/id?id={id}";
             Customer customer = obj.customer;
+            System.Console.WriteLine(obj.customer.Phone);
             string data = JsonSerializer.Serialize(customer);
             var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
             HttpResponseMessage respone = await client.PutAsync(api_CustomerByID, content);

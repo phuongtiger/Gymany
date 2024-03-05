@@ -146,7 +146,7 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\Project_SWP\\Web_Gymany\\Gymany\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'logs[0].warningLevel', line 149, position 0."
+      "message": "Problem reading the cache file D:\\Project_SWP\\Web_Gymany\\Gymany\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'expectedPackageFiles', line 144, position 0."
     }
   ]
 }

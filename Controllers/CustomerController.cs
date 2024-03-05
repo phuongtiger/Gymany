@@ -26,7 +26,7 @@ namespace Gymany.Controllers
         private string api_WorkoutPlanByID;
         private string api_MemberByCusID;
         private string api_WorkoutPlanByMemberID;
-
+        private string apiMember;
 
         public CustomerController()
         {
@@ -38,7 +38,7 @@ namespace Gymany.Controllers
             this.api_WorkoutPlanByID = "https://localhost:5002/api/WorkoutPlan/id";
             this.api_MemberByCusID = "https://localhost:5002/api/Member/customerID";
             this.api_WorkoutPlanByMemberID = "https://localhost:5002/api/WorkoutPlan/memberID";
-
+            this.apiMember = "https://localhost:5002/api/Member";
         }
         public IActionResult Form()
         {
@@ -99,10 +99,42 @@ namespace Gymany.Controllers
             return View(obj);
         }
 
-
-
-
+     public async Task<IActionResult> JoinMember()
+        {
+            if (!checkLogin())
+            {
+                return RedirectToAction("Form");
+            }
+            string id = HttpContext.Session.GetString("CustomerID");
+            ViewBag.cusID = id;
+            ListModels listModels= new ListModels();
+            api_MemberByCusID = $"https://localhost:5002/api/Member/customerID?customerID={id}";
+            HttpResponseMessage response = await client.GetAsync(api_MemberByCusID);
+            string data = await response.Content.ReadAsStringAsync();
+         
+            if (response.StatusCode == HttpStatusCode.NotFound)
+            {
+                return View(listModels);    
+            }
+            else
+            {
+                return RedirectToAction("Profile", "Customer");
+            }}
      
+       [HttpPost]
+        public async Task<IActionResult> JoinMember(ListModels obj)
+        {
+            if (ModelState.IsValid)
+            {
+
+                string data = JsonSerializer.Serialize(obj.member);
+                var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync(apiMember, content);
+                if (response.StatusCode == System.Net.HttpStatusCode.Created)
+                    return RedirectToAction("Profile","Customer");
+            }
+            return View(obj);
+        }
 
 
 

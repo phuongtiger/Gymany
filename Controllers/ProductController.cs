@@ -45,11 +45,13 @@ namespace Gymany.Controllers
             List<Product> products = await GetProduct();
             List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
             string number = HttpContext.Session.GetString("NumberNoti");
+            List<Category> categories = await GetCategory();
             var viewModel = new ListModels
             {
                 Products = products,
                 Notifications = notifications,
-                NumberNoti = number
+                NumberNoti = number,
+                Categories = categories
             };
             return View(viewModel);
         }
@@ -173,6 +175,13 @@ namespace Gymany.Controllers
     //             return View("Error");
     //         }
     //     }
+        public async Task<List<Category>> GetCategory(){
+            HttpResponseMessage respone = await client.GetAsync(apiCategory);
+            string data = await respone.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            List<Category> list = JsonSerializer.Deserialize<List<Category>>(data, options);
+            return list;
+        }
         public async Task<List<SelectListItem>> GetSelectItem(){
             HttpResponseMessage respone = await client.GetAsync(apiCategory);
             string data = await respone.Content.ReadAsStringAsync();

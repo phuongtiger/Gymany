@@ -17,10 +17,14 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyProductAttribute("Gymany")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 <<<<<<< HEAD
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+19271cefcdf4794da584e1b1dfadacb5654c0c3e")]
 =======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+410f3a72cdf58353378e5b2dea34872f7fea6f17")]
 >>>>>>> bebbc7c38c8041651d9e71ecb5120e5617201b89
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d5abf6a1a7d1b7615b3d73dad320b26ba4006e9b")]
+>>>>>>> 4cc9f67f52084229977a45b5113b5ec7bb61abe2
 [assembly: System.Reflection.AssemblyTitleAttribute("Gymany.Views")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 

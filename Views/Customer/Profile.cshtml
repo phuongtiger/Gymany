@@ -1,43 +1,60 @@
 @model Gymany.Models.ListModels
 
 
-
 @{
     ViewData["Title"] = "Profile";
 }
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 <div class="container" >
     <div class="row" style="padding: 20px 0;">
-        <div class="col-xl-4">
+        
+        <div class="col-xl-4" style="flex-basis: 20%;">
             <!-- Profile picture card-->
             <div class="card mb-4 mb-xl-0">
-                <div class="card-header" style="background-color: #ff9500;color: white;">Profile Picture</div>
-                <div class="card-body text-center" >
-                    <!-- Profile picture image-->
-                    <img class="img-account-profile rounded-circle mb-2"
-                        src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""
-                        style="margin-right: auto; margin-left: auto;">
-                    <!-- Profile picture help block-->
-                    <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
-                    <!-- Profile picture upload button-->
-                    <button class="btn btn-primary" type="button">Upload new image</button>
+                <div class="card-header" style="background-color: #ff9500;color: white;">Setting</div>
+                <div class="card-body " >
+                    <ul>
+                        <li>
+                            <a asp-action="Profile" class="text-left" style="margin: 5px 0; width:100%;">Profile</a>
+                        </li>
+                        <li>
+                            <a asp-controller="WorkoutPlan" asp-action="Index" class="text-left" style="margin: 5px 0;width:100%;">Workout Plan
+
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-action="DeleteSession" class="text-left" style="margin: 5px 0;width:100%;">
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <div class="col-xl-8">
+        
+        <div class="col-xl-8" style="flex-basis: 80%; max-width: none">
             <!-- Account details card-->
             <div class="card mb-4">
                 <div class="card-header" style="background-color: #ff9500;color: white;">Account Details</div>
                 <div class="card-body">
 
                     <form>
+                        <img class="img-account-profile rounded-circle mb-2"
+                        src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""
+                        style="margin-right: auto; margin-left: auto;">
+                        <!-- Profile picture help block-->
+                        <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+                        <!-- Profile picture upload button-->
+                        <button class="btn btn-primary" type="button">Upload new image</button>
+                        <input readonly class="form-control" id="inputId" type="hidden" placeholder="Enter your username" value="@Html.DisplayFor(model => model.customer.CustomerID)">
                         <!-- Form Group (username)-->
                         <div class="mb-3">
-                            <label class="small mb-1">Name</label>
-                            <input readonly class="form-control" id="inputName" type="text"
-                                placeholder="Enter your username"
-                                value=" @Html.DisplayFor(model => model.customer.Name)">
+                            <label class="small mb-1">Name</label>                      
+                            <input readonly class="form-control" id="inputName" type="text" placeholder="Enter your username" value="@Html.DisplayFor(model => model.customer.Name)">
                         </div>
+                        <!-- Form Group (Password)-->
+
+                            <input readonly class="form-control" id="inputAddress" type="hidden" placeholder="Enter your address" value="@Html.DisplayFor(model => model.customer.Password)" >
                         <!-- Form Group (Address)-->
                         <div class="mb-3">
                             <label class="small mb-1" for="inputAddress">Address</label>
@@ -64,14 +81,14 @@
                             <!-- Form Group (birthday)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputBirthday">Birthday</label>
-                                <input readonly class="form-control" id="inputBirthday" type="text" name="birthday"
-                                    placeholder="Enter your birthday"
-                                    value="@Html.DisplayFor(model => model.customer.Age, "{MM/dd/yyyy}")">
+                                <input readonly class="form-control" id="inputBirthday" type="text" name="birthday" placeholder="Enter your birthday" value="@Html.DisplayFor(model => model.customer.Age)">
                             </div>
                         </div>
                         <!-- Save changes button-->
-                        <a asp-action="EditProfile" class="btn btn-primary" type="button">Changes</a>
-                    </form>
+                        <a asp-controller="Customer" asp-action="EditProfile" asp-route-id="@Model.customer.CustomerID" class="btn btn-primary" type="button">Update Profile</a>
+                        <a  asp-action="BecomeMember" class="btn btn-primary" type="button">Become Member</a>
+                    </form>    
+     
                 </div>
             </div>
         </div>

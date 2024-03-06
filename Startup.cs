@@ -27,16 +27,13 @@ namespace Gymany
         {
             services.AddControllers();
             services.AddControllersWithViews();
-<<<<<<< HEAD
-            services.AddSession((option)=>{
-                option.Cookie.Name = "Username";
-=======
+
             services.AddDistributedMemoryCache();
             services.AddSession((option) =>
             {
                 option.Cookie.Name = "Username";
                 option.Cookie.Name = "Email";
->>>>>>> 6a35df892d9302b3b761ea986ea056300af1e160
+
                 option.IdleTimeout = new TimeSpan(0, 30, 0);
             });
         }
@@ -55,10 +52,7 @@ namespace Gymany
                 app.UseHsts();
             }
 
-<<<<<<< HEAD
-=======
-            
->>>>>>> 6a35df892d9302b3b761ea986ea056300af1e160
+
             //đăng ký session
             app.UseSession();
             app.UseHttpsRedirection();

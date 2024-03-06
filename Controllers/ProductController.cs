@@ -7,11 +7,9 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-<<<<<<< HEAD
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.Logging;
-=======
->>>>>>> 6a35df892d9302b3b761ea986ea056300af1e160
+
 using Gymany.Models;
 using Microsoft.AspNetCore.Http;
 

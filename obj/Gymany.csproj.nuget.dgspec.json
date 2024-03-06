@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Project_SWP\\Web_Gymany\\Gymany\\Gymany.csproj": {}
+    "D:\\Gymany\\Gymany.csproj": {}
   },
   "projects": {
-    "D:\\Project_SWP\\Web_Gymany\\Gymany\\Gymany.csproj": {
+    "D:\\Gymany\\Gymany.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project_SWP\\Web_Gymany\\Gymany\\Gymany.csproj",
+        "projectUniqueName": "D:\\Gymany\\Gymany.csproj",
         "projectName": "Gymany",
-        "projectPath": "D:\\Project_SWP\\Web_Gymany\\Gymany\\Gymany.csproj",
-        "packagesPath": "C:\\Users\\THANH\\.nuget\\packages\\",
-        "outputPath": "D:\\Project_SWP\\Web_Gymany\\Gymany\\obj\\",
+        "projectPath": "D:\\Gymany\\Gymany.csproj",
+        "packagesPath": "C:\\Users\\hoang\\.nuget\\packages\\",
+        "outputPath": "D:\\Gymany\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\THANH\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -92,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

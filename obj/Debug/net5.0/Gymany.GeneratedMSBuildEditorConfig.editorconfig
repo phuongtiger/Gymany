@@ -8,6 +8,10 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Gymany
+<<<<<<< HEAD
 build_property.ProjectDir = D:\GitP\Gymany\
+=======
+build_property.ProjectDir = D:\Gymany\
+>>>>>>> 4cc9f67f52084229977a45b5113b5ec7bb61abe2
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "ItgtvGg4o4tjgb4ROTnN1Bi47kTvomAgDbJrk1V0KCHBVNcePQdyjl1xAP27U3wW3MlTFeWG9DFl4rN3yfoxsw==",
+=======
+  "dgSpecHash": "uThi1SN2bkh26LpGoVL+V7aR5J+rF8t67+e4dOvFP6OgSgH16jwL068O9V5fPxnyQCYouuzKxVI+k611BVwH6g==",
+>>>>>>> 4cc9f67f52084229977a45b5113b5ec7bb61abe2
   "success": true,
   "projectFilePath": "D:\\GitP\\Gymany\\Gymany.csproj",
   "expectedPackageFiles": [

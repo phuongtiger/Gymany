@@ -1,0 +1,47 @@
+@model Gymany.Models.Post
+@{
+    ViewData["Title"] = "CreatePost";
+}
+@{
+    Layout = "PTLayout";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<div class="row bg-light p-12">
+    <div class="col-md-12">
+        <form asp-action="CreatePost">
+            <div class="form-group">
+                <label asp-for="Title" class="control-label h3"></label>
+                <input asp-for="Title" class="form-control form-control-lg" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label h3"></label>
+                <input readonly type="date" asp-for="Date" class="form-control form-control-lg" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Content" class="control-label h3"></label>
+                <textarea asp-for="Content" class="form-control form-control-lg text-justify"></textarea>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image" class="control-label h3"></label>
+                <input asp-for="Image" class="form-control form-control-lg" />
+            </div>
+            <div class="form-group">
+                <!-- Sử dụng trường ẩn để lưu trữ giá trị PTID -->
+                <input type="hidden" asp-for="PTID" class="form-control form-control-lg" value="@ViewBag.PTID" />
+            </div>
+            <div class="form-group">
+                <label asp-for="StaffID" class="control-label h3">StaffID</label>
+                <input readonly asp-for="StaffID" class="form-control form-control-lg" value="1" />
+            </div>
+            <div class="card-footer d-flex justify-content-center"> 
+                <button type="submit" class="btn btn-primary btn-lg">Create</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var currentDate = new Date().toISOString().substr(0, 10);
+        document.getElementById('Date').value = currentDate;
+    });
+</script>

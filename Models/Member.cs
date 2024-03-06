@@ -10,15 +10,16 @@ namespace Gymany.Models
     public class Member
     {
         [Key]
-        public string MemberID { get; set; }
+        public int MemberID { get; set; }
 
+        [Required(ErrorMessage = "Date is required.")]
         public DateTime? Date { get; set; }
 
-        [StringLength(50)]
+        [StringLength(50, ErrorMessage = "Status length cannot exceed 50 characters.")]
         public string Status { get; set; }
 
         [ForeignKey("Customer")]
-        public string CustomerID { get; set; }
+        public int CustomerID { get; set; }
         public Customer Customer { get; set; }
     }
 }

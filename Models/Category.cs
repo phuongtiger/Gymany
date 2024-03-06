@@ -8,11 +8,11 @@ namespace Gymany.Models
 {
     public class Category
     {
-         [Key]
-        public string CategoryID { get; set; }
+        [Key]
+        public int CategoryID { get; set; }
 
-        [Required]
-        [StringLength(50)]
+        [Required(ErrorMessage = "Type is required.")]
+        [StringLength(50, ErrorMessage = "Type length cannot exceed 50 characters.")]
         public string Type { get; set; }
 
         public string Description { get; set; }

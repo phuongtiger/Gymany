@@ -25,8 +25,15 @@ namespace Gymany
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddControllers();
             services.AddControllersWithViews();
+            services.AddDistributedMemoryCache();
+            services.AddSession((option) =>
+            {
+                option.Cookie.Name = "Username";
+                option.Cookie.Name = "Email";
+                option.IdleTimeout = new TimeSpan(0, 30, 0);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,20 +49,29 @@ namespace Gymany
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            
+            //đăng ký session
+            app.UseSession();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
-            {
+            {   
                  endpoints.MapAreaControllerRoute(
-                    name: "adminpage",
+                    name: "PTPage",
+                    pattern: "{controller}/{action=Index}/{id?}",
+                    areaName: "PT"
+                );
+                endpoints.MapAreaControllerRoute(
+                    name: "GymOwnerPage",
                     pattern: "{controller}/{action=Index}/{id?}",
                     areaName: "GymOwner"
-                    );
+                );
 
                 endpoints.MapControllerRoute(
                     name: "default",

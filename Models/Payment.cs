@@ -10,18 +10,20 @@ namespace Gymany.Models
     public class Payment
     {
         [Key]
-        public string PaymentID { get; set; }
+        public int PaymentID { get; set; }
 
+        [Required(ErrorMessage = "Date is required.")]
         public DateTime? Date { get; set; }
 
+        [Required(ErrorMessage = "Quantity is required.")]
         public int? Quantity { get; set; }
 
         [ForeignKey("Customer")]
-        public string CustomerID { get; set; }
+        public int CustomerID { get; set; }
         public Customer Customer { get; set; }
 
         [ForeignKey("Product")]
-        public string ProductID { get; set; }
+        public int ProductID { get; set; }
         public Product Product { get; set; }
     }
 }

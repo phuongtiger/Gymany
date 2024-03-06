@@ -99,12 +99,6 @@ namespace Gymany.Controllers
         }
 
 
-
-
-     
-
-
-
         public async Task<ActionResult> Login(string username, string password)
         {
             apiCustomer = $"https://localhost:5002/api/Customer/checklogin?username={username}&password={password}";

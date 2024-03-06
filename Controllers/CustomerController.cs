@@ -8,6 +8,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using Gymany.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -149,7 +150,7 @@ namespace Gymany.Controllers
             {
                 string jsonString = await response.Content.ReadAsStringAsync();
                 //lấy tất cả thông tin từ id của customer
-                JObject jsonObject = JObject.Parse(jsonString);
+                XObject jsonObject = JObject.Parse(jsonString);
                 string id = (string)jsonObject["customerID"];
 
                 HttpContext.Session.SetString("CustomerID", id);

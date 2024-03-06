@@ -11,15 +11,21 @@
  <div class="text-center">
         <h2 class="display-4">Add Post</h2>
     </div>
-<form asp-controller="GymOwner" asp-action="AddPost" method="post" class="container" style="max-width: 1100px;">
+<form asp-controller="GymOwner" asp-action="AddPost" method="post" class="container" style="max-width: 1100px;" enctype="multipart/form-data">
     <div class="form-group row">
         <label asp-for="Date" class="col-sm-2 col-form-label">Date:</label>
         <div class="col-sm-10">
-            <input type="text" asp-for="Title" class="form-control">
+            <input readonly type="date" asp-for="Date" class="form-control">
+            <span asp-validation-for="Date" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="Title" class="col-sm-2 col-form-label">Title:</label>
+        <div class="col-sm-10">
+            <textarea id="Title" asp-for="Title"  class="form-control"></textarea>
             <span asp-validation-for="Title" class="text-danger"></span>
         </div>
     </div>
-
     <div class="form-group row">
         <label asp-for="Content" class="col-sm-2 col-form-label">Content:</label>
         <div class="col-sm-10">
@@ -28,7 +34,7 @@
         </div>
     </div>
 
-    <div class="form-group row">
+    <div class="form-group row" style="display: none;">
         <label asp-for="Image" class="col-sm-2 col-form-label">Image:</label>
         <div class="col-sm-10">
             <input type="text" asp-for="Image" class="form-control">
@@ -36,14 +42,12 @@
         </div>
     </div>
     <div class="form-group row">
-        <label asp-for="PTID" class="col-sm-2 col-form-label">PTID:</label>
+        <label asp-for="ImageUpload" class="col-sm-2 col-form-label">Upload Image:</label>
         <div class="col-sm-10">
-            <input type="datetime-local" asp-for="Date" class="form-control">
-            <span asp-validation-for="Date" class="text-danger"></span>
+            <input type="file" asp-for="ImageUpload" class="form-control" required>
+            <span asp-validation-for="ImageUpload" class="text-danger"></span>
         </div>
     </div>
-
-
     <div class="form-group row">
         <label asp-for="PTID" class="col-sm-2 col-form-label">PT Name:</label>
         <div class="col-sm-10">
@@ -67,6 +71,12 @@
         </div>
     </div>
 </form>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var currentDate = new Date().toISOString().substr(0, 10);
+        document.getElementById('Date').value = currentDate;
+    });
+</script>
 <script>
         document.addEventListener('DOMContentLoaded', function () {
             ClassicEditor

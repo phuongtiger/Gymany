@@ -1,10 +1,6 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "ItgtvGg4o4tjgb4ROTnN1Bi47kTvomAgDbJrk1V0KCHBVNcePQdyjl1xAP27U3wW3MlTFeWG9DFl4rN3yfoxsw==",
-=======
-  "dgSpecHash": "uThi1SN2bkh26LpGoVL+V7aR5J+rF8t67+e4dOvFP6OgSgH16jwL068O9V5fPxnyQCYouuzKxVI+k611BVwH6g==",
->>>>>>> 4cc9f67f52084229977a45b5113b5ec7bb61abe2
   "success": true,
   "projectFilePath": "D:\\GitP\\Gymany\\Gymany.csproj",
   "expectedPackageFiles": [
@@ -145,5 +141,12 @@
     "C:\\Users\\Ducsi\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Ducsi\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\GitP\\Gymany\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

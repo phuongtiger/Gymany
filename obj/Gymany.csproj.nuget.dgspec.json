@@ -14,11 +14,7 @@
         "outputPath": "D:\\GitP\\Gymany\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-<<<<<<< HEAD
           "C:\\Users\\Ducsi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-          "C:\\Users\\hoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 4cc9f67f52084229977a45b5113b5ec7bb61abe2
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -38,11 +34,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -101,11 +92,7 @@
               "privateAssets": "all"
             }
           },
-<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102\\RuntimeIdentifierGraph.json"
-=======
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
->>>>>>> 4cc9f67f52084229977a45b5113b5ec7bb61abe2
         }
       }
     }

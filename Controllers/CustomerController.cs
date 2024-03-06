@@ -99,12 +99,6 @@ namespace Gymany.Controllers
         }
 
 
-
-
-     
-
-
-
         public async Task<ActionResult> Login(string username, string password)
         {
             apiCustomer = $"https://localhost:5002/api/Customer/checklogin?username={username}&password={password}";
@@ -143,8 +137,8 @@ namespace Gymany.Controllers
 
         public IActionResult RegisterForm()
         {
-            
-            return View();
+            ListModels listModels = new ListModels();
+            return View(listModels);
         }
 
         [HttpPost]

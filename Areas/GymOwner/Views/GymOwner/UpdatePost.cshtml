@@ -29,7 +29,7 @@
     <div class="form-group row">
         <label asp-for="Content" class="col-sm-2 col-form-label">Content:</label>
         <div class="col-sm-10">
-            <input type="text" asp-for="Content" class="form-control" required>
+            <textarea id="Content" type="text" asp-for="Content" class="form-control" required></textarea>
         </div>
     </div>
 
@@ -71,3 +71,12 @@
 
     </div>
 </form>
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            ClassicEditor
+                .create(document.querySelector('#Content'))
+                .catch(error => {
+                    console.error(error);
+                });
+        });
+    </script>

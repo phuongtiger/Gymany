@@ -1,242 +1,365 @@
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords"
-        content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Ample lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Ample admin lite dashboard bootstrap 5 dashboard template">
-    <meta name="description"
-        content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
-    <meta name="robots" content="noindex,nofollow">
-    <title>Ample Admin Lite Template by WrapPixel</title>
-    <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="~/wwwroot/plugins/images/favicon.png">
-    <link rel="stylesheet" href="~/wwwroot/bootstrap/dist/js/bootstrap.bundle.min.js" />
-    <link rel="stylesheet" href="~/wwwroot/css/styleAdmin.css" />
-    <!-- Custom CSS -->
-    <link href="~/wwwroot/css/style.min.css rel=" stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Gymany</title>
+    <!-- 
+    - favicon
+  -->
+    <link rel="shortcut icon" href="~/favicon.svg" type="image/svg+xml">
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <!-- 
+        css
+    -->
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <!-- 
+    - google font link
+  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Catamaran:wght@600;700;800;900&family=Rubik:wght@400;500;800&display=swap"
+        rel="stylesheet">
+    <!--
+    cdn fontawesome
+  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/png" href="images/icons/favicon.png"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/fonts/linearicons-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/slick/slick.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/MagnificPopup/magnific-popup.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/css/Product/util.css">
+	<link rel="stylesheet" type="text/css" href="/css/Product/main.css">
 </head>
 
-<body>
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
-    <div class="preloader">
-        <div class="lds-ripple">
-            <div class="lds-pos"></div>
-            <div class="lds-pos"></div>
-        </div>
-    </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
-    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
-        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
-        <!-- ============================================================== -->
-        <!-- Topbar header - style you can find in pages.scss -->
-        <!-- ============================================================== -->
-        <header class="topbar" data-navbarbg="skin5">
-            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
-                <div class="navbar-header" data-logobg="skin6">
-                    <!-- ============================================================== -->
-                    <!-- Logo -->
-                    <!-- ============================================================== -->
-                    <a class="navbar-brand" href="dashboard.html">
-                        <!-- Logo icon -->
-                        <b class="logo-icon">
-                            <!-- Dark Logo icon -->
-                            <img src="./wwwroot/plugins/images/logo-icon.png" alt="homepage" /> plugins/images/logo-icon.png
-                        </b>
-                        <!--End Logo icon -->
-                        <!-- Logo text -->
-                        <span class="logo-text">
-                            <!-- dark Logo text -->
-                            <img src="./wwwroot/plugins/images/logo-text.png" alt="homepage" />
-                        </span>
-                    </a>
-                    <!-- ============================================================== -->
-                    <!-- End Logo -->
-                    <!-- ============================================================== -->
-                    <!-- ============================================================== -->
-                    <!-- toggle and nav items -->
-                    <!-- ============================================================== -->
-                    <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none"
-                        href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End Logo -->
-                <!-- ============================================================== -->
-                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
-                    <ul class="navbar-nav d-none d-md-block d-lg-none">
-                        <li class="nav-item">
-                            <a class="nav-toggler nav-link waves-effect waves-light text-white"
-                                href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
-                        </li>
-                    </ul>
-                    <!-- ============================================================== -->
-                    <!-- Right side toggle and nav items -->
-                    <!-- ============================================================== -->
-                    <ul class="navbar-nav ms-auto d-flex align-items-center">
+<body id="top">
 
-                        <!-- ============================================================== -->
-                        <!-- Search -->
-                        <!-- ============================================================== -->
-                        <li class=" in">
-                            <form role="search" class="app-search d-none d-md-block me-3">
-                                <input type="text" placeholder="Search..." class="form-control mt-0">
-                                <a href="" class="active">
-                                    <i class="fa fa-search"></i>
-                                </a>
-                            </form>
-                        </li>
-                        <!-- ============================================================== -->
-                        <!-- User profile and search -->
-                        <!-- ============================================================== -->
-                        <li>
-                            <a class="profile-pic" href="#">
-                                <img src="plugins/images/users/varun.jpg" alt="user-img" width="36"
-                                    class="img-circle"><span class="text-white font-medium">Steave</span></a>
-                        </li>
-                        <!-- ============================================================== -->
-                        <!-- User profile and search -->
-                        <!-- ============================================================== -->
-                    </ul>
-                </div>
+    <!-- 
+    - #HEADER
+  -->
+
+    <header class="header" data-header>
+        <div class="container">
+
+            <a asp-controller="Home" asp-action="Index" class="logo">
+                <ion-icon name="barbell-sharp" aria-hidden="true"></ion-icon>
+
+                <span class="span">Gymany</span>
+            </a>
+
+            <nav class="navbar header__navbar" data-navbar>
+
+                <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+                    <ion-icon name="close-sharp" aria-hidden="true"></ion-icon>
+                </button>
+
+                <ul class="navbar-list">
+
+                    <li>
+                        <a asp-controller="Home" asp-action="Index" class="navbar-link" data-nav-link>Home</a>
+                    </li>
+
+                    <li>
+                        <a asp-controller="Product" asp-action="Index" class="navbar-link" data-nav-link>Shop</a>
+                    </li>
+
+                    <li>
+                        <a asp-controller="Classes" class="navbar-link" data-nav-link>Classes</a>
+                    </li>
+
+                    <li>
+                        <a asp-controller="Blog" asp-action="Index" class="navbar-link" data-nav-link>Blog</a>
+                    </li>
+                    <li>
+                        <form asp-controller="Home" asp-action="Search" id="search-box" method="post">
+                            <input type="text" id="search-text" placeholder="Search" name="SearchContent"> <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </li>
+                    <a asp-controller="Cart" asp-action="Index"><img src="~/images/cart.png" width="30px" height="30px"></a>
+                </ul>
+
             </nav>
-        </header>
-        <!-- ============================================================== -->
-        <!-- End Topbar header -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <aside class="left-sidebar" data-sidebarbg="skin6">
-            <!-- Sidebar scroll-->
-            <div class="scroll-sidebar">
-                <!-- Sidebar navigation-->
-                <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
-                        <!-- User Profile-->
-                        <li class="sidebar-item pt-2">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard.html"
-                                aria-expanded="false">
-                                <i class="far fa-clock" aria-hidden="true"></i>
-                                <span class="hide-menu">Dashboard</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="profile.html"
-                                aria-expanded="false">
-                                <i class="fa fa-user" aria-hidden="true"></i>
-                                <span class="hide-menu">Profile</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="basic-table.html"
-                                aria-expanded="false">
-                                <i class="fa fa-table" aria-hidden="true"></i>
-                                <span class="hide-menu">Basic Table</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="fontawesome.html"
-                                aria-expanded="false">
-                                <i class="fa fa-font" aria-hidden="true"></i>
-                                <span class="hide-menu">Icon</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="map-google.html"
-                                aria-expanded="false">
-                                <i class="fa fa-globe" aria-hidden="true"></i>
-                                <span class="hide-menu">Google Map</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="blank.html"
-                                aria-expanded="false">
-                                <i class="fa fa-columns" aria-hidden="true"></i>
-                                <span class="hide-menu">Blank Page</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="404.html"
-                                aria-expanded="false">
-                                <i class="fa fa-info-circle" aria-hidden="true"></i>
-                                <span class="hide-menu">Error 404</span>
-                            </a>
-                        </li>
-                        <li class="text-center p-20 upgrade-btn">
-                            <a href="https://www.wrappixel.com/templates/ampleadmin/"
-                                class="btn d-grid btn-danger text-white" target="_blank">
-                                Upgrade to Pro</a>
-                        </li>
-                    </ul>
 
-                </nav>
-                <!-- End Sidebar navigation -->
+            <a asp-controller="Customer" asp-action="JoinMember" class="btn btn-secondary">Join Now</a>
+            <a asp-controller="Customer" asp-action="Profile"><button class="custom-button"><i class="fa-solid fa-user"></i></button></a>
+            <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
+            <div class="notification-icon">
+                <!-- Icon được lấy từ Font Awesome -->
+                <a href="#"><i style="font-size: 25px;color:#ff9500;" class="fas fa-bell" id="notification-icon"></i></a>
+                <!-- Hiển thị số lượng thông báo bên cạnh icon -->
+                @* @if(@Model.NumberNoti != null){
+                    <span class="notification-badge">@Model.NumberNoti</span>
+                }else{
+                    <span class="notification-badge">0</span>
+                } *@
+                
             </div>
-            <!-- End Sidebar scroll-->
-        </aside>
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper  -->
-        <!-- ============================================================== -->
-        @RenderBody()
-        <!-- ============================================================== -->
-        <!-- End Bread crumb and right sidebar toggle -->
-        <!-- ============================================================== -->
+            <div class="no_popup_main">
+                <div class="notification-popup" id="notification-popup">
+                    <span class="close-btn" onclick="closeNotificationPopup()">&times;</span>
+                    <h2 style="padding-bottom: 20px;">Notification</h2>
+                    @* @if(Model.Notifications != null){
+                        @foreach (var item in Model.Notifications)
+                        {
+                            <div class="noti_block">
+                                <p class="notification-header">Thông báo từ PT</p>
+                                <p class="notification-message">@Html.DisplayFor(modelItem => item.Context) </p>
+                            </div>
+                        }
+                    }else{
+                        <p class="notification-header">Bạn không có thông báo vui lòng đăng nhập!</p>
+                    } *@
+                </div>
+            </div>
+            <script>
+                // Hiển thị popup khi nhấn vào icon
+                document.getElementById('notification-icon').addEventListener('click', function() {
+                    document.getElementById('notification-popup').style.display = 'block';
+                });
 
-        <!-- ============================================================== -->
-        <!-- End Container fluid  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- footer -->
-        <!-- ============================================================== -->
-        <footer class="footer text-center"> 2021 © Ample Admin brought to you by <a
-                href="https://www.wrappixel.com/">wrappixel.com</a>
-        </footer>
-        <!-- ============================================================== -->
-        <!-- End footer -->
-        <!-- ============================================================== -->
+                // Đóng popup khi nhấn vào nút đóng
+                function closeNotificationPopup() {
+                    document.getElementById('notification-popup').style.display = 'none';
+                }
+            </script>
+        
+    </header>
+    <div class="container-main">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
     </div>
-    <!-- ============================================================== -->
-    <!-- End Page wrapper  -->
-    <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
+
+    <footer class="footer">
+
+        <div class="section footer-top bg-dark has-bg-image" style="background-image: url('~/images/footer-bg.png')">
+            <div class="container">
+
+                <div class="footer-brand">
+
+                    <a href="#" class="logo">
+                        <ion-icon name="barbell-sharp" aria-hidden="true"></ion-icon>
+
+                        <span class="span">Gymany</span>
+                    </a>
+
+                    <p class="footer-brand-text">
+                        Transform Your Body, Elevate Your Life: Unleash Your Potential at Our Gym!
+                    </p>
+
+                    <div class="wrapper">
+
+                        <img src="~/images/footer-clock.png" width="34" height="34" loading="lazy" alt="Clock">
+
+                        <ul class="footer-brand-list">
+
+                            <li>
+                                <p class="footer-brand-title">Monday - Friday</p>
+
+                                <p>7:00Am - 10:00Pm</p>
+                            </li>
+
+                            <li>
+                                <p class="footer-brand-title">Saturday - Sunday</p>
+
+                                <p>7:00Am - 12:00Pm</p>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <ul class="footer-list">
+
+                    <li>
+                        <p class="footer-list-title has-before">Our Links</p>
+                    </li>
+
+                    <li>
+                        <a href="#" class="footer-link">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="footer-link">About Us</a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="footer-link">Classes</a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="footer-link">Blog</a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-link">Shop</a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-link">Contact Us</a>
+                    </li>
+
+                </ul>
+
+                <ul class="footer-list">
+
+                    <li>
+                        <p class="footer-list-title has-before">Contact Us</p>
+                    </li>
+
+                    <li class="footer-list-item">
+                        <div class="icon">
+                            <ion-icon name="location" aria-hidden="true"></ion-icon>
+                        </div>
+
+                        <address class="address footer-link">
+                            600 Nguyễn Văn Cừ Nối Dài, An Bình, Ninh Kiều, Cần Thơ
+                        </address>
+                    </li>
+
+                    <li class="footer-list-item">
+                        <div class="icon">
+                            <ion-icon name="call" aria-hidden="true"></ion-icon>
+                        </div>
+
+                        <div>
+                            <a href="tel:18001800" class="footer-link">18001800</a>
+
+                        </div>
+                    </li>
+
+                    <li class="footer-list-item">
+                        <div class="icon">
+                            <ion-icon name="mail" aria-hidden="true"></ion-icon>
+                        </div>
+
+                        <div>
+                            <a href="mailto:info@gymany.com" class="footer-link">info@gymany.com</a>
+
+
+                        </div>
+                    </li>
+
+                </ul>
+
+                <ul class="footer-list">
+
+                    <li>
+                        <p class="footer-list-title has-before">Our Newsletter</p>
+                    </li>
+
+
+
+                    <li>
+                        <ul class="social-list">
+
+                            <li>
+                                <a href="#" class="social-link">
+                                    <ion-icon name="logo-facebook"></ion-icon>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="social-link">
+                                    <ion-icon name="logo-instagram"></ion-icon>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="social-link">
+                                    <ion-icon name="logo-twitter"></ion-icon>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+
+                <p class="copyright">
+                    &copy; 2024 Gymany. All Rights Reserved By <a href="#" class="copyright-link">Group 5</a>
+                </p>
+
+                <ul class="footer-bottom-list">
+
+                    <li>
+                        <a href="#" class="footer-bottom-link has-before">Privacy Policy</a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="footer-bottom-link has-before">Terms & Condition</a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+
+    </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/wwwroot/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/wwwroot/js/app-style-switcher.js" asp-append-version="true"></script>
-    <script src="~/wwwroot/plugins/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="~/wwwroot/js/app-style-switcher.js"></script>
-    <script src="~/wwwroot/js/sidebarmenu.js"></script>
-    <script src="~/wwwroot/js/waves.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @* <script src="~/js/site.js" asp-append-version="true"></script> *@
+    @await RenderSectionAsync("Scripts", required: false)
+    <!-- 
+    - #BACK TO TOP
+  -->
 
+    <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+        <ion-icon name="caret-up-sharp" aria-hidden="true"></ion-icon>
+    </a>
 
+    <!-- 
+    - custom js link
+  -->
+    <script src="~/js/script.js" defer></script>
 
-
-    <!--Custom JavaScript -->
-    <script src="~/wwwroot/js/custom.js"></script>
-
+    <!-- 
+    - ionicon link
+  -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

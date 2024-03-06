@@ -155,7 +155,6 @@ D:\Gymany\obj\Debug\net5.0\Razor\Views\Product\Index.cshtml.g.cs
 D:\GitP\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Product\Index.cshtml.g.cs
 D:\GitP\Gymany\bin\Debug\net5.0\appsettings.Development.json
 D:\GitP\Gymany\bin\Debug\net5.0\appsettings.json
-D:\GitP\Gymany\bin\Debug\net5.0\Gymany.StaticWebAssets.xml
 D:\GitP\Gymany\bin\Debug\net5.0\Gymany.exe
 D:\GitP\Gymany\bin\Debug\net5.0\Gymany.deps.json
 D:\GitP\Gymany\bin\Debug\net5.0\Gymany.runtimeconfig.json
@@ -932,11 +931,6 @@ E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\Classes\Inde
 >>>>>>> d763362224e5424d3f7afc59c71368d61a563ae1
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Blog\Index.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Classes\Index.cshtml.g.cs
-D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddCustomerAccout.cshtml.g.cs
-D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddPtAccout.cshtml.g.cs
-D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\CustomerAccout.cshtml.g.cs
-D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteCustomerAccout.cshtml.g.cs
-D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeletePtAccout.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\PersonalTrainer.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdatePost.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Cart\Index.cshtml.g.cs
@@ -1356,3 +1350,10 @@ D:\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.Gymany.props
 D:\Gymany\obj\Debug\net5.0\Gymany.csproj.Up2Date
 D:\Gymany\obj\Debug\net5.0\refint\Gymany.dll
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Blog\blogdetail.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddMember.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteMember.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\MemberAccount.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateMember.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\BlogDetail\Index.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Customer\JoinMember.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\WorkoutPlan\Index.cshtml.g.cs

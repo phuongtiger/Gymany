@@ -150,7 +150,7 @@ namespace Gymany.Controllers
             {
                 string jsonString = await response.Content.ReadAsStringAsync();
                 //lấy tất cả thông tin từ id của customer
-                JObject jsonObject = XObject.Parse(jsonString);
+                JObject jsonObject = JObject.Parse(jsonString);
                 string id = (string)jsonObject["customerID"];
 
                 HttpContext.Session.SetString("CustomerID", id);

@@ -1357,3 +1357,14 @@ D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateMember
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\BlogDetail\Index.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Customer\JoinMember.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\WorkoutPlan\Index.cshtml.g.cs
+<<<<<<< HEAD
+=======
+D:\Gymany\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\Gymany\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
+D:\Gymany\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+D:\Gymany\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+D:\Gymany\bin\Debug\net5.0\X.PagedList.dll
+D:\Gymany\bin\Debug\net5.0\X.PagedList.Mvc.Core.dll
+D:\Gymany\bin\Debug\net5.0\X.PagedList.Web.Common.dll
+D:\Gymany\obj\Debug\net5.0\Gymany.MvcApplicationPartsAssemblyInfo.cs
+>>>>>>> f13529c753825f6064fca05f4a8ba14cabd90120

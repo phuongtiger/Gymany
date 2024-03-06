@@ -249,17 +249,12 @@ namespace Gymany.Controllers
             var PT = new PersonalTrainer { Username = email, Password = password };
             var content = new StringContent(JsonSerializer.Serialize(PT), Encoding.UTF8, "application/json");
             HttpResponseMessage response = await client.PostAsync(api_post, content);
+            string data = await response.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            PersonalTrainer pt = JsonSerializer.Deserialize<PersonalTrainer>(data, options);
             if (response.IsSuccessStatusCode)
             {
-                //Đọc dữ liệu
-                string jsonString = await response.Content.ReadAsStringAsync();
-                //cho dữ liệu vào jsonObject
-                JObject jsonObject = JObject.Parse(jsonString);
-
-                // Lấy giá trị của trường "id"
-                string id = (string)jsonObject["ptid"];
-
-                HttpContext.Session.SetString("ID", id);
+                HttpContext.Session.SetString("ID", pt.PTID.ToString());
                 HttpContext.Session.SetString("Email", email);
                 HttpContext.Session.SetString("Password", password);
                 // Chuyển hướng đến trang chủ

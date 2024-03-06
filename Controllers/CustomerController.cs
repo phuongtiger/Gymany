@@ -27,7 +27,6 @@ namespace Gymany.Controllers
         private string api_MemberByCusID;
         private string api_WorkoutPlanByMemberID;
         private string apiMember;
-
         public CustomerController()
         {
             client = new HttpClient();
@@ -39,6 +38,7 @@ namespace Gymany.Controllers
             this.api_MemberByCusID = "https://localhost:5002/api/Member/customerID";
             this.api_WorkoutPlanByMemberID = "https://localhost:5002/api/WorkoutPlan/memberID";
             this.apiMember = "https://localhost:5002/api/Member";
+
         }
         public IActionResult Form()
         {
@@ -89,7 +89,6 @@ namespace Gymany.Controllers
         {
             api_CustomerByID = $"https://localhost:5002/api/Customer/id?id={id}";
             Customer customer = obj.customer;
-            System.Console.WriteLine(obj.customer.Phone);
             string data = JsonSerializer.Serialize(customer);
             var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
             HttpResponseMessage respone = await client.PutAsync(api_CustomerByID, content);
@@ -100,7 +99,35 @@ namespace Gymany.Controllers
             return View(obj);
         }
 
-     public async Task<IActionResult> JoinMember()
+
+        public async Task<ActionResult> Login(string username, string password)
+        {
+            apiCustomer = $"https://localhost:5002/api/Customer/checklogin?username={username}&password={password}";
+            var customer = new Customer { Username = username, Password = password };
+            var content = new StringContent(JsonSerializer.Serialize(customer), Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await client.PostAsync(apiCustomer, content);
+            if (response.IsSuccessStatusCode)
+            {
+                string jsonString = await response.Content.ReadAsStringAsync();
+                //lấy tất cả thông tin từ id của customer
+                JObject jsonObject = JObject.Parse(jsonString);
+                string id = (string)jsonObject["customerID"];
+
+                HttpContext.Session.SetString("CustomerID", id);
+                HttpContext.Session.SetString("Username", username);
+                HttpContext.Session.SetString("Password", password);
+                // Chuyển hướng đến trang chủ
+                return RedirectToAction("Index", "Notification");
+            }
+            else
+            {
+                ViewData["Error"] = "Invalid username or password";
+                return RedirectToAction("Form");
+            }
+        }
+
+
+        public async Task<IActionResult> JoinMember()
         {
             if (!checkLogin())
             {
@@ -138,37 +165,6 @@ namespace Gymany.Controllers
         }
 
 
-
-        public async Task<ActionResult> Login(string username, string password)
-        {
-            apiCustomer = $"https://localhost:5002/api/Customer/checklogin?username={username}&password={password}";
-            var customer = new Customer { Username = username, Password = password };
-            var content = new StringContent(JsonSerializer.Serialize(customer), Encoding.UTF8, "application/json");
-            HttpResponseMessage response = await client.PostAsync(apiCustomer, content);
-            if (response.IsSuccessStatusCode)
-            {
-                string jsonString = await response.Content.ReadAsStringAsync();
-                //lấy tất cả thông tin từ id của customer
-                JObject jsonObject = JObject.Parse(jsonString);
-                string id = (string)jsonObject["customerID"];
-
-                HttpContext.Session.SetString("CustomerID", id);
-                HttpContext.Session.SetString("Username", username);
-                HttpContext.Session.SetString("Password", password);
-                // Chuyển hướng đến trang chủ
-                return RedirectToAction("Index", "Notification");
-            }
-            else
-            {
-                ViewData["Error"] = "Invalid username or password";
-                return RedirectToAction("Form");
-            }
-        }
-
-
-
-
-
         public IActionResult PTLogin()
         {
             ListModels model = new ListModels();
@@ -177,8 +173,8 @@ namespace Gymany.Controllers
 
         public IActionResult RegisterForm()
         {
-            
-            return View();
+            ListModels listModels = new ListModels();
+            return View(listModels);
         }
 
         [HttpPost]
@@ -216,6 +212,12 @@ namespace Gymany.Controllers
 
         public async Task<IActionResult> DeleteSession()
         {
+            // if(HttpContext.Session.GetString("Username")!= null){
+            //     HttpContext.Session.Remove("Username");
+            // }else
+            // {
+            //     return RedirectToAction("Profile");
+            // }
             HttpContext.Session.Clear();
             return RedirectToAction("Index", "Home");
         }

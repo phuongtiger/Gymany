@@ -11,6 +11,7 @@ namespace Gymany.Models
         public Customer customer {get; set;}
         public List<Product> Products { get; set; }
         public List<Notification> Notifications { get; set; }
+        public List<Category> Categories { get; set; }
         public string NumberNoti { get; set; }
 
 
@@ -19,5 +20,14 @@ namespace Gymany.Models
         public List<Cart> Carts { get; set; }
         public Post post{get; set;}
         public List<Post> Posts { get; set; }
+
+        
+        public Member member {get ; set ;}
+        public List<WorkoutPlan> workoutPlans { get; set; }
+        public bool CheckMember;
+        public static implicit operator ListModels(Customer v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

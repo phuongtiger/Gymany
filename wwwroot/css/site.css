@@ -63,10 +63,11 @@ body {
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(to right, #ff5733, #ffcc00); /* Gradient từ đỏ sang cam */
+  /* background-color:#e8e8e8; */
+  background: #e8e8e8; 
 }
 .container-main{
-  margin-top: 138px;
+  margin-top: 118px;
 }
 /* Áp dụng màu nền trắng cho phần form */
 .form-container {

@@ -563,14 +563,15 @@ namespace Gymany.Controllers
         //method acc pt accout
         public async Task<IActionResult> AddPost()
         {
-            ViewBag.Name = await GetPtId();
+            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
+            ViewBag.NamePT = await GetPtId();
             ViewBag.NameStaff = await GetStaffId();
             return View();
         }
         [HttpPost]
         public async Task<IActionResult> AddPost(Post obj)
         {
-            ViewBag.Name = await GetPtId();
+            ViewBag.NamePT = await GetPtId();
             ViewBag.NameStaff = await GetStaffId();
             if (ModelState.IsValid)
             {
@@ -585,7 +586,8 @@ namespace Gymany.Controllers
         //method update pt accout
         public async Task<IActionResult> UpdatePost(int id)
         {
-            ViewBag.Name = await GetPtId();
+            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
+            ViewBag.NamePT = await GetPtId();
             ViewBag.NameStaff = await GetStaffId();
             api_Post = $"https://localhost:5002/api/Post/id?id={id}";
             HttpResponseMessage response = await client.GetAsync(api_Post);
@@ -603,7 +605,7 @@ namespace Gymany.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdatePost(int id, Post obj)
         {
-            ViewBag.Name = await GetPtId();
+            ViewBag.NamePT = await GetPtId();
             ViewBag.NameStaff = await GetStaffId();
             api_Post = $"https://localhost:5002/api/Post/id?id={id}";
             obj.PostID = id;
@@ -674,6 +676,7 @@ namespace Gymany.Controllers
             {
                 return Redirect("/GymOwner/Index");
             }
+            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
             HttpResponseMessage response = await client.GetAsync(apiCategory);
             string data = await response.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
@@ -737,6 +740,7 @@ namespace Gymany.Controllers
         //method delete Pt accout
         public async Task<IActionResult> DeleteCategory(int id)
         {
+            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
             apiCategory_ById = $"https://localhost:5002/api/Category/id?id={id}";
             HttpResponseMessage response = await client.GetAsync(apiCategory_ById);
             if (response.IsSuccessStatusCode)
@@ -800,14 +804,13 @@ namespace Gymany.Controllers
         //method add member
         public async Task<IActionResult> AddMember()
         {
-
-
+            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");  
             return View();
         }
         [HttpPost]
         public async Task<IActionResult> AddMember(Member obj)
         {
-
+            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
             if (ModelState.IsValid)
             {
                 string data = JsonSerializer.Serialize(obj);
@@ -822,6 +825,7 @@ namespace Gymany.Controllers
         //method delete Pt member
         public async Task<IActionResult> DeleteMember(int id)
         {
+            
             ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
             api_MemberById = $"https://localhost:5002/api/Member/id?id={id}";
             HttpResponseMessage response = await client.GetAsync(api_MemberById);

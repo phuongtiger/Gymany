@@ -143,8 +143,8 @@ namespace Gymany.Controllers
 
         public IActionResult RegisterForm()
         {
-            
-            return View();
+            ListModels listModels = new ListModels();
+            return View(listModels);
         }
 
         [HttpPost]

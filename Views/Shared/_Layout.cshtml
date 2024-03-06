@@ -123,7 +123,7 @@
                 <a href="#"><i style="font-size: 25px;color:#ff9500;" class="fas fa-bell" id="notification-icon"></i></a>
                 <!-- Hiển thị số lượng thông báo bên cạnh icon -->
                 @if(@Model.NumberNoti != null){
-                    <span class="notification-badge">@Model.NumberNoti</span>
+                    <span class="notification-badge">@Html.DisplayFor(model => model.customer.Name)</span>
                 }else{
                     <span class="notification-badge">0</span>
                 }

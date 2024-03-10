@@ -19,6 +19,7 @@ namespace Gymany.Controllers
         private readonly HttpClient client = null;
         private string api_CartById;
         private string api;
+        private string api_order;
 
         public CartController()
         {
@@ -27,6 +28,7 @@ namespace Gymany.Controllers
             client.DefaultRequestHeaders.Accept.Add(contentType);
             this.api_CartById = $"https://localhost:5002/api/Cart/CustomerID";
             this.api = $"https://localhost:5002/api/Cart";
+            this.api_order=$"https://localhost:5002/api/Order";
         }
 
 
@@ -104,14 +106,25 @@ namespace Gymany.Controllers
             }
             return View(obj);
         }
+        
+        public async Task<IActionResult> CreateOrder()
+        {
+            string id = HttpContext.Session.GetString("CustomerID");
+            api_CartById = $"https://localhost:5002/api/Cart/CustomerID?CustomerID={id}";
+            HttpResponseMessage respone = await client.GetAsync(api_CartById);
+            string data = await respone.Content.ReadAsStringAsync();
+            return View();
+        }
 
-
-
-
-
-
+        [HttpPost]   
+        public async Task<IActionResult> CreateOrder(Order obj)
+        {
+            
+            return View();
+        }
 
         [HttpPost]
+        
         public bool checkLogin()
         {
             var username = HttpContext.Session.GetString("Username");

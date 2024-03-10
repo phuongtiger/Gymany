@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace Gymany.Models
 {
@@ -32,5 +33,7 @@ namespace Gymany.Models
         [ForeignKey("Staff")]
         public int StaffID { get; set; }
         public Staff Staff { get; set; }
+        [NotMapped]
+        public IFormFile ImageUpload { get; set; } 
     }
 }

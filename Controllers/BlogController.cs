@@ -10,8 +10,10 @@ using System.Threading.Tasks;
 using Gymany.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json.Linq;
+using X.PagedList;
 
 
 namespace Gymany.Controllers
@@ -41,17 +43,18 @@ namespace Gymany.Controllers
         }
 
 
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(int? page)
         {
             List<Post> posts = await GetBlog();
 
             List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
             string number = HttpContext.Session.GetString("NumberNoti");
+            var listpage = posts.ToPagedList(page ?? 1, 3);
             var viewModel = new ListModels
             {
                 Notifications = notifications,
                 NumberNoti = number,
-                Posts = posts
+                Posts = listpage
             };
             return View(viewModel);
         }

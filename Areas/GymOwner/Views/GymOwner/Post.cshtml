@@ -1,13 +1,12 @@
+@using X.PagedList
+@using X.PagedList.Mvc.Core
 @model IEnumerable<Gymany.Models.Post>
 @{
 
     ViewData["Title"] = "Post";
-}
-
-@* using layout of Gymowner *@
-@{
     Layout = "GymOwnerLayout";
 }
+
 
 
 @* declare tag helper in areas *@
@@ -64,6 +63,12 @@
                         </div>
                     </div>
                 </div>
+                @Html.PagedListPager((IPagedList)Model, page => Url.Action("Post", new { page = page }),
+                    new X.PagedList.Web.Common.PagedListRenderOptionsBase
+                {
+                    LiElementClasses = new string[] { "page-item" },
+                    PageClasses = new string[] { "page-link" }
+                })
             </div>
             <footer class="footer text-center"> 2024 © Gymany Admin by Group 05
             </footer>

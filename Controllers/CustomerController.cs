@@ -26,7 +26,8 @@ namespace Gymany.Controllers
         private string api_WorkoutPlanByID;
         private string api_MemberByCusID;
         private string api_WorkoutPlanByMemberID;
-
+        private string apiMember;
+        private string apiOrder;
         public CustomerController()
         {
             client = new HttpClient();
@@ -37,6 +38,8 @@ namespace Gymany.Controllers
             this.api_WorkoutPlanByID = "https://localhost:5002/api/WorkoutPlan/id";
             this.api_MemberByCusID = "https://localhost:5002/api/Member/customerID";
             this.api_WorkoutPlanByMemberID = "https://localhost:5002/api/WorkoutPlan/memberID";
+            this.apiMember = "https://localhost:5002/api/Member";
+            this.apiOrder = "https://localhost:5002/api/Order";
 
         }
         public IActionResult Form()
@@ -126,7 +129,60 @@ namespace Gymany.Controllers
         }
 
 
+        public async Task<IActionResult> JoinMember()
+        {
+            if (!checkLogin())
+            {
+                return RedirectToAction("Form");
+            }
+            string id = HttpContext.Session.GetString("CustomerID");
+            ViewBag.cusID = id;
+            ListModels listModels = new ListModels();
+            api_MemberByCusID = $"https://localhost:5002/api/Member/customerID?customerID={id}";
+            HttpResponseMessage response = await client.GetAsync(api_MemberByCusID);
+            string data = await response.Content.ReadAsStringAsync();
 
+            if (response.StatusCode == HttpStatusCode.NotFound)
+            {
+                return View(listModels);
+            }
+            else
+            {
+                return RedirectToAction("Profile", "Customer");
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> JoinMember(ListModels obj)
+        {
+            if (ModelState.IsValid)
+            {
+                Order order = new Order();
+                order.ProductID = 1024;
+                order.Quantity = 1;
+                order.Status = "Pending";
+                order.StartDate = DateTime.Now;
+                order.CustomerID = int.Parse(HttpContext.Session.GetString("CustomerID"));
+                string dataMember = JsonSerializer.Serialize(obj.member);
+                var contentMember = new StringContent(dataMember, System.Text.Encoding.UTF8, "application/json");
+                HttpResponseMessage responseMember = await client.PostAsync(apiMember, contentMember);
+                if (responseMember.StatusCode == System.Net.HttpStatusCode.Created)
+                {
+                    string dataOrder = JsonSerializer.Serialize(order);
+                    var contentOrder = new StringContent(dataOrder, System.Text.Encoding.UTF8, "application/json");
+                    HttpResponseMessage responseOrder = await client.PostAsync(apiOrder, contentOrder);
+                    if (responseOrder.StatusCode == System.Net.HttpStatusCode.Created)
+                    {
+                        string dataNew = await responseOrder.Content.ReadAsStringAsync();
+                        JObject jsonObject = JObject.Parse(dataNew);
+                        string idOrder = (string)jsonObject["id"];
+                        HttpContext.Session.SetString("OrderID", idOrder);
+                        return RedirectToAction("Payment", "Payment");
+                    }
+                }
+            }
+            return View(obj);
+        }
 
 
         public IActionResult PTLogin()
@@ -162,17 +218,7 @@ namespace Gymany.Controllers
         }
 
 
-        [HttpPost]
-        public bool checkLogin()
-        {
-            var username = HttpContext.Session.GetString("Username");
-            var pass = HttpContext.Session.GetString("Password");
-            if (username != null && pass != null)
-            {
-                return true;
-            }
-            return false;
-        }
+
 
         public async Task<IActionResult> DeleteSession()
         {
@@ -184,6 +230,70 @@ namespace Gymany.Controllers
             // }
             HttpContext.Session.Clear();
             return RedirectToAction("Index", "Home");
+        }
+
+        public async Task<List<Order>> GetOrder()
+        {
+            string id = HttpContext.Session.GetString("CustomerID");
+            apiOrder = $"https://localhost:5002/api/Order/GetCusId?CustomerID={id}";
+            HttpResponseMessage respone = await client.GetAsync(apiOrder);
+            string data = await respone.Content.ReadAsStringAsync();
+
+            if (string.IsNullOrEmpty(data))
+            {
+                // Thông báo khi dữ liệu không có
+                Console.WriteLine("Không có dữ liệu trong giỏ hàng.");
+                return new List<Order>();
+            }
+
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            List<Order> orders = JsonSerializer.Deserialize<List<Order>>(data, options);
+
+            if (orders == null)
+            {
+                // Thông báo khi danh sách Orders là null
+                Console.WriteLine("Danh sách giỏ hàng trống.");
+                return new List<Order>();
+            }
+
+            return orders;
+        }
+
+        public async Task<IActionResult> OrderHistory()
+        {
+            // Kiểm tra xem người dùng đã đăng nhập chưa
+            if (!checkLogin())
+            {
+                return RedirectToAction("Form", "Customer");
+            }
+
+            // Gọi phương thức GetOrder để lấy danh sách đơn hàng
+            List<Order> orders = await GetOrder();
+
+            // Tạo viewModel chứa danh sách đơn hàng
+            var viewModel = new ListModels
+            {
+                Orders = orders
+            };
+
+            // Chuyển đến view "OrderHistory" và truyền viewModel
+            return View("OrderHistory", viewModel);
+        }
+
+
+
+
+
+        [HttpPost]
+        public bool checkLogin()
+        {
+            var username = HttpContext.Session.GetString("Username");
+            var pass = HttpContext.Session.GetString("Password");
+            if (username != null && pass != null)
+            {
+                return true;
+            }
+            return false;
         }
 
     }

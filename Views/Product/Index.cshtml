@@ -1,17 +1,8 @@
+@using X.PagedList
+@using X.PagedList.Mvc.Core
 @model Gymany.Models.ListModels
 
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Product</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-	
-<!--===============================================================================================-->
-</head>
-<body class="animsition">
+
 	<header>
 		<!-- Modal Search -->
 		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
@@ -164,9 +155,9 @@
 					</div>
 				</div>
 			</div>
-
+			
 			<div class="row isotope-grid">
-				@foreach (var item in Model.Products) {
+				@foreach (var item in Model.ListProducts) {
 					string CateType = "";
 					foreach (var category in Model.Categories) {
 						if (item.CategoryID == category.CategoryID) {
@@ -207,13 +198,15 @@
 			</div>
 			<!-- Load more -->
 			<div class="flex-c-m flex-w w-full p-t-45">
-				<a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
-					Load More
-				</a>
+				@Html.PagedListPager((IPagedList)Model.ListProducts, page => Url.Action("Index", new { page = page }),
+					new X.PagedList.Web.Common.PagedListRenderOptionsBase
+				{
+					LiElementClasses = new string[] { "page-item" },
+					PageClasses = new string[] { "page-link" }
+				})
 			</div>
 		</div>
 	</div>
-		
 
 	<!-- Modal1 -->
 	@* <div class="wrap-modal1 js-modal1 p-t-60 p-b-20">
@@ -469,6 +462,3 @@
 	</script>
 <!--===============================================================================================-->
 	<script src="js/Product/main.js"></script>
-
-</body>
-</html>

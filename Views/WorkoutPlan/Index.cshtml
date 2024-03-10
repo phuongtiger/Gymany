@@ -82,10 +82,15 @@
                                             </div>
                                         </div>
                                     }
-                                }else if(Model.CheckMember == false){
+                                }else if(Model.CheckMember == false && Model.CheckPayment == false){
                                     <div style="padding: 40px">
                                         <p>You need to become a member to see the workout plan</p>
                                         <a href="#">You can click here to become a member</a>
+                                    </div>
+                                }else if(Model.CheckMember == true && Model.CheckPayment == false){
+                                    <div style="padding: 40px">
+                                        <p>You need to pay to see the workout plan</p>
+                                        <a href="#">You can click here to pay</a>
                                     </div>
                                 }
                                 else

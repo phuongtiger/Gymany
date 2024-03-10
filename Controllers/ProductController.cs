@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 
 using Gymany.Models;
 using Microsoft.AspNetCore.Http;
+using X.PagedList;
 
 
 namespace Gymany.Controllers
@@ -39,16 +40,17 @@ namespace Gymany.Controllers
             List<Product> products = JsonSerializer.Deserialize<List<Product>>(data, options);
             return products;
         }
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(int? page)
         {
 
             List<Product> products = await GetProduct();
             List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
             string number = HttpContext.Session.GetString("NumberNoti");
             List<Category> categories = await GetCategory();
+            var listpage = products.ToPagedList(page ?? 1, 8);
             var viewModel = new ListModels
             {
-                Products = products,
+                ListProducts = listpage,
                 Notifications = notifications,
                 NumberNoti = number,
                 Categories = categories

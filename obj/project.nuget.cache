@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "fzPMssCMdVB3Ug7N9m5SEk6IUswiO/aXvnFY/ANiX0VWkiLes4OQnNA5PJcljM0L7Dp8BUF5QAK9XS7Tw6D9uw==",
+  "dgSpecHash": "CeMhqVZPG6Lss07HBIqVvuUO9tpW7QTzDo4HTCAK1OTAqzg8g3yMkiS9viDwk+IHoz+zunlwARmJfhVK6+ExBQ==",
   "success": true,
   "projectFilePath": "D:\\Project_SWP\\Web_Gymany\\Gymany\\Gymany.csproj",
   "expectedPackageFiles": [
@@ -63,7 +63,7 @@
     "C:\\Users\\THANH\\.nuget\\packages\\microsoft.visualstudio.web.codegenerators.mvc\\5.0.2\\microsoft.visualstudio.web.codegenerators.mvc.5.0.2.nupkg.sha512",
     "C:\\Users\\THANH\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\THANH\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
-    "C:\\Users\\THANH\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
+    "C:\\Users\\THANH\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\THANH\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\THANH\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\THANH\\.nuget\\packages\\system.collections.concurrent\\4.3.0\\system.collections.concurrent.4.3.0.nupkg.sha512",

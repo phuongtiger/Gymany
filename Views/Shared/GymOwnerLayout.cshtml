@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -21,6 +20,8 @@
     <link rel="stylesheet" href="/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css">
     <!-- Custom CSS -->
     <link href="/css/style.min.css" rel="stylesheet">
+    @* cdn ckeditor *@
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js"></script>
 </head>
 
 <body class="custom-bg">
@@ -61,7 +62,7 @@
                 <!-- End Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
-                   
+
                     <!-- ============================================================== -->
                     <!-- Right side toggle and nav items -->
                     <!-- ============================================================== -->
@@ -107,42 +108,51 @@
                     <ul id="sidebarnav">
                         <!-- User Profile-->
                         <li class="sidebar-item pt-2">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="GymOwner" asp-action="Home"
-                                aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="GymOwner"
+                                asp-action="Home" aria-expanded="false">
                                 <i class="far fa-clock" aria-hidden="true"></i>
                                 <span class="hide-menu">Dashboard</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="GymOwner" asp-action="Product">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="GymOwner"
+                                asp-action="Product">
                                 <i class="fa fa-table" aria-hidden="true"></i>
                                 <span class="hide-menu">Product Managements</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="GymOwner" asp-action="CustomerAccount"
-                                aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="GymOwner"
+                                asp-action="CustomerAccount" aria-expanded="false">
                                 <i class="fa fa-table" aria-hidden="true"></i>
                                 <span class="hide-menu">Customer Managements</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="GymOwner" asp-action="PersonalTrainer"
-                                aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="GymOwner"
+                                asp-action="PersonalTrainer" aria-expanded="false">
                                 <i class="fa fa-table" aria-hidden="true"></i>
                                 <span class="hide-menu">PT Managements</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="GymOwner" asp-action="Post">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="GymOwner"
+                                asp-action="Post">
                                 <i class="fa fa-table" aria-hidden="true"></i>
                                 <span class="hide-menu">Post Managements</span>
                             </a>
                         </li>
-                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="GymOwner" asp-action="Category">
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="GymOwner"
+                                asp-action="Category">
                                 <i class="fa fa-table" aria-hidden="true"></i>
                                 <span class="hide-menu">Category Managements</span>
+                            </a>
+                        </li>
+                         <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="GymOwner" asp-action="MemberAccount">
+                                <i class="fa fa-table" aria-hidden="true"></i>
+                                <span class="hide-menu">Member Manage</span>
                             </a>
                         </li>
                     </ul>
@@ -152,25 +162,25 @@
             </div>
             <!-- End Sidebar scroll-->
         </aside>
-    @RenderBody()
+        @RenderBody()
 
 
-    <script src="/plugins/bower_components/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/js/app-style-switcher.js"></script>
-    <script src="/plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
-    <!--Wave Effects -->
-    <script src="/js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="/js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="/js/custom.js"></script>
-    <!--This page JavaScript -->
-    <!--chartis chart-->
-    <script src="/plugins/bower_components/chartist/dist/chartist.min.js"></script>
-    <script src="/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
-    <script src="/js/pages/dashboards/dashboard1.js"></script>
+        <script src="/plugins/bower_components/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap tether Core JavaScript -->
+        <script src="/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/app-style-switcher.js"></script>
+        <script src="/plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
+        <!--Wave Effects -->
+        <script src="/js/waves.js"></script>
+        <!--Menu sidebar -->
+        <script src="/js/sidebarmenu.js"></script>
+        <!--Custom JavaScript -->
+        <script src="/js/custom.js"></script>
+        <!--This page JavaScript -->
+        <!--chartis chart-->
+        <script src="/plugins/bower_components/chartist/dist/chartist.min.js"></script>
+        <script src="/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+        <script src="/js/pages/dashboards/dashboard1.js"></script>
 </body>
 
 </html>

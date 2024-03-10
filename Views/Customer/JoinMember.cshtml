@@ -11,24 +11,28 @@
 <div class="container">
     <div class="row justify-content-center" style="padding-top: 50px;">
         <div class="col-md-6">
-            <div class="card-header bg text-white text-center display-4" style="background:#343a40; font-size: 24px;">Register Member</div>
+            <div class="card-header bg text-white text-center display-4" style="background:#343a40; font-size: 24px;">
+                Register Member</div>
             <div class="card shadow-lg p-3 mb-5 bg-white rounded">
                 <div class="card-body">
+                    <p>You want to become Member of us?</p>
+                    <p>Click button below to register</p>
                     <form asp-action="JoinMember">
                         <div class="form-group">
-                          <label asp-for="@Model.member.Date" class="control-label h3"></label>
-                <input id="Date" type="date" asp-for="@Model.member.Date" class="form-control form-control-lg" />
+                            <input id="Date" type="date" asp-for="@Model.member.Date"
+                                class="form-control form-control-lg" readonly style="display: none;"/>
                         </div>
                         <div class="form-group">
-                           <label asp-for="@Model.member.Status" class="control-label h3"></label>
-                <input asp-for="@Model.member.Status" class="form-control form-control-lg text-justify" value="Unaccepted"/>
+                            <input asp-for="@Model.member.Status" class="form-control form-control-lg text-justify"
+                                value="Waiting" type="hidden"/>
                         </div>
-                         <input type="hidden" asp-for="@Model.member.CustomerID" class="form-control form-control-lg text-justify" value="@ViewBag.cusID"/>
-                       <button type="submit" class="btn btn-primary btn-lg">Send</button>
+                        <input type="hidden" asp-for="@Model.member.CustomerID"
+                            class="form-control form-control-lg text-justify" value="@ViewBag.cusID" />
+                        <button type="submit" class="btn btn-primary btn-lg">Send</button>
                     </form>
                 </div>
             </div>
-            <hr>           
+            <hr>
         </div>
     </div>
 </div>

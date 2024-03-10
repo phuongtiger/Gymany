@@ -8,6 +8,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using Gymany.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -89,6 +90,7 @@ namespace Gymany.Controllers
         {
             api_CustomerByID = $"https://localhost:5002/api/Customer/id?id={id}";
             Customer customer = obj.customer;
+            System.Console.WriteLine(obj.customer.Phone);
             string data = JsonSerializer.Serialize(customer);
             var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
             HttpResponseMessage respone = await client.PutAsync(api_CustomerByID, content);
@@ -170,14 +172,29 @@ namespace Gymany.Controllers
 
         public IActionResult PTLogin()
         {
-            var viewModel = new ListModels();
-            return View(viewModel);
+            ListModels model = new ListModels();
+            return View(model);
         }
 
-        public IActionResult Register()
+        public IActionResult RegisterForm()
         {
-            var viewModel = new ListModels();
-            return View(viewModel);
+            
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RegisterForm(Customer obj)
+        {
+            if (ModelState.IsValid)
+            {
+
+                string data = JsonSerializer.Serialize(obj);
+                var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync(apiCustomer, content);
+                if (response.StatusCode == System.Net.HttpStatusCode.Created)
+                    return RedirectToAction("Form");
+            }
+            return View(obj);
         }
 
         public IActionResult PTPage()
@@ -200,12 +217,6 @@ namespace Gymany.Controllers
 
         public async Task<IActionResult> DeleteSession()
         {
-            // if(HttpContext.Session.GetString("Username")!= null){
-            //     HttpContext.Session.Remove("Username");
-            // }else
-            // {
-            //     return RedirectToAction("Profile");
-            // }
             HttpContext.Session.Clear();
             return RedirectToAction("Index", "Home");
         }

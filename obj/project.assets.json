@@ -7854,19 +7854,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hoang\\.nuget\\packages\\": {}
+    "C:\\Users\\THANH\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Gymany\\Gymany.csproj",
+      "projectUniqueName": "D:\\Project_SWP\\Web_Gymany\\Gymany\\Gymany.csproj",
       "projectName": "Gymany",
-      "projectPath": "D:\\Gymany\\Gymany.csproj",
-      "packagesPath": "C:\\Users\\hoang\\.nuget\\packages\\",
-      "outputPath": "D:\\Gymany\\obj\\",
+      "projectPath": "D:\\Project_SWP\\Web_Gymany\\Gymany\\Gymany.csproj",
+      "packagesPath": "C:\\Users\\THANH\\.nuget\\packages\\",
+      "outputPath": "D:\\Project_SWP\\Web_Gymany\\Gymany\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\hoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\THANH\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7886,11 +7886,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -7949,10 +7944,9 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102\\RuntimeIdentifierGraph.json"
       }
     }
-<<<<<<< HEAD
   },
   "logs": [
     {
@@ -7962,7 +7956,4 @@
       "message": "Problem reading the cache file D:\\Project_SWP\\Web_Gymany\\Gymany\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'expectedPackageFiles', line 144, position 0."
     }
   ]
-=======
-  }
->>>>>>> 4cc9f67f52084229977a45b5113b5ec7bb61abe2
 }

@@ -1,10 +1,6 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "cn+74wi1YAdgi8FuOyNaRUg3tpfN7d1JlLCgsJPZ+BrpZbKk2q6RNAnjjzC3rgTpS3LAPsAS95TXBwDAWeyV+A==",
-=======
-  "dgSpecHash": "H9l/I4DLsQdLht/ALc+K8kTA2a+ockE0aWtw+oE/dKivwOCOzrx+WVG6Z1GeTWPgsBbXvr91k11/EGoVe5Ivcw==",
->>>>>>> f824a538327b3549f575ce22e22116adebb4049c
+  "dgSpecHash": "AVyYtBu+WfeOB4hBii+o7nowuoUArKoaTfQjOuY3l5OqHtkdnMXwkiOYqZaPnVGYGDp1zqgCh6NWJVIi8ROXEg==",
   "success": true,
   "projectFilePath": "D:\\GitP\\Gymany\\Gymany.csproj",
   "expectedPackageFiles": [
@@ -208,5 +204,12 @@
     "C:\\Users\\Ducsi\\.nuget\\packages\\x.pagedlist.mvc.core\\8.0.7\\x.pagedlist.mvc.core.8.0.7.nupkg.sha512",
     "C:\\Users\\Ducsi\\.nuget\\packages\\x.pagedlist.web.common\\8.0.7\\x.pagedlist.web.common.8.0.7.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\GitP\\Gymany\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

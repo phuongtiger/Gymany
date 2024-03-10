@@ -19,13 +19,15 @@
                         <div class="form-group">
                             <label for="email" class="h5"><b>Email:</b></label>
                             <input type="text" class="form-control form-control-lg" id="email" name="email">
+                            <div id="emailError" class="text-danger"></div>
                         </div>
                         <div class="form-group">
                             <label for="password" class="h5"><b>Password:</b></label>
                             <input type="password" class="form-control form-control-lg" id="password" name="password">
+                            <div id="passwordError" class="text-danger"></div>
                         </div>
                         <button type="submit" class="btn btn-primary btn-lg"><b>LOGIN</b></button>
-                        <div id="error-message" class="text-danger" style="display:none;"></div>
+                        <div id="loginMessage" class="text-danger"></div>
                     </form>
                 </div>
             </div>
@@ -36,53 +38,43 @@
         </div>
     </div>
 </div>
-@section Scripts {
-    <script>
-        // Hàm để lưu thông báo lỗi và thời gian hiển thị vào localStorage
-        function saveErrorMessage(message) {
-            var errorMessage = {
-                message: message,
-                timestamp: new Date().getTime() + 2000 // Thời gian hiển thị là 30 giây
-            };
-            localStorage.setItem('errorMessage', JSON.stringify(errorMessage));
+<script>
+    function saveErrorMessage(message) {
+        var errorMessage = {
+            message: message,
+            timestamp: new Date().getTime() + 2000 // Thời gian hiển thị là 2 giây
+        };
+        localStorage.setItem('errorMessage', JSON.stringify(errorMessage));
+    }
+
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+        var username = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        var usernameError = document.getElementById("emailError");
+        var passwordError = document.getElementById("passwordError");
+        var loginMessage = document.getElementById("loginMessage");
+        usernameError.textContent = "";
+        passwordError.textContent = "";
+        loginMessage.textContent = "";
+        if (username.trim() === "") {
+            usernameError.textContent = "Please enter your username.";
+            event.preventDefault();
         }
-
-        // Hàm để kiểm tra và hiển thị thông báo lỗi từ localStorage
-        function checkAndDisplayErrorMessage() {
-            var errorMessage = localStorage.getItem('errorMessage');
-            if (errorMessage) {
-                errorMessage = JSON.parse(errorMessage);
-                if (errorMessage.timestamp > new Date().getTime()) {
-                    // Nếu thời gian hiển thị lớn hơn hiện tại, hiển thị thông báo lỗi
-                    var errorMessageElement = document.getElementById("error-message");
-                    errorMessageElement.innerText = errorMessage.message;
-                    errorMessageElement.style.display = "block";
-                } else {
-                    // Nếu thời gian hiển thị đã hết, xóa thông báo lỗi từ localStorage
-                    localStorage.removeItem('errorMessage');
-                }
-            }
+        if (password.trim() === "") {
+            passwordError.textContent = "Please enter your password.";
+            event.preventDefault();
+        } else {
+            saveErrorMessage("Incorrect username or password.");
         }
+    });
 
-        // Gọi hàm checkAndDisplayErrorMessage() khi trang được tải lại
-        window.onload = checkAndDisplayErrorMessage;
-        function validateForm() {
-            var email = document.getElementById("email").value;
-            var password = document.getElementById("password").value;
-            var errorMessage = document.getElementById("error-message");
-
-            // Kiểm tra xem các trường input có được điền đầy đủ hay không
-            if (email.trim() == '' || password.trim() == '') {
-                errorMessage.innerText = "Please fill in all fields.";
-                errorMessage.style.display = "block";
-                saveErrorMessage(errorMessage.innerText); // Lưu thông báo lỗi vào localStorage
-                return false; // Ngăn form được submit nếu có trường input trống
-            } else {
-                errorMessage.innerText = "Incorrect email or password.";
-                errorMessage.style.display = "block";
-                saveErrorMessage(errorMessage.innerText); // Lưu thông báo lỗi vào localStorage
-            }
+    // Function to display login error message from localStorage
+    window.addEventListener("load", function() {
+        var errorMessage = JSON.parse(localStorage.getItem('errorMessage'));
+        if (errorMessage && errorMessage.timestamp > new Date().getTime()) {
+            var loginMessage = document.getElementById("loginMessage");
+            loginMessage.textContent = errorMessage.message;
         }
-    </script>
-
-}
+        localStorage.removeItem('errorMessage'); // Xóa thông báo sau khi đã hiển thị
+    });
+</script>

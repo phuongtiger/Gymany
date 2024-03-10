@@ -6,39 +6,43 @@
     Layout = "PTLayout";
 }
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-<a asp-area="PT" asp-action="Create" class="btn btn-outline-success btn-primary">Create WorkoutPlan</a>
-<hr>
-@if (@Model == null)
-{
-    <p>Nothing</p>
-}
-else
-{
-    @foreach (var item in Model)
+<div style="padding: 50px;">
+    <a asp-area="PT" asp-action="Create" class="btn btn-outline-success btn-primary">Create WorkoutPlan</a>
+    <hr>
+    @if (@Model == null)
     {
-        <div class="card mb-4 shadow-sm">
-            <div class="card-header">
-                <h2 class="my-0 font-weight-normal">@item.Name</h2>
-            </div>
-            <div class="card-body">
-                <p class="card-text">@item.Description</p>
-                <div class="row">
-                    <div class="col-md-6">
-                        <p><strong>Start Date:</strong> @item.StartDate</p>
-                        <p><strong>End Date:</strong> @item.EndDate</p>
-                        <p><strong>Session:</strong> @item.Session</p>
-                    </div>
-                    <div class="col-md-6">
-                        <p><strong>Activity:</strong> @item.Activity</p>
-                        <p><strong>Member ID:</strong> @item.MemberID</p>
+        <p>Nothing</p>
+    }
+    else
+    {
+        @foreach (var item in Model)
+        {
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header">
+                    <h2 class="my-0 font-weight-normal">@item.Name</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">@item.Description</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Start Date:</strong> @item.StartDate</p>
+                            <p><strong>End Date:</strong> @item.EndDate</p>
+                            <p><strong>Session:</strong> @item.Session</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Activity:</strong> @item.Activity</p>
+                            <p><strong>Member ID:</strong> @item.MemberID</p>
+                        </div>
                     </div>
                 </div>
+                <div class="card-footer">
+                    <a asp-area="PT" asp-action="Delete" class="btn btn-outline-danger"
+                        asp-route-id="@item.WorkoutPlanID">Delete</a>
+                    <a asp-area="PT" asp-action="Edit" class="btn btn-outline-primary"
+                        asp-route-id="@item.WorkoutPlanID">Edit</a>
+                </div>
             </div>
-            <div class="card-footer">
-                <a asp-area="PT" asp-action="Delete" class="btn btn-outline-danger" asp-route-id="@item.WorkoutPlanID">Delete</a>
-                <a asp-area="PT" asp-action="Edit" class="btn btn-outline-primary" asp-route-id="@item.WorkoutPlanID">Edit</a>
-            </div>
-        </div>
 
+        }
     }
-}
+</div>

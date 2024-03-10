@@ -27,6 +27,18 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Catamaran:wght@600;700;800;900&family=Rubik:wght@400;500;800&display=swap"
         rel="stylesheet">
+    @* cdn ckeditor *@
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js"></script>
+      @* <script>
+        cách sử dụng CKeditor
+        document.addEventListener('DOMContentLoaded', function () {
+            ClassicEditor
+                .create(document.querySelector('#(id của input)'))
+                .catch(error => {
+                    console.error(error);
+                });
+        });
+    </script> *@
     <!--
     cdn fontawesome
   -->
@@ -78,7 +90,7 @@
                 <span class="span">Gymany</span>
             </a>
 
-            <nav class="navbar header__navbar" data-navbar>
+            <nav class="navbar header__navbar" data-navbar style="padding-left: 0px;">
 
                 <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
                     <ion-icon name="close-sharp" aria-hidden="true"></ion-icon>
@@ -106,12 +118,15 @@
                             <input type="text" id="search-text" placeholder="Search" name="SearchContent"> <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </form>
                     </li>
-                    <a asp-controller="Cart" asp-action="Index"><img src="~/images/cart.png" width="30px" height="30px"></a>
+                    <li>
+                        <a asp-controller="Cart" asp-action="Index"><i class="fa-solid fa-cart-shopping" style="font-size: 25px; color: #ff9500;padding-left: 10px"></i></a>
+                    </li>
+                    
                 </ul>
 
             </nav>
 
-            <a href="#" class="btn btn-secondary">Join Now</a>
+            <a asp-controller="Customer" asp-action="JoinMember" class="btn btn-secondary">Join Now</a>
             <a asp-controller="Customer" asp-action="Profile"><button class="custom-button"><i class="fa-solid fa-user"></i></button></a>
             <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
                 <span class="line"></span>

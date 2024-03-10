@@ -1,0 +1,85 @@
+@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model IEnumerable<Gymany.Models.Member>
+@{
+    ViewData["Title"] = "MemberAccount";
+}
+@* using layout of Gymowner *@
+@{
+    Layout = "GymOwnerLayout";
+}
+
+
+@* declare tag helper in areas *@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<div class="page-wrapper">
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Member Managements</h4>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="white-box">
+                    <h3 class="box-title">Member Managements</h3>
+                    @* <a asp-action="AddMember" asp-controller="GymOwner" class="btn btn-primary">Add new</a> *@
+                    <div class="table-responsive">
+                        <table class="table text-wrap">
+                            <thead>
+                                <tr>
+                                    <th class="border-top-0">MemberID</th>
+                                    <th class="border-top-0">Date</th>
+                                    <th class="border-top-0">Status</th>
+                                    <th class="border-top-0">CustomerID</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.MemberID</td>
+                                        <td>@item.Date</td>
+                                        @if (item.Status.Equals("Accepted"))
+                                        {
+                                            <td class="text-success">@item.Status</td>
+                                        }
+                                        else if (item.Status.Equals("Waiting"))
+                                        {
+                                            <td class="text-warning">@item.Status</td>
+                                        }
+                                        else
+                                        {
+                                            <td class="text-danger">@item.Status</td>
+                                        }
+                                        <td>@item.CustomerID</td>
+
+                                        <td>
+
+                                            <a asp-controller="GymOwner" asp-action="DeleteMember" class="btn btn-danger"
+                                                asp-route-id="@item.MemberID" style="color: #fff;">Delete this request</a>
+                                            <a asp-controller="GymOwner" asp-action="UpdateMember" class="btn btn-success"
+                                                asp-route-id="@item.MemberID" style="color: #fff;">Update member status</a>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @Html.PagedListPager((IPagedList)Model, page => Url.Action("MemberAccount", new { page = page }),
+                 new X.PagedList.Web.Common.PagedListRenderOptionsBase
+        {
+            LiElementClasses = new string[] { "page-item" },
+            PageClasses = new string[] { "page-link" }
+        })
+    </div>
+    <footer class="footer text-center"> 2024 © Gymany Admin by Group 05
+    </footer>
+</div>
+</div>

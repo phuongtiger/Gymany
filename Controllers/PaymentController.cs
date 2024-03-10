@@ -44,7 +44,7 @@ namespace Gymany.Controllers
             vnpay.AddRequestData("vnp_Version", VnPayLibrary.VERSION);
             vnpay.AddRequestData("vnp_Command", "pay");
             vnpay.AddRequestData("vnp_TmnCode", "5YRU8MN1");
-            vnpay.AddRequestData("vnp_Amount", (200000 * 100).ToString()); //Số tiền thanh toán. Số tiền không mang các ký tự phân tách thập phân, phần nghìn, ký tự tiền tệ. Để gửi số tiền thanh toán là 100,000 VND (một trăm nghìn VNĐ) thì merchant cần nhân thêm 100 lần (khử phần thập phân), sau đó gửi sang VNPAY là: 10000000
+            vnpay.AddRequestData("vnp_Amount", ((int)order.Total * 100).ToString()); //Số tiền thanh toán. Số tiền không mang các ký tự phân tách thập phân, phần nghìn, ký tự tiền tệ. Để gửi số tiền thanh toán là 100,000 VND (một trăm nghìn VNĐ) thì merchant cần nhân thêm 100 lần (khử phần thập phân), sau đó gửi sang VNPAY là: 10000000
             vnpay.AddRequestData("vnp_BankCode", "NCB");
             vnpay.AddRequestData("vnp_CreateDate", DateTime.Now.ToString("yyyyMMddHHmmss"));
             vnpay.AddRequestData("vnp_CurrCode", "VND");
@@ -86,13 +86,26 @@ namespace Gymany.Controllers
             order.Status = "Failed";
             if (vnp_TransactionStatus.Equals("00") && vnp_ResponseCode.Equals("00"))
             {
-                order.Status = "Success";
-                string data = JsonSerializer.Serialize(order);
-                var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
-                HttpResponseMessage respone = await client.PutAsync(api_Order, content);
+                Payment payment = new Payment{
+                    CustomerID = order.CustomerID,
+                    ProductID = order.ProductID,
+                    Quantity = order.Quantity,
+                    Date = DateTime.Now
+                };
+                string apiPayment = "https://localhost:5002/api/Payment";
+                string dataPayment = JsonSerializer.Serialize(payment);
+                var content = new StringContent(dataPayment, System.Text.Encoding.UTF8, "application/json");
+                HttpResponseMessage respone = await client.PostAsync(apiPayment, content);
                 if (respone.StatusCode == System.Net.HttpStatusCode.Created)
                 {
-                    ViewBag.Message = "Giao dịch thành công, Cảm ơn bạn đã mua hàng!";
+                    order.Status = "Success";
+                    string dataOrder = JsonSerializer.Serialize(order);
+                    var contentOrder = new StringContent(dataOrder, System.Text.Encoding.UTF8, "application/json");
+                    HttpResponseMessage response = await client.PutAsync(api_Order, contentOrder);
+                    if (response.StatusCode == System.Net.HttpStatusCode.Created)
+                    {
+                        ViewBag.Message = "Giao dịch thành công, Cảm ơn bạn đã mua hàng!";
+                    }
                 }
             }
             

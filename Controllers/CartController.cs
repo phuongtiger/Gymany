@@ -10,6 +10,7 @@ using Gymany.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Linq;
 
 namespace Gymany.Controllers
 {
@@ -29,6 +30,8 @@ namespace Gymany.Controllers
             this.api_CartById = $"https://localhost:5002/api/Cart/CustomerID";
             this.api = $"https://localhost:5002/api/Cart";
             this.api_order = $"https://localhost:5002/api/Order";
+            client.BaseAddress = new Uri("https://localhost:5002");
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
 
@@ -104,14 +107,37 @@ namespace Gymany.Controllers
         }
 
 
-
-        public async Task<ActionResult> Create()
-        {
+        [HttpPost]
+        public IActionResult PaymentProcess(string paymentMethod, string paymentLanguage){
             if (!checkLogin())
             {
-                return Redirect("Create/Form");
+                return RedirectToAction("Form", "Customer");
+            }
+            if(paymentMethod.Equals("methodVNPAY")){
+                return RedirectToAction("Payment", "Payment");
+            }else if(paymentMethod.Equals("methodCash")){
+                return RedirectToAction("OrderHistory", "Customer");
             }
             return View();
+        }
+        public async Task<ActionResult> Create()
+        {
+            ListModels listModels = new ListModels();
+            List<int> ListOrder = HttpContext.Session.GetObjectFromJson<List<int>>("listOrderID");
+            List<Order> OrderPayment = new List<Order>();
+            int total = 0;
+            foreach (var item in ListOrder)
+            {   
+                string api_Order = $"https://localhost:5002/api/Order/id?id={item}";
+                HttpResponseMessage respone = await client.GetAsync(api_Order);
+                string data = await respone.Content.ReadAsStringAsync();
+                var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+                Order Order = JsonSerializer.Deserialize<Order>(data, options);
+                total += (int)Order.Total;
+                OrderPayment.Add(Order);
+            }
+            ViewBag.Total = total;
+            return View(listModels);
         }
 
         [HttpPost]
@@ -128,6 +154,7 @@ namespace Gymany.Controllers
                 HttpResponseMessage respone = await client.PostAsync(api, content);
                 if (respone.StatusCode == System.Net.HttpStatusCode.Created)
                 {
+                    
                     return RedirectToAction("Index");
                 }
             }
@@ -142,14 +169,16 @@ namespace Gymany.Controllers
             }
             try
             {
-
                 string id = HttpContext.Session.GetString("CustomerID");
                 api_CartById = $"https://localhost:5002/api/Order/CustomerID?CustomerID={id}";
                 HttpResponseMessage respone = await client.GetAsync(api_CartById);
                 string data = await respone.Content.ReadAsStringAsync();
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                List<int> listOrderID = JsonSerializer.Deserialize<List<int>>(data, options);
+                HttpContext.Session.SetObjectAsJson("listOrderID", listOrderID);
                 if (respone.IsSuccessStatusCode)
                 {
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Create");
                 }
                 else
                 {
@@ -164,11 +193,90 @@ namespace Gymany.Controllers
             }
         }
 
-      
+        [HttpPost]
+        public async Task<IActionResult> AddToCart(int productId)
+        {
+            try
+            {
+                 var customerId = HttpContext.Session.GetString("CustomerID");
+                var response = await client.PostAsync($"api/Cart/CreateCartByCustomerID?customerID={customerId}&productID={productId}", null);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index", "Product"); // Redirect to home page or wherever you want after adding to cart
+                }
+                else
+                {
+                    // Handle unsuccessful response
+                    return RedirectToAction("Error", "Home"); // Redirect to error page or handle the error accordingly
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the error for troubleshooting
+                Console.WriteLine($"Error: {ex.Message}");
+                return RedirectToAction("Error", "Home"); // Redirect to error page or handle the error accordingly
+            }
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> UpdateCartItem(int cartID, int quantity)
+        {
+            try
+            {
+                var response = await client.PostAsync($"api/Cart/UpdateCartItem?cartID={cartID}&quantity={quantity}", null);
+                
+                if (response.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index", "Home"); // Hoặc chuyển hướng đến trang khác
+                }
+                else
+                {
+                    // Xử lý trường hợp không thành công
+                    ModelState.AddModelError(string.Empty, "Failed to update cart item.");
+                    return View(); // Hoặc trả về view với thông báo lỗi
+                }
+            }
+            catch (Exception ex)
+            {
+                // Xử lý ngoại lệ
+                ModelState.AddModelError(string.Empty, $"Error: {ex.Message}");
+                return View(); // Hoặc trả về view với thông báo lỗi
+            }
+        }
+
 
 
         [HttpPost]
+        public async Task<ActionResult> Delete(int CartId){
+            api = $"https://localhost:5002/api/Cart/id?id={CartId}";
+            try
+            {
+                // Tạo yêu cầu DELETE
+                HttpResponseMessage response = await client.DeleteAsync(api);
 
+                // Kiểm tra kết quả trả về từ endpoint API
+                if (response.IsSuccessStatusCode)
+                {
+                    // Xử lý kết quả nếu xóa thành công, ví dụ chuyển hướng đến trang danh sách
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    // Xử lý kết quả nếu xóa không thành công, ví dụ hiển thị thông báo lỗi
+                    return View("Error");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi nếu có
+                System.Console.WriteLine(ex);
+                return View("Error");
+            }
+        }
+
+
+        [HttpPost]
         public bool checkLogin()
         {
             var username = HttpContext.Session.GetString("Username");
@@ -179,5 +287,7 @@ namespace Gymany.Controllers
             }
             return false;
         }
+        
     }
+    
 }

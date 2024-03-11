@@ -15,6 +15,9 @@ namespace Gymany.Models
         public List<Notification> Notifications { get; set; }
         public List<Category> Categories { get; set; }
         public string NumberNoti { get; set; }
+  
+
+
         public Member member {get ; set ;}
         public List<WorkoutPlan> workoutPlans { get; set; }
         public bool CheckMember;
@@ -26,6 +29,7 @@ namespace Gymany.Models
         public List<Member> members {get ; set ;}
 
 
+
         //thang
         public Cart cart{get; set;}
         public List<Cart> Carts { get; set; }
@@ -34,5 +38,7 @@ namespace Gymany.Models
         public Order order { get; set; }
         public List<Order> orders { get; set; }
         public IEnumerable<Order> Orders { get; set; }
+        //public List<Post> Posts { get; set; }
+
     }
 }

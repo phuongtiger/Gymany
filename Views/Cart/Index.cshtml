@@ -56,123 +56,177 @@
     <form class="bg0 p-t-75 p-b-85">
         @if (Model.Carts == null || !Model.Carts.Any())
         {
-            <div style="text-align: center; margin-top: 50px; ">
-                <p style="font-size: 18px; color: #555;">Không có mục nào trong giỏ hàng.</p>
-                <button
-                    style="background-color: #4CAF50; color: white; padding: 10px 20px; margin-top: 10px; border: none; cursor: pointer; border-radius: 5px; transition: background-color 0.3s; display: inline-block;" asp-controller="Product">
-                    Shopping now
-                </button>
-            </div>
+                <div style="text-align: center; margin-top: 50px; ">
+                    <p style="font-size: 18px; color: #555;">Không có mục nào trong giỏ hàng.</p>
+                    <button
+                        style="background-color: #4CAF50; color: white; padding: 10px 20px; margin-top: 10px; border: none; cursor: pointer; border-radius: 5px; transition: background-color 0.3s; display: inline-block;" asp-controller="Product">
+                        Shopping now
+                    </button>
+                </div>
 
         }
         else
         {
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
-                        <div class="m-l-25 m-r--38 m-lr-0-xl">
-                            <div class="wrap-table-shopping-cart">
-                                <table class="table-shopping-cart">
-                                    <tr class="table_head">
-                                        <th class="column-1">Product</th>
-                                        <th class="column-2"></th>
-                                        <th class="column-3">Price</th>
-                                        <th class="column-4">Quantity</th>
-                                        <th class="column-5">Total</th>
-                                    </tr>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
+                            <div class="m-l-25 m-r--38 m-lr-0-xl">
+                                <div class="wrap-table-shopping-cart">
+                                    <table class="table-shopping-cart">
+                                        <tr class="table_head">
+                                            <th class="column-1">Product</th>
+                                            <th class="column-2"></th>
+                                            <th class="column-3">Price</th>
+                                            <th class="column-4">Quantity</th>
+                                            <th class="column-5">Total</th>
+                                        </tr>
 
 
 
                                     @foreach (var item in Model.Carts)
-                                    {
+                                        {
                                         <tr class="table_row">
                                             <td class="column-1">
                                                 <div class="how-itemcart1">
                                                     <img src="@Html.DisplayFor(modelItem => item.Product.Image)" alt="IMG">
                                                 </div>
                                             </td>
-                                            <td class="column-2">
-
-                                            </td>
+                                            <td class="column-2"></td>
                                             <td class="column-3">$ @Html.DisplayFor(modelItem => item.Product.Price)</td>
                                             <td class="column-4">
                                                 <div class="wrap-num-product flex-w m-l-auto m-r-0">
                                                     <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
                                                         <i class="fs-16 zmdi zmdi-minus"></i>
                                                     </div>
-                                                    <input class="mtext-104 cl3 txt-center num-product" type="number"
-                                                        name="num-product1" value="@item.Quantity"
-                                                        data-price="@item.Product.Price">
+                                                    <input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product1" value="@item.Quantity" data-price="@item.Product.Price">
                                                     <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
                                                         <i class="fs-16 zmdi zmdi-plus"></i>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td class="column-5">$ @(item.Quantity * item.Product.Price)</td>
+
+                                            <td class="column-6">
+                                                <button type="button" class="btn-update btn btn-dark" value="@item.CartID" onclick="updateCartItem(this)">Update</button>
+                                            </td>
+
+                                            <td class="column-7">
+                                            <button type="button" class="btn-delete btn btn-danger" value="@item.CartID" onclick="deleteCartItem(this)">Delete</button>
+                                            </td>
                                         </tr>
                                     }
-
-
-
-                                </table>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
-                        <div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
-                            <h4 class="mtext-109 cl2 p-b-30">
-                                Cart Totals
-                            </h4>
+                        <div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
+                            <div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
+                                <h4 class="mtext-109 cl2 p-b-30">
+                                    Cart Totals
+                                </h4>
 
-                            <div id="subtotal" class="flex-w flex-t bor12 p-b-13">
-                                <div class="size-208">
-                                    <span class="stext-110 cl2">
-                                        Subtotal:
-                                    </span>
+                                <div id="subtotal" class="flex-w flex-t bor12 p-b-13">
+                                    <div class="size-208">
+                                        <span class="stext-110 cl2">
+                                            Subtotal:
+                                        </span>
+                                    </div>
+
+                                    <div class="size-209">
+                                        <span id="subtotal-value" class="mtext-110 cl2">
+                                            $0.00
+                                        </span>
+                                    </div>
                                 </div>
 
-                                <div class="size-209">
-                                    <span id="subtotal-value" class="mtext-110 cl2">
-                                        $0.00
-                                    </span>
-                                </div>
+                                <button asp-action="CreateOrder" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+                                    Proceed to Checkout
+                                </button>
                             </div>
 
-                            <button asp-action="CreateOrder" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
-                                Proceed to Checkout
-                            </button>
+                            
                         </div>
                     </div>
                 </div>
-            </div>
         }
     </form>
 
 
     <script>
-        // Hàm xử lý sự kiện khi thay đổi số lượng
-        function updateTotalPrice(input) {
-            var quantity = parseInt(input.value); // Lấy giá trị mới của số lượng
-            var price = parseFloat(input.dataset.price); // Lấy giá của sản phẩm từ thuộc tính data
-            var totalPrice = quantity * price; // Tính toán tổng tiền
+        function deleteCartItem(button) {
+    var cartID = button.value;
 
-            // Cập nhật giá trị tổng tiền trong cột "Total"
-            var row = input.closest('.table_row');
-            var totalCell = row.querySelector('.column-5');
-            totalCell.textContent = '$ ' + totalPrice.toFixed(2); // Hiển thị tổng tiền với định dạng tiền tệ
-
-            // Cập nhật lại Subtotal
+    $.ajax({
+        type: 'POST',
+        url: '@Url.Action("Delete", "Cart")',
+        data: {
+            cartID: cartID
+        },
+        success: function (response) {
+            alert("Success");
+            // Xóa hàng khỏi bảng giỏ hàng mà không cần tải lại trang
+            var row = button.closest('.table_row');
+            row.remove();
+            // Gọi lại hàm cập nhật Subtotal
             updateSubtotal();
+        },
+        error: function (xhr, status, error) {
+            alert("Fail");
+            console.error(xhr.responseText);
         }
+    });
+}
+    </script>
 
-        // Lắng nghe sự kiện input trên tất cả các trường nhập số lượng và gọi hàm xử lý
-        var quantityInputs = document.querySelectorAll('.num-product');
-        quantityInputs.forEach(function (input) {
-            input.addEventListener('input', function () {
-                updateTotalPrice(this); // Gọi hàm xử lý khi số lượng thay đổi
-            });
+
+
+
+    <script>
+    function updateCartItem(button) {
+        var row = button.closest(".table_row");
+        var input = row.querySelector(".num-product");
+        var quantity = parseInt(input.value);
+        var price = parseFloat(input.dataset.price);
+        var totalElement = row.querySelector(".column-5");
+        var cartID = button.value;
+
+        // Update the total for the item
+        var total = quantity * price;
+        totalElement.textContent = "$ " + total.toFixed(2);
+
+        // Call a function to update subtotal
+        updateSubtotal();
+
+
+
+         $.ajax({
+        type: 'POST',
+        url: '@Url.Action("UpdateCartItem", "Cart")',
+        data: {
+            cartID: cartID,
+            quantity: quantity
+        },
+        success: function (response) {
+            alert("Success");
+            // Handle success, maybe update UI if needed
+        },
+        error: function (xhr, status, error) {
+            // Handle error
+            alert("Fail");
+            console.error(xhr.responseText);
+        }
+    });
+    }
+
+    function updateSubtotal() {
+        var subtotal = 0;
+        var totalElements = document.querySelectorAll(".column-5");
+        totalElements.forEach(function (element) {
+            subtotal += parseFloat(element.textContent.replace("$ ", ""));
         });
+        document.getElementById("subtotal-value").textContent = "$ " + subtotal.toFixed(2);
+    }
     </script>
 
     <script>
@@ -244,3 +298,4 @@
 </body>
 
 </html>
+

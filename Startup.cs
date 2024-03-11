@@ -27,11 +27,13 @@ namespace Gymany
         {
             services.AddControllers();
             services.AddControllersWithViews();
+
             services.AddDistributedMemoryCache();
             services.AddSession((option) =>
             {
                 option.Cookie.Name = "Username";
                 option.Cookie.Name = "Email";
+
                 option.IdleTimeout = new TimeSpan(0, 30, 0);
             });
         }
@@ -50,7 +52,7 @@ namespace Gymany
                 app.UseHsts();
             }
 
-            
+
             //đăng ký session
             app.UseSession();
             app.UseHttpsRedirection();

@@ -27,6 +27,18 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Catamaran:wght@600;700;800;900&family=Rubik:wght@400;500;800&display=swap"
         rel="stylesheet">
+    @* cdn ckeditor *@
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js"></script>
+      @* <script>
+        cách sử dụng CKeditor
+        document.addEventListener('DOMContentLoaded', function () {
+            ClassicEditor
+                .create(document.querySelector('#(id của input)'))
+                .catch(error => {
+                    console.error(error);
+                });
+        });
+    </script> *@
     <!--
     cdn fontawesome
   -->
@@ -102,8 +114,8 @@
                         <a asp-controller="Blog" asp-action="Index" class="navbar-link" data-nav-link>Blog</a>
                     </li>
                     <li>
-                        <form action="" id="search-box">
-                            <input type="text" id="search-text" placeholder="Search"> <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <form asp-controller="Home" asp-action="Search" id="search-box" method="post">
+                            <input type="text" id="search-text" placeholder="Search" name="SearchContent"> <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </form>
                     </li>
                     <a asp-controller="Cart" asp-action="Index"><img src="~/images/cart.png" width="30px" height="30px"></a>
@@ -111,7 +123,7 @@
 
             </nav>
 
-            <a href="#" class="btn btn-secondary">Join Now</a>
+            <a asp-controller="Customer" asp-action="JoinMember" class="btn btn-secondary">Join Now</a>
             <a asp-controller="Customer" asp-action="Profile"><button class="custom-button"><i class="fa-solid fa-user"></i></button></a>
             <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
                 <span class="line"></span>
@@ -157,9 +169,9 @@
                     document.getElementById('notification-popup').style.display = 'none';
                 }
             </script>
-        </div>
+        
     </header>
-    <div class="container container-main">
+    <div class="container-main">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

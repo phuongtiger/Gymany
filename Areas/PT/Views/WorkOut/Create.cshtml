@@ -6,6 +6,7 @@
     Layout = "PTLayout";
 }
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<div style="padding-top: 50px;"></div>
 <div class="row bg-light p-12">
     <div class="col-md-12">
         <form asp-action="Create">
@@ -51,5 +52,14 @@
     document.addEventListener('DOMContentLoaded', function () {
         var currentDate = new Date().toISOString().substr(0, 10);
         document.getElementById('StartDate').value = currentDate;
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        ClassicEditor
+            .create(document.querySelector('#Description'))
+            .catch(error => {
+                console.error(error);
+            });
     });
 </script>

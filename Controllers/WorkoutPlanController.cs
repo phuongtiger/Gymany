@@ -73,6 +73,15 @@ namespace Gymany.Controllers
                 return member[0];
             }
         }
+        public IActionResult OrderHistory()
+        {
+            if (!checkLogin())
+            {
+                return RedirectToAction("Form", "Customer");
+            }
+            return RedirectToAction("OrderHistory", "Customer");
+        }
+        
         public bool checkLogin()
         {
             var user = HttpContext.Session.GetString("Username");
@@ -83,5 +92,6 @@ namespace Gymany.Controllers
             }
             return false;
         }
+
     }
 }

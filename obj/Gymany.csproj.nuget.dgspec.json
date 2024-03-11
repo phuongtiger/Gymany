@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\chuyên ngành kì 5\\PRN211\\project_group_5\\Gymany\\Gymany.csproj": {}
+    "D:\\GitP\\Gymany\\Gymany.csproj": {}
   },
   "projects": {
-    "E:\\chuyên ngành kì 5\\PRN211\\project_group_5\\Gymany\\Gymany.csproj": {
+    "D:\\GitP\\Gymany\\Gymany.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\chuyên ngành kì 5\\PRN211\\project_group_5\\Gymany\\Gymany.csproj",
+        "projectUniqueName": "D:\\GitP\\Gymany\\Gymany.csproj",
         "projectName": "Gymany",
-        "projectPath": "E:\\chuyên ngành kì 5\\PRN211\\project_group_5\\Gymany\\Gymany.csproj",
-        "packagesPath": "C:\\Users\\Van-Khoi\\.nuget\\packages\\",
-        "outputPath": "E:\\chuyên ngành kì 5\\PRN211\\project_group_5\\Gymany\\obj\\",
+        "projectPath": "D:\\GitP\\Gymany\\Gymany.csproj",
+        "packagesPath": "C:\\Users\\Ducsi\\.nuget\\packages\\",
+        "outputPath": "D:\\GitP\\Gymany\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Van-Khoi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Ducsi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

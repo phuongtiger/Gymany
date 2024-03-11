@@ -1383,3 +1383,4 @@ E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Vie
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Payment\Back.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Payment\Index.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Customer\OrderHistory.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Customer\OrderHistory.cshtml.g.cs

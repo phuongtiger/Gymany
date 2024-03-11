@@ -121,6 +121,20 @@ namespace Gymany.Controllers
         public async Task<ActionResult> Create()
         {
             ListModels listModels = new ListModels();
+            List<int> ListOrder = HttpContext.Session.GetObjectFromJson<List<int>>("listOrderID");
+            List<Order> OrderPayment = new List<Order>();
+            int total = 0;
+            foreach (var item in ListOrder)
+            {   
+                string api_Order = $"https://localhost:5002/api/Order/id?id={item}";
+                HttpResponseMessage respone = await client.GetAsync(api_Order);
+                string data = await respone.Content.ReadAsStringAsync();
+                var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+                Order Order = JsonSerializer.Deserialize<Order>(data, options);
+                total += (int)Order.Total;
+                OrderPayment.Add(Order);
+            }
+            ViewBag.Total = total;
             return View(listModels);
         }
 
@@ -158,8 +172,8 @@ namespace Gymany.Controllers
                 HttpResponseMessage respone = await client.GetAsync(api_CartById);
                 string data = await respone.Content.ReadAsStringAsync();
                 var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-                int orderID = JsonSerializer.Deserialize<int>(data, options);
-                HttpContext.Session.SetString("OrderID", orderID.ToString());
+                List<int> listOrderID = JsonSerializer.Deserialize<List<int>>(data, options);
+                HttpContext.Session.SetObjectAsJson("listOrderID", listOrderID);
                 if (respone.IsSuccessStatusCode)
                 {
                     return RedirectToAction("Create");
@@ -176,12 +190,6 @@ namespace Gymany.Controllers
                 return View("Error");
             }
         }
-
-      
-
-
-        [HttpPost]
-
         public bool checkLogin()
         {
             var username = HttpContext.Session.GetString("Username");
@@ -192,5 +200,7 @@ namespace Gymany.Controllers
             }
             return false;
         }
+        
     }
+    
 }

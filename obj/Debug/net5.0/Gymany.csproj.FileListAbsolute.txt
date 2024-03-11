@@ -1013,6 +1013,7 @@ D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddMember.cshtml.
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteMember.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\MemberAccount.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateMember.cshtml.g.cs
+>>>>>>> 4cc9f67f52084229977a45b5113b5ec7bb61abe2
 E:\SE1707_Ky5\Project\project_G\Gymany\bin\Debug\net5.0\Microsoft.AspNetCore.Razor.Language.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\bin\Debug\net5.0\Microsoft.CodeAnalysis.dll
@@ -1125,7 +1126,6 @@ E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\Blog\Index.c
 E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\BlogDetail\Index.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\bin\Debug\net5.0\appsettings.Development.json
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\bin\Debug\net5.0\appsettings.json
-E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\bin\Debug\net5.0\Gymany.StaticWebAssets.xml
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\bin\Debug\net5.0\Gymany.exe
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\bin\Debug\net5.0\Gymany.deps.json
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\bin\Debug\net5.0\Gymany.runtimeconfig.json
@@ -1387,3 +1387,18 @@ D:\Gymany\obj\Debug\net5.0\Razor\Views\Cart\CreateOrder.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Customer\OrderHistory.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Cart\Create.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Cart\PaymentProcess.cshtml.g.cs
+>>>>>>> bebbc7c38c8041651d9e71ecb5120e5617201b89
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddCategory.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Category.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteCategory.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateCategory.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Blog\blogdetail.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\EditProfile.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\RegisterForm.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Home\Search.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\WorkoutPlan\Index.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddMember.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteMember.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\MemberAccount.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateMember.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\JoinMember.cshtml.g.cs

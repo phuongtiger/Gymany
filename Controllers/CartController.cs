@@ -30,6 +30,8 @@ namespace Gymany.Controllers
             this.api_CartById = $"https://localhost:5002/api/Cart/CustomerID";
             this.api = $"https://localhost:5002/api/Cart";
             this.api_order = $"https://localhost:5002/api/Order";
+            client.BaseAddress = new Uri("https://localhost:5002");
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
 
@@ -190,6 +192,91 @@ namespace Gymany.Controllers
                 return View("Error");
             }
         }
+
+        [HttpPost]
+        public async Task<IActionResult> AddToCart(int productId)
+        {
+            try
+            {
+                 var customerId = HttpContext.Session.GetString("CustomerID");
+                var response = await client.PostAsync($"api/Cart/CreateCartByCustomerID?customerID={customerId}&productID={productId}", null);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index", "Product"); // Redirect to home page or wherever you want after adding to cart
+                }
+                else
+                {
+                    // Handle unsuccessful response
+                    return RedirectToAction("Error", "Home"); // Redirect to error page or handle the error accordingly
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the error for troubleshooting
+                Console.WriteLine($"Error: {ex.Message}");
+                return RedirectToAction("Error", "Home"); // Redirect to error page or handle the error accordingly
+            }
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> UpdateCartItem(int cartID, int quantity)
+        {
+            try
+            {
+                var response = await client.PostAsync($"api/Cart/UpdateCartItem?cartID={cartID}&quantity={quantity}", null);
+                
+                if (response.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index", "Home"); // Hoặc chuyển hướng đến trang khác
+                }
+                else
+                {
+                    // Xử lý trường hợp không thành công
+                    ModelState.AddModelError(string.Empty, "Failed to update cart item.");
+                    return View(); // Hoặc trả về view với thông báo lỗi
+                }
+            }
+            catch (Exception ex)
+            {
+                // Xử lý ngoại lệ
+                ModelState.AddModelError(string.Empty, $"Error: {ex.Message}");
+                return View(); // Hoặc trả về view với thông báo lỗi
+            }
+        }
+
+
+
+        [HttpPost]
+        public async Task<ActionResult> Delete(int CartId){
+            api = $"https://localhost:5002/api/Cart/id?id={CartId}";
+            try
+            {
+                // Tạo yêu cầu DELETE
+                HttpResponseMessage response = await client.DeleteAsync(api);
+
+                // Kiểm tra kết quả trả về từ endpoint API
+                if (response.IsSuccessStatusCode)
+                {
+                    // Xử lý kết quả nếu xóa thành công, ví dụ chuyển hướng đến trang danh sách
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    // Xử lý kết quả nếu xóa không thành công, ví dụ hiển thị thông báo lỗi
+                    return View("Error");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi nếu có
+                System.Console.WriteLine(ex);
+                return View("Error");
+            }
+        }
+
+
+        [HttpPost]
         public bool checkLogin()
         {
             var username = HttpContext.Session.GetString("Username");

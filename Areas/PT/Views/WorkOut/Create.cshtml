@@ -54,3 +54,12 @@
         document.getElementById('StartDate').value = currentDate;
     });
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        ClassicEditor
+            .create(document.querySelector('#Description'))
+            .catch(error => {
+                console.error(error);
+            });
+    });
+</script>

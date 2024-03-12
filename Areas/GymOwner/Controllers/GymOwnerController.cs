@@ -52,6 +52,8 @@ namespace Gymany.Controllers
         private string api_Member;
 
         private string api_MemberById;
+
+        private string api_Payment;
         public GymOwnerController()
         {
             client = new HttpClient();
@@ -73,19 +75,22 @@ namespace Gymany.Controllers
             this.api_StaffById = "https://localhost:5002/api/Staff/api";
             this.api_Member = "https://localhost:5002/api/Member";
             this.api_MemberById = "https://localhost:5002/api/Member/id";
-
+            this.api_Payment = "https://localhost:5002/api/Payment";
         }
 
         // ------------------page of admin after login successfull-------------------------
-        public IActionResult Home()
+        public async Task<IActionResult> Home()
         {
+            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
             if (!checkLogin())
             {
                 return Redirect("/GymOwner/Index");
             }
-            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
-            ViewBag.GymOwnerID = HttpContext.Session.GetString("GymOwnerID");
-            return View();
+            HttpResponseMessage response = await client.GetAsync(api_Payment);
+            string data = await response.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            List<Payment> list = JsonSerializer.Deserialize<List<Payment>>(data, options);
+            return View(list);
         }
 
 
@@ -193,7 +198,7 @@ namespace Gymany.Controllers
         [HttpPost]
         public async Task<IActionResult> AddProduct(Product obj)
         {
-            
+
             ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
             ViewBag.CategoryID = await GetSelectItem();
             if (ModelState.IsValid)
@@ -207,7 +212,7 @@ namespace Gymany.Controllers
                         await obj.ImageUpload.CopyToAsync(stream);
                     }
                     obj.Image = "/images/Product/" + fileName;
-                    
+
                 }
                 string data = JsonSerializer.Serialize(obj);
                 var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
@@ -579,7 +584,7 @@ namespace Gymany.Controllers
         {
             ViewBag.NamePT = await GetPtId();
             ViewBag.NameStaff = await GetStaffId();
-            
+
             if (ModelState.IsValid)
             {
                 if (obj.ImageUpload != null)
@@ -833,7 +838,7 @@ namespace Gymany.Controllers
         //method add member
         public async Task<IActionResult> AddMember()
         {
-            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");  
+            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
             return View();
         }
         [HttpPost]
@@ -854,7 +859,7 @@ namespace Gymany.Controllers
         //method delete Pt member
         public async Task<IActionResult> DeleteMember(int id)
         {
-            
+
             ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
             api_MemberById = $"https://localhost:5002/api/Member/id?id={id}";
             HttpResponseMessage response = await client.GetAsync(api_MemberById);
@@ -940,7 +945,7 @@ namespace Gymany.Controllers
         }
 
 
-
+        //method get payment -------------------------------------------
 
 
         // ========================== another medthod ==========================================\\

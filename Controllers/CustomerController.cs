@@ -299,6 +299,29 @@ namespace Gymany.Controllers
 
             // Chuyển đến view "OrderHistory" và truyền viewModel
             return View("OrderHistory", viewModel);
+        }   
+        public async Task<ActionResult> FogotPassword()
+        {
+            ListModels listModels = new ListModels();
+            return View(listModels);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> FogotPassword(string email)
+        {
+            apiCustomer = $"https://localhost:5002/api/Customer/forgotpassword?email={email}";
+
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response = await client.PostAsync(apiCustomer, null);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Form");
+                }
+            }
+
+            return RedirectToAction("FogotPassword");
         }
 
 

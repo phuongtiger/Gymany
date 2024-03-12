@@ -1406,3 +1406,4 @@ E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Custo
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Cart\Create.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Cart\PaymentProcess.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Customer\FogotPassword.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Views\Customer\FogotPassword.cshtml.g.cs

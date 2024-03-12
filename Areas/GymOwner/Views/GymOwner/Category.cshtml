@@ -56,7 +56,7 @@
                         </div>
                     </div>
                 </div>
-                @Html.PagedListPager((IPagedList)Model, page => Url.Action("Post", new { page = page }),
+                @Html.PagedListPager((IPagedList)Model, page => Url.Action("Category", new { page = page }),
                     new X.PagedList.Web.Common.PagedListRenderOptionsBase
                 {
                     LiElementClasses = new string[] { "page-item" },

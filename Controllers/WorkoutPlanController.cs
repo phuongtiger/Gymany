@@ -34,7 +34,13 @@ namespace Gymany.Controllers
             string status = await GetMemberID(customerID).ContinueWith(t => t.Result.Status);
             api = $"https://localhost:5002/api/WorkoutPlan/MemberID?memberid={memberid}";
             HttpResponseMessage response = await client.GetAsync(api);
-            ListModels listModels = new ListModels();
+            List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
+            string number = HttpContext.Session.GetString("NumberNoti");
+            ListModels listModels = new ListModels{
+                Notifications = notifications,
+                NumberNoti = number
+            };
+            
             if (response.StatusCode == HttpStatusCode.NotFound)
             {
                 if(memberid == 0 && status.Equals("Not Found")){
@@ -73,6 +79,15 @@ namespace Gymany.Controllers
                 return member[0];
             }
         }
+        public IActionResult OrderHistory()
+        {
+            if (!checkLogin())
+            {
+                return RedirectToAction("Form", "Customer");
+            }
+            return RedirectToAction("OrderHistory", "Customer");
+        }
+        
         public bool checkLogin()
         {
             var user = HttpContext.Session.GetString("Username");
@@ -83,5 +98,6 @@ namespace Gymany.Controllers
             }
             return false;
         }
+
     }
 }

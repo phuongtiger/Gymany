@@ -40,7 +40,7 @@ using X.PagedList.Mvc.Core;
 #line default
 #line hidden
 #nullable disable
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"44de4ad4633a416d8e6695e6c0cbfbf6cdaa0b4b", @"/Views/Blog/Index.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"620408172c099c796275311108ce0c6db0615b63", @"/Views/Blog/Index.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"dd2daf746351e1b25467b5be6f3116a2ee2c55df", @"/Views/_ViewImports.cshtml")]
     public class Views_Blog_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Gymany.Models.ListModels>
     {
@@ -103,12 +103,12 @@ using X.PagedList.Mvc.Core;
 
 
 
-<!-- Title page -->
-<section class=""bg-img1 txt-center p-lr-15 p-tb-92"" style=""background-image: url('images/Blog/blogbanner.jpg');"">
-	<h2 class=""ltext-105 cl0 txt-center"">
-		Blog
-	</h2>
-</section>
+	<!-- Title page -->
+	<section class=""bg-img1 txt-center p-lr-15 p-tb-92"" style=""background-image: url('images/Blog/blogbanner.jpg');"">
+		<h2 class=""ltext-105 cl0 txt-center"">
+			Blog
+		</h2>
+	</section>
 
 
 <!-- Content page -->
@@ -138,8 +138,8 @@ using X.PagedList.Mvc.Core;
 #line hidden
 #nullable disable
             WriteLiteral("\t\t\t\t\t\t\t\t<a class=\"hov-img0 how-pos5-parent\" href=\"javascript:void(0)\"");
-            BeginWriteAttribute("onclick", "\r\n\t\t\t\t\t\t\t\t\tonclick=\"", 1239, "\"", 1295, 3);
-            WriteAttributeValue("", 1259, "redirectToBlogDetail(\'", 1259, 22, true);
+            BeginWriteAttribute("onclick", "\r\n\t\t\t\t\t\t\t\t\tonclick=\"", 1245, "\"", 1301, 3);
+            WriteAttributeValue("", 1265, "redirectToBlogDetail(\'", 1265, 22, true);
 #nullable restore
 #line 46 "D:\Project_SWP\Web_Gymany\Gymany\Views\Blog\Index.cshtml"
 WriteAttributeValue("", 1281, item.PostID, 1281, 12, false);
@@ -147,10 +147,10 @@ WriteAttributeValue("", 1281, item.PostID, 1281, 12, false);
 #line default
 #line hidden
 #nullable disable
-            WriteAttributeValue("", 1293, "\')", 1293, 2, true);
+            WriteAttributeValue("", 1299, "\')", 1299, 2, true);
             EndWriteAttribute();
             WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t<img");
-            BeginWriteAttribute("src", " src=\"", 1312, "\"", 1329, 1);
+            BeginWriteAttribute("src", " src=\"", 1318, "\"", 1335, 1);
 #nullable restore
 #line 47 "D:\Project_SWP\Web_Gymany\Gymany\Views\Blog\Index.cshtml"
 WriteAttributeValue("", 1318, item.Image, 1318, 11, false);
@@ -160,8 +160,8 @@ WriteAttributeValue("", 1318, item.Image, 1318, 11, false);
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(" alt=\"IMG-BLOG\">\r\n\t\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t\t\t<div class=\"p-t-32\">\r\n\r\n\t\t\t\t\t\t\t\t\t<h4 class=\"p-b-15\">\r\n\t\t\t\t\t\t\t\t\t\t<a class=\"ltext-108 cl2 hov-cl1 trans-04\" href=\"javascript:void(0)\"");
-            BeginWriteAttribute("onclick", "\r\n\t\t\t\t\t\t\t\t\t\t\tonclick=\"", 1501, "\"", 1559, 3);
-            WriteAttributeValue("", 1523, "redirectToBlogDetail(\'", 1523, 22, true);
+            BeginWriteAttribute("onclick", "\r\n\t\t\t\t\t\t\t\t\t\t\tonclick=\"", 1507, "\"", 1565, 3);
+            WriteAttributeValue("", 1529, "redirectToBlogDetail(\'", 1529, 22, true);
 #nullable restore
 #line 53 "D:\Project_SWP\Web_Gymany\Gymany\Views\Blog\Index.cshtml"
 WriteAttributeValue("", 1545, item.PostID, 1545, 12, false);
@@ -169,7 +169,7 @@ WriteAttributeValue("", 1545, item.PostID, 1545, 12, false);
 #line default
 #line hidden
 #nullable disable
-            WriteAttributeValue("", 1557, "\')", 1557, 2, true);
+            WriteAttributeValue("", 1563, "\')", 1563, 2, true);
             EndWriteAttribute();
             WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t\t\t");
 #nullable restore
@@ -233,8 +233,8 @@ WriteAttributeValue("", 1545, item.PostID, 1545, 12, false);
 										</span>
 
 										<a class=""stext-101 cl2 hov-cl1 trans-04 m-tb-10"" href=""javascript:void(0)""");
-            BeginWriteAttribute("onclick", "\r\n\t\t\t\t\t\t\t\t\t\t\tonclick=\"", 2321, "\"", 2379, 3);
-            WriteAttributeValue("", 2343, "redirectToBlogDetail(\'", 2343, 22, true);
+            BeginWriteAttribute("onclick", "\r\n\t\t\t\t\t\t\t\t\t\t\tonclick=\"", 2327, "\"", 2385, 3);
+            WriteAttributeValue("", 2349, "redirectToBlogDetail(\'", 2349, 22, true);
 #nullable restore
 #line 78 "D:\Project_SWP\Web_Gymany\Gymany\Views\Blog\Index.cshtml"
 WriteAttributeValue("", 2365, item.PostID, 2365, 12, false);
@@ -242,7 +242,7 @@ WriteAttributeValue("", 2365, item.PostID, 2365, 12, false);
 #line default
 #line hidden
 #nullable disable
-            WriteAttributeValue("", 2377, "\')", 2377, 2, true);
+            WriteAttributeValue("", 2383, "\')", 2383, 2, true);
             EndWriteAttribute();
             WriteLiteral(">\r\n\t\t\t\t\t\t\t\t\t\t\tContinue Reading\r\n\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-long-arrow-right m-l-9\"></i>\r\n\t\t\t\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t</div>\r\n");
 #nullable restore
@@ -528,23 +528,23 @@ WriteAttributeValue("", 2365, item.PostID, 2365, 12, false);
 								Streetstyle
 							</a>
 
-							<a href=""#""
-								class=""flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5"">
-								Crafts
-							</a>
+								<a href=""#""
+									class=""flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5"">
+									Crafts
+								</a>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
 
 
 
-<script>
-	f");
-            WriteLiteral(@"unction redirectToBlogDetail(PostID) {
+<");
+            WriteLiteral(@"script>
+	function redirectToBlogDetail(PostID) {
 		$.ajax({
 			type: ""POST"",
 			url: ""/Blog/SavePostId"",
@@ -566,9 +566,9 @@ WriteAttributeValue("", 2365, item.PostID, 2365, 12, false);
 <!--===============================================================================================-->
 <script src=""vendor/bootstrap/js/popper.js""></script>
 <script src=""vendor/bootstrap/js/bootstrap.min.js""></script>
-<!--===============================================================================================-->
-<s");
-            WriteLiteral(@"cript src=""vendor/select2/select2.min.js""></script>
+<!--===========================================================================================");
+            WriteLiteral(@"====-->
+<script src=""vendor/select2/select2.min.js""></script>
 <script>
 	$("".js-select2"").each(function () {
 		$(this).select2({
@@ -591,13 +591,13 @@ WriteAttributeValue("", 2365, item.PostID, 2365, 12, false);
 			wheelPropagation: false,
 		});
 
-		$(window).on('resize', function () {
-			ps.update();
-		})
-	});
-</script>
-<!--===============================================================================================--");
-            WriteLiteral(">\r\n<script src=\"js/Product/main.js\"></script>\r\n");
+			$(window).on('resize', function () {
+				ps.update();
+			})
+		});
+	</script>
+	<!--================================================================================");
+            WriteLiteral("===============-->\r\n\t<script src=\"js/Product/main.js\"></script>\r\n");
         }
         #pragma warning restore 1998
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]

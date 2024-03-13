@@ -203,7 +203,6 @@ D:\GitP\Gymany\obj\Debug\net5.0\Gymany.csproj.CoreCompileInputs.cache
 D:\GitP\Gymany\obj\Debug\net5.0\Gymany.MvcApplicationPartsAssemblyInfo.cache
 D:\GitP\Gymany\obj\Debug\net5.0\Gymany.RazorAssemblyInfo.cache
 D:\GitP\Gymany\obj\Debug\net5.0\Gymany.RazorAssemblyInfo.cs
-D:\GitP\Gymany\obj\Debug\net5.0\Gymany.sourcelink.json
 D:\GitP\Gymany\obj\Debug\net5.0\Gymany.TagHelpers.input.cache
 D:\GitP\Gymany\obj\Debug\net5.0\Gymany.TagHelpers.output.cache
 D:\GitP\Gymany\obj\Debug\net5.0\Gymany.RazorCoreGenerate.cache
@@ -221,14 +220,8 @@ D:\GitP\Gymany\obj\Debug\net5.0\Gymany.RazorTargetAssemblyInfo.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Gymany.Views.pdb
 D:\GitP\Gymany\obj\Debug\net5.0\scopedcss\bundle\Gymany.styles.css
 D:\GitP\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.Manifest.cache
-D:\GitP\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.Pack.cache
-D:\GitP\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.Gymany.Microsoft.AspNetCore.StaticWebAssets.props
-D:\GitP\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.build.Gymany.props
-D:\GitP\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.Gymany.props
-D:\GitP\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.Gymany.props
 D:\GitP\Gymany\obj\Debug\net5.0\Gymany.csproj.CopyComplete
 D:\GitP\Gymany\obj\Debug\net5.0\Gymany.dll
-D:\GitP\Gymany\obj\Debug\net5.0\refint\Gymany.dll
 D:\GitP\Gymany\obj\Debug\net5.0\Gymany.pdb
 D:\GitP\Gymany\obj\Debug\net5.0\Gymany.genruntimeconfig.cache
 D:\GitP\Gymany\obj\Debug\net5.0\ref\Gymany.dll
@@ -285,7 +278,6 @@ E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Gymany.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Gymany.MvcApplicationPartsAssemblyInfo.cache
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Gymany.RazorAssemblyInfo.cache
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Gymany.RazorAssemblyInfo.cs
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Gymany.sourcelink.json
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Gymany.TagHelpers.input.cache
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Gymany.TagHelpers.output.cache
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Gymany.RazorCoreGenerate.cache
@@ -303,14 +295,8 @@ E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Gymany.Ra
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Gymany.Views.pdb
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\scopedcss\bundle\Gymany.styles.css
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.Manifest.cache
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.Pack.cache
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.Gymany.Microsoft.AspNetCore.StaticWebAssets.props
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.build.Gymany.props
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.Gymany.props
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.Gymany.props
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Gymany.csproj.CopyComplete
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Gymany.dll
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\refint\Gymany.dll
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Gymany.pdb
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Gymany.genruntimeconfig.cache
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\ref\Gymany.dll
@@ -932,7 +918,6 @@ D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Notification\Index.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Shared\testLayout.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\form.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\SendMessage.cshtml.g.cs
-E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Gymany.StaticWebAssets.xml
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\Form.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\PT\Views\PT\SendMessage.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Blog\blogdetail.cshtml.g.cs
@@ -1020,6 +1005,7 @@ D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddMember.cshtml.
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteMember.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\MemberAccount.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateMember.cshtml.g.cs
+>>>>>>> 4cc9f67f52084229977a45b5113b5ec7bb61abe2
 E:\SE1707_Ky5\Project\project_G\Gymany\bin\Debug\net5.0\Microsoft.AspNetCore.Razor.Language.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\bin\Debug\net5.0\Microsoft.CodeAnalysis.dll
@@ -1132,7 +1118,6 @@ E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\Blog\Index.c
 E:\SE1707_Ky5\Project\project_G\Gymany\obj\Debug\net5.0\Razor\Views\BlogDetail\Index.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\bin\Debug\net5.0\appsettings.Development.json
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\bin\Debug\net5.0\appsettings.json
-E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\bin\Debug\net5.0\Gymany.StaticWebAssets.xml
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\bin\Debug\net5.0\Gymany.exe
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\bin\Debug\net5.0\Gymany.deps.json
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\bin\Debug\net5.0\Gymany.runtimeconfig.json
@@ -1348,6 +1333,9 @@ D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateMember
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\BlogDetail\Index.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Customer\JoinMember.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\WorkoutPlan\Index.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\BlogDetail\Index.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Customer\JoinMember.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\WorkoutPlan\Index.cshtml.g.cs
 D:\Gymany\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
 D:\Gymany\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
 D:\Gymany\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
@@ -1356,12 +1344,23 @@ D:\Gymany\bin\Debug\net5.0\X.PagedList.dll
 D:\Gymany\bin\Debug\net5.0\X.PagedList.Mvc.Core.dll
 D:\Gymany\bin\Debug\net5.0\X.PagedList.Web.Common.dll
 D:\Gymany\obj\Debug\net5.0\Gymany.MvcApplicationPartsAssemblyInfo.cs
+>>>>>>> f13529c753825f6064fca05f4a8ba14cabd90120
+D:\GitP\Gymany\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\GitP\Gymany\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
+D:\GitP\Gymany\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+D:\GitP\Gymany\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+D:\GitP\Gymany\bin\Debug\net5.0\X.PagedList.dll
+D:\GitP\Gymany\bin\Debug\net5.0\X.PagedList.Mvc.Core.dll
+D:\GitP\Gymany\bin\Debug\net5.0\X.PagedList.Web.Common.dll
+D:\GitP\Gymany\obj\Debug\net5.0\Gymany.MvcApplicationPartsAssemblyInfo.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Cart\CreateOrder.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Payment\Index.cshtml.g.cs
 D:\Gymany\bin\Debug\net5.0\global.json
 D:\Gymany\bin\Debug\net5.0\ref\Gymany.dll
 D:\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.xml
 D:\Gymany\obj\Debug\net5.0\Gymany.csproj.CopyComplete
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Payment\Back.cshtml.g.cs
+<<<<<<< HEAD
 D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\global.json
 D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\ref\Gymany.dll
 D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
@@ -1375,3 +1374,51 @@ D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.MvcApplicationPartsAsse
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.xml
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Payment\Back.cshtml.g.cs
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Payment\Index.cshtml.g.cs
+=======
+>>>>>>> f824a538327b3549f575ce22e22116adebb4049c
+D:\GitP\Gymany\bin\Debug\net5.0\global.json
+D:\GitP\Gymany\bin\Debug\net5.0\ref\Gymany.dll
+D:\GitP\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.xml
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Payment\Back.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Payment\Index.cshtml.g.cs
+>>>>>>> 648190da2a1a4c11d1991ac7fc03f31561b154c6
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\global.json
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\ref\Gymany.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\X.PagedList.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\X.PagedList.Mvc.Core.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\bin\Debug\net5.0\X.PagedList.Web.Common.dll
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Gymany.MvcApplicationPartsAssemblyInfo.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.xml
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Cart\CreateOrder.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Payment\Back.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Payment\Index.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Customer\OrderHistory.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Customer\OrderHistory.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Views\Cart\CreateOrder.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Views\Customer\OrderHistory.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Views\Cart\Create.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Views\Cart\PaymentProcess.cshtml.g.cs
+>>>>>>> bebbc7c38c8041651d9e71ecb5120e5617201b89
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddCategory.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Category.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteCategory.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateCategory.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Blog\blogdetail.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\EditProfile.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\RegisterForm.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Home\Search.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\WorkoutPlan\Index.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddMember.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteMember.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\MemberAccount.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateMember.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\JoinMember.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Cart\Create.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Cart\PaymentProcess.cshtml.g.cs
+D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Customer\FogotPassword.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Views\Customer\FogotPassword.cshtml.g.cs
+>>>>>>> main

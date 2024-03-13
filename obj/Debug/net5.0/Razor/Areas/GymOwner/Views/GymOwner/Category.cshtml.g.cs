@@ -26,7 +26,7 @@ using X.PagedList.Mvc.Core;
 #line default
 #line hidden
 #nullable disable
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a1f6d7fef3bcb1ccb81b24b28319c7c792c19203", @"/Areas/GymOwner/Views/GymOwner/Category.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"66dc7fb5ec52397147402661675bd953c13ed2f3", @"/Areas/GymOwner/Views/GymOwner/Category.cshtml")]
     public class Areas_GymOwner_Views_GymOwner_Category : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<Gymany.Models.Category>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "AddCategory", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);

@@ -16,6 +16,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
+using X.PagedList;
+
 
 namespace Gymany.Controllers
 {
@@ -50,6 +52,8 @@ namespace Gymany.Controllers
         private string api_Member;
 
         private string api_MemberById;
+
+        private string api_Payment;
         public GymOwnerController()
         {
             client = new HttpClient();
@@ -71,19 +75,22 @@ namespace Gymany.Controllers
             this.api_StaffById = "https://localhost:5002/api/Staff/api";
             this.api_Member = "https://localhost:5002/api/Member";
             this.api_MemberById = "https://localhost:5002/api/Member/id";
-
+            this.api_Payment = "https://localhost:5002/api/Payment";
         }
 
         // ------------------page of admin after login successfull-------------------------
-        public IActionResult Home()
+        public async Task<IActionResult> Home()
         {
+            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
             if (!checkLogin())
             {
                 return Redirect("/GymOwner/Index");
             }
-            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
-            ViewBag.GymOwnerID = HttpContext.Session.GetString("GymOwnerID");
-            return View();
+            HttpResponseMessage response = await client.GetAsync(api_Payment);
+            string data = await response.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            List<Payment> list = JsonSerializer.Deserialize<List<Payment>>(data, options);
+            return View(list);
         }
 
 
@@ -166,7 +173,7 @@ namespace Gymany.Controllers
         }
 
         //-------------------Produc Page-----------------------------
-        public async Task<IActionResult> Product()
+        public async Task<IActionResult> Product(int? page)
         {
             if (!checkLogin())
             {
@@ -176,8 +183,9 @@ namespace Gymany.Controllers
             string data = await response.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             List<Product> list = JsonSerializer.Deserialize<List<Product>>(data, options);
+            var listPage = list.ToPagedList(page ?? 1, 3);
             ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
-            return View(list);
+            return View(listPage);
 
         }
         public async Task<IActionResult> AddProduct()
@@ -190,7 +198,7 @@ namespace Gymany.Controllers
         [HttpPost]
         public async Task<IActionResult> AddProduct(Product obj)
         {
-            
+
             ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
             ViewBag.CategoryID = await GetSelectItem();
             if (ModelState.IsValid)
@@ -204,7 +212,7 @@ namespace Gymany.Controllers
                         await obj.ImageUpload.CopyToAsync(stream);
                     }
                     obj.Image = "/images/Product/" + fileName;
-                    
+
                 }
                 string data = JsonSerializer.Serialize(obj);
                 var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
@@ -308,7 +316,7 @@ namespace Gymany.Controllers
 
 
         //-----------------Account Customer Page----------------------------------
-        public async Task<IActionResult> CustomerAccount()
+        public async Task<IActionResult> CustomerAccount(int? page)
         {
             ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
             if (!checkLogin())
@@ -319,7 +327,8 @@ namespace Gymany.Controllers
             string data = await response.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             List<Customer> list = JsonSerializer.Deserialize<List<Customer>>(data, options);
-            return View(list);
+            var listPage = list.ToPagedList(page ?? 1, 7);
+            return View(listPage);
 
         }
         //add customer
@@ -430,7 +439,7 @@ namespace Gymany.Controllers
 
         //---------------------------Personal trainer account-----------------------
 
-        public async Task<IActionResult> PersonalTrainer()
+        public async Task<IActionResult> PersonalTrainer(int? page)
         {
             ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
             if (!checkLogin())
@@ -441,7 +450,8 @@ namespace Gymany.Controllers
             string data = await response.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             List<PersonalTrainer> list = JsonSerializer.Deserialize<List<PersonalTrainer>>(data, options);
-            return View(list);
+            var listPage = list.ToPagedList(page ?? 1, 7);
+            return View(listPage);
 
         }
         //method acc pt accout
@@ -546,7 +556,7 @@ namespace Gymany.Controllers
             }
         }
         //---------------------------Post Managae -----------------------
-        public async Task<IActionResult> Post()
+        public async Task<IActionResult> Post(int? page)
         {
             ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
             if (!checkLogin())
@@ -557,23 +567,36 @@ namespace Gymany.Controllers
             string data = await response.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             List<Post> list = JsonSerializer.Deserialize<List<Post>>(data, options);
-            return View(list);
+            var listPage = list.ToPagedList(page ?? 1, 3);
+            return View(listPage);
 
         }
         //method acc pt accout
         public async Task<IActionResult> AddPost()
         {
-            ViewBag.Name = await GetPtId();
+            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
+            ViewBag.NamePT = await GetPtId();
             ViewBag.NameStaff = await GetStaffId();
             return View();
         }
         [HttpPost]
         public async Task<IActionResult> AddPost(Post obj)
         {
-            ViewBag.Name = await GetPtId();
+            ViewBag.NamePT = await GetPtId();
             ViewBag.NameStaff = await GetStaffId();
+
             if (ModelState.IsValid)
             {
+                if (obj.ImageUpload != null)
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(obj.ImageUpload.FileName) + Path.GetExtension(obj.ImageUpload.FileName);
+                    string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/Product", fileName);
+                    using (var stream = new FileStream(path, FileMode.Create))
+                    {
+                        await obj.ImageUpload.CopyToAsync(stream);
+                    }
+                    obj.Image = "/images/Product/" + fileName;
+                }
                 string data = JsonSerializer.Serialize(obj);
                 var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(api_Post, content);
@@ -585,7 +608,8 @@ namespace Gymany.Controllers
         //method update pt accout
         public async Task<IActionResult> UpdatePost(int id)
         {
-            ViewBag.Name = await GetPtId();
+            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
+            ViewBag.NamePT = await GetPtId();
             ViewBag.NameStaff = await GetStaffId();
             api_Post = $"https://localhost:5002/api/Post/id?id={id}";
             HttpResponseMessage response = await client.GetAsync(api_Post);
@@ -603,7 +627,17 @@ namespace Gymany.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdatePost(int id, Post obj)
         {
-            ViewBag.Name = await GetPtId();
+            if (obj.ImageUpload != null)
+            {
+                string fileName = Path.GetFileNameWithoutExtension(obj.ImageUpload.FileName) + Path.GetExtension(obj.ImageUpload.FileName);
+                string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/Product", fileName);
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await obj.ImageUpload.CopyToAsync(stream);
+                }
+                obj.Image = "/images/Product/" + fileName;
+            }
+            ViewBag.NamePT = await GetPtId();
             ViewBag.NameStaff = await GetStaffId();
             api_Post = $"https://localhost:5002/api/Post/id?id={id}";
             obj.PostID = id;
@@ -667,18 +701,20 @@ namespace Gymany.Controllers
         }
 
         // ------------------------Manage Category -------------------------------------\\
-        public async Task<IActionResult> Category()
+        public async Task<IActionResult> Category(int? page)
         {
 
             if (!checkLogin())
             {
                 return Redirect("/GymOwner/Index");
             }
+            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
             HttpResponseMessage response = await client.GetAsync(apiCategory);
             string data = await response.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             List<Category> list = JsonSerializer.Deserialize<List<Category>>(data, options);
-            return View(list);
+            var listPage = list.ToPagedList(page ?? 1, 3);
+            return View(listPage);
         }
         public async Task<IActionResult> AddCategory()
         {
@@ -737,6 +773,7 @@ namespace Gymany.Controllers
         //method delete Pt accout
         public async Task<IActionResult> DeleteCategory(int id)
         {
+            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
             apiCategory_ById = $"https://localhost:5002/api/Category/id?id={id}";
             HttpResponseMessage response = await client.GetAsync(apiCategory_ById);
             if (response.IsSuccessStatusCode)
@@ -782,7 +819,7 @@ namespace Gymany.Controllers
             }
         }
         // ------------------------------------Member Manage --------------------------------\\
-        public async Task<IActionResult> MemberAccount()
+        public async Task<IActionResult> MemberAccount(int? page)
         {
 
             ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
@@ -794,20 +831,20 @@ namespace Gymany.Controllers
             string data = await response.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             List<Member> list = JsonSerializer.Deserialize<List<Member>>(data, options);
-            return View(list);
+            var listPage = list.ToPagedList(page ?? 1, 7);
+            return View(listPage);
 
         }
         //method add member
         public async Task<IActionResult> AddMember()
         {
-
-
+            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
             return View();
         }
         [HttpPost]
         public async Task<IActionResult> AddMember(Member obj)
         {
-
+            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
             if (ModelState.IsValid)
             {
                 string data = JsonSerializer.Serialize(obj);
@@ -822,6 +859,7 @@ namespace Gymany.Controllers
         //method delete Pt member
         public async Task<IActionResult> DeleteMember(int id)
         {
+
             ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
             api_MemberById = $"https://localhost:5002/api/Member/id?id={id}";
             HttpResponseMessage response = await client.GetAsync(api_MemberById);
@@ -907,7 +945,7 @@ namespace Gymany.Controllers
         }
 
 
-
+        //method get payment -------------------------------------------
 
 
         // ========================== another medthod ==========================================\\

@@ -1,0 +1,90 @@
+@model Gymany.Models.ListModels
+@{
+    ViewData["Title"] = "OrderHistory";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<div class="container">
+    <div class="row" style="padding: 20px 0;">
+
+        <div class="col-xl-4" style="flex-basis: 20%;">
+            <!-- Profile picture card-->
+            <div class="card mb-4 mb-xl-0">
+                <div class="card-header" style="background-color: #ff9500;color: white;">Setting</div>
+                <div class="card-body ">
+                    <ul>
+                        <li>
+                            <a asp-controller="Customer" asp-action="Profile" class="text-left"
+                                style="margin: 5px 0; width:100%;">Profile</a>
+                        </li>
+                        <li>
+                            <a asp-action="OrderHistory" class="text-left" style="margin: 5px 0; width:100%;">Order
+                                History</a>
+                        </li>
+                        <li>
+                            <a asp-controller="WorkoutPlan" asp-action="Index" class="text-left"
+                                style="margin: 5px 0;width:100%;">Workout Plan
+
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Customer" asp-action="DeleteSession" class="text-left"
+                                style="margin: 5px 0;width:100%;">
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-8" style="flex-basis: 80%; max-width: none">
+            <!-- Account details card-->
+            <div class="card mb-4">
+                <div class="card-header" style="background-color: #ff9500;color: white;">WorkoutPlan</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Order ID</th>
+                                                            <th>Customer ID</th>
+                                                            <th>Product ID</th>
+                                                            <th>Status</th>
+                                                            <th>Start Date</th>
+                                                            <th>Total</th>
+                                                            <th>Quantity</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach (var order in Model.Orders)
+                                                        {
+                                                            <tr>
+                                                                <td>@order.OrderID</td>
+                                                                <td>@order.CustomerID</td>
+                                                                <td>@order.ProductID</td>
+                                                                <td>@order.Status</td>
+                                                                <td>@order.StartDate</td>
+                                                                <td>@order.Total</td>
+                                                                <td>@order.Quantity</td>
+                                                            </tr>
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1343,9 +1343,6 @@
           }
         }
       },
-<<<<<<< HEAD
-      "Newtonsoft.Json/13.0.3": {
-=======
       "NETStandard.Library/1.6.1": {
         "type": "package",
         "dependencies": {
@@ -1395,8 +1392,7 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Newtonsoft.Json/11.0.2": {
->>>>>>> main
+      "Newtonsoft.Json/13.0.3": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
@@ -5211,10 +5207,6 @@
         "version.txt"
       ]
     },
-<<<<<<< HEAD
-    "Newtonsoft.Json/13.0.3": {
-      "sha512": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
-=======
     "NETStandard.Library/1.6.1": {
       "sha512": "WcSp3+vP+yHNgS8EV5J7pZ9IRpeDuARBPN28by8zqff1wJQXm26PVU8L3/fYLBJVU7BtDyqNVWq2KlCVvSSR4A==",
       "type": "package",
@@ -5228,9 +5220,8 @@
         "netstandard.library.nuspec"
       ]
     },
-    "Newtonsoft.Json/11.0.2": {
-      "sha512": "IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
->>>>>>> main
+    "Newtonsoft.Json/13.0.3": {
+      "sha512": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
       "type": "package",
       "path": "newtonsoft.json/13.0.3",
       "files": [
@@ -9976,11 +9967,8 @@
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.17",
       "Microsoft.Extensions.Caching.Memory >= 5.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 5.0.2",
-<<<<<<< HEAD
-      "Newtonsoft.Json >= 13.0.3"
-=======
+      "Newtonsoft.Json >= 13.0.3",
       "X.PagedList.Mvc.Core >= 8.0.7"
->>>>>>> main
     ]
   },
   "packageFolders": {
@@ -10054,15 +10042,13 @@
             "target": "Package",
             "version": "[5.0.2, )"
           },
-<<<<<<< HEAD
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.3, )"
-=======
+          },
           "X.PagedList.Mvc.Core": {
             "target": "Package",
             "version": "[8.0.7, )"
->>>>>>> main
           }
         },
         "imports": [
@@ -10083,24 +10069,8 @@
             "privateAssets": "all"
           }
         },
-<<<<<<< HEAD
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102\\RuntimeIdentifierGraph.json"
-=======
-<<<<<<< HEAD
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102\\RuntimeIdentifierGraph.json"
-=======
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
->>>>>>> f824a538327b3549f575ce22e22116adebb4049c
->>>>>>> main
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\Project_SWP\\Web_Gymany\\Gymany\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'expectedPackageFiles', line 144, position 0."
-    }
-  ]
+  }
 }

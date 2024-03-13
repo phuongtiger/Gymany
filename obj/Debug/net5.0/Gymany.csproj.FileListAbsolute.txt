@@ -318,7 +318,6 @@ E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Vie
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Shared\GymOwnerLayout.cshtml.g.cs
 >>>>>>> Khoi
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.dll
-D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\refint\Gymany.dll
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.pdb
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddPost.cshtml.g.cs
 >>>>>>> thanh
@@ -470,7 +469,6 @@ D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.csproj.CoreCompileInput
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.MvcApplicationPartsAssemblyInfo.cache
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.RazorAssemblyInfo.cache
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.RazorAssemblyInfo.cs
-D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.sourcelink.json
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.TagHelpers.input.cache
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.TagHelpers.output.cache
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.RazorCoreGenerate.cache
@@ -490,11 +488,6 @@ D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.RazorTargetAssemblyInfo
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.Views.pdb
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\scopedcss\bundle\Gymany.styles.css
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.Manifest.cache
-D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.Pack.cache
-D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.Gymany.Microsoft.AspNetCore.StaticWebAssets.props
-D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.build.Gymany.props
-D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.Gymany.props
-D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.Gymany.props
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.csproj.CopyComplete
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.genruntimeconfig.cache
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\ref\Gymany.dll
@@ -1341,7 +1334,6 @@ E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Gymany.genruntime
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\ref\Gymany.dll
 D:\Gymany\obj\Debug\net5.0\Razor\Views\BlogDetail\Index.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Blog\blogdetail.cshtml.g.cs
-<<<<<<< HEAD
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddMember.cshtml.g.cs
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteMember.cshtml.g.cs
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\MemberAccount.cshtml.g.cs
@@ -1349,7 +1341,6 @@ D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\Gym
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\BlogDetail\Index.cshtml.g.cs
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\RegisterForm.cshtml.g.cs
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\WorkoutPlan\Index.cshtml.g.cs
-=======
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\AddMember.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\DeleteMember.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\MemberAccount.cshtml.g.cs
@@ -1371,4 +1362,16 @@ D:\Gymany\bin\Debug\net5.0\ref\Gymany.dll
 D:\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.xml
 D:\Gymany\obj\Debug\net5.0\Gymany.csproj.CopyComplete
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Payment\Back.cshtml.g.cs
->>>>>>> main
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\global.json
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\ref\Gymany.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\X.PagedList.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\X.PagedList.Mvc.Core.dll
+D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\X.PagedList.Web.Common.dll
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.MvcApplicationPartsAssemblyInfo.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.xml
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Payment\Back.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Payment\Index.cshtml.g.cs

@@ -72,15 +72,13 @@
               "target": "Package",
               "version": "[5.0.2, )"
             },
-<<<<<<< HEAD
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
-=======
+            },
             "X.PagedList.Mvc.Core": {
               "target": "Package",
               "version": "[8.0.7, )"
->>>>>>> main
             }
           },
           "imports": [
@@ -101,15 +99,7 @@
               "privateAssets": "all"
             }
           },
-<<<<<<< HEAD
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102\\RuntimeIdentifierGraph.json"
-=======
-<<<<<<< HEAD
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102\\RuntimeIdentifierGraph.json"
-=======
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
->>>>>>> f824a538327b3549f575ce22e22116adebb4049c
->>>>>>> main
         }
       }
     }

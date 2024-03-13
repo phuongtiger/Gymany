@@ -184,40 +184,11 @@ namespace Gymany.Controllers
         }
 
 
-<<<<<<< HEAD
 
-        public async Task<ActionResult> Login(string username, string password)
-        {
-            apiCustomer = $"https://localhost:5002/api/Customer/checklogin?username={username}&password={password}";
-            var customer = new Customer { Username = username, Password = password };
-            var content = new StringContent(JsonSerializer.Serialize(customer), Encoding.UTF8, "application/json");
-            HttpResponseMessage response = await client.PostAsync(apiCustomer, content);
-            if (response.IsSuccessStatusCode)
-            {
-                string jsonString = await response.Content.ReadAsStringAsync();
-                //lấy tất cả thông tin từ id của customer
-                JObject jsonObject = JObject.Parse(jsonString);
-                string id = (string)jsonObject["customerID"];
-
-                HttpContext.Session.SetString("CustomerID", id);
-                HttpContext.Session.SetString("Username", username);
-                HttpContext.Session.SetString("Password", password);
-                // Chuyển hướng đến trang chủ
-                return RedirectToAction("Index", "Notification");
-            }
-            else
-            {
-                ViewData["Error"] = "Invalid username or password";
-                return RedirectToAction("Form");
-            }
-        }
+      
 
 
 
-
-
-=======
->>>>>>> main
         public IActionResult PTLogin()
         {
             ListModels model = new ListModels();

@@ -7,10 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = Gymany
-<<<<<<< HEAD
 build_property.ProjectDir = D:\Project_SWP\Web_Gymany\Gymany\
-build_property.EnableComHosting = 
-build_property.EnableGeneratedComInterfaceComImportInterop = 
-=======
-build_property.ProjectDir = D:\Gymany\
->>>>>>> f824a538327b3549f575ce22e22116adebb4049c

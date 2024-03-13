@@ -221,6 +221,7 @@ namespace Gymany.Controllers
         {
             if (ModelState.IsValid)
             {
+                obj.Date = DateTime.Now;
                 string data = JsonSerializer.Serialize(obj);
                 var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(api_Nof, content);

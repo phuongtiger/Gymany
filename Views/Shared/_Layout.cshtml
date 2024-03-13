@@ -77,10 +77,6 @@
 
 <body id="top">
 
-    <!-- 
-    - #HEADER
-  -->
-
     <header class="header" data-header>
         <div class="container">
 
@@ -152,7 +148,14 @@
                         @foreach (var item in Model.Notifications)
                         {
                             <div class="noti_block">
-                                <p class="notification-header">Thông báo từ PT</p>
+                                @if(item.Type.Equals("alert")){
+                                    <p class="notification-header text-warning">Thống báo nhắc nhở</p>
+                                }else if(item.Type.Equals("danger")){
+                                    <p class="notification-header text-danger">Thông báo quan trọng</p>
+                                }else{
+                                    <p class="notification-header">Thông báo từ PT</p>
+                                }
+                                <p class="notification-header" style="font-size: 10px">@Html.DisplayFor(modelItem => item.Date)</p>
                                 <p class="notification-message">@Html.DisplayFor(modelItem => item.Context) </p>
                             </div>
                         }

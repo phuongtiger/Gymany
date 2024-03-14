@@ -20,6 +20,13 @@
                 </div>
             </div>
             <div class="container-fluid">
+                   @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="white-box">

@@ -1360,7 +1360,6 @@ D:\Gymany\bin\Debug\net5.0\ref\Gymany.dll
 D:\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.xml
 D:\Gymany\obj\Debug\net5.0\Gymany.csproj.CopyComplete
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Payment\Back.cshtml.g.cs
-<<<<<<< HEAD
 D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\global.json
 D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\ref\Gymany.dll
 D:\Project_SWP\Web_Gymany\Gymany\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
@@ -1374,7 +1373,6 @@ D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Gymany.MvcApplicationPartsAsse
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.xml
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Payment\Back.cshtml.g.cs
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Payment\Index.cshtml.g.cs
-=======
 >>>>>>> f824a538327b3549f575ce22e22116adebb4049c
 D:\GitP\Gymany\bin\Debug\net5.0\global.json
 D:\GitP\Gymany\bin\Debug\net5.0\ref\Gymany.dll
@@ -1421,4 +1419,8 @@ D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Cart\Create.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Cart\PaymentProcess.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Customer\FogotPassword.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Customer\FogotPassword.cshtml.g.cs
->>>>>>> main
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Cart\Create.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Cart\CreateOrder.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Cart\PaymentProcess.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\FogotPassword.cshtml.g.cs
+D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\OrderHistory.cshtml.g.cs

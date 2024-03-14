@@ -1,19 +1,7 @@
+@using X.PagedList
+@using X.PagedList.Mvc.Core
 @model Gymany.Models.ListModels
 
-</html>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<title>Product</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!--===============================================================================================-->
-
-	<!--===============================================================================================-->
-</head>
-
-<body class="animsition">
 	<header>
 		<!-- Modal Search -->
 		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
@@ -169,10 +157,9 @@
 					</div>
 				</div>
 			</div>
-
+			
 			<div class="row isotope-grid">
-				@foreach (var item in Model.Products)
-				{
+				@foreach (var item in Model.ListProducts) {
 					string CateType = "";
 					foreach (var category in Model.Categories)
 					{
@@ -187,7 +174,7 @@
 							<div class="block2-pic hov-img0">
 								<img src="@item.Image" alt="IMG-PRODUCT">
 
-								<a href="#"
+								<a asp-controller="Product" asp-action="Details" asp-route-id="@item.ProductID" 
 									class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
 									Quick View
 								</a>
@@ -209,7 +196,7 @@
 								@using (Html.BeginForm("AddToCart", "Cart", FormMethod.Post))
 								{
 									<input type="hidden" name="productId" value="@item.ProductID" />
-									<button type="submit" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+									<button type="submit" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2" value="@item.ProductID">
 										<img class="icon-heart1 dis-block trans-04" src="~/images/cart.png" width="30px" height="30px" alt="ICON">
 									</button>
 								}
@@ -222,14 +209,18 @@
 			</div>
 			<!-- Load more -->
 			<div class="flex-c-m flex-w w-full p-t-45">
-				<a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
-					Load More
-				</a>
+				@Html.PagedListPager((IPagedList)Model.ListProducts, page => Url.Action("Index", new { page = page }),
+					new X.PagedList.Web.Common.PagedListRenderOptionsBase
+				{
+					LiElementClasses = new string[] { "page-item" },
+					PageClasses = new string[] { "page-link" }
+				})
 			</div>
 		</div>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="/vendor/sweetalert/sweetalert.min.js"></script>
 	<script>
 		$(document).ready(function () {
 			$(".btn-addwish-b2").on("click", function (e) {
@@ -240,10 +231,12 @@
 				$.ajax({
 					url: '/Cart/AddToCart', // Địa chỉ URL của action trong controller
 					method: 'POST', // Phương thức POST
-					data: { productId: productId }, // Dữ liệu gửi đi
+					data: { productId: productId,
+					Quantity: 1 
+					}, // Dữ liệu gửi đi
 					success: function (response) {
 						// Xử lý dữ liệu trả về sau khi gửi thành công
-						alert("Added to cart successfully!"); // Hiển thị thông báo thành công
+						swal("Added to cart !", "success");
 					},
 					error: function (xhr, status, error) {
 						// Xử lý lỗi nếu có
@@ -353,7 +346,3 @@
 	</script>
 	<!--===============================================================================================-->
 	<script src="js/Product/main.js"></script>
-
-</body>
-
-</html>

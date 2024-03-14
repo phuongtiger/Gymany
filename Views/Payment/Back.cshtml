@@ -1,0 +1,23 @@
+@model Gymany.Models.ListModels
+
+<div class="container mt-5" style="padding-top: 30px">
+  @if(ViewBag.Check == true)
+  {
+    <div class="alert alert-success" role="alert" >
+      <h4 class="alert-heading">Giao dịch thành công!</h4>
+      <p>Cảm ơn bạn đã thực hiện giao dịch. Giao dịch của bạn đã được xử lý thành công.</p>
+      <hr>
+      <p class="mb-0">Số tiền đã thanh toán: $100.00</p>
+      <p class="mb-0">Mã đơn hàng: ABC123456</p>
+    </div>
+  }else{
+    <div class="alert alert-danger" role="alert" >
+      <h4 class="alert-heading">Giao dịch thất bại</h4>
+      <p>Vui lòng giao dịch lại để hoàn tất quá trình thanh toán! Cảm ơn.</p>
+      <hr>
+      <p class="mb-0">Số tiền đã thanh toán: $100.00</p>
+      <p class="mb-0">Mã đơn hàng: ABC123456</p>
+    </div>
+  }
+  
+</div>

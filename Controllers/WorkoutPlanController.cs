@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Gymany.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.Logging;
 
 namespace Gymany.Controllers
@@ -29,16 +30,29 @@ namespace Gymany.Controllers
                 return Redirect("Customer/Form");
             }
             string customerID = HttpContext.Session.GetString("CustomerID");
-            int memberid = await GetMemberID(customerID);
+            int memberid = await GetMemberID(customerID).ContinueWith(t => t.Result.MemberID);
+            string status = await GetMemberID(customerID).ContinueWith(t => t.Result.Status);
             api = $"https://localhost:5002/api/WorkoutPlan/MemberID?memberid={memberid}";
             HttpResponseMessage response = await client.GetAsync(api);
-            ListModels listModels = new ListModels();
+            List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
+            string number = HttpContext.Session.GetString("NumberNoti");
+            ListModels listModels = new ListModels{
+                Notifications = notifications,
+                NumberNoti = number
+            };
+            
             if (response.StatusCode == HttpStatusCode.NotFound)
             {
-                if(memberid == 0){
+                if(memberid == 0 && status.Equals("Not Found")){
                     listModels.CheckMember = false;
-                }else{
+                    listModels.CheckPayment = false;
+                }else if(status.Equals("Waiting") || status.Equals("Unaccepted")){
                     listModels.CheckMember = true;
+                    listModels.CheckPayment = false;
+                }
+                else{
+                    listModels.CheckMember = true;
+                    listModels.CheckPayment = true;
                 }
                 return View(listModels);
             }else{
@@ -52,19 +66,28 @@ namespace Gymany.Controllers
                 return View(listModels);
             }
             
-        }
-        public async Task<int> GetMemberID(string customerID){
+        } 
+        public async Task<Member> GetMemberID(string customerID){
             string api = $"https://localhost:5002/api/Member/customerID?CustomerID={customerID}";
             HttpResponseMessage response = await client.GetAsync(api);
             if (response.StatusCode == HttpStatusCode.NotFound){
-                return 0;
+                return new Member{MemberID = 0, Status = "Not Found"};
             }else{
                 string data = await response.Content.ReadAsStringAsync();
                 var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
                 List<Member> member = JsonSerializer.Deserialize<List<Member>>(data, options);
-                return member[0].MemberID;
+                return member[0];
             }
         }
+        public IActionResult OrderHistory()
+        {
+            if (!checkLogin())
+            {
+                return RedirectToAction("Form", "Customer");
+            }
+            return RedirectToAction("OrderHistory", "Customer");
+        }
+        
         public bool checkLogin()
         {
             var user = HttpContext.Session.GetString("Username");
@@ -75,5 +98,6 @@ namespace Gymany.Controllers
             }
             return false;
         }
+
     }
 }

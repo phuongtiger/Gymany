@@ -1415,7 +1415,6 @@ E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Gym
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Gymany.runtimeconfig.json
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Gymany.runtimeconfig.dev.json
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Gymany.dll
-E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\ref\Gymany.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Gymany.pdb
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Gymany.Views.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Gymany.Views.pdb
@@ -1542,7 +1541,6 @@ E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gym
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.RazorAssemblyInfo.cache
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.RazorAssemblyInfo.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.Manifest.cache
-E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.xml
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\scopedcss\bundle\Gymany.styles.css
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.TagHelpers.input.cache
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.TagHelpers.output.cache
@@ -1633,3 +1631,11 @@ E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gym
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\ref\Gymany.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.pdb
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.genruntimeconfig.cache
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Gymany.StaticWebAssets.xml
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.sourcelink.json
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.Pack.cache
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.Gymany.Microsoft.AspNetCore.StaticWebAssets.props
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.build.Gymany.props
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.Gymany.props
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.Gymany.props
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\refint\Gymany.dll

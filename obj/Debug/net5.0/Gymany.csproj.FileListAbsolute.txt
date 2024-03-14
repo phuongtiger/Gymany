@@ -1586,3 +1586,4 @@ E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\ref
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.pdb
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.genruntimeconfig.cache
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\ref\Gymany.dll
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Gymany.StaticWebAssets.xml

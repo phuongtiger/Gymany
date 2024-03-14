@@ -79,17 +79,22 @@ namespace Gymany.Controllers
         }
 
         // ------------------page of admin after login successfull-------------------------
-        public async Task<IActionResult> Home()
+        public async Task<List<Payment>> GetPayments(){
+            HttpResponseMessage response = await client.GetAsync(api_Payment);
+            string data = await response.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            List<Payment> list = JsonSerializer.Deserialize<List<Payment>>(data, options);
+            return list;
+        }
+        public async Task<IActionResult> Home(string error = null)
         {
             ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
             if (!checkLogin())
             {
                 return Redirect("/GymOwner/Index");
             }
-            HttpResponseMessage response = await client.GetAsync(api_Payment);
-            string data = await response.Content.ReadAsStringAsync();
-            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            List<Payment> list = JsonSerializer.Deserialize<List<Payment>>(data, options);
+            List<Payment> list = await GetPayments();
+            ViewData["Error"] = error;
             return View(list);
         }
 
@@ -100,37 +105,63 @@ namespace Gymany.Controllers
             ViewData["Error"] = error;
             return View(new GymOwner());
         }
-        public async Task<IActionResult> Profile()
+        public async Task<IActionResult> Profile(string error = null)
         {
             if (!checkLogin())
             {
                 return Redirect("/GymOwner/Index");
             }
-            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
-            string id = HttpContext.Session.GetString("GymOwnerID");
-            apiGetGymOwnerByID = $"https://localhost:5002/api/GymOwner/id?id={id}";
-            HttpResponseMessage response = await client.GetAsync(apiGetGymOwnerByID);
-            string data = await response.Content.ReadAsStringAsync();
-            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            GymOwner gymOwner = JsonSerializer.Deserialize<GymOwner>(data, options);
-            return View(gymOwner);
+            if (HttpContext.Session.GetString("Role").Equals("Admin"))
+            {
+                ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
+                string id = HttpContext.Session.GetString("GymOwnerID");
+                apiGetGymOwnerByID = $"https://localhost:5002/api/GymOwner/id?id={id}";
+                HttpResponseMessage response = await client.GetAsync(apiGetGymOwnerByID);
+                string data = await response.Content.ReadAsStringAsync();
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                GymOwner gymOwner = JsonSerializer.Deserialize<GymOwner>(data, options);
+                return View(gymOwner);
+            }else{
+                ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
+                string id = HttpContext.Session.GetString("GymOwnerID");
+                api_StaffById = $"https://localhost:5002/api/Staff/id?id={id}";
+                HttpResponseMessage response = await client.GetAsync(api_StaffById);
+                string data = await response.Content.ReadAsStringAsync();
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                Staff staff = JsonSerializer.Deserialize<Staff>(data, options);
+                GymOwner gymOwner = new GymOwner{
+                    AdminID = staff.StaffID,
+                    Username = staff.Username,
+                    Password = staff.Password,
+                    Name = staff.Name,
+                    Age = staff.Age,
+                    Email = staff.Email
+                };
+                ViewData["Error"] = error;
+                return View(gymOwner);
+            }
+            
         }
         [HttpPost]
         public async Task<IActionResult> Profile(GymOwner obj)
         {
-
-            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
-            string id = HttpContext.Session.GetString("GymOwnerID");
-            apiGetGymOwnerByID = $"https://localhost:5002/api/GymOwner/Id?id={id}";
-            string data = JsonSerializer.Serialize(obj);
-            var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
-            HttpResponseMessage response = await client.PutAsync(apiGetGymOwnerByID, content);
-            if (response.IsSuccessStatusCode)
+            if (HttpContext.Session.GetString("Role").Equals("Admin"))
             {
-                HttpContext.Session.SetString("GymOwnerName", obj.Name.ToString());
-                return RedirectToAction("Profile");
+                ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
+                string id = HttpContext.Session.GetString("GymOwnerID");
+                apiGetGymOwnerByID = $"https://localhost:5002/api/GymOwner/Id?id={id}";
+                string data = JsonSerializer.Serialize(obj);
+                var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PutAsync(apiGetGymOwnerByID, content);
+                if (response.IsSuccessStatusCode)
+                {
+                    HttpContext.Session.SetString("GymOwnerName", obj.Name.ToString());
+                    return RedirectToAction("Profile");
+                }
             }
-            return RedirectToAction("Profile");
+            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
+            ViewData["Error"] = "Update fail, You don't have permission to update this account";
+            return View("Profile", obj);
         }
 
 
@@ -152,15 +183,34 @@ namespace Gymany.Controllers
                 HttpContext.Session.SetString("PasswordGymOwner", password);
                 HttpContext.Session.SetString("GymOwnerName", gym.Name.ToString());
                 HttpContext.Session.SetString("GymOwnerID", gym.AdminID.ToString());
+                HttpContext.Session.SetString("Role", "Admin");
                 // Chuyển hướng đến trang chủ
                 return RedirectToAction("Home", "GymOwner");
             }
             else
             {
-                Console.WriteLine($"Error: {response.StatusCode}");
-                // Hiển thị thông báo lỗi
-                ViewData["Error"] = "Invalid username or password";
-                return View("Index", gymOwner);
+                api_Staff = $"https://localhost:5002/api/Staff/checklogin?username={username}&password={password}";
+                var staff = new Staff { Username = username, Password = password };
+                var contentStaff = new StringContent(JsonSerializer.Serialize(staff), Encoding.UTF8, "application/json");
+                HttpResponseMessage responseStaff = await client.PostAsync(api_Staff, contentStaff);
+                string dataStaff = await responseStaff.Content.ReadAsStringAsync();
+                var optionsStaff = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                Staff staffnew = JsonSerializer.Deserialize<Staff>(dataStaff, optionsStaff);
+                if (responseStaff.IsSuccessStatusCode)
+                {
+                    HttpContext.Session.SetString("UsernameGymOwner", username);
+                    HttpContext.Session.SetString("PasswordGymOwner", password);
+                    HttpContext.Session.SetString("GymOwnerName", staffnew.Name.ToString());
+                    HttpContext.Session.SetString("GymOwnerID", staffnew.StaffID.ToString());
+                    HttpContext.Session.SetString("Role", "Staff");
+                    return RedirectToAction("Home", "GymOwner");
+                }else{
+                    Console.WriteLine($"Error: {response.StatusCode}");
+                    // Hiển thị thông báo lỗi
+                    ViewData["Error"] = "Invalid username or password";
+                    return View("Index", gymOwner);
+                }
+                
             }
         }
 
@@ -323,13 +373,17 @@ namespace Gymany.Controllers
             {
                 return Redirect("/GymOwner/Index");
             }
-            HttpResponseMessage response = await client.GetAsync(api_Customer);
-            string data = await response.Content.ReadAsStringAsync();
-            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            List<Customer> list = JsonSerializer.Deserialize<List<Customer>>(data, options);
-            var listPage = list.ToPagedList(page ?? 1, 7);
-            return View(listPage);
-
+            if(HttpContext.Session.GetString("Role").Equals("Admin")){
+                HttpResponseMessage response = await client.GetAsync(api_Customer);
+                string data = await response.Content.ReadAsStringAsync();
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                List<Customer> list = JsonSerializer.Deserialize<List<Customer>>(data, options);
+                var listPage = list.ToPagedList(page ?? 1, 7);
+                return View(listPage);
+            } 
+            ViewData["Error"] = "View failed, You don't have permission to view Customer!";
+            List<Payment> listPayments = await GetPayments();
+            return View("Home", listPayments);
         }
         //add customer
         public IActionResult AddCustomerAccount()
@@ -446,13 +500,17 @@ namespace Gymany.Controllers
             {
                 return Redirect("/GymOwner/Index");
             }
-            HttpResponseMessage response = await client.GetAsync(api_PersonalTrainer);
-            string data = await response.Content.ReadAsStringAsync();
-            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            List<PersonalTrainer> list = JsonSerializer.Deserialize<List<PersonalTrainer>>(data, options);
-            var listPage = list.ToPagedList(page ?? 1, 7);
-            return View(listPage);
-
+            if(HttpContext.Session.GetString("Role").Equals("Admin")){
+                HttpResponseMessage response = await client.GetAsync(api_PersonalTrainer);
+                string data = await response.Content.ReadAsStringAsync();
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                List<PersonalTrainer> list = JsonSerializer.Deserialize<List<PersonalTrainer>>(data, options);
+                var listPage = list.ToPagedList(page ?? 1, 7);
+                return View(listPage);
+            } 
+            ViewData["Error"] = "View failed, You don't have permission to view PT!";
+            List<Payment> listPayments = await GetPayments();
+            return View("Home", listPayments);
         }
         //method acc pt accout
         public IActionResult AddPtAccount()

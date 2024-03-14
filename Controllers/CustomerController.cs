@@ -189,6 +189,7 @@ namespace Gymany.Controllers
                         int idOrder = (int)jsonObject["id"];
                         List<int> listOrderID = new List<int>();
                         listOrderID.Add(idOrder);
+                        HttpContext.Session.SetString("IsMember", "false");
                         HttpContext.Session.SetObjectAsJson("listOrderID", listOrderID);
                         return RedirectToAction("Payment", "Payment");
                     }

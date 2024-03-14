@@ -174,9 +174,9 @@
 							<div class="block2-pic hov-img0">
 								<img src="@item.Image" alt="IMG-PRODUCT">
 
-								<a href="#"
+								<a asp-controller="Product" asp-action="Details" asp-route-id="@item.ProductID" 
 									class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-									Quick View
+									View Details
 								</a>
 							</div>
 
@@ -196,7 +196,7 @@
 								@using (Html.BeginForm("AddToCart", "Cart", FormMethod.Post))
 								{
 									<input type="hidden" name="productId" value="@item.ProductID" />
-									<button type="submit" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+									<button type="submit" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2" value="@item.ProductID">
 										<img class="icon-heart1 dis-block trans-04" src="~/images/cart.png" width="30px" height="30px" alt="ICON">
 									</button>
 								}
@@ -220,6 +220,7 @@
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="/vendor/sweetalert/sweetalert.min.js"></script>
 	<script>
 		$(document).ready(function () {
 			$(".btn-addwish-b2").on("click", function (e) {
@@ -230,10 +231,12 @@
 				$.ajax({
 					url: '/Cart/AddToCart', // Địa chỉ URL của action trong controller
 					method: 'POST', // Phương thức POST
-					data: { productId: productId }, // Dữ liệu gửi đi
+					data: { productId: productId,
+					Quantity: 1 
+					}, // Dữ liệu gửi đi
 					success: function (response) {
 						// Xử lý dữ liệu trả về sau khi gửi thành công
-						alert("Added to cart successfully!"); // Hiển thị thông báo thành công
+						swal("Added to cart !", "Success");
 					},
 					error: function (xhr, status, error) {
 						// Xử lý lỗi nếu có

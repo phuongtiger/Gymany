@@ -108,14 +108,18 @@ namespace Gymany.Controllers
 
 
         [HttpPost]
-        public IActionResult PaymentProcess(string paymentMethod, string paymentLanguage){
+        public IActionResult PaymentProcess(string paymentMethod, string paymentLanguage)
+        {
             if (!checkLogin())
             {
                 return RedirectToAction("Form", "Customer");
             }
-            if(paymentMethod.Equals("methodVNPAY")){
+            if (paymentMethod.Equals("methodVNPAY"))
+            {
                 return RedirectToAction("Payment", "Payment");
-            }else if(paymentMethod.Equals("methodCash")){
+            }
+            else if (paymentMethod.Equals("methodCash"))
+            {
                 return RedirectToAction("OrderHistory", "Customer");
             }
             return View();
@@ -127,11 +131,11 @@ namespace Gymany.Controllers
             List<Order> OrderPayment = new List<Order>();
             int total = 0;
             foreach (var item in ListOrder)
-            {   
+            {
                 string api_Order = $"https://localhost:5002/api/Order/id?id={item}";
                 HttpResponseMessage respone = await client.GetAsync(api_Order);
                 string data = await respone.Content.ReadAsStringAsync();
-                var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                 Order Order = JsonSerializer.Deserialize<Order>(data, options);
                 total += (int)Order.Total;
                 OrderPayment.Add(Order);
@@ -154,7 +158,7 @@ namespace Gymany.Controllers
                 HttpResponseMessage respone = await client.PostAsync(api, content);
                 if (respone.StatusCode == System.Net.HttpStatusCode.Created)
                 {
-                    
+
                     return RedirectToAction("Index");
                 }
             }
@@ -194,12 +198,12 @@ namespace Gymany.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddToCart(int productId)
+        public async Task<IActionResult> AddToCart(int productId, int quantity)
         {
             try
             {
-                 var customerId = HttpContext.Session.GetString("CustomerID");
-                var response = await client.PostAsync($"api/Cart/CreateCartByCustomerID?customerID={customerId}&productID={productId}", null);
+                var customerId = HttpContext.Session.GetString("CustomerID");
+                var response = await client.PostAsync($"api/Cart/CreateCartByCustomerID?customerID={customerId}&productID={productId}&Quantity={quantity}", null);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -225,7 +229,7 @@ namespace Gymany.Controllers
             try
             {
                 var response = await client.PostAsync($"api/Cart/UpdateCartItem?cartID={cartID}&quantity={quantity}", null);
-                
+
                 if (response.IsSuccessStatusCode)
                 {
                     return RedirectToAction("Index", "Home"); // Hoặc chuyển hướng đến trang khác
@@ -248,7 +252,8 @@ namespace Gymany.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult> Delete(int CartId){
+        public async Task<ActionResult> Delete(int CartId)
+        {
             api = $"https://localhost:5002/api/Cart/id?id={CartId}";
             try
             {
@@ -287,7 +292,7 @@ namespace Gymany.Controllers
             }
             return false;
         }
-        
+
     }
-    
+
 }

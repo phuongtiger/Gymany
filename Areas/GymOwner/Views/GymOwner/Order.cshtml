@@ -31,7 +31,7 @@
                                     <th>Customer ID</th>
                                     <th>Product ID</th>
                                     <th>Status</th>
-                                    <th>Start Date</th>
+                                    <th>Date</th>
                                     <th>Total</th>
                                     <th>Quantity</th>
                                 </tr>
@@ -44,7 +44,7 @@
                                         <td>@order.CustomerID</td>
                                         <td>@order.ProductID</td>
                 
-                                         @if (order.Status.Equals("Already Paid"))
+                                         @if (order.Status.Equals("Success"))
                                         {
                                             <td class="text-success">@order.Status</td>
                                         }
@@ -72,7 +72,7 @@
                 </div>
             </div>
         </div>
-        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Post", new { page = page }),
+        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Order", new { page = page }),
                  new X.PagedList.Web.Common.PagedListRenderOptionsBase
         {
             LiElementClasses = new string[] { "page-item" },

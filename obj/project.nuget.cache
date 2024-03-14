@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9+nZXD8SJeOcyXBbQUoklQtfRd8Ie2bu67cEMnBMVp/ok7lDQLAgc92AaEXqYneQxPI/q0tJwlG2Y4WEbJbWMQ==",
+  "dgSpecHash": "Aa/xHaAd4POOyCM4NzdXKfCTprA/gjws5v6eFd1v8ppt2lQziQs4BFoiCtCdpx+GK/foCrFuEWQbk9l69sedhA==",
   "success": true,
-  "projectFilePath": "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\Gymany.csproj",
+  "projectFilePath": "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\Gymany\\Gymany\\Gymany.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\2.2.0\\microsoft.aspnetcore.cryptography.internal.2.2.0.nupkg.sha512",
@@ -141,12 +141,5 @@
     "C:\\Users\\DELL\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

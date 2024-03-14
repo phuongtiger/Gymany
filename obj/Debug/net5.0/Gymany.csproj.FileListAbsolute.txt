@@ -1640,3 +1640,8 @@ E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gym
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\ref\Gymany.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.xml
 >>>>>>> 95448eb2ae7d26ae5aa1a42b6629ac28545cac73
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Order.cshtml.g.cs
+E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateOrder.cshtml.g.cs
+>>>>>>> a19969ccf908a5117aba9a90615328d8bd94b1a6
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\Order.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateOrder.cshtml.g.cs

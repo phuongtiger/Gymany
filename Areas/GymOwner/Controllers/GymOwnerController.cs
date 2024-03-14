@@ -54,6 +54,10 @@ namespace Gymany.Controllers
         private string api_MemberById;
 
         private string api_Payment;
+
+        private string api_Order;
+
+        private string api_OrderById;
         public GymOwnerController()
         {
             client = new HttpClient();
@@ -76,6 +80,8 @@ namespace Gymany.Controllers
             this.api_Member = "https://localhost:5002/api/Member";
             this.api_MemberById = "https://localhost:5002/api/Member/id";
             this.api_Payment = "https://localhost:5002/api/Payment";
+            this.api_Order = "https://localhost:5002/api/Order";
+            this.api_OrderById = $"https://localhost:5002/api/Order/id";
         }
 
         // ------------------page of admin after login successfull-------------------------
@@ -1003,7 +1009,66 @@ namespace Gymany.Controllers
         }
 
 
-        //method get payment -------------------------------------------
+
+       // ------------------------------------Order Manage --------------------------------\\
+        public async Task<IActionResult> Order(int? page)
+        {
+
+            if (!checkLogin())
+            {
+                return Redirect("/GymOwner/Index");
+            }
+            if(HttpContext.Session.GetString("Role").Equals("Admin")){
+                ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
+                HttpResponseMessage response = await client.GetAsync(api_Order);
+                string data = await response.Content.ReadAsStringAsync();
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                List<Order> list = JsonSerializer.Deserialize<List<Order>>(data, options);
+                var listPage = list.ToPagedList(page ?? 1, 3);
+                return View(listPage);
+            } 
+            ViewData["Error"] = "View failed, You don't have permission to view Order!";
+            List<Payment> listPayments = await GetPayments();
+            return View("Home", listPayments);
+        }
+
+        public async Task<IActionResult> UpdateOrder(int id)
+        {
+            ViewBag.ProductID = await GetProduct();
+            ViewBag.CustomerID = await GetCustomerId();
+            ViewBag.OrderId = id;
+            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
+            api_OrderById = $"https://localhost:5002/api/Order/id?id={id}";
+            HttpResponseMessage response = await client.GetAsync(api_OrderById);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                var data = response.Content.ReadAsStringAsync().Result;
+                var order = JsonSerializer.Deserialize<Order>(data, options);
+                return View(order);
+            }
+            return NotFound();
+        }
+        [HttpPost]
+        public async Task<IActionResult> UpdateOrder(int id, Order obj)
+        {
+            ViewBag.ProductID = await GetProduct();
+            ViewBag.CustomerID = await GetCustomerId();
+            ViewBag.OrderId = id;
+
+            ViewBag.Name = HttpContext.Session.GetString("GymOwnerName");
+            api_OrderById = $"https://localhost:5002/api/Order/id?id={id}";
+
+            string data = JsonSerializer.Serialize(obj);
+            var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await client.PutAsync(api_OrderById, content);
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Order");
+            }
+            return View("UpdateOrder");
+        }
 
 
         // ========================== another medthod ==========================================\\
@@ -1058,6 +1123,19 @@ namespace Gymany.Controllers
             List<SelectListItem> yourData = list.Select(c => new SelectListItem
             {
                 Value = c.CustomerID.ToString(), // ID của category là giá trị của mục
+                Text = c.Name                                // Tên của category là nội dung của mục
+            }).ToList();
+            return yourData;
+        }
+        public async Task<List<SelectListItem>> GetProduct()
+        {
+            HttpResponseMessage respone = await client.GetAsync(api);
+            string data = await respone.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            List<Product> list = JsonSerializer.Deserialize<List<Product>>(data, options);
+            List<SelectListItem> yourData = list.Select(c => new SelectListItem
+            {
+                Value = c.ProductID.ToString(), // ID của category là giá trị của mục
                 Text = c.Name                                // Tên của category là nội dung của mục
             }).ToList();
             return yourData;

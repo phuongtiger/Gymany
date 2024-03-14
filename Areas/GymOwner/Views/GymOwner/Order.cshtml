@@ -1,0 +1,85 @@
+@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model IEnumerable<Gymany.Models.Order>
+
+@{
+    ViewData["Title"] = "Order";
+    Layout = "GymOwnerLayout";
+}
+
+
+@* declare tag helper in areas *@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<div class="page-wrapper">
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Order Managements</h4>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="white-box">
+                    <h3 class="box-title">Order Managements</h3>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer ID</th>
+                                    <th>Product ID</th>
+                                    <th>Status</th>
+                                    <th>Start Date</th>
+                                    <th>Total</th>
+                                    <th>Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var order in Model)
+                                {
+                                    <tr>
+                                        <td>@order.OrderID</td>
+                                        <td>@order.CustomerID</td>
+                                        <td>@order.ProductID</td>
+                
+                                         @if (order.Status.Equals("Already Paid"))
+                                        {
+                                            <td class="text-success">@order.Status</td>
+                                        }
+                                        else if (order.Status.Equals("Waiting"))
+                                        {
+                                            <td class="text-warning">@order.Status</td>
+                                        }
+                                        else
+                                        {
+                                            <td class="text-danger">@order.Status</td>
+                                        }
+                                        <td>@order.StartDate</td>
+                                        <td>@order.Total</td>
+                                        <td>@order.Quantity</td>
+                                        <td>
+                                            <a asp-controller="GymOwner" asp-action="UpdateOrder" class="btn btn-success"
+                                                asp-route-id="@order.OrderID" style="color: #fff;">Update Status Order</a>
+
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Post", new { page = page }),
+                 new X.PagedList.Web.Common.PagedListRenderOptionsBase
+        {
+            LiElementClasses = new string[] { "page-item" },
+            PageClasses = new string[] { "page-link" }
+        })
+    </div>
+    <footer class="footer text-center"> 2024 © Gymany Admin by Group 05
+    </footer>
+</div>
+</div>

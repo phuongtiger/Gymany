@@ -129,8 +129,11 @@ namespace Gymany.Controllers
                 string data = JsonSerializer.Serialize(obj);
                 var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(api_post, content);
-                if (response.StatusCode == System.Net.HttpStatusCode.Created)
+                if (response.StatusCode == System.Net.HttpStatusCode.Created){
+                    TempData["SuccessMessage"] = "Post Add Success!";
                     return RedirectToAction("PostManage");
+                }
+                    
             }
             return View(obj);
         }
@@ -161,6 +164,7 @@ namespace Gymany.Controllers
                 // Kiểm tra kết quả trả về từ endpoint API
                 if (response.IsSuccessStatusCode)
                 {
+                    TempData["SuccessMessage"] = "Post Delete Success!";
                     // Xử lý kết quả nếu xóa thành công, ví dụ chuyển hướng đến trang danh sách
                     return RedirectToAction("PostManage");
                 }
@@ -202,6 +206,7 @@ namespace Gymany.Controllers
                 HttpResponseMessage respone = await client.PutAsync(api_GetPostID, content);
                 if (respone.StatusCode == System.Net.HttpStatusCode.Created)
                 {
+                    TempData["SuccessMessage"] = "Post Edit Success!";
                     return RedirectToAction("PostManage");
                 }
             }
@@ -224,6 +229,7 @@ namespace Gymany.Controllers
                 string data = JsonSerializer.Serialize(obj);
                 var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(api_Nof, content);
+                TempData["SuccessMessage"] = "Message send success!";
                 return RedirectToAction("Index");
             }
             return View(obj);

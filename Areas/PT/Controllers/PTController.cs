@@ -82,22 +82,19 @@ namespace Gymany.Controllers
             }
         }
 
-        public async Task<ActionResult> PTProfile()
+        public async Task<IActionResult> PTProfileAsync()
         {
             if (!checkLogin())
             {
                 return RedirectToAction("Form");
             }
-            int ptid = Convert.ToInt32(HttpContext.Session.GetString("ID"));
-            // Gán PTID vào ViewBag để sử dụng trong view
-            ViewBag.PTID = ptid;
-
+            string ptid = HttpContext.Session.GetString("ID");
             api_PT = $"https://localhost:5002/api/PT/id?id={ptid}";
-            HttpResponseMessage respone = await client.GetAsync(api_PT);
-            string data = await respone.Content.ReadAsStringAsync();
+            HttpResponseMessage response = await client.GetAsync(api_PT);
+            string data = await response.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            PersonalTrainer PT = JsonSerializer.Deserialize<PersonalTrainer>(data, options);
-            return View(PT);
+            PersonalTrainer pt = JsonSerializer.Deserialize<PersonalTrainer>(data, options);
+            return View(pt);
         }
         public async Task<ActionResult> MemberDetail(int? id)
         {
@@ -224,6 +221,7 @@ namespace Gymany.Controllers
         {
             if (ModelState.IsValid)
             {
+                obj.Date = DateTime.Now;
                 string data = JsonSerializer.Serialize(obj);
                 var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(api_Nof, content);
@@ -249,17 +247,12 @@ namespace Gymany.Controllers
             var PT = new PersonalTrainer { Username = email, Password = password };
             var content = new StringContent(JsonSerializer.Serialize(PT), Encoding.UTF8, "application/json");
             HttpResponseMessage response = await client.PostAsync(api_post, content);
+            string data = await response.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            PersonalTrainer pt = JsonSerializer.Deserialize<PersonalTrainer>(data, options);
             if (response.IsSuccessStatusCode)
             {
-                //Đọc dữ liệu
-                string jsonString = await response.Content.ReadAsStringAsync();
-                //cho dữ liệu vào jsonObject
-                JObject jsonObject = JObject.Parse(jsonString);
-
-                // Lấy giá trị của trường "id"
-                string id = (string)jsonObject["ptid"];
-
-                HttpContext.Session.SetString("ID", id);
+                HttpContext.Session.SetString("ID", pt.PTID.ToString());
                 HttpContext.Session.SetString("Email", email);
                 HttpContext.Session.SetString("Password", password);
                 // Chuyển hướng đến trang chủ

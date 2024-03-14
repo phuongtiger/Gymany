@@ -1,3 +1,6 @@
+@using X.PagedList
+@using X.PagedList.Mvc.Core
+
 @model IEnumerable<Gymany.Models.PersonalTrainer>
 @{
 
@@ -21,6 +24,12 @@
                 </div>
             </div>
             <div class="container-fluid">
+                     @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @TempData["SuccessMessage"]
+        </div>
+    }
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="white-box">
@@ -65,6 +74,12 @@
                         </div>
                     </div>
                 </div>
+                @Html.PagedListPager((IPagedList)Model, page => Url.Action("Post", new { page = page }),
+                    new X.PagedList.Web.Common.PagedListRenderOptionsBase
+                {
+                    LiElementClasses = new string[] { "page-item" },
+                    PageClasses = new string[] { "page-link" }
+                })
             </div>
             <footer class="footer text-center"> 2024 © Gymany Admin by Group 05
             </footer>

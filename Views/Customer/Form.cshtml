@@ -1,8 +1,6 @@
 @{
     ViewData["Title"] = "Login Form";
 }
-
-
 <style>
 
 </style>
@@ -13,24 +11,69 @@
             <div class="card-header text-light text-center display-4" style="background: #343a40;">LOGIN</div>
             <div class="card shadow-lg p-3 mb-5 bg-white rounded">
                 <div class="card-body">
-                    <form asp-action="Login" method="post">
+                    <form id="loginForm" asp-action="Login" method="post">
                         <div class="form-group">
                             <label for="username">Username:</label>
                             <input type="text" class="form-control" id="username" name="username">
+                            <div id="usernameError" class="text-danger"></div>
                         </div>
                         <div class="form-group">
                             <label for="password">Password:</label>
                             <input type="password" class="form-control" id="password" name="password">
+                            <div id="passwordError" class="text-danger"></div>
                         </div>
                         <button type="submit" class="btn btn-primary">LOGIN</button>
+                        <a style="padding-top: 10px;" asp-action="FogotPassword">Foget Password</a>
                     </form>
+                    <div id="loginMessage" class="text-danger"></div>
                 </div>
             </div>
             <hr>
             <div class="text-center">
-                <a asp-action="Register" class="btn btn-outline-primary btn-primary">Register</a>
+                <a asp-action="RegisterForm" class="btn btn-outline-primary btn-primary">Register</a>
                 <a asp-action="PTPage" class="btn btn-outline-primary btn-primary">PT Login</a>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    function saveErrorMessage(message) {
+        var errorMessage = {
+            message: message,
+            timestamp: new Date().getTime() + 2000 // Thời gian hiển thị là 2 giây
+        };
+        localStorage.setItem('errorMessage', JSON.stringify(errorMessage));
+    }
+
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        var usernameError = document.getElementById("usernameError");
+        var passwordError = document.getElementById("passwordError");
+        var loginMessage = document.getElementById("loginMessage");
+        usernameError.textContent = "";
+        passwordError.textContent = "";
+        loginMessage.textContent = "";
+        if (username.trim() === "") {
+            usernameError.textContent = "Please enter your username.";
+            event.preventDefault();
+        }
+        if (password.trim() === "") {
+            passwordError.textContent = "Please enter your password.";
+            event.preventDefault();
+        } else {
+            saveErrorMessage("Incorrect username or password.");
+        }
+    });
+
+    // Function to display login error message from localStorage
+    window.addEventListener("load", function() {
+        var errorMessage = JSON.parse(localStorage.getItem('errorMessage'));
+        if (errorMessage && errorMessage.timestamp > new Date().getTime()) {
+            var loginMessage = document.getElementById("loginMessage");
+            loginMessage.textContent = errorMessage.message;
+        }
+        localStorage.removeItem('errorMessage'); // Xóa thông báo sau khi đã hiển thị
+    });
+</script>

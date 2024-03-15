@@ -1663,3 +1663,4 @@ D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Cart\CreateOrder.c
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Cart\PaymentProcess.cshtml.g.cs
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\FogotPassword.cshtml.g.cs
 D:\Project_SWP\Web_Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\OrderHistory.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Views\Home\BMI.cshtml.g.cs

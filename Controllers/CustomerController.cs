@@ -221,12 +221,11 @@ namespace Gymany.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> RegisterForm(Customer obj)
+        public async Task<IActionResult> RegisterForm(ListModels obj)
         {
             if (ModelState.IsValid)
             {
-
-                string data = JsonSerializer.Serialize(obj);
+                string data = JsonSerializer.Serialize(obj.customer);
                 var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(apiCustomer, content);
                 if (response.StatusCode == System.Net.HttpStatusCode.Created)

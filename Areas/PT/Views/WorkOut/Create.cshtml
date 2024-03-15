@@ -13,6 +13,7 @@
             <div class="form-group">
                 <label asp-for="Name" class="control-label h3"></label>
                 <input asp-for="Name" class="form-control form-control-lg" />
+                <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="StartDate" class="control-label h3"></label>
@@ -21,22 +22,27 @@
             <div class="form-group">
                 <label asp-for="EndDate" class="control-label h3"></label>
                 <input type="date" asp-for="EndDate" class="form-control form-control-lg" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Description" class="control-label h3"></label>
                 <textarea asp-for="Description" class="form-control form-control-lg text-justify"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Session" class="control-label h3"></label>
                 <input asp-for="Session" class="form-control form-control-lg" />
+                <span asp-validation-for="Session" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Activity" class="control-label h3"></label>
                 <input asp-for="Activity" class="form-control form-control-lg" />
+                <span asp-validation-for="Activity" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <!-- Sử dụng trường ẩn để lưu trữ giá trị PTID -->
-                <input readonly type="hidden" asp-for="PTID" class="form-control form-control-lg" value="@ViewBag.PTID" />
+                <input readonly type="hidden" asp-for="PTID" class="form-control form-control-lg"
+                    value="@ViewBag.PTID" />
             </div>
             <div class="form-group">
                 <label asp-for="MemberID" class="control-label h3"></label>
@@ -48,6 +54,9 @@
         </form>
     </div>
 </div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var currentDate = new Date().toISOString().substr(0, 10);

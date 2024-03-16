@@ -9,6 +9,12 @@
 <div style="padding-top: 50px;"></div>
 <a asp-area="PT" asp-action="CreatePost" class="btn btn-outline-success btn-primary">Create Post</a>
 <hr>
+  @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @TempData["SuccessMessage"]
+        </div>
+    }
 @if (@Model == null)
 {
     <p>Bạn chưa có bài post</p>

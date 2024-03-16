@@ -77,8 +77,11 @@ namespace Gymany.Areas.PT.Controllers
                 string data = JsonSerializer.Serialize(obj);
                 var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(api, content);
-                if (response.StatusCode == System.Net.HttpStatusCode.Created)
+                if (response.StatusCode == System.Net.HttpStatusCode.Created){
+                    TempData["SuccessMessage"] = "Workout plan Add Success!";
                     return RedirectToAction("index");
+                }
+                    
             }
             return View(obj);
         }
@@ -109,6 +112,7 @@ namespace Gymany.Areas.PT.Controllers
                 // Kiểm tra kết quả trả về từ endpoint API
                 if (response.IsSuccessStatusCode)
                 {
+                    TempData["SuccessMessage"] = "Workout plan Delete Success!";
                     // Xử lý kết quả nếu xóa thành công, ví dụ chuyển hướng đến trang danh sách
                     return RedirectToAction("Index");
                 }
@@ -151,6 +155,7 @@ namespace Gymany.Areas.PT.Controllers
                 HttpResponseMessage respone = await client.PutAsync(api, content);
                 if (respone.StatusCode == System.Net.HttpStatusCode.Created)
                 {
+                    TempData["SuccessMessage"] = "Workout plan Edit Success!";
                     return RedirectToAction("index");
                 }
             }

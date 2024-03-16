@@ -76,7 +76,6 @@
                                 <table class="table-shopping-cart">
                                     <tr class="table_head">
                                         <th class="column-1">Product</th>
-                                        <th class="column-2"></th>
                                         <th class="column-3">Price</th>
                                         <th class="column-4">Quantity</th>
                                         <th class="column-5">Total</th>
@@ -92,8 +91,13 @@
                                                     <img src="@Html.DisplayFor(modelItem => item.Product.Image)" alt="IMG">
                                                 </div>
                                             </td>
-                                            <td class="column-2"></td>
-                                            <td class="column-3">$ @Html.DisplayFor(modelItem => item.Product.Price)</td>
+                                            <td class="column-3">
+                                                @{
+                                                    decimal price = (decimal)item.Product.Price;
+                                                    string formattedAmount = price.ToString("C0");
+                                                }
+                                                @formattedAmount VND
+                                            </td>
                                             <td class="column-4">
                                                 <div class="wrap-num-product flex-w m-l-auto m-r-0">
                                                     <button type="button" value="@item.CartID"
@@ -111,8 +115,9 @@
                                                     </button>
                                                 </div>
                                             </td>
-                                            <td class="column-5">$ @(item.Quantity * item.Product.Price)</td>
-
+                                            <td class="column-5">
+                                                $@((int)item.Quantity * (int)item.Product.Price)
+                                            </td>
                                             <td class="column-7">
                                                 <button type="button" class="btn-delete btn" value="@item.CartID"
                                                     onclick="deleteCartItem(this)">

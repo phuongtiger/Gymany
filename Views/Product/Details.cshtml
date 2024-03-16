@@ -89,11 +89,15 @@
 					<div class="col-md-6 col-lg-5 p-b-30">
 						<div class="p-r-50 p-t-5 p-lr-0-lg">
 							<h4 class="mtext-105 cl2 js-name-detail p-b-14">
-								@Model.product.Name
+								<strong>@Model.product.Name</strong>
 							</h4>
 
 							<span class="mtext-106 cl2">
-								@Model.product.Price
+								@{
+									decimal price = (decimal)Model.product.Price;
+									string formattedAmount = price.ToString("C0");
+								}
+								@formattedAmount VND
 							</span>
 
 							<p class="stext-102 cl3 p-t-23">
@@ -196,6 +200,46 @@
 						</div>
 					</div>
 				</div>
+				<div style="padding: 50px">
+					<h1 class="mtext-105 cl2 js-name-detail p-b-14"><strong>Product features</strong></h1>
+					<p class="stext-102 cl3 p-t-23">@Model.product.Description</p>
+				</div>
+				<!--  -->
+				<div class="p-t-40" style="padding: 50px;">
+					<h5 class="mtext-113 cl2 p-b-12">
+						Leave a Comment
+					</h5>
+
+					<p class="stext-107 cl6 p-b-40">
+						Your email address will not be published. Required fields are marked *
+					</p>
+
+					<form>
+						<div class="bor19 m-b-20">
+							<textarea class="stext-111 cl2 plh3 size-124 p-lr-18 p-tb-15" name="cmt"
+								placeholder="Comment..."></textarea>
+						</div>
+
+						<div class="bor19 size-218 m-b-20">
+							<input class="stext-111 cl2 plh3 size-116 p-lr-18" type="text" name="name"
+								placeholder="Name *">
+						</div>
+
+						<div class="bor19 size-218 m-b-20">
+							<input class="stext-111 cl2 plh3 size-116 p-lr-18" type="text" name="email"
+								placeholder="Email *">
+						</div>
+
+						<div class="bor19 size-218 m-b-30">
+							<input class="stext-111 cl2 plh3 size-116 p-lr-18" type="text" name="web"
+								placeholder="Website">
+						</div>
+
+						<button class="flex-c-m stext-101 cl0 size-125 bg3 bor2 hov-btn3 p-lr-15 trans-04">
+							Post Comment
+						</button>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -210,7 +254,7 @@
 				e.preventDefault(); // Ngăn chặn hành động mặc định của nút submit
 
 				var productId = $(this).siblings('input[name="productId"]').val(); // Lấy giá trị productId từ input ẩn
-				
+
 				// Lấy giá trị của phần tử input
 				var inputElement = document.querySelector(".mtext-104");
 				var Quantity = inputElement.value;
@@ -224,7 +268,7 @@
 					}, // Dữ liệu gửi đi
 					success: function (response) {
 						// Xử lý dữ liệu trả về sau khi gửi thành công
-							swal("Added to cart !", "success");
+						swal("Added to cart !", "success");
 					},
 					error: function (xhr, status, error) {
 						// Xử lý lỗi nếu có

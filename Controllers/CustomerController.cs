@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -95,6 +96,17 @@ namespace Gymany.Controllers
         public async Task<ActionResult> EditProfile(int? id, ListModels obj)
         {
             api_CustomerByID = $"https://localhost:5002/api/Customer/id?id={id}";
+            if (obj.customer.ImageUpload != null)
+            {
+                string fileName = Path.GetFileNameWithoutExtension(obj.customer.ImageUpload.FileName) + Path.GetExtension(obj.customer.ImageUpload.FileName);
+                string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/Profile", fileName);
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await obj.customer.ImageUpload.CopyToAsync(stream);
+                }
+                obj.customer.Image = "/images/Profile/" + fileName;
+
+            }
             Customer customer = obj.customer;
             string data = JsonSerializer.Serialize(customer);
             var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
@@ -228,7 +240,8 @@ namespace Gymany.Controllers
                 string data = JsonSerializer.Serialize(obj.customer);
                 var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(apiCustomer, content);
-                if (response.StatusCode == System.Net.HttpStatusCode.Created){
+                if (response.StatusCode == System.Net.HttpStatusCode.Created)
+                {
                     ViewData["Success"] = "Register success";
                     ListModels listModels = new ListModels();
                     return View("Form", listModels);
@@ -336,7 +349,7 @@ namespace Gymany.Controllers
 
                 if (response.IsSuccessStatusCode)
                 {
-                    
+
                     ViewData["Success"] = "Please check your email to reset password";
                     return View("Form", listModels);
                 }

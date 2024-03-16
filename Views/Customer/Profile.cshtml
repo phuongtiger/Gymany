@@ -44,11 +44,17 @@
                 <div class="card-body">
 
                     <form>
-                        <img class="img-account-profile rounded-circle mb-2"
+                        @if(Model.customer.Image == null){
+                            <img class="img-account-profile rounded-circle mb-2"
                             src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""
-                            style="margin-right: auto; margin-left: auto;">
+                            style="margin-right: auto; margin-left: auto;width: 200px;height: 200px;">
+                        }else{
+                            <img class="img-account-profile rounded-circle mb-2"
+                            src="@Model.customer.Image" alt=""
+                            style="margin-right: auto; margin-left: auto;width: 200px;height: 200px;">
+                        }
                         <!-- Profile picture help block-->
-                        <div class="small font-italic text-muted mb-4 text-center">Update for change this image</div>
+                        <div class="small font-italic text-muted mb-4 text-center">Your avatar here!</div>
                         <input readonly class="form-control" id="inputId" type="hidden"
                             placeholder="Enter your username"
                             value="@Html.DisplayFor(model => model.customer.CustomerID)">

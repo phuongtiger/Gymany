@@ -44,9 +44,9 @@ namespace Gymany.Controllers
             List<Product> products = productController.GetProduct().Result;
             if (!String.IsNullOrEmpty(SearchContent))
             {
-                products = products.Where(s => s.Name.ToLower().Contains(SearchContent.ToLower())).ToList();
+                products = products.Where(s => s.Name.ToLower().Contains(SearchContent.ToLower()) || s.Description.ToLower().Contains(SearchContent.ToLower())).ToList();
             }else{
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
             ListModels listModels = new ListModels
             {

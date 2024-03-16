@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace Gymany.Models
 {
@@ -47,5 +48,7 @@ namespace Gymany.Models
         [StringLength(50, ErrorMessage = "Email length cannot exceed 50 characters.")]
         [EmailAddress(ErrorMessage = "Invalid email format.")]
         public string Email { get; set; }
+        [NotMapped]
+        public IFormFile ImageUpload { get; set; } 
     }
 }

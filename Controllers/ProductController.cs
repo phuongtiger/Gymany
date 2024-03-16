@@ -40,6 +40,7 @@ namespace Gymany.Controllers
             List<Product> products = JsonSerializer.Deserialize<List<Product>>(data, options);
             return products;
         }
+        
         public async Task<ActionResult> Index(int? page)
         {
 
@@ -73,6 +74,16 @@ namespace Gymany.Controllers
                 NumberNoti = number
             };
             return View(viewModel);
+        }
+        public bool checkLogin()
+        {
+            var username = HttpContext.Session.GetString("Username");
+            var pass = HttpContext.Session.GetString("Password");
+            if (username != null && pass != null)
+            {
+                return true;
+            }
+            return false;
         }
     //     public async Task<ActionResult> Create()
     //     {

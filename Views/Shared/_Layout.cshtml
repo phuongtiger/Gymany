@@ -148,6 +148,7 @@
                     <span class="close-btn" onclick="closeNotificationPopup()">&times;</span>
                     <h2 style="padding-bottom: 20px;">Notification</h2>
                     @if(Model.Notifications != null){
+                        <a asp-controller="Notification" asp-action="Index" class="text-right"><i>Refresh</i></a>
                         @foreach (var item in Model.Notifications)
                         {
                             <div class="noti_block">

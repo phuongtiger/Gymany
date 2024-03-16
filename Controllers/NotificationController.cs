@@ -22,7 +22,7 @@ namespace Gymany.Controllers
             client.DefaultRequestHeaders.Accept.Add(contentType);
             this.api = "https://localhost:5002/api/Notification";
         }
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(string controllerRoute, string actionRoute)
         {
             string id = HttpContext.Session.GetString("CustomerID");
             api = $"https://localhost:5002/api/Notification/id?id={id}";

@@ -136,7 +136,7 @@ namespace Gymany.Controllers
                 HttpContext.Session.SetString("Username", username);
                 HttpContext.Session.SetString("Password", password);
                 // Chuyển hướng đến trang chủ
-                return RedirectToAction("Index", "Notification");
+                return RedirectToAction("Index", "Notification", new { controllerRoute = "Home", actionRoute="Index" });
             }
             else
             {

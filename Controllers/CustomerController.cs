@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -11,7 +9,6 @@ using System.Threading.Tasks;
 using Gymany.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 
 namespace Gymany.Controllers
@@ -259,7 +256,7 @@ namespace Gymany.Controllers
             return orders;
         }
 
-        public async Task<IActionResult> OrderHistory()
+        public async Task<ActionResult> OrderHistory()
         {
             // Kiểm tra xem người dùng đã đăng nhập chưa
             if (!checkLogin())

@@ -53,8 +53,8 @@
                                                     <thead>
                                                         <tr>
                                                             <th>Order ID</th>
-                                                            <th>Customer ID</th>
-                                                            <th>Product ID</th>
+                                                            <th>Customer</th>
+                                                            <th>Product</th>
                                                             <th>Status</th>
                                                             <th>Start Date</th>
                                                             <th>Total</th>
@@ -62,16 +62,16 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        @foreach (var order in Model.Orders)
+                                                        @foreach (var item in Model.Orders)
                                                         {
                                                             <tr>
-                                                                <td>@order.OrderID</td>
-                                                                <td>@order.CustomerID</td>
-                                                                <td>@order.ProductID</td>
-                                                                <td>@order.Status</td>
-                                                                <td>@order.StartDate</td>
-                                                                <td>@order.Total</td>
-                                                                <td>@order.Quantity</td>
+                                                                <td>@item.OrderID</td>
+                                                                <td>@Html.DisplayFor(modelitem => item.CustomerID)</td>
+                                                                <td>@Html.DisplayFor(modelitem => item.Product.Name</td>
+                                                                <td>@item.Status</td>
+                                                                <td>@item.StartDate</td>
+                                                                <td>@item.Total</td>
+                                                                <td>@item.Quantity</td>
                                                             </tr>
                                                         }
                                                     </tbody>

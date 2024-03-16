@@ -36,8 +36,7 @@ namespace Gymany.Models
         public Post post{get; set;}
         public IEnumerable<Post> Posts { get; set; }
         public Order order { get; set; }
-        public List<Order> orders { get; set; }
-        public IEnumerable<Order> Orders { get; set; }
+        public List<Order> Orders { get; set; }
         //public List<Post> Posts { get; set; }
 
     }

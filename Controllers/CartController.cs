@@ -63,33 +63,6 @@ namespace Gymany.Controllers
             return carts;
         }
 
-        public async Task<List<Order>> GetOrder()
-        {
-            string id = HttpContext.Session.GetString("CustomerID");
-            api_CartById = $"https://localhost:5002/api/Order/CustomerID?CustomerID={id}";
-            HttpResponseMessage respone = await client.GetAsync(api_CartById);
-            string data = await respone.Content.ReadAsStringAsync();
-
-            if (string.IsNullOrEmpty(data))
-            {
-                // Thông báo khi dữ liệu không có
-                Console.WriteLine("Không có dữ liệu trong giỏ hàng.");
-                return new List<Order>();
-            }
-
-            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            List<Order> orders = JsonSerializer.Deserialize<List<Order>>(data, options);
-
-            if (orders == null)
-            {
-                // Thông báo khi danh sách Orders là null
-                Console.WriteLine("Danh sách giỏ hàng trống.");
-                return new List<Order>();
-            }
-
-            return orders;
-        }
-
 
 
         public async Task<ActionResult> Index()

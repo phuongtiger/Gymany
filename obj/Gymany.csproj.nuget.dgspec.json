@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Gymany\\Gymany.csproj": {}
+    "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\Gymany\\Gymany.csproj": {}
   },
   "projects": {
-    "D:\\Gymany\\Gymany.csproj": {
+    "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\Gymany\\Gymany.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Gymany\\Gymany.csproj",
+        "projectUniqueName": "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\Gymany\\Gymany.csproj",
         "projectName": "Gymany",
-        "projectPath": "D:\\Gymany\\Gymany.csproj",
-        "packagesPath": "C:\\Users\\hoang\\.nuget\\packages\\",
-        "outputPath": "D:\\Gymany\\obj\\",
+        "projectPath": "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\Gymany\\Gymany.csproj",
+        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+        "outputPath": "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\Gymany\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

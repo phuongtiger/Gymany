@@ -4,6 +4,8 @@
 @{
     ViewData["Title"] = "EditProfile";
 }
+
+
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 <div class="container">
     <div class="row" style="padding: 20px 0;">
@@ -84,8 +86,17 @@
                         <!-- Save changes button-->
                         <button type="submit" class="btn btn-primary btn-lg">Save</button>
                     </form>
+                    @if (TempData.ContainsKey("SuccessMessage"))
+                    {
+                        <div class="alert alert-success" role="alert">
+                            @TempData["SuccessMessage"]
+                        </div>
+                    }
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+

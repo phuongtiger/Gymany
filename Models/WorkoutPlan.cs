@@ -12,17 +12,23 @@ namespace Gymany.Models
         [Key]
         public int WorkoutPlanID { get; set; }
 
+        [Required(ErrorMessage = "Name is required.")]
         [StringLength(50, ErrorMessage = "Name length cannot exceed 50 characters.")]
         public string Name { get; set; }
 
+        [Required(ErrorMessage = "Start date is required.")]
         public DateTime? StartDate { get; set; }
 
+        [Required(ErrorMessage = "End date is required.")]
         public DateTime? EndDate { get; set; }
 
+        [Required(ErrorMessage = "Description is required.")]
         public string Description { get; set; }
 
+        [Required(ErrorMessage = "Session is required.")]
         public string Session { get; set; }
 
+        [Required(ErrorMessage = "Activity is required.")]
         public string Activity { get; set; }
 
         [ForeignKey("Member")]

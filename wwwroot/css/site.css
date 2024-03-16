@@ -126,7 +126,7 @@ body {
 }
 .noti_block{
   border: 2px solid #ccc;
-  margin-bottom: 2px;
+  margin-bottom: 10px;
 }
 .noti_block:hover{
   background-color: #ccc;
@@ -169,4 +169,6 @@ footer{
   background-color: #fb740d; 
 }
 
- 
+.ck-rounded-corners .ck.ck-editor__main>.ck-editor__editable, .ck.ck-editor__main>.ck-editor__editable.ck-rounded-corners{
+  height: 200px;
+}

@@ -57,7 +57,7 @@ namespace Gymany.Controllers
             vnpay.AddRequestData("vnp_Command", "pay");
             vnpay.AddRequestData("vnp_TmnCode", "5YRU8MN1");
             vnpay.AddRequestData("vnp_Amount", (AmountOrder * 100).ToString()); //Số tiền thanh toán. Số tiền không mang các ký tự phân tách thập phân, phần nghìn, ký tự tiền tệ. Để gửi số tiền thanh toán là 100,000 VND (một trăm nghìn VNĐ) thì merchant cần nhân thêm 100 lần (khử phần thập phân), sau đó gửi sang VNPAY là: 10000000
-            vnpay.AddRequestData("vnp_BankCode", "NCB");
+            vnpay.AddRequestData("vnp_BankCode", "");
             vnpay.AddRequestData("vnp_CreateDate", DateTime.Now.ToString("yyyyMMddHHmmss"));
             vnpay.AddRequestData("vnp_CurrCode", "VND");
             vnpay.AddRequestData("vnp_IpAddr", "127.1.1.1");
@@ -100,6 +100,24 @@ namespace Gymany.Controllers
             }
             if (vnp_TransactionStatus.Equals("00") && vnp_ResponseCode.Equals("00"))
             {
+                string IsMember = HttpContext.Session.GetString("IsMember");
+                if(IsMember == "false"){
+                    string customerID = HttpContext.Session.GetString("CustomerID");
+                    string apiMember = $"https://localhost:5002/api/Member/customerID?CustomerID={customerID}";
+                    HttpResponseMessage responseMember1 = await client.GetAsync(apiMember);
+                    string data = await responseMember1.Content.ReadAsStringAsync();
+                    var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+                    List<Member> member = JsonSerializer.Deserialize<List<Member>>(data, options);
+                    member[0].Status = "Accepted";
+                    apiMember = "https://localhost:5002/api/Member/Id";
+                    string dataMember = JsonSerializer.Serialize(member[0]);
+                    var contentMember = new StringContent(dataMember, System.Text.Encoding.UTF8, "application/json");
+                    HttpResponseMessage responseMember2 = await client.PutAsync(apiMember, contentMember);
+                    if (responseMember2.StatusCode == System.Net.HttpStatusCode.Created)
+                    {
+                        HttpContext.Session.SetString("IsMember", "true");
+                    }
+                }
                 int totalPayment = 0;
                 Payment payment = new Payment();
                 foreach (var order in orders)

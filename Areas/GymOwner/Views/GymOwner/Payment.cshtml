@@ -1,0 +1,40 @@
+@model IEnumerable<Gymany.Models.Payment>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Payment";
+    Layout = "GymOwnerLayout";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="white-box">
+                <h3 class="box-title">Payments</h3>
+                <div class="table-responsive">
+                    <table class="table text-wrap">
+                        <thead>
+                            <tr>
+                                <th class="border-top-0">PaymentID</th>
+                                <th class="border-top-0">Date</th>
+                                <th class="border-top-0">Quantity</th>
+                                <th class="border-top-0">Customer</th>
+                                <th class="border-top-0">Product</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.PaymentID</td>
+                                    <td>@item.Date</td>
+                                    <td>@item.Quantity</td>
+                                    <td>@item.CustomerID</td>
+                                    <td>@item.ProductID</td>                       
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

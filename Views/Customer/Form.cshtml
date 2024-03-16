@@ -10,7 +10,8 @@
         <div class="col-md-6" style="margin-top: 40px;">
             <div class="card-header text-light text-center display-4" style="background: #343a40;">LOGIN</div>
             <div class="card shadow-lg p-3 mb-5 bg-white rounded">
-                <div class="card-body">
+                <div class="card-body" style="padding-top: 0;">
+                    <p style="padding: 0 0 20px;">You dont have account?, <a asp-action="RegisterForm" style=" text-decoration: underline; display: inline;">Register here!</a></p>
                     <form id="loginForm" asp-action="Login" method="post">
                         <div class="form-group">
                             <label for="username">Username:</label>
@@ -22,17 +23,20 @@
                             <input type="password" class="form-control" id="password" name="password">
                             <div id="passwordError" class="text-danger"></div>
                         </div>
-                        <button type="submit" class="btn btn-primary">LOGIN</button>
+                        <span style="padding-bottom: 10px; font-size: 11px">Forgot your password?, <a asp-action="FogotPassword" style="display: inline;">Click here!</a></span>
+                        <button type="submit" class="btn btn-primary" >LOGIN</button>
+                        <p style="padding-top: 20px;">If you are a Personal Trainer(PT), <a asp-action="PTPage" style=" text-decoration: underline; display: inline;">Click here to Login!</a></p>
                     </form>
-                    <a asp-action="FogotPassword">FogotPassword</a>
                     <div id="loginMessage" class="text-danger"></div>
+                    @if (ViewData["Success"] != null)
+                    {
+                        <div class="alert alert-success" role="alert">
+                            @ViewData["Success"]
+                        </div>
+                    }
                 </div>
             </div>
             <hr>
-            <div class="text-center">
-                <a asp-action="RegisterForm" class="btn btn-outline-primary btn-primary">Register</a>
-                <a asp-action="PTPage" class="btn btn-outline-primary btn-primary">PT Login</a>
-            </div>
         </div>
     </div>
 </div>

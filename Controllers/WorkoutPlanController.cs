@@ -34,7 +34,14 @@ namespace Gymany.Controllers
             string status = await GetMemberID(customerID).ContinueWith(t => t.Result.Status);
             api = $"https://localhost:5002/api/WorkoutPlan/MemberID?memberid={memberid}";
             HttpResponseMessage response = await client.GetAsync(api);
-            ListModels listModels = new ListModels();
+            List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
+            string number = HttpContext.Session.GetString("NumberNoti");
+            ListModels listModels = new ListModels{
+                Notifications = notifications,
+                NumberNoti = number
+            };
+            string id = HttpContext.Session.GetString("CustomerID");
+            ViewBag.cusID = id;
             if (response.StatusCode == HttpStatusCode.NotFound)
             {
                 if(memberid == 0 && status.Equals("Not Found")){

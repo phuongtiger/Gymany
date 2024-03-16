@@ -48,9 +48,7 @@
                             src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""
                             style="margin-right: auto; margin-left: auto;">
                         <!-- Profile picture help block-->
-                        <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
-                        <!-- Profile picture upload button-->
-                        <button class="btn btn-primary" type="button">Upload new image</button>
+                        <div class="small font-italic text-muted mb-4 text-center">Update for change this image</div>
                         <input readonly class="form-control" id="inputId" type="hidden"
                             placeholder="Enter your username"
                             value="@Html.DisplayFor(model => model.customer.CustomerID)">
@@ -99,9 +97,7 @@
                         <!-- Save changes button-->
                         <a asp-controller="Customer" asp-action="EditProfile" asp-route-id="@Model.customer.CustomerID"
                             class="btn btn-primary" type="button">Update Profile</a>
-                        <a asp-action="BecomeMember" class="btn btn-primary" type="button">Become Member</a>
                     </form>
-
                 </div>
             </div>
         </div>

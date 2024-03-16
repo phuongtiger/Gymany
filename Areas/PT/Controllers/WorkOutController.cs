@@ -43,6 +43,8 @@ namespace Gymany.Areas.PT.Controllers
 
             api_WOID = $"https://localhost:5002/api/WorkoutPlan/ptid?ptid={id}";
             HttpResponseMessage response = await client.GetAsync(api_WOID);
+            string idCustomer = HttpContext.Session.GetString("CustomerID");
+            ViewBag.cusID = idCustomer;
             if (response.StatusCode == HttpStatusCode.NotFound)
             {
                 return View();

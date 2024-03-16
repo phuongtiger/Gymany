@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gicLHZBuWcAxPxUxx5kadCVT2TIaVRtz43sGvoPpU72bn3I0DHzw95X0IMNNdeOZBRcv+D4FlZDwFwZ1bxaKMA==",
+  "dgSpecHash": "vk3C1Jm+2EtDwuK8k9S+Vycj05DcyBfBj5LNlQ1mfiw1troOaNmwYE9f4o1BOqSekiTSO7ZrUvrBNS9KL44wkw==",
   "success": true,
-  "projectFilePath": "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\Gymany.csproj",
+  "projectFilePath": "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\Gymany\\Gymany.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
@@ -204,12 +204,5 @@
     "C:\\Users\\DELL\\.nuget\\packages\\x.pagedlist.mvc.core\\8.0.7\\x.pagedlist.mvc.core.8.0.7.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\x.pagedlist.web.common\\8.0.7\\x.pagedlist.web.common.8.0.7.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

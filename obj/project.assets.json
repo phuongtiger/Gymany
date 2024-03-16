@@ -9977,11 +9977,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\Gymany.csproj",
+      "projectUniqueName": "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\Gymany\\Gymany.csproj",
       "projectName": "Gymany",
-      "projectPath": "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\Gymany.csproj",
+      "projectPath": "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\Gymany\\Gymany.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\obj\\",
+      "outputPath": "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\Gymany\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -10072,13 +10072,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

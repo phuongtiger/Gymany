@@ -1403,18 +1403,13 @@ E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOw
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\MemberAccount.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Areas\GymOwner\Views\GymOwner\UpdateMember.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\JoinMember.cshtml.g.cs
-<<<<<<< HEAD
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\appsettings.Development.json
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\appsettings.json
-=======
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Cart\Create.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Cart\PaymentProcess.cshtml.g.cs
 D:\GitP\Gymany\obj\Debug\net5.0\Razor\Views\Customer\FogotPassword.cshtml.g.cs
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Customer\FogotPassword.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\appsettings.Development.json
-E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\appsettings.json
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\global.json
->>>>>>> main
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Gymany.exe
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Gymany.deps.json
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Gymany.runtimeconfig.json
@@ -1424,10 +1419,7 @@ E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Gym
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Gymany.Views.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Gymany.Views.pdb
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Humanizer.dll
-<<<<<<< HEAD
-=======
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
->>>>>>> main
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Microsoft.AspNetCore.Razor.Language.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Microsoft.CodeAnalysis.dll
@@ -1436,20 +1428,14 @@ E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Mic
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Microsoft.CodeAnalysis.Razor.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Microsoft.CodeAnalysis.Workspaces.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
-<<<<<<< HEAD
-=======
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
->>>>>>> main
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
-<<<<<<< HEAD
-=======
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
->>>>>>> main
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Microsoft.Identity.Client.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
@@ -1465,10 +1451,7 @@ E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Mic
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Newtonsoft.Json.dll
-<<<<<<< HEAD
-=======
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
->>>>>>> main
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\System.Composition.AttributedModel.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\System.Composition.Convention.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\System.Composition.Hosting.dll
@@ -1479,12 +1462,9 @@ E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Sys
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\System.Runtime.Caching.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
-<<<<<<< HEAD
-=======
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\X.PagedList.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\X.PagedList.Mvc.Core.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\X.PagedList.Web.Common.dll
->>>>>>> main
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.resources.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.resources.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.resources.dll
@@ -1556,19 +1536,13 @@ E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gym
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.AssemblyInfoInputs.cache
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.AssemblyInfo.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.csproj.CoreCompileInputs.cache
-<<<<<<< HEAD
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.MvcApplicationPartsAssemblyInfo.cache
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.RazorAssemblyInfo.cache
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.RazorAssemblyInfo.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.sourcelink.json
-=======
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.MvcApplicationPartsAssemblyInfo.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.MvcApplicationPartsAssemblyInfo.cache
-E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.RazorAssemblyInfo.cache
-E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.RazorAssemblyInfo.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.Manifest.cache
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\scopedcss\bundle\Gymany.styles.css
->>>>>>> main
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.TagHelpers.input.cache
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.TagHelpers.output.cache
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.RazorCoreGenerate.cache
@@ -1616,26 +1590,17 @@ E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Raz
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\BlogDetail\Index.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Blog\blogdetail.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Blog\Index.cshtml.g.cs
-<<<<<<< HEAD
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Cart\Index.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Classes\Index.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\EditProfile.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Form.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\JoinMember.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Login.cshtml.g.cs
-=======
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Cart\Create.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Cart\CreateOrder.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Cart\Index.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Cart\PaymentProcess.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Classes\Index.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\EditProfile.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\FogotPassword.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Form.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\JoinMember.cshtml.g.cs
-E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Login.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\OrderHistory.cshtml.g.cs
->>>>>>> main
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Profile.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\Register.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\RegisterForm.cshtml.g.cs
@@ -1643,11 +1608,8 @@ E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Raz
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Home\Search.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Notification\Index.cshtml.g.cs
-<<<<<<< HEAD
-=======
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Payment\Back.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Payment\Index.cshtml.g.cs
->>>>>>> main
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Product\Create.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Product\Delete.cshtml.g.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Product\Details.cshtml.g.cs
@@ -1665,9 +1627,6 @@ E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Raz
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.RazorTargetAssemblyInfo.cache
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.RazorTargetAssemblyInfo.cs
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.Views.pdb
-<<<<<<< HEAD
-E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\scopedcss\bundle\Gymany.styles.css
-E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.Manifest.cache
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.Pack.cache
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.Gymany.Microsoft.AspNetCore.StaticWebAssets.props
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\staticwebassets\msbuild.build.Gymany.props
@@ -1680,12 +1639,14 @@ E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gym
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.genruntimeconfig.cache
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\ref\Gymany.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\Gymany.StaticWebAssets.xml
-=======
-E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.csproj.CopyComplete
-E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.dll
-E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\ref\Gymany.dll
-E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.pdb
-E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\Gymany.genruntimeconfig.cache
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\bin\Debug\net5.0\ref\Gymany.dll
 E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\Gymany\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.xml
->>>>>>> main
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Gymany.MvcApplicationPartsAssemblyInfo.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\staticwebassets\Gymany.StaticWebAssets.xml
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Cart\Create.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Cart\CreateOrder.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Cart\PaymentProcess.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\FogotPassword.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Customer\OrderHistory.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Payment\Back.cshtml.g.cs
+E:\SE1707_Ky5\Project\project_G\Gymany\Gymany\obj\Debug\net5.0\Razor\Views\Payment\Index.cshtml.g.cs

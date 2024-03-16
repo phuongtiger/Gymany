@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\Gymany\\Gymany\\Gymany.csproj": {}
+    "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\Gymany.csproj": {}
   },
   "projects": {
-    "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\Gymany\\Gymany\\Gymany.csproj": {
+    "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\Gymany.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\Gymany\\Gymany\\Gymany.csproj",
+        "projectUniqueName": "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\Gymany.csproj",
         "projectName": "Gymany",
-        "projectPath": "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\Gymany\\Gymany\\Gymany.csproj",
+        "projectPath": "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\Gymany.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\Gymany\\Gymany\\obj\\",
+        "outputPath": "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",

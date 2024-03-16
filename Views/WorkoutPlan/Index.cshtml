@@ -18,8 +18,12 @@
                                 style="margin: 5px 0; width:100%;">Profile</a>
                         </li>
                         <li>
-                            <a asp-action="OrderHistory" class="text-left"
+                            <a asp-controller="Customer" asp-action="OrderHistory" class="text-left"
                                 style="margin: 5px 0; width:100%;">Order History</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Customer" asp-action="PaymentHistory" class="text-left" style="margin: 5px 0; width:100%;">Payment
+                                History</a>
                         </li>
                         <li>
                             <a asp-controller="WorkoutPlan" asp-action="Index" class="text-left"

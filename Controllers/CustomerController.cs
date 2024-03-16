@@ -22,6 +22,7 @@ namespace Gymany.Controllers
     {
 
         private readonly HttpClient client = null;
+        private string apiPayment;
         private string apiCustomer;
         private string apiWorkoutPlan;
         private string api_CustomerByID;
@@ -30,6 +31,7 @@ namespace Gymany.Controllers
         private string api_WorkoutPlanByMemberID;
         private string apiMember;
         private string apiOrder;
+
         public CustomerController()
         {
             client = new HttpClient();
@@ -40,6 +42,7 @@ namespace Gymany.Controllers
             this.api_WorkoutPlanByID = "https://localhost:5002/api/WorkoutPlan/id";
             this.api_MemberByCusID = "https://localhost:5002/api/Member/customerID";
             this.api_WorkoutPlanByMemberID = "https://localhost:5002/api/WorkoutPlan/memberID";
+            this.apiPayment = "https://localhost:5002/api/Payment";
             this.apiMember = "https://localhost:5002/api/Member";
             this.apiOrder = "https://localhost:5002/api/Order";
 
@@ -356,6 +359,56 @@ namespace Gymany.Controllers
             }
             ViewData["Error"] = "Email is not exist";
             return View("FogotPassword", listModels);
+        }
+
+        // ------------------------------view payment history------------------
+        public async Task<List<Payment>> GetPayment()
+        {
+            string id = HttpContext.Session.GetString("CustomerID");
+            apiPayment = $"https://localhost:5002/api/Payment/GetCusIdPayment?CustomerID={id}";
+            HttpResponseMessage respone = await client.GetAsync(apiPayment);
+            string data = await respone.Content.ReadAsStringAsync();
+
+            if (string.IsNullOrEmpty(data))
+            {
+                // Thông báo khi dữ liệu không có
+                Console.WriteLine("Không có dữ liệu trong giỏ hàng.");
+                return new List<Payment>();
+            }
+
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            List<Payment> payments = JsonSerializer.Deserialize<List<Payment>>(data, options);
+
+            if (payments == null)
+            {
+                // Thông báo khi danh sách Orders là null
+                Console.WriteLine("Danh sách giỏ hàng trống.");
+                return new List<Payment>();
+            }
+
+            return payments;
+        }
+
+
+        public async Task<IActionResult> PaymentHistory()
+        {
+            // Kiểm tra xem người dùng đã đăng nhập chưa
+            if (!checkLogin())
+            {
+                return RedirectToAction("Form", "Customer");
+            }
+
+            // Gọi phương thức GetOrder để lấy danh sách đơn hàng
+            List<Payment> payments = await GetPayment();
+
+            // Tạo viewModel chứa danh sách đơn hàng
+            var viewPayment = new ListModels
+            {
+                Payments = payments
+            };
+
+            // Chuyển đến view "OrderHistory" và truyền viewModel
+            return View("PaymentHistory", viewPayment);
         }
 
 

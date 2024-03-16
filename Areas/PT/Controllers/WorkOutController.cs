@@ -112,7 +112,7 @@ namespace Gymany.Areas.PT.Controllers
                 // Kiểm tra kết quả trả về từ endpoint API
                 if (response.IsSuccessStatusCode)
                 {
-                    TempData["SuccessMessage"] = "Workout plan Add Success!";
+                    TempData["SuccessMessage"] = "Workout plan Delete Success!";
                     // Xử lý kết quả nếu xóa thành công, ví dụ chuyển hướng đến trang danh sách
                     return RedirectToAction("Index");
                 }

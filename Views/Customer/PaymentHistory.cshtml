@@ -1,6 +1,6 @@
 @model Gymany.Models.ListModels
 @{
-    ViewData["Title"] = "OrderHistory";
+    ViewData["Title"] = "PaymentHistory";
 }
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 <div class="container">
@@ -56,30 +56,27 @@
                                                 <table class="table">
                                                     <thead>
                                                         <tr>
-                                                            <th>Order ID</th>
-                                                            
-                                                            <th>Product ID</th>
-                                                            <th>Status</th>
-                                                            <th>Start Date</th>
-                                                            <th>Total</th>
+                                                            <th>Payment ID</th>
+                                                            <th>Date</th>
                                                             <th>Quantity</th>
+
+                                                            <th>Product ID</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        @foreach (var order in Model.Orders)
+                                                        @foreach (var payment in Model.Payments)
                                                         {
                                                             <tr>
-                                                                <td>@order.OrderID</td>
-                                                              
-                                                                <td>@order.ProductID</td>
-                                                                <td>@order.Status</td>
-                                                                <td>@order.StartDate</td>
-                                                                <td>@order.Total</td>
-                                                                <td>@order.Quantity</td>
+                                                                <td>@payment.PaymentID</td>
+                                                                <td>@payment.Date</td>
+                                                                <td>@payment.Quantity</td>
+
+                                                                <td>@payment.ProductID</td>
                                                             </tr>
                                                         }
                                                     </tbody>
                                                 </table>
+
                                             </div>
                                         </div>
                                     </div>

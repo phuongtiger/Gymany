@@ -176,7 +176,7 @@
 
 								<a asp-controller="Product" asp-action="Details" asp-route-id="@item.ProductID" 
 									class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-									Quick View
+									View Details
 								</a>
 							</div>
 
@@ -236,7 +236,7 @@
 					}, // Dữ liệu gửi đi
 					success: function (response) {
 						// Xử lý dữ liệu trả về sau khi gửi thành công
-						swal("Added to cart !", "success");
+						swal("Added to cart !", "Success");
 					},
 					error: function (xhr, status, error) {
 						// Xử lý lỗi nếu có

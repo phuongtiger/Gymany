@@ -40,7 +40,8 @@ namespace Gymany.Controllers
                 Notifications = notifications,
                 NumberNoti = number
             };
-            
+            string id = HttpContext.Session.GetString("CustomerID");
+            ViewBag.cusID = id;
             if (response.StatusCode == HttpStatusCode.NotFound)
             {
                 if(memberid == 0 && status.Equals("Not Found")){

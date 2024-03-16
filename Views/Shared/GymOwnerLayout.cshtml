@@ -22,6 +22,7 @@
     <link href="/css/style.min.css" rel="stylesheet">
     @* cdn ckeditor *@
     <script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body class="custom-bg">
@@ -149,10 +150,18 @@
                                 <span class="hide-menu">Category Managements</span>
                             </a>
                         </li>
-                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="GymOwner" asp-action="MemberAccount">
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="GymOwner"
+                                asp-action="MemberAccount">
                                 <i class="fas fa-users" aria-hidden="true"></i>
                                 <span class="hide-menu">Member Manage</span>
+                            </a>
+                        </li>
+                           <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-controller="GymOwner"
+                                asp-action="Order">
+                                <i class="fas fa-box" aria-hidden="true"></i>
+                                <span class="hide-menu">Order Manage</span>
                             </a>
                         </li>
                     </ul>
@@ -181,6 +190,7 @@
         <script src="/plugins/bower_components/chartist/dist/chartist.min.js"></script>
         <script src="/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
         <script src="/js/pages/dashboards/dashboard1.js"></script>
+         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 
 </html>

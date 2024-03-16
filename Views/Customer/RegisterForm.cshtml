@@ -1,64 +1,84 @@
-
 @model Gymany.Models.ListModels
 @{
     ViewData["Title"] = "RegisterForm";
 }
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <!-- Phần form -->
             <div class="form-container">
+                <h1 class="text-center" style="padding: 20px;">REGISTER</h1>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-5">
                         <!-- Hình ảnh của người tập gym -->
-                        <img src="gym_image.jpg" alt="Gym Image" class="img-fluid">
+                        <img src="/images/Product/class-4.jpg" alt="Gym Image" class="img-fluid">
+                        <div style="padding: 20px; text-align: justify; display: inline;">
+                            <h3>Terms and Conditions</h3>
+                            <ul style="padding-top: 10px;">
+                                <li><strong>1. Tuổi:</strong> Người đăng ký phải đủ tuổi theo quy định pháp luật để sử dụng dịch vụ của phòng gym.</li>
+                                <li><strong>2. Thanh toán:</strong> Người đăng ký phải thanh toán phí dịch vụ theo đúng quy định và thời hạn đã được thỏa thuận.</li>
+                                <li><strong>3. Điều kiện sức khỏe:</strong> Người đăng ký cần cung cấp thông tin về tình trạng sức khỏe hiện tại và bất kỳ hạn chế nào trong việc tham gia các hoạt động tại phòng gym.</li>
+                                <li><strong>4. An toàn:</strong> Người đăng ký phải tuân thủ các quy tắc an toàn và hướng dẫn sử dụng thiết bị tại phòng gym.</li>
+                                <li><strong>5. Chính sách hủy:</strong> Người đăng ký cần tuân thủ các chính sách về hủy đăng ký và hoàn trả phí theo quy định của phòng gym.</li>
+                                <li><strong>6. Quyền lợi và trách nhiệm:</strong> Cung cấp thông tin về các quyền lợi và trách nhiệm của người đăng ký trong quá trình sử dụng dịch vụ của phòng gym.</li>
+                                <li><strong>7. Chính sách bảo mật:</strong> Mô tả các biện pháp bảo vệ thông tin cá nhân của người đăng ký và quy định về việc sử dụng thông tin này.</li>
+                                <li><strong>8. Điều khoản và điều kiện khác:</strong> Các điều khoản và điều kiện khác có thể áp dụng theo quy định của phòng gym.</li>
+                            </ul>
+
+                        </div>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-7">
                         <form asp-action="RegisterForm">
                             <div class="form-group">
                                 <label asp-for="@Model.customer.Username">Username:</label>
-                                <input type="text" class="form-control" id="username" name="username">
+                                <input type="text" class="form-control" id="username" asp-for="@Model.customer.Username">
                                 <span asp-validation-for="@Model.customer.Username" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label asp-for="@Model.customer.Password">Password:</label>
-                                <input type="password" class="form-control" id="password" name="password">
+                                <input type="password" class="form-control" id="password" asp-for="@Model.customer.Password">
                                 <span asp-validation-for="@Model.customer.Password" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label asp-for="@Model.customer.ConfirmPassword">Confirm Password:</label>
-                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
+                                <input type="password" class="form-control" id="confirmPassword" asp-for="@Model.customer.ConfirmPassword">
                                 <span asp-validation-for="@Model.customer.ConfirmPassword" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label asp-for="@Model.customer.Name">Full Name:</label>
-                                <input type="text" class="form-control" id="Name" name="Name">
+                                <input type="text" class="form-control" id="Name" asp-for="@Model.customer.Name">
                                 <span asp-validation-for="@Model.customer.Name" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label asp-for="@Model.customer.Address">Address:</label>
-                                <input type="text" class="form-control" id="address" name="address">
+                                <input type="text" class="form-control" id="address" asp-for="@Model.customer.Address">
                                 <span asp-validation-for="@Model.customer.Address" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label asp-for="@Model.customer.Age">Age:</label>
-                                <input type="date" class="form-control" id="age" name="age">
+                                <input type="date" class="form-control" id="age" asp-for="@Model.customer.Age">
                                 <span asp-validation-for="@Model.customer.Age" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label asp-for="@Model.customer.Phone">Phone:</label>
-                                <input type="text" class="form-control" id="phone" name="phone">
+                                <input type="number" class="form-control" id="phone" asp-for="@Model.customer.Phone">
                                 <span asp-validation-for="@Model.customer.Phone" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label asp-for="@Model.customer.Email">Email:</label>
-                                <input type="email" class="form-control" id="email" name="email">
+                                <input type="email" class="form-control" id="email" asp-for="@Model.customer.Email">
                                 <span asp-validation-for="@Model.customer.Email" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">REGISTER</button>
                             </div>
                         </form>
+                        @if (ViewData["Message"] != null)
+                        {
+                            <div class="alert alert-danger" role="alert">
+                                @ViewData["Message"]
+                            </div>
+                        }
                     </div>
                 </div>
                 <hr>

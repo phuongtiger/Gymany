@@ -57,5 +57,11 @@ namespace Gymany.Controllers
             };
             return View(listModels);
         }
+        public IActionResult BMI()
+        {
+            ListModels listModels = new ListModels();
+            return View(listModels);
+        }
+        
     }
 }

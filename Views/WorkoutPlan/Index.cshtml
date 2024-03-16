@@ -60,17 +60,17 @@
                                                                 <tr>
                                                                     <th>Description</th>
                                                                     <th>Start Date</th>
-                                                                    <th>End Date</th>
-                                                                    <th>Duration</th>
-                                                                    <th>Workout Plan</th>
+                                                                    <th>Description</th>
+                                                                    <th>Session No</th>
+                                                                    <th>Activity No</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
 
                                                                 <tr>
-                                                                    <td>@item.Description</td>
+                                                                    <td>@item.Name</td>
                                                                     <td>@item.StartDate</td>
-                                                                    <td>@item.EndDate</td>
+                                                                    <td>@Html.Raw(item.Description)</td>
                                                                     <td>@item.Session</td>
                                                                     <td>@item.Activity</td>
                                                                     <td>
@@ -89,12 +89,24 @@
                                 }else if(Model.CheckMember == false && Model.CheckPayment == false){
                                     <div style="padding: 40px">
                                         <p>You need to become a member to see the workout plan</p>
-                                        <a href="#">You can click here to become a member</a>
+                                        <a asp-controller="Customer" asp-action="JoinMember">You can click here to become a member</a>
                                     </div>
                                 }else if(Model.CheckMember == true && Model.CheckPayment == false){
                                     <div style="padding: 40px">
                                         <p>You need to pay to see the workout plan</p>
-                                        <a href="#">You can click here to pay</a>
+                                        <form asp-controller="Customer" asp-action="JoinMember" method="post">
+                                            <div class="form-group">
+                                                <input id="Date" type="hidden" asp-for="@Model.member.Date"
+                                                    class="form-control form-control-lg" readonly style="display: none;" value="@DateTime.Now"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <input asp-for="@Model.member.Status" class="form-control form-control-lg text-justify"
+                                                    value="Waiting" type="hidden"/>
+                                            </div>
+                                            <input type="hidden" asp-for="@Model.member.CustomerID"
+                                                class="form-control form-control-lg text-justify" value="@ViewBag.cusID" />
+                                            <button type="submit" class="btn btn-primary btn-lg">Go to payment process</button>
+                                        </form>
                                     </div>
                                 }
                                 else

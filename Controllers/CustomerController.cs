@@ -101,7 +101,8 @@ namespace Gymany.Controllers
             HttpResponseMessage respone = await client.PutAsync(api_CustomerByID, content);
             if (respone.StatusCode == System.Net.HttpStatusCode.Created)
             {
-                return RedirectToAction("Profile");
+                TempData["SuccessMessage"] = "Your changes have been saved successfully.";
+                return RedirectToAction("EditProfile");
             }
             return View(obj);
         }

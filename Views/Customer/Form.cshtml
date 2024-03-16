@@ -28,6 +28,12 @@
                         <p style="padding-top: 20px;">If you are a Personal Trainer(PT), <a asp-action="PTPage" style=" text-decoration: underline; display: inline;">Click here to Login!</a></p>
                     </form>
                     <div id="loginMessage" class="text-danger"></div>
+                    @if (ViewData["Success"] != null)
+                    {
+                        <div class="alert alert-success" role="alert">
+                            @ViewData["Success"]
+                        </div>
+                    }
                 </div>
             </div>
             <hr>

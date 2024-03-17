@@ -88,6 +88,24 @@ namespace Gymany.Controllers
             }
             return RedirectToAction("OrderHistory", "Customer");
         }
+        public async Task<IActionResult> Detail(int? id)
+        {
+            string api_WorkPlanByID = $"https://localhost:5002/api/WorkoutPlan/id?id={id}";
+            HttpResponseMessage respone = await client.GetAsync(api_WorkPlanByID);
+            string data = await respone.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+            WorkoutPlan workoutPlan = JsonSerializer.Deserialize<WorkoutPlan>(data, options);
+            List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
+            string number = HttpContext.Session.GetString("NumberNoti");
+            var viewModel = new ListModels
+            {
+                workoutPlan = workoutPlan,
+                Notifications = notifications,
+                NumberNoti = number
+            };
+            return View(viewModel);
+        }
+        
         
         public bool checkLogin()
         {

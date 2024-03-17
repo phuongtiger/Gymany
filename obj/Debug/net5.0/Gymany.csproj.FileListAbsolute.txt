@@ -1667,3 +1667,4 @@ D:\Gymany\obj\Debug\net5.0\Razor\Views\Home\BMI.cshtml.g.cs
 E:\chuyên ngành kì 5\PRN211\project_group_5\Gymany\obj\Debug\net5.0\Razor\Views\Customer\PaymentHistory.cshtml.g.cs
 >>>>>>> cdc95ce922a36dd6039b31e88678b95c393e7b53
 D:\Gymany\obj\Debug\net5.0\Razor\Views\Customer\PaymentHistory.cshtml.g.cs
+D:\Gymany\obj\Debug\net5.0\Razor\Views\WorkoutPlan\Detail.cshtml.g.cs

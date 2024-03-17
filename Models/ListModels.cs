@@ -20,6 +20,7 @@ namespace Gymany.Models
 
         public Member member { get; set; }
         public List<WorkoutPlan> workoutPlans { get; set; }
+        public WorkoutPlan workoutPlan { get; set; }
         public bool CheckMember;
         public bool CheckPayment;
         public static implicit operator ListModels(Customer v)

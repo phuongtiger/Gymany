@@ -148,18 +148,19 @@
                     <span class="close-btn" onclick="closeNotificationPopup()">&times;</span>
                     <h2 style="padding-bottom: 20px;">Notification</h2>
                     @if(Model.Notifications != null){
+                        <a asp-controller="Notification" asp-action="Index" class="text-right"><i>Refresh</i></a>
                         @foreach (var item in Model.Notifications)
                         {
                             <div class="noti_block">
-                                @if(item.Type.Equals("alert")){
+                                @if(item.noti_type.Equals("alert")){
                                     <p class="notification-header text-warning">Thống báo nhắc nhở</p>
-                                }else if(item.Type.Equals("danger")){
+                                }else if(item.noti_type.Equals("danger")){
                                     <p class="notification-header text-danger">Thông báo quan trọng</p>
                                 }else{
                                     <p class="notification-header">Thông báo từ PT</p>
                                 }
-                                <p class="notification-header" style="font-size: 10px">@Html.DisplayFor(modelItem => item.Date)</p>
-                                <p class="notification-message">@Html.DisplayFor(modelItem => item.Context) </p>
+                                <p class="notification-header" style="font-size: 10px">@Html.DisplayFor(modelItem => item.noti_date)</p>
+                                <p class="notification-message">@Html.DisplayFor(modelItem => item.noti_context) </p>
                             </div>
                         }
                     }else{

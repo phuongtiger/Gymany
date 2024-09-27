@@ -32,7 +32,7 @@
 						@foreach (var item in Model.Posts)
 						{
 							<div class="wrap-pic-w how-pos5-parent">
-								<img src="@item.Image" alt="IMG-BLOG">
+								<img src="@item.post_img" alt="IMG-BLOG">
 
 							</div>
 
@@ -45,11 +45,11 @@
 								</span>
 
 								<h4 class="ltext-109 cl2 p-b-28">
-									@item.Title
+									@item.post_title
 								</h4>
 
 								<p class="stext-117 cl6 p-b-26">
-									@Html.Raw(item.Content)
+									@Html.Raw(item.post_content)
 								</p>
 
 							</div>

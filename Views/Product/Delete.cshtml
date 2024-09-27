@@ -15,45 +15,45 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.product.Name)
+            @Html.DisplayNameFor(model => model.product.prod_name)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.product.Name)
+            @Html.DisplayFor(model => model.product.prod_name)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.product.Description)
+            @Html.DisplayNameFor(model => model.product.prod_description)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.product.Description)
+            @Html.DisplayFor(model => model.product.prod_description)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.product.Amount)
+            @Html.DisplayNameFor(model => model.product.prod_amount)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.product.Amount)
+            @Html.DisplayFor(model => model.product.prod_amount)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.product.Image)
+            @Html.DisplayNameFor(model => model.product.prod_img)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.product.Image)
+            @Html.DisplayFor(model => model.product.prod_img)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.product.Price)
+            @Html.DisplayNameFor(model => model.product.prod_price)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.product.Price)
+            @Html.DisplayFor(model => model.product.prod_price)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.product.Category)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.product.Category.Type)
+            @Html.DisplayFor(model => model.product.Category.cate_type)
         </dd class>
     </dl>
     
     <form asp-action="Delete">
-        <input type="hidden" asp-for="@Model.product.ProductID" />
+        <input type="hidden" asp-for="@Model.product.prod_id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>

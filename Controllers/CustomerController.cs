@@ -111,7 +111,7 @@ namespace Gymany.Controllers
         public async Task<ActionResult> Login(string username, string password)
         {
             apiCustomer = $"https://localhost:5002/api/Customer/checklogin?username={username}&password={password}";
-            var customer = new Customer { Username = username, Password = password };
+            var customer = new Customer { cus_username = username, cus_password = password };
             var content = new StringContent(JsonSerializer.Serialize(customer), Encoding.UTF8, "application/json");
             HttpResponseMessage response = await client.PostAsync(apiCustomer, content);
             if (response.IsSuccessStatusCode)
@@ -119,11 +119,11 @@ namespace Gymany.Controllers
                 string jsonString = await response.Content.ReadAsStringAsync();
                 //lấy tất cả thông tin từ id của customer
                 JObject jsonObject = JObject.Parse(jsonString);
-                string id = (string)jsonObject["customerID"];
+                string id = (string)jsonObject["cus_id"];
 
-                HttpContext.Session.SetString("CustomerID", id);
-                HttpContext.Session.SetString("Username", username);
-                HttpContext.Session.SetString("Password", password);
+                HttpContext.Session.SetString("cus_id", id);
+                HttpContext.Session.SetString("cus_username", username);
+                HttpContext.Session.SetString("cus_password", password);
                 // Chuyển hướng đến trang chủ
                 return RedirectToAction("Index", "Notification");
             }
@@ -163,45 +163,45 @@ namespace Gymany.Controllers
             }
         }
 
-        [HttpPost]
-        public async Task<IActionResult> JoinMember(ListModels obj)
-        {
-            if (ModelState.IsValid)
-            {
-                Order order = new Order();
-                order.ProductID = 1024;
-                order.Quantity = 1;
-                order.Status = "Waiting";
-                order.StartDate = DateTime.Now;
-                order.CustomerID = int.Parse(HttpContext.Session.GetString("CustomerID"));
-                order.Total = 200000;
-                string Cuid = HttpContext.Session.GetString("CustomerID");
-                string api = $"https://localhost:5002/api/Member/customerID?CustomerID={Cuid}";
-                HttpResponseMessage response = await client.GetAsync(api);
-                if (response.StatusCode == HttpStatusCode.NotFound)
-                {
-                    string dataMember = JsonSerializer.Serialize(obj.member);
-                    var contentMember = new StringContent(dataMember, System.Text.Encoding.UTF8, "application/json");
-                    HttpResponseMessage responseMember = await client.PostAsync(apiMember, contentMember);
-                }
+        // [HttpPost]
+        // public async Task<IActionResult> JoinMember(ListModels obj)
+        // {
+        //     if (ModelState.IsValid)
+        //     {
+        //         Order order = new Order();
+        //         order.prod_id = 1024;
+        //         order.order_quantity = 1;
+        //         order.order_status = "Waiting";
+        //         order.order_startDate = DateTime.Now;
+        //         order.cus_id = int.Parse(HttpContext.Session.GetString("CustomerID"));
+        //         order.order_totalPrice = 200000;
+        //         string Cuid = HttpContext.Session.GetString("CustomerID");
+        //         string api = $"https://localhost:5002/api/Member/customerID?CustomerID={Cuid}";
+        //         HttpResponseMessage response = await client.GetAsync(api);
+        //         if (response.StatusCode == HttpStatusCode.NotFound)
+        //         {
+        //             string dataMember = JsonSerializer.Serialize(obj.member);
+        //             var contentMember = new StringContent(dataMember, System.Text.Encoding.UTF8, "application/json");
+        //             HttpResponseMessage responseMember = await client.PostAsync(apiMember, contentMember);
+        //         }
 
-                string dataOrder = JsonSerializer.Serialize(order);
-                var contentOrder = new StringContent(dataOrder, System.Text.Encoding.UTF8, "application/json");
-                HttpResponseMessage responseOrder = await client.PostAsync(apiOrder, contentOrder);
-                if (responseOrder.StatusCode == System.Net.HttpStatusCode.Created)
-                {
-                    string dataNew = await responseOrder.Content.ReadAsStringAsync();
-                    JObject jsonObject = JObject.Parse(dataNew);
-                    int idOrder = (int)jsonObject["id"];
-                    List<int> listOrderID = new List<int>();
-                    listOrderID.Add(idOrder);
-                    HttpContext.Session.SetString("IsMember", "false");
-                    HttpContext.Session.SetObjectAsJson("listOrderID", listOrderID);
-                    return RedirectToAction("Payment", "Payment");
-                }
-            }
-            return View(obj);
-        }
+        //         string dataOrder = JsonSerializer.Serialize(order);
+        //         var contentOrder = new StringContent(dataOrder, System.Text.Encoding.UTF8, "application/json");
+        //         HttpResponseMessage responseOrder = await client.PostAsync(apiOrder, contentOrder);
+        //         if (responseOrder.StatusCode == System.Net.HttpStatusCode.Created)
+        //         {
+        //             string dataNew = await responseOrder.Content.ReadAsStringAsync();
+        //             JObject jsonObject = JObject.Parse(dataNew);
+        //             int idOrder = (int)jsonObject["id"];
+        //             List<int> listOrderID = new List<int>();
+        //             listOrderID.Add(idOrder);
+        //             HttpContext.Session.SetString("IsMember", "false");
+        //             HttpContext.Session.SetObjectAsJson("listOrderID", listOrderID);
+        //             return RedirectToAction("Payment", "Payment");
+        //         }
+        //     }
+        //     return View(obj);
+        // }
 
         public IActionResult PTLogin()
         {
@@ -224,7 +224,7 @@ namespace Gymany.Controllers
         [HttpPost]
         public async Task<IActionResult> RegisterForm(ListModels obj)
         {
-            if (ModelState.IsValid && IsUsernameExist(obj.customer.Username).Result == true)
+            if (ModelState.IsValid && IsUsernameExist(obj.customer.cus_username).Result == true)
             {
                 string data = JsonSerializer.Serialize(obj.customer);
                 var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");

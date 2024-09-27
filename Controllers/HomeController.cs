@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using Gymany.Models;
 using Microsoft.AspNetCore.Http;
 using X.PagedList;
+// using Gymany_API.Models;
 
 
 namespace Gymany.Controllers
@@ -44,7 +45,7 @@ namespace Gymany.Controllers
             List<Product> products = productController.GetProduct().Result;
             if (!String.IsNullOrEmpty(SearchContent))
             {
-                products = products.Where(s => s.Name.ToLower().Contains(SearchContent.ToLower())).ToList();
+                products = products.Where(s => s.prod_name.ToLower().Contains(SearchContent.ToLower())).ToList();
             }else{
                 return RedirectToAction("Index");
             }

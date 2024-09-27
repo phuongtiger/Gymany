@@ -11,31 +11,31 @@
     <div class="col-md-12">
         <form asp-action="CreatePost">
             <div class="form-group">
-                <label asp-for="Title" class="control-label h3"></label>
-                <input asp-for="Title" class="form-control form-control-lg" />
-                 <span asp-validation-for="Title" class="text-danger"></span>
+                <label asp-for="post_title" class="control-label h3"></label>
+                <input asp-for="post_title" class="form-control form-control-lg" />
+                 <span asp-validation-for="post_title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Date" class="control-label h3"></label>
-                <input readonly type="date" asp-for="Date" class="form-control form-control-lg" />
-                 <span asp-validation-for="Date" class="text-danger"></span>
+                <label asp-for="post_date" class="control-label h3"></label>
+                <input readonly type="date" asp-for="post_date" class="form-control form-control-lg" />
+                 <span asp-validation-for="post_date" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Content" class="control-label h3"></label>
-                <textarea id="Content" asp-for="Content" class="form-control form-control-lg text-justify"></textarea>
-                 <span asp-validation-for="Content" class="text-danger"></span>
+                <label asp-for="post_content" class="control-label h3"></label>
+                <textarea id="post_content" asp-for="post_content" class="form-control form-control-lg text-justify"></textarea>
+                 <span asp-validation-for="post_content" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Image" class="control-label h3"></label>
-                <input asp-for="Image" class="form-control form-control-lg" />
-                 <span asp-validation-for="Image" class="text-danger"></span>
+                <label asp-for="post_img" class="control-label h3"></label>
+                <input asp-for="post_img" class="form-control form-control-lg" />
+                 <span asp-validation-for="post_img" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <!-- Sử dụng trường ẩn để lưu trữ giá trị PTID -->
-                <input type="hidden" asp-for="PTID" class="form-control form-control-lg" value="@ViewBag.PTID" />
+                <input type="hidden" asp-for="pt_id" class="form-control form-control-lg" value="@ViewBag.pt_id" />
             </div>
             <div class="form-group">
-                <input type="hidden" readonly asp-for="StaffID" class="form-control form-control-lg" value="1" />
+                <input type="hidden" readonly asp-for="admin_id" class="form-control form-control-lg" value="1" />
             </div>
             <div class="card-footer d-flex justify-content-center"> 
                 <button type="submit" class="btn btn-primary btn-lg">Create</button>

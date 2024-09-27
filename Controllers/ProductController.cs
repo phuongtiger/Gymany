@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using Gymany.Models;
 using Microsoft.AspNetCore.Http;
 using X.PagedList;
+// using Gymany_API.Models;
 
 
 namespace Gymany.Controllers
@@ -191,8 +192,8 @@ namespace Gymany.Controllers
             List<Category> list = JsonSerializer.Deserialize<List<Category>>(data, options);
             List<SelectListItem> yourData = list.Select(c => new SelectListItem
             {
-                Value = c.CategoryID.ToString(), // ID của category là giá trị của mục
-                Text = c.Type // Tên của category là nội dung của mục
+                Value = c.cate_id.ToString(), // ID của category là giá trị của mục
+                Text = c.cate_type // Tên của category là nội dung của mục
             }).ToList();
             return yourData;
         }

@@ -11,26 +11,26 @@
         <h1 class="text-center">Send message for Memeber</h1>
         <form asp-action="SendMessage">
             <div class="form-group">
-                <label asp-for="Date" class="control-label h3"></label>
-                <input readonly type="Date" asp-for="Date" class="form-control form-control-lg" />
+                <label asp-for="noti_date" class="control-label h3"></label>
+                <input readonly type="Date" asp-for="noti_date" class="form-control form-control-lg" />
             </div>
             <div class="form-group">
-                <label asp-for="Context" class="control-label h3"></label>
-                <textarea asp-for="Context" class="form-control form-control-lg text-justify"></textarea>
+                <label asp-for="noti_context" class="control-label h3"></label>
+                <textarea asp-for="noti_context" class="form-control form-control-lg text-justify"></textarea>
             </div>
             <div class="form-group">
-                <label asp-for="Type" class="control-label h3"></label>
-                <select asp-for="Type" class="form-control form-control-lg text-justify">
+                <label asp-for="noti_type" class="control-label h3"></label>
+                <select asp-for="noti_type" class="form-control form-control-lg text-justify">
                     <option value="Normal">Normal</option>
                     <option value="alert">Alert</option>
                     <option value="danger">Danger</option>
                 </select>
             </div>
             <div class="form-group">
-                <input type="hidden" readonly asp-for="CustomerID" class="form-control form-control-lg " value="@ViewBag.cusid" />
+                <input type="hidden" readonly asp-for="cus_id" class="form-control form-control-lg " value="@ViewBag.cusid" />
             </div>
             <div class="form-group">
-                <input type="hidden" readonly asp-for="PTID" class="form-control form-control-lg " value="@ViewBag.ptid" />
+                <input type="hidden" readonly asp-for="pt_id" class="form-control form-control-lg " value="@ViewBag.ptid" />
             </div>
             <div class="card-footer d-flex justify-content-center">
                 <button type="submit" class="btn btn-primary btn-lg">Send</button>

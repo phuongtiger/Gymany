@@ -18,8 +18,12 @@
                                 style="margin: 5px 0; width:100%;">Profile</a>
                         </li>
                         <li>
-                            <a asp-action="OrderHistory" class="text-left"
+                            <a asp-controller="Customer" asp-action="OrderHistory" class="text-left"
                                 style="margin: 5px 0; width:100%;">Order History</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Customer" asp-action="PaymentHistory" class="text-left" style="margin: 5px 0; width:100%;">Payment
+                                History</a>
                         </li>
                         <li>
                             <a asp-controller="WorkoutPlan" asp-action="Index" class="text-left"
@@ -45,11 +49,11 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
-                                @if (Model.workoutPlans != null && Model.CheckMember == true)
+                                @* @if (Model.workoutPlans != null && Model.CheckMember == true) *@
                                 {
                                     @foreach (var item in Model.workoutPlans)
                                     {
-                                        <div class="card-header" style="background-color: #7e7b7b;color: white;">@item.Name
+                                        <div class="card-header" style="background-color: #7e7b7b;color: white;">@item.workout_name
                                         </div>
                                         <div class="card-body">
                                             <div class="row">
@@ -68,14 +72,14 @@
                                                             <tbody>
 
                                                                 <tr>
-                                                                    <td>@item.Name</td>
-                                                                    <td>@item.StartDate</td>
-                                                                    <td>@Html.Raw(item.Description)</td>
-                                                                    <td>@item.Session</td>
-                                                                    <td>@item.Activity</td>
+                                                                    <td>@item.workout_name</td>
+                                                                    <td>@item.workout_startDate</td>
+                                                                    <td>@Html.Raw(item.workout_description)</td>
+                                                                    <td>@item.workout_session</td>
+                                                                    <td>@item.workout_activity</td>
                                                                     <td>
-                                                                        <a asp-controller="WorkoutPlan" asp-action="Details"
-                                                                            asp-route-id="@item.WorkoutPlanID"
+                                                                        <a asp-controller="WorkoutPlan" asp-action="Detail"
+                                                                            asp-route-id="@item.workout_id"
                                                                             class="btn btn-primary">Details</a>
                                                                     </td>
                                                                 </tr>
@@ -86,7 +90,7 @@
                                             </div>
                                         </div>
                                     }
-                                }else if(Model.CheckMember == false && Model.CheckPayment == false){
+                                @* }else if(Model.CheckMember == false && Model.CheckPayment == false){
                                     <div style="padding: 40px">
                                         <p>You need to become a member to see the workout plan</p>
                                         <a asp-controller="Customer" asp-action="JoinMember">You can click here to become a member</a>
@@ -108,7 +112,7 @@
                                             <button type="submit" class="btn btn-primary btn-lg">Go to payment process</button>
                                         </form>
                                     </div>
-                                }
+                                } *@
                                 else
                                 {
                                     <div style="padding: 40px">

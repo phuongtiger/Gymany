@@ -38,18 +38,18 @@ namespace Gymany.Controllers
             this.api_PT = "https://localhost:5002/api/PT";
             this.api_GetPostID = "https://localhost:5002/api/Post/id";
         }
-        public async Task<IActionResult> Index()
-        {
-            if (!checkLogin())
-            {
-                return RedirectToAction("Form");
-            }
-            HttpResponseMessage response = await client.GetAsync(api);
-            string data = await response.Content.ReadAsStringAsync();
-            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            List<Member> list = JsonSerializer.Deserialize<List<Member>>(data, options);
-            return View(list);
-        }
+        // public async Task<IActionResult> Index()
+        // {
+        //     if (!checkLogin())
+        //     {
+        //         return RedirectToAction("Form");
+        //     }
+        //     HttpResponseMessage response = await client.GetAsync(api);
+        //     string data = await response.Content.ReadAsStringAsync();
+        //     var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+        //     List<Member> list = JsonSerializer.Deserialize<List<Member>>(data, options);
+        //     return View(list);
+        // }
         public async Task<IActionResult> PostManage()
         {
             if (!checkLogin())
@@ -129,8 +129,11 @@ namespace Gymany.Controllers
                 string data = JsonSerializer.Serialize(obj);
                 var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(api_post, content);
-                if (response.StatusCode == System.Net.HttpStatusCode.Created)
+                if (response.StatusCode == System.Net.HttpStatusCode.Created){
+                    TempData["SuccessMessage"] = "Post Add Success!";
                     return RedirectToAction("PostManage");
+                }
+                    
             }
             return View(obj);
         }
@@ -161,6 +164,7 @@ namespace Gymany.Controllers
                 // Kiểm tra kết quả trả về từ endpoint API
                 if (response.IsSuccessStatusCode)
                 {
+                    TempData["SuccessMessage"] = "Post Delete Success!";
                     // Xử lý kết quả nếu xóa thành công, ví dụ chuyển hướng đến trang danh sách
                     return RedirectToAction("PostManage");
                 }
@@ -202,6 +206,7 @@ namespace Gymany.Controllers
                 HttpResponseMessage respone = await client.PutAsync(api_GetPostID, content);
                 if (respone.StatusCode == System.Net.HttpStatusCode.Created)
                 {
+                    TempData["SuccessMessage"] = "Post Edit Success!";
                     return RedirectToAction("PostManage");
                 }
             }
@@ -221,10 +226,11 @@ namespace Gymany.Controllers
         {
             if (ModelState.IsValid)
             {
-                obj.Date = DateTime.Now;
+                obj.noti_date = DateTime.Now;
                 string data = JsonSerializer.Serialize(obj);
                 var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(api_Nof, content);
+                TempData["SuccessMessage"] = "Message send success!";
                 return RedirectToAction("Index");
             }
             return View(obj);
@@ -244,7 +250,7 @@ namespace Gymany.Controllers
         public async Task<ActionResult> PTLogin(string email, string password)
         {
             api_post = $"https://localhost:5002/api/PT/checklogin?email={email}&password={password}";
-            var PT = new PersonalTrainer { Username = email, Password = password };
+            var PT = new PersonalTrainer { pt_username = email, pt_password = password };
             var content = new StringContent(JsonSerializer.Serialize(PT), Encoding.UTF8, "application/json");
             HttpResponseMessage response = await client.PostAsync(api_post, content);
             string data = await response.Content.ReadAsStringAsync();
@@ -252,7 +258,7 @@ namespace Gymany.Controllers
             PersonalTrainer pt = JsonSerializer.Deserialize<PersonalTrainer>(data, options);
             if (response.IsSuccessStatusCode)
             {
-                HttpContext.Session.SetString("ID", pt.PTID.ToString());
+                HttpContext.Session.SetString("ID", pt.pt_id.ToString());
                 HttpContext.Session.SetString("Email", email);
                 HttpContext.Session.SetString("Password", password);
                 // Chuyển hướng đến trang chủ
@@ -283,8 +289,8 @@ namespace Gymany.Controllers
             List<PersonalTrainer> list = JsonSerializer.Deserialize<List<PersonalTrainer>>(data, options);
             List<SelectListItem> yourData = list.Select(c => new SelectListItem
             {
-                Value = c.PTID.ToString(), // ID của category là giá trị của mục
-                Text = c.Name // Tên của category là nội dung của mục
+                Value = c.pt_id.ToString(), // ID của category là giá trị của mục
+                Text = c.pt_name // Tên của category là nội dung của mục
             }).ToList();
             return yourData;
         }

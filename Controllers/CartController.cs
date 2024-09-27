@@ -27,9 +27,9 @@ namespace Gymany.Controllers
             client = new HttpClient();
             var contentType = new MediaTypeWithQualityHeaderValue("application/json");
             client.DefaultRequestHeaders.Accept.Add(contentType);
-            this.api_CartById = $"https://localhost:5002/api/Cart/CustomerID";
+            this.api_CartById = $"https://localhost:5002/api/Cart/cus_id";
             this.api = $"https://localhost:5002/api/Cart";
-            this.api_order = $"https://localhost:5002/api/Order";
+            this.api_order = $"https://localhost:5002/api/order_id";
             client.BaseAddress = new Uri("https://localhost:5002");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
@@ -39,7 +39,7 @@ namespace Gymany.Controllers
         public async Task<List<Cart>> GetCart()
         {
             string id = HttpContext.Session.GetString("CustomerID");
-            api_CartById = $"https://localhost:5002/api/Cart/CustomerID?CustomerID={id}";
+            api_CartById = $"https://localhost:5002/api/Cart/cus_id?cus_id={id}";
             HttpResponseMessage respone = await client.GetAsync(api_CartById);
             string data = await respone.Content.ReadAsStringAsync();
 
@@ -66,7 +66,7 @@ namespace Gymany.Controllers
         public async Task<List<Order>> GetOrder()
         {
             string id = HttpContext.Session.GetString("CustomerID");
-            api_CartById = $"https://localhost:5002/api/Order/CustomerID?CustomerID={id}";
+            api_CartById = $"https://localhost:5002/api/Order/cus_id?cus_id={id}";
             HttpResponseMessage respone = await client.GetAsync(api_CartById);
             string data = await respone.Content.ReadAsStringAsync();
 
@@ -137,7 +137,7 @@ namespace Gymany.Controllers
                 string data = await respone.Content.ReadAsStringAsync();
                 var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                 Order Order = JsonSerializer.Deserialize<Order>(data, options);
-                total += (int)Order.Total;
+                total += (int)Order.order_totalPrice;
                 OrderPayment.Add(Order);
             }
             ViewBag.Total = total;
@@ -174,7 +174,7 @@ namespace Gymany.Controllers
             try
             {
                 string id = HttpContext.Session.GetString("CustomerID");
-                api_CartById = $"https://localhost:5002/api/Order/CustomerID?CustomerID={id}";
+                api_CartById = $"https://localhost:5002/api/Order/cus_id?cus_id={id}";
                 HttpResponseMessage respone = await client.GetAsync(api_CartById);
                 string data = await respone.Content.ReadAsStringAsync();
                 var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
@@ -203,7 +203,7 @@ namespace Gymany.Controllers
             try
             {
                 var customerId = HttpContext.Session.GetString("CustomerID");
-                var response = await client.PostAsync($"api/Cart/CreateCartByCustomerID?customerID={customerId}&productID={productId}&Quantity={quantity}", null);
+                var response = await client.PostAsync($"api/Cart/CreateCartByCustomerID?cus_id={customerId}&prod_id={productId}&prod_quantity={quantity}", null);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -228,7 +228,7 @@ namespace Gymany.Controllers
         {
             try
             {
-                var response = await client.PostAsync($"api/Cart/UpdateCartItem?cartID={cartID}&quantity={quantity}", null);
+                var response = await client.PostAsync($"api/Cart/UpdateCartItem?cart_id={cartID}&cart_quantity={quantity}", null);
 
                 if (response.IsSuccessStatusCode)
                 {

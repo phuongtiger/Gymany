@@ -10,23 +10,21 @@ namespace Gymany.Models
     public class Notification
     {
         [Key]
-        public int NotificationID { get; set; }
+        public int noti_id { get; set; }
 
-        [Required(ErrorMessage = "Date is required.")]
-        public DateTime? Date { get; set; }
+        public DateTime? noti_date { get; set; }
 
-        [Required(ErrorMessage = "Context is required.")]
-        public string Context { get; set; }
+        public string noti_context { get; set; }
 
-        [StringLength(50, ErrorMessage = "Type length cannot exceed 50 characters.")]
-        public string Type { get; set; }
+        [StringLength(50)]
+        public string noti_type { get; set; }
 
         [ForeignKey("Customer")]
-        public int CustomerID { get; set; }
+        public int cus_id { get; set; }
         public Customer Customer { get; set; }
 
         [ForeignKey("PersonalTrainer")]
-        public int PTID { get; set; }
+        public int pt_id { get; set; }
         public PersonalTrainer PersonalTrainer { get; set; }
     }
 }

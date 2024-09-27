@@ -23,14 +23,14 @@ namespace Gymany.Controllers
             client = new HttpClient();
             var contentType = new MediaTypeWithQualityHeaderValue("application/json");
             client.DefaultRequestHeaders.Accept.Add(contentType);
-            this.api_postID = $"https://localhost:5002/api/Post/PostID";
+            this.api_postID = $"https://localhost:5002/api/Post/post_id";
         }
 
 
 
         public async Task<List<Post>> GetBlogByPostID()
         {
-            string id = HttpContext.Session.GetString("PostID");
+            string id = HttpContext.Session.GetString("post_id");
 
             // Kiểm tra tính hợp lệ của id
             if (string.IsNullOrEmpty(id))
@@ -39,7 +39,7 @@ namespace Gymany.Controllers
                 return new List<Post>();
             }
 
-            api_postID = $"https://localhost:5002/api/Post/PostID?PostID={id}";
+            api_postID = $"https://localhost:5002/api/Post/post_id?post_id={id}";
             HttpResponseMessage response = await client.GetAsync(api_postID);
 
             if (!response.IsSuccessStatusCode)

@@ -21,6 +21,10 @@
                                 History</a>
                         </li>
                         <li>
+                            <a asp-action="PaymentHistory" class="text-left" style="margin: 5px 0; width:100%;">Payment
+                                History</a>
+                        </li>
+                        <li>
                             <a asp-controller="WorkoutPlan" asp-action="Index" class="text-left"
                                 style="margin: 5px 0;width:100%;">Workout Plan
 
@@ -52,11 +56,10 @@
                                                 <table class="table">
                                                     <thead>
                                                         <tr>
-                                                            <th>Order ID</th>
-                                                            <th>Customer ID</th>
-                                                            <th>Product ID</th>
+                                                            <th>Image</th>
+                                                            <th>Name</th>
                                                             <th>Status</th>
-                                                            <th>Start Date</th>
+                                                            <th>Date</th>
                                                             <th>Total</th>
                                                             <th>Quantity</th>
                                                         </tr>
@@ -65,13 +68,12 @@
                                                         @foreach (var order in Model.Orders)
                                                         {
                                                             <tr>
-                                                                <td>@order.OrderID</td>
-                                                                <td>@order.CustomerID</td>
-                                                                <td>@order.ProductID</td>
-                                                                <td>@order.Status</td>
-                                                                <td>@order.StartDate</td>
-                                                                <td>@order.Total</td>
-                                                                <td>@order.Quantity</td>
+                                                                <td><img src="@order.Product.prod_img" alt="" style="width: 50px; height: 50px"></td>
+                                                                <td>@order.Product.prod_name</td>
+                                                                <td>@order.order_status</td>
+                                                                <td>@order.order_startDate</td>
+                                                                <td>@order.order_totalPrice</td>
+                                                                <td>@order.order_quantity</td>
                                                             </tr>
                                                         }
                                                     </tbody>

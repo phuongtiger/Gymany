@@ -1,0 +1,46 @@
+@model Gymany.Models.ListModels
+@{
+    ViewData["Title"] = "WorkoutPlan Details";
+}
+    <div class="container" style="padding-top: 50px;">
+        <div class=" row bg-white shadow " style="padding: 30px;">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.workoutPlan.workout_name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.workoutPlan.workout_name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.workoutPlan.workout_startDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.workoutPlan.workout_startDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.workoutPlan.workout_endDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.workoutPlan.workout_endDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.workoutPlan.workout_description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.Raw(Model.workoutPlan.workout_description)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.workoutPlan.workout_session)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.workoutPlan.workout_session)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.workoutPlan.workout_activity)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.workoutPlan.workout_activity)
+            </dd>
+        </div>
+        <hr>
+        <a asp-action="index" class="btn btn-outline-success btn-primary">Back</a>
+    </div>

@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.Web.CodeGeneration.Utils;
 using System.Configuration;
-using VNPAY_CS_ASPX.Models;
+// using VNPAY_CS_ASPX.Models;
 using Microsoft.AspNetCore.Http;
 using System.Net.Http;
 using System.Text.Json;
@@ -47,8 +47,8 @@ namespace Gymany.Controllers
             string orderID = "";
             foreach (var item in order)
             {
-                AmountOrder += (int)item.Total;
-                orderID = item.OrderID.ToString();
+                AmountOrder += (int)item.order_totalPrice;
+                orderID = item.order_id.ToString();
             }
             //Build URL for VNPAY
             VnPayLibrary vnpay = new VnPayLibrary();
@@ -84,74 +84,74 @@ namespace Gymany.Controllers
             return Redirect(paymentUrl);
         }
 
-        public  async Task<IActionResult> Back()
-        {
-            List<Order> orders = await GetListOrders();
-            string vnp_HashSecret = ""; 
-            VnPayLibrary vnpay = new VnPayLibrary();
-            string vnp_ResponseCode = Request.Query["vnp_ResponseCode"];
-            string vnp_TransactionStatus = Request.Query["vnp_TransactionStatus"];
-            string vnp_SecureHash = Request.Query["vnp_SecureHash"];
-            bool checkSignature = vnpay.ValidateSignature(vnp_SecureHash, vnp_HashSecret);
-            ViewBag.Check = false;
-            foreach (var item in orders)
-            {
-                item.Status = "Failed";
-            }
-            if (vnp_TransactionStatus.Equals("00") && vnp_ResponseCode.Equals("00"))
-            {
-                string IsMember = HttpContext.Session.GetString("IsMember");
-                if(IsMember == "false"){
-                    string customerID = HttpContext.Session.GetString("CustomerID");
-                    string apiMember = $"https://localhost:5002/api/Member/customerID?CustomerID={customerID}";
-                    HttpResponseMessage responseMember1 = await client.GetAsync(apiMember);
-                    string data = await responseMember1.Content.ReadAsStringAsync();
-                    var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
-                    List<Member> member = JsonSerializer.Deserialize<List<Member>>(data, options);
-                    member[0].Status = "Accepted";
-                    apiMember = "https://localhost:5002/api/Member/Id";
-                    string dataMember = JsonSerializer.Serialize(member[0]);
-                    var contentMember = new StringContent(dataMember, System.Text.Encoding.UTF8, "application/json");
-                    HttpResponseMessage responseMember2 = await client.PutAsync(apiMember, contentMember);
-                    if (responseMember2.StatusCode == System.Net.HttpStatusCode.Created)
-                    {
-                        HttpContext.Session.SetString("IsMember", "true");
-                    }
-                }
-                int totalPayment = 0;
-                Payment payment = new Payment();
-                foreach (var order in orders)
-                {
-                    totalPayment += (int)order.Total;
-                    payment = new Payment{
-                        CustomerID = order.CustomerID,
-                        ProductID = order.ProductID,
-                        Quantity = totalPayment,
-                        Date = DateTime.Now
-                    };
-                }
+        // public  async Task<IActionResult> Back()
+        // {
+        //     List<Order> orders = await GetListOrders();
+        //     string vnp_HashSecret = ""; 
+        //     VnPayLibrary vnpay = new VnPayLibrary();
+        //     string vnp_ResponseCode = Request.Query["vnp_ResponseCode"];
+        //     string vnp_TransactionStatus = Request.Query["vnp_TransactionStatus"];
+        //     string vnp_SecureHash = Request.Query["vnp_SecureHash"];
+        //     bool checkSignature = vnpay.ValidateSignature(vnp_SecureHash, vnp_HashSecret);
+        //     ViewBag.Check = false;
+        //     foreach (var item in orders)
+        //     {
+        //         item.order_status = "Failed";
+        //     }
+        //     if (vnp_TransactionStatus.Equals("00") && vnp_ResponseCode.Equals("00"))
+        //     {
+        //         string IsMember = HttpContext.Session.GetString("IsMember");
+        //         if(IsMember == "false"){
+        //             string customerID = HttpContext.Session.GetString("CustomerID");
+        //             string apiMember = $"https://localhost:5002/api/Member/customerID?CustomerID={customerID}";
+        //             HttpResponseMessage responseMember1 = await client.GetAsync(apiMember);
+        //             string data = await responseMember1.Content.ReadAsStringAsync();
+        //             var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+        //             List<Member> member = JsonSerializer.Deserialize<List<Member>>(data, options);
+        //             member[0].Status = "Accepted";
+        //             apiMember = "https://localhost:5002/api/Member/Id";
+        //             string dataMember = JsonSerializer.Serialize(member[0]);
+        //             var contentMember = new StringContent(dataMember, System.Text.Encoding.UTF8, "application/json");
+        //             HttpResponseMessage responseMember2 = await client.PutAsync(apiMember, contentMember);
+        //             if (responseMember2.StatusCode == System.Net.HttpStatusCode.Created)
+        //             {
+        //                 HttpContext.Session.SetString("IsMember", "true");
+        //             }
+        //         }
+        //         int totalPayment = 0;
+        //         Payment payment = new Payment();
+        //         foreach (var order in orders)
+        //         {
+        //             totalPayment += (int)order.order_totalPrice;
+        //             payment = new Payment{
+        //                 cus_id = order.cus_id,
+        //                 prod_id = order.prod_id,
+        //                 pay_quantity = totalPayment,
+        //                 pay_date = DateTime.Now
+        //             };
+        //         }
                 
-                string apiPayment = "https://localhost:5002/api/Payment";
-                string dataPayment = JsonSerializer.Serialize(payment);
-                var content = new StringContent(dataPayment, System.Text.Encoding.UTF8, "application/json");
-                HttpResponseMessage respone = await client.PostAsync(apiPayment, content);
-                if (respone.StatusCode == System.Net.HttpStatusCode.Created)
-                {
-                    foreach (var order in orders)
-                    {
-                        order.Status = "Success";
-                        string dataOrder = JsonSerializer.Serialize(order);
-                        var contentOrder = new StringContent(dataOrder, System.Text.Encoding.UTF8, "application/json");
-                        HttpResponseMessage response = await client.PutAsync(api_Order, contentOrder);
-                        if (response.StatusCode == System.Net.HttpStatusCode.Created)
-                        {
-                            ViewBag.Check = true;
-                        }
-                    }
-                }
-            }
-            ListModels list = new ListModels();
-            return View(list);
-        }
+        //         string apiPayment = "https://localhost:5002/api/Payment";
+        //         string dataPayment = JsonSerializer.Serialize(payment);
+        //         var content = new StringContent(dataPayment, System.Text.Encoding.UTF8, "application/json");
+        //         HttpResponseMessage respone = await client.PostAsync(apiPayment, content);
+        //         if (respone.StatusCode == System.Net.HttpStatusCode.Created)
+        //         {
+        //             foreach (var order in orders)
+        //             {
+        //                 order.order_status = "Success";
+        //                 string dataOrder = JsonSerializer.Serialize(order);
+        //                 var contentOrder = new StringContent(dataOrder, System.Text.Encoding.UTF8, "application/json");
+        //                 HttpResponseMessage response = await client.PutAsync(api_Order, contentOrder);
+        //                 if (response.StatusCode == System.Net.HttpStatusCode.Created)
+        //                 {
+        //                     ViewBag.Check = true;
+        //                 }
+        //             }
+        //         }
+        //     }
+        //     ListModels list = new ListModels();
+        //     return View(list);
+        // }
     }
 }

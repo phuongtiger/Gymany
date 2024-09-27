@@ -24,7 +24,7 @@ namespace Gymany.Controllers
         }
         public async Task<ActionResult> Index()
         {
-            string id = HttpContext.Session.GetString("CustomerID");
+            string id = HttpContext.Session.GetString("cus_id");
             api = $"https://localhost:5002/api/Notification/id?id={id}";
             HttpResponseMessage respone = await client.GetAsync(api);
             string data = await respone.Content.ReadAsStringAsync();

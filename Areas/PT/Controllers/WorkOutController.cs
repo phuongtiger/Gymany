@@ -57,17 +57,17 @@ namespace Gymany.Areas.PT.Controllers
                 return View(list);
             }
         }
-        public async Task<IActionResult> Create()
-        {
-            if (!checkLogin())
-            {
-                return Redirect("PT/Form");
-            }
-            string id = HttpContext.Session.GetString("ID");
-            ViewBag.cusid = await GetCusNameSelected();
-            ViewBag.PTID = id;
-            return View();
-        }
+        // public async Task<IActionResult> Create()
+        // {
+        //     if (!checkLogin())
+        //     {
+        //         return Redirect("PT/Form");
+        //     }
+        //     string id = HttpContext.Session.GetString("ID");
+        //     ViewBag.cusid = await GetCusNameSelected();
+        //     ViewBag.PTID = id;
+        //     return View();
+        // }
 
         [HttpPost]
 
@@ -79,8 +79,11 @@ namespace Gymany.Areas.PT.Controllers
                 string data = JsonSerializer.Serialize(obj);
                 var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(api, content);
-                if (response.StatusCode == System.Net.HttpStatusCode.Created)
+                if (response.StatusCode == System.Net.HttpStatusCode.Created){
+                    TempData["SuccessMessage"] = "Workout plan Add Success!";
                     return RedirectToAction("index");
+                }
+                    
             }
             return View(obj);
         }
@@ -111,6 +114,7 @@ namespace Gymany.Areas.PT.Controllers
                 // Kiểm tra kết quả trả về từ endpoint API
                 if (response.IsSuccessStatusCode)
                 {
+                    TempData["SuccessMessage"] = "Workout plan Delete Success!";
                     // Xử lý kết quả nếu xóa thành công, ví dụ chuyển hướng đến trang danh sách
                     return RedirectToAction("Index");
                 }
@@ -153,25 +157,26 @@ namespace Gymany.Areas.PT.Controllers
                 HttpResponseMessage respone = await client.PutAsync(api, content);
                 if (respone.StatusCode == System.Net.HttpStatusCode.Created)
                 {
+                    TempData["SuccessMessage"] = "Workout plan Edit Success!";
                     return RedirectToAction("index");
                 }
             }
             return View(obj);
         }
 
-        public async Task<List<SelectListItem>> GetCusNameSelected()
-        {
-            HttpResponseMessage respone = await client.GetAsync(api_memid);
-            string data = await respone.Content.ReadAsStringAsync();
-            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            List<Member> list = JsonSerializer.Deserialize<List<Member>>(data, options);
-            List<SelectListItem> yourData = list.Select(c => new SelectListItem
-            {
-                Value = c.MemberID.ToString(), // ID của category là giá trị của mục
-                Text = Convert.ToString(c.MemberID) // Tên của category là nội dung của mục
-            }).ToList();
-            return yourData;
-        }
+        // public async Task<List<SelectListItem>> GetCusNameSelected()
+        // {
+        //     HttpResponseMessage respone = await client.GetAsync(api_memid);
+        //     string data = await respone.Content.ReadAsStringAsync();
+        //     var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+        //     List<Member> list = JsonSerializer.Deserialize<List<Member>>(data, options);
+        //     List<SelectListItem> yourData = list.Select(c => new SelectListItem
+        //     {
+        //         Value = c.MemberID.ToString(), // ID của category là giá trị của mục
+        //         Text = Convert.ToString(c.MemberID) // Tên của category là nội dung của mục
+        //     }).ToList();
+        //     return yourData;
+        // }
 
         [HttpPost]
         public bool checkLogin()

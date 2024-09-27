@@ -9,19 +9,19 @@
 <div style="padding-top: 50px;"></div>
 <div class="card mb-4 shadow-sm">
     <div class="card-header">
-        <h2 class="my-0 font-weight-normal">@Html.DisplayFor(model => model.Name)</h2>
+        <h2 class="my-0 font-weight-normal">@Html.DisplayFor(model => model.workout_name)</h2>
     </div>
     <div class="card-body">
-        <p class="card-text">@Html.DisplayFor(model => model.Description)</p>
+        <p class="card-text">@Html.DisplayFor(model => model.workout_description)</p>
         <div class="row">
             <div class="col-md-6">
-                <p><strong>Start Date:</strong> @Html.DisplayFor(model => model.StartDate)</p>
-                <p><strong>End Date:</strong> @Html.DisplayFor(model => model.EndDate)</p>
-                <p><strong>Session:</strong> @Html.DisplayFor(model => model.Session)</p>
+                <p><strong>Start Date:</strong> @Html.DisplayFor(model => model.workout_startDate)</p>
+                <p><strong>End Date:</strong> @Html.DisplayFor(model => model.workout_endDate)</p>
+                <p><strong>Session:</strong> @Html.DisplayFor(model => model.workout_session)</p>
             </div>
             <div class="col-md-6">
-                <p><strong>Activity:</strong> @Html.DisplayFor(model => model.Activity)</p>
-                <p><strong>Member ID:</strong> @Html.DisplayFor(model => model.MemberID)</p>
+                <p><strong>Activity:</strong> @Html.DisplayFor(model => model.workout_activity)</p>
+                @* <p><strong>Member ID:</strong> @Html.DisplayFor(model => model.MemberID)</p> *@
             </div>
         </div>
     </div>

@@ -9,6 +9,12 @@
 <div style="padding-top: 50px;"></div>
 <a asp-area="PT" asp-action="CreatePost" class="btn btn-outline-success btn-primary">Create Post</a>
 <hr>
+  @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @TempData["SuccessMessage"]
+        </div>
+    }
 @if (@Model == null)
 {
     <p>Bạn chưa có bài post</p>
@@ -22,17 +28,17 @@ else
                 <div class="col-md-12">
                     <div class="card bg-dark text-white mb-4">
                         <div class="card-header">
-                            <h2 class="card-title">@item.Title</h2>
-                            <p class="card-text"><small class="text-muted">@item.Date</small></p>
+                            <h2 class="card-title">@item.post_title</h2>
+                            <p class="card-text"><small class="text-muted">@item.post_date</small></p>
                         </div>
                         <div class="card-body">
-                            <img src="@item.Image" class="img-fluid mb-3" alt="Illustration">
-                            <p class="card-text">@Html.Raw(item.Content)</p>
+                            <img src="@item.post_img" class="img-fluid mb-3" alt="Illustration">
+                            <p class="card-text">@Html.Raw(item.post_content)</p>
                         </div>
                         <div class="card-footer d-flex justify-content-center">
-                            <a asp-area="PT" asp-action="EditPost" asp-route-id="@item.PostID" type="button"
+                            <a asp-area="PT" asp-action="EditPost" asp-route-id="@item.post_id" type="button"
                                 class="btn btn-secondary me-2">Edit</a>
-                            <a asp-area="PT" asp-action="DeletePost" asp-route-id="@item.PostID" type="button"
+                            <a asp-area="PT" asp-action="DeletePost" asp-route-id="@item.post_id" type="button"
                                 class="btn btn-danger">Delete</a>
                         </div>
                     </div>

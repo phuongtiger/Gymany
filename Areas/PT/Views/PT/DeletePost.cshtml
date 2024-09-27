@@ -14,12 +14,12 @@
         <div class="col-md-12">
             <div class="card bg-dark text-white mb-4">
                 <div class="card-header">
-                    <h2 class="card-title">@Html.DisplayFor(model => model.Title)</h2>
-                    <p class="card-text"><small class="text-muted">@Html.DisplayFor(model => model.Date)</small></p>
+                    <h2 class="card-title">@Html.DisplayFor(model => model.post_title)</h2>
+                    <p class="card-text"><small class="text-muted">@Html.DisplayFor(model => model.post_date)</small></p>
                 </div>
                 <div class="card-body">
-                    <img src="@Html.DisplayFor(model => model.Image)" class="img-fluid mb-3" alt="Illustration">
-                    <p class="card-text">@Html.DisplayFor(model => model.Content)</p>
+                    <img src="@Html.DisplayFor(model => model.post_img)" class="img-fluid mb-3" alt="Illustration">
+                    <p class="card-text">@Html.DisplayFor(model => model.post_content)</p>
                 </div>
                 <div class="card-footer d-flex justify-content-center">
                 </div>
@@ -29,7 +29,7 @@
 </div>
 <hr>
     <form asp-action="DeletePost">
-        <input type="hidden" asp-for="PostID" />
+        <input type="hidden" asp-for="post_id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a class="btn btn-primary" asp-action="PostManage">Back to List</a>
     </form>

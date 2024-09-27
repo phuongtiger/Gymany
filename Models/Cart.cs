@@ -7,20 +7,19 @@ using System.Threading.Tasks;
 
 namespace Gymany.Models
 {
-   public class Cart
-{
-    [Key]
-    public int CartID { get; set; }
+    public class Cart
+    {
+        [Key]
+        public int cart_id { get; set; }
 
-    [Required(ErrorMessage = "Quantity is required.")]
-    public int? Quantity { get; set; }
+        public int? cart_quantity { get; set; }
 
-    [ForeignKey("Customer")]
-    public int CustomerID { get; set; }
-    public Customer Customer { get; set; }
+        [ForeignKey("Customer")]
+        public int cus_id { get; set; }
+        public Customer Customer { get; set; }
 
-    [ForeignKey("Product")]
-    public int ProductID { get; set; }
-    public Product Product { get; set; }
-}
+        [ForeignKey("Product")]
+        public int prod_id { get; set; }
+        public Product Product { get; set; }
+    }
 }

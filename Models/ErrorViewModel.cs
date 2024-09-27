@@ -9,3 +9,4 @@ namespace Gymany.Models
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
     }
 }
+ 

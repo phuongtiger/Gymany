@@ -23,63 +23,64 @@ namespace Gymany.Controllers
             client = new HttpClient();
             this.api = "https://localhost:5002/api/WorkoutPlan";
         }
-        public async Task<IActionResult> IndexAsync()
-        {
-            if (!checkLogin())
-            {
-                return Redirect("Customer/Form");
-            }
-            string customerID = HttpContext.Session.GetString("CustomerID");
-            int memberid = await GetMemberID(customerID).ContinueWith(t => t.Result.MemberID);
-            string status = await GetMemberID(customerID).ContinueWith(t => t.Result.Status);
-            api = $"https://localhost:5002/api/WorkoutPlan/MemberID?memberid={memberid}";
-            HttpResponseMessage response = await client.GetAsync(api);
-            List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
-            string number = HttpContext.Session.GetString("NumberNoti");
-            ListModels listModels = new ListModels{
-                Notifications = notifications,
-                NumberNoti = number
-            };
-            string id = HttpContext.Session.GetString("CustomerID");
-            ViewBag.cusID = id;
-            if (response.StatusCode == HttpStatusCode.NotFound)
-            {
-                if(memberid == 0 && status.Equals("Not Found")){
-                    listModels.CheckMember = false;
-                    listModels.CheckPayment = false;
-                }else if(status.Equals("Waiting") || status.Equals("Unaccepted")){
-                    listModels.CheckMember = true;
-                    listModels.CheckPayment = false;
-                }
-                else{
-                    listModels.CheckMember = true;
-                    listModels.CheckPayment = true;
-                }
-                return View(listModels);
-            }else{
-                string data = await response.Content.ReadAsStringAsync();
-                var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
-                List<WorkoutPlan> workout = JsonSerializer.Deserialize<List<WorkoutPlan>>(data, options);
-                listModels = new ListModels{
-                    workoutPlans = workout,
-                    CheckMember = true
-                };
-                return View(listModels);
-            }
+        // public async Task<IActionResult> IndexAsync()
+        // {
+        //     if (!checkLogin())
+        //     {
+        //         return Redirect("Customer/Form");
+        //     }
+        //     string customerID = HttpContext.Session.GetString("CustomerID");
+        //     int memberid = await GetMemberID(customerID).ContinueWith(t => t.Result.MemberID);
+        //     string status = await GetMemberID(customerID).ContinueWith(t => t.Result.Status);
+        //     api = $"https://localhost:5002/api/WorkoutPlan/MemberID?memberid={memberid}";
+        //     HttpResponseMessage response = await client.GetAsync(api);
+        //     List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
+        //     string number = HttpContext.Session.GetString("NumberNoti");
+        //     ListModels listModels = new ListModels{
+        //         Notifications = notifications,
+        //         NumberNoti = number
+        //     };
+        //     string id = HttpContext.Session.GetString("CustomerID");
+        //     ViewBag.cusID = id;
+        //     if (response.StatusCode == HttpStatusCode.NotFound)
+        //     {
+        //         if(memberid == 0 && status.Equals("Not Found")){
+        //             listModels.CheckMember = false;
+        //             listModels.CheckPayment = false;
+        //         }else if(status.Equals("Waiting") || status.Equals("Unaccepted")){
+        //             listModels.CheckMember = true;
+        //             listModels.CheckPayment = false;
+        //         }
+        //         else{
+        //             listModels.CheckMember = true;
+        //             listModels.CheckPayment = true;
+        //         }
+        //         return View(listModels);
+        //     }else{
+        //         string data = await response.Content.ReadAsStringAsync();
+        //         var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+        //         List<WorkoutPlan> workout = JsonSerializer.Deserialize<List<WorkoutPlan>>(data, options);
+        //         listModels = new ListModels{
+        //             workoutPlans = workout,
+        //             CheckMember = true
+        //         };
+        //         return View(listModels);
+        //     }
             
-        } 
-        public async Task<Member> GetMemberID(string customerID){
-            string api = $"https://localhost:5002/api/Member/customerID?CustomerID={customerID}";
-            HttpResponseMessage response = await client.GetAsync(api);
-            if (response.StatusCode == HttpStatusCode.NotFound){
-                return new Member{MemberID = 0, Status = "Not Found"};
-            }else{
-                string data = await response.Content.ReadAsStringAsync();
-                var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
-                List<Member> member = JsonSerializer.Deserialize<List<Member>>(data, options);
-                return member[0];
-            }
-        }
+        // } 
+        // public async Task<Member> GetMemberID(string customerID){
+        //     string api = $"https://localhost:5002/api/Member/customerID?CustomerID={customerID}";
+        //     HttpResponseMessage response = await client.GetAsync(api);
+        //     if (response.StatusCode == HttpStatusCode.NotFound){
+        //         return new Member{MemberID = 0, Status = "Not Found"};
+        //     }else{
+        //         string data = await response.Content.ReadAsStringAsync();
+        //         var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
+        //         List<Member> member = JsonSerializer.Deserialize<List<Member>>(data, options);
+        //         return member[0];
+        //     }
+        // }
+
         public IActionResult OrderHistory()
         {
             if (!checkLogin())

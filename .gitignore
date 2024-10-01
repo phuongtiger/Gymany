@@ -36,4 +36,4 @@ msbuild.wrn
 *.exe
 # Ignore the bin and obj folders
 bin/
-obj/
+obj

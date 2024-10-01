@@ -291,35 +291,6 @@ namespace Gymany.Controllers
             }
             return NotFound();
         }
-        // [HttpPost]
-        // public async Task<IActionResult> UpdateProduct(int id, Product obj)
-        // {
-        //     if (obj.ImageUpload != null)
-        //     {
-        //         string fileName = Path.GetFileNameWithoutExtension(obj.ImageUpload.FileName) + Path.GetExtension(obj.ImageUpload.FileName);
-        //         string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/Product", fileName);
-        //         using (var stream = new FileStream(path, FileMode.Create))
-        //         {
-        //             await obj.ImageUpload.CopyToAsync(stream);
-        //         }
-        //         obj.Image = "/images/Product/" + fileName;
-        //     }
-        //     ViewBag.Name = HttpContext.Session.GetString("AdminName");
-        //     api_ProductByID = $"https://localhost:5002/api/Product/id?id={id}";
-        //     obj.ProductID = id;
-        //     ViewBag.ProductID = id;
-        //     ViewBag.CategoryID = await GetSelectItem();
-        //     string data = JsonSerializer.Serialize(obj);
-        //     var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
-        //     HttpResponseMessage response = await client.PutAsync(api_ProductByID, content);
-        //     if (response.IsSuccessStatusCode)
-        //     {
-        //         TempData["SuccessMessage"] = "The product has been updated successfully!";
-        //         return RedirectToAction("Product");
-        //     }
-        //     return Redirect("UpdateProduct");
-        // }
-
         public async Task<IActionResult> DeleteProduct(int id)
         {
             ViewBag.Name = HttpContext.Session.GetString("AdminName");
@@ -697,35 +668,6 @@ namespace Gymany.Controllers
             }
             return NotFound();
         }
-        // [HttpPost]
-        // public async Task<IActionResult> UpdatePost(int id, Post obj)
-        // {
-        //     if (obj.ImageUpload != null)
-        //     {
-        //         string fileName = Path.GetFileNameWithoutExtension(obj.ImageUpload.FileName) + Path.GetExtension(obj.ImageUpload.FileName);
-        //         string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/Product", fileName);
-        //         using (var stream = new FileStream(path, FileMode.Create))
-        //         {
-        //             await obj.ImageUpload.CopyToAsync(stream);
-        //         }
-        //         obj.Image = "/images/Product/" + fileName;
-        //     }
-        //     ViewBag.NamePT = await GetPtId();
-        //     ViewBag.NameStaff = await GetStaffId();
-        //     api_Post = $"https://localhost:5002/api/Post/id?id={id}";
-        //     obj.PostID = id;
-        //     string data = JsonSerializer.Serialize(obj);
-        //     var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
-        //     HttpResponseMessage response = await client.PutAsync(api_Post, content);
-        //     if (response.IsSuccessStatusCode)
-        //     {
-        //          TempData["SuccessMessage"] = "The post has been successfully updated!";
-        //         return RedirectToAction("Post");
-        //     }
-        //     return View("UpdatePost");
-        // }
-
-        //method delete Pt accout
         public async Task<IActionResult> DeletePost(int id)
         {
             ViewBag.Name = HttpContext.Session.GetString("AdminName");
@@ -897,139 +839,7 @@ namespace Gymany.Controllers
                 return View("Error");
             }
         }
-        // ------------------------------------Member Manage --------------------------------\\
-        // public async Task<IActionResult> MemberAccount(int? page)
-        // {
 
-        //     ViewBag.Name = HttpContext.Session.GetString("AdminName");
-        //     if (!checkLogin())
-        //     {
-        //         return Redirect("/Admin/Index");
-        //     }
-        //     HttpResponseMessage response = await client.GetAsync(api_Member);
-        //     string data = await response.Content.ReadAsStringAsync();
-        //     var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-        //     List<Member> list = JsonSerializer.Deserialize<List<Member>>(data, options);
-        //     var listPage = list.ToPagedList(page ?? 1, 7);
-        //     return View(listPage);
-
-        // }
-        //method add member
-        // public async Task<IActionResult> AddMember()
-        // {
-        //     ViewBag.Name = HttpContext.Session.GetString("AdminName");
-        //     return View();
-        // }
-        // [HttpPost]
-        // public async Task<IActionResult> AddMember(Member obj)
-        // {
-        //     ViewBag.Name = HttpContext.Session.GetString("AdminName");
-        //     if (ModelState.IsValid)
-        //     {
-        //         string data = JsonSerializer.Serialize(obj);
-        //         var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
-        //         HttpResponseMessage response = await client.PostAsync(api_Post, content);
-        //         if (response.StatusCode == System.Net.HttpStatusCode.Created){
-        //              TempData["SuccessMessage"] = "Member added successfully!";
-        //             return RedirectToAction("MemberAccount");
-        //         }
-        //     }
-        //     return View(obj);
-        // }
-
-        // //method delete Pt member
-        // public async Task<IActionResult> DeleteMember(int id)
-        // {
-
-        //     ViewBag.Name = HttpContext.Session.GetString("AdminName");
-        //     api_MemberById = $"https://localhost:5002/api/Member/id?id={id}";
-        //     HttpResponseMessage response = await client.GetAsync(api_MemberById);
-        //     if (response.IsSuccessStatusCode)
-        //     {
-        //         var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-        //         var data = response.Content.ReadAsStringAsync().Result;
-        //         var member = JsonSerializer.Deserialize<Member>(data, options);
-        //         return View(member);
-        //     }
-        //     return NotFound();
-        // }
-        // [HttpPost]
-        // public async Task<ActionResult> DeleteMember(int id, Member obj)
-        // {
-        //     ViewBag.Name = HttpContext.Session.GetString("AdminName");
-        //     api_MemberById = $"https://localhost:5002/api/Member/id?id={id}";
-
-        //     try
-        //     {
-        //         // Tạo yêu cầu DeletePT
-        //         obj.MemberID = id;
-        //         HttpResponseMessage response = await client.DeleteAsync(api_MemberById);
-        //         var data = response.Content.ReadAsStringAsync().Result;
-        //         var member = JsonSerializer.Deserialize<Member>(data);
-        //         // Kiểm tra kết quả trả về từ endpoint API
-        //         if (response.IsSuccessStatusCode)
-        //         {
-        //              TempData["SuccessMessage"] = "The member has been successfully deleted!";
-        //             // Xử lý kết quả nếu xóa thành công, ví dụ chuyển hướng đến trang danh sách
-        //             return RedirectToAction("MemberAccount");
-
-        //         }
-        //         else
-        //         {
-        //             // Xử lý kết quả nếu xóa không thành công, ví dụ hiển thị thông báo lỗi
-        //             return View();
-        //         }
-        //     }
-        //     catch (Exception ex)
-        //     {
-        //         System.Console.WriteLine(ex);
-        //         // Xử lý lỗi nếu có
-        //         return View("Error");
-        //     }
-        // }
-
-        // //method update Status Member
-        // public async Task<IActionResult> UpdateMember(int id)
-        // {
-        //     ViewBag.CustomerId = await GetCustomerId();
-        //     ViewBag.MemberId = id;
-        //     ViewBag.Name = HttpContext.Session.GetString("AdminName");
-        //     api_MemberById = $"https://localhost:5002/api/Member/id?id={id}";
-        //     HttpResponseMessage response = await client.GetAsync(api_MemberById);
-
-        //     if (response.IsSuccessStatusCode)
-        //     {
-        //         var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-        //         var data = response.Content.ReadAsStringAsync().Result;
-        //         var member = JsonSerializer.Deserialize<Member>(data, options);
-        //         return View(member);
-        //     }
-        //     return NotFound();
-        // }
-        // [HttpPost]
-        // public async Task<IActionResult> UpdateMember(int id, Member obj)
-        // {
-
-
-        //     ViewBag.Name = HttpContext.Session.GetString("AdminName");
-        //     api_MemberById = $"https://localhost:5002/api/Member/id?id={id}";
-        //     obj.MemberID = id;
-        //     ViewBag.CustomerId = await GetCustomerId();
-        //     ViewBag.MemberId = id;
-        //     string data = JsonSerializer.Serialize(obj);
-        //     var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
-        //     HttpResponseMessage response = await client.PutAsync(api_MemberById, content);
-        //     if (response.IsSuccessStatusCode)
-        //     {
-        //          TempData["SuccessMessage"] = "The member has been successfully updated!";
-        //         return RedirectToAction("MemberAccount");
-        //     }
-        //     return View("UpdateMember");
-        // }
-
-
-
-       // ------------------------------------Order Manage --------------------------------\\
         public async Task<IActionResult> Order(int? page)
         {
 
@@ -1090,7 +900,6 @@ namespace Gymany.Controllers
         }
 
 
-        // ========================== another medthod ==========================================\\
         public async Task<List<SelectListItem>> GetSelectItem()
         {
             HttpResponseMessage respone = await client.GetAsync(apiCategory);

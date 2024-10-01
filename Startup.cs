@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Gymany.Core.Service;
+using Microsoft.Extensions.Options;
+using Gymany.Core.Common; 
 
 namespace Gymany
 {
@@ -20,8 +23,17 @@ namespace Gymany
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddControllersWithViews();
+            
+            // Register the ApiService with HttpClient for making HTTP requests.
+            services.AddHttpClient<ApiService>();
 
+            // Bind the ApiSettings section from appsettings.json to the ApiSettings class.
+            services.Configure<ApiSettings>(Configuration.GetSection("ApiSettings"));
+
+            // Register ApiSettings as a singleton service to be used throughout the application.
+            services.AddSingleton(resolver => resolver.GetRequiredService<IOptions<ApiSettings>>().Value);
+
+            services.AddControllersWithViews();
             services.AddDistributedMemoryCache();
             services.AddSession((option) =>
             {
@@ -46,8 +58,6 @@ namespace Gymany
                 app.UseHsts();
             }
 
-
-            //đăng ký session
             app.UseSession();
             app.UseHttpsRedirection();
             app.UseStaticFiles();

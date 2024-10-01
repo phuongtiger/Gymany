@@ -1,22 +1,16 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Net.Http.Json;
-using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Gymany.Models;
-// using Gymany_API.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.Extensions.Logging;
 using X.PagedList;
 
 

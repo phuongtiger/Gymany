@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\Gymany\\Gymany.csproj": {}
+    "C:\\Users\\PhuongHH\\Desktop\\WorkSpace\\Gymany\\Gymany.csproj": {}
   },
   "projects": {
-    "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\Gymany\\Gymany.csproj": {
+    "C:\\Users\\PhuongHH\\Desktop\\WorkSpace\\Gymany\\Gymany.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\Gymany\\Gymany.csproj",
+        "projectUniqueName": "C:\\Users\\PhuongHH\\Desktop\\WorkSpace\\Gymany\\Gymany.csproj",
         "projectName": "Gymany",
-        "projectPath": "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\Gymany\\Gymany.csproj",
-        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "E:\\SE1707_Ky5\\Project\\project_G\\Gymany\\Gymany\\Gymany\\obj\\",
+        "projectPath": "C:\\Users\\PhuongHH\\Desktop\\WorkSpace\\Gymany\\Gymany.csproj",
+        "packagesPath": "C:\\Users\\PhuongHH\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PhuongHH\\Desktop\\WorkSpace\\Gymany\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PhuongHH\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,6 +45,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Bogus": {
+              "target": "Package",
+              "version": "[35.6.1, )"
+            },
             "Microsoft.AspNetCore.Session": {
               "target": "Package",
               "version": "[2.2.0, )"

@@ -30,12 +30,10 @@ msbuild.log
 msbuild.err
 msbuild.wrn
 
-# Recycle Bin used on file shares
-$RECYCLE.bin/
-
 # Visual Studio 2015
 .vs/
 *.editorconfig
-bin
 *.exe
-obj
+# Ignore the bin and obj folders
+bin/
+obj/

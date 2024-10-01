@@ -22,12 +22,12 @@ namespace Gymany.Controllers
             productController = new ProductController();
         }
 
-        public IActionResult Index(int? page)
+        public async Task<IActionResult> Index(int? page)
         {
-            List<Product> products = productController.GetProduct().Result;
+            List<Product> products = await productController.GetProduct();
             List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
             string number = HttpContext.Session.GetString("NumberNoti");
-            List<Category> categories = productController.GetCategory().Result;
+            List<Category> categories = await productController.GetCategory();
             var listpage = products.ToPagedList(page ?? 1, 8);
             var viewModel = new ListModels
             {
@@ -46,7 +46,9 @@ namespace Gymany.Controllers
             if (!String.IsNullOrEmpty(SearchContent))
             {
                 products = products.Where(s => s.prod_name.ToLower().Contains(SearchContent.ToLower())).ToList();
-            }else{
+            }
+            else
+            {
                 return RedirectToAction("Index");
             }
             ListModels listModels = new ListModels
@@ -63,6 +65,6 @@ namespace Gymany.Controllers
             ListModels listModels = new ListModels();
             return View(listModels);
         }
-        
+
     }
 }

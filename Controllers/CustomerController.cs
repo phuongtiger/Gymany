@@ -119,11 +119,10 @@ namespace Gymany.Controllers
                 string jsonString = await response.Content.ReadAsStringAsync();
                 //lấy tất cả thông tin từ id của customer
                 JObject jsonObject = JObject.Parse(jsonString);
-                string id = (string)jsonObject["cus_id"];
-
-                HttpContext.Session.SetString("cus_id", id);
+                string token = (string)jsonObject["token"];
                 HttpContext.Session.SetString("cus_username", username);
                 HttpContext.Session.SetString("cus_password", password);
+                HttpContext.Session.SetString("token", token);
                 // Chuyển hướng đến trang chủ
                 return RedirectToAction("Index", "Notification");
             }

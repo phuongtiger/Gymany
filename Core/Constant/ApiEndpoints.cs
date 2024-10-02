@@ -21,6 +21,9 @@ namespace Gymany.Core.Constant
         /// <summary>
         /// Endpoint for retrieving a product by its ID.
         /// /// </summary>
-         public const string PRODUCT_BY_ID = "Product/id?id=";
+        public const string PRODUCT_BY_ID = "Product/id?id=";
+
+        public const string NOTIFICATION = "Notification";
+        public const string NOTIFICATION_BY_ID = "Notification/id?id=";
     }
 }

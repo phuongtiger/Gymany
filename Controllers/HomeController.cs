@@ -34,9 +34,6 @@ namespace Gymany.Controllers
         /// <returns>An action result representing the view with the list of products.</returns>
         public async Task<IActionResult> Index(int? page)
         {
-            // Log the product endpoint for debugging purposes.
-            System.Console.WriteLine(ApiEndpoints.PRODUCT);
-
             // Fetch the list of products from the API.
             List<Product> products = await _apiService.GetAsync<List<Product>>(ApiEndpoints.PRODUCT);
 

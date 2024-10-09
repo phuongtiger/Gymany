@@ -162,7 +162,7 @@
 									</div>
 									@using (Html.BeginForm("AddToCart", "Cart", FormMethod.Post))
 									{
-										<input type="hidden" name="productId" value="@Model.product.prod_id" />
+										<input type="hidden" name="prod_id" value="@Model.product.prod_id" />
 										<button type="submit"
 											class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
 											Add to cart
@@ -249,34 +249,60 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="/vendor/sweetalert/sweetalert.min.js"></script>
 	<script>
+		
+		
 		$(document).ready(function () {
-			$(".js-addcart-detail").on("click", function (e) {
-				e.preventDefault(); // Ngăn chặn hành động mặc định của nút submit
+    // Handle quantity increment
+    $('.btn-num-product-up').on('click', function () {
+        var inputElement = $(this).siblings('input.num-product'); // Get the sibling input element
+        var currentValue = parseInt(inputElement.val()); // Get the current DOM value
+        if (!isNaN(currentValue)) {
+            inputElement.val(currentValue + 1); // Increase the value by 1
+        } else {
+            inputElement.val(1); // If the value is not a number, reset to 1
+        }
+    });
 
-				var productId = $(this).siblings('input[name="productId"]').val(); // Lấy giá trị productId từ input ẩn
+    // Handle quantity decrement
+    $('.btn-num-product-down').on('click', function () {
+        var inputElement = $(this).siblings('input.num-product'); // Get the sibling input element
+        var currentValue = parseInt(inputElement.val()); // Get the current DOM value
+        if (!isNaN(currentValue) && currentValue > 1) {
+            inputElement.val(currentValue - 1); // Decrease the value by 1, but not below 1
+        } else {
+            inputElement.val(1); // If value is 1 or less, keep it at 1
+        }
+    });
 
-				// Lấy giá trị của phần tử input
-				var inputElement = document.querySelector(".mtext-104");
-				var Quantity = inputElement.value;
+    // Handle add to cart button click
+    $(".js-addcart-detail").on("click", function (e) {
+        e.preventDefault(); // Prevent default action of the button
 
-				$.ajax({
-					url: '/Cart/AddToCart', // Địa chỉ URL của action trong controller
-					method: 'POST', // Phương thức POST
-					data: {
-						productId: productId,
-						Quantity: Quantity
-					}, // Dữ liệu gửi đi
-					success: function (response) {
-						// Xử lý dữ liệu trả về sau khi gửi thành công
-						swal("Added to cart !", "success");
-					},
-					error: function (xhr, status, error) {
-						// Xử lý lỗi nếu có
-						console.log(xhr.responseText); // Hiển thị lỗi trong console
-					}
-				});
-			});
-		});
+        var prod_id = $(this).siblings('input[name="prod_id"]').val(); // Get product ID from hidden input
+
+        // Get the live DOM value, not the attribute
+        var inputElement = $(this).closest('.flex-w').find('.num-product');
+        var prod_quantity = inputElement.val();
+
+        $.ajax({
+            url: '/Cart/AddToCart', // URL of the action in the controller
+            method: 'POST', // POST method
+            data: {
+                prod_id: prod_id,
+                prod_quantity: prod_quantity // Send the live value
+            },
+            success: function (response) {
+                // Handle successful response
+                swal("Added to cart!", "success");
+            },
+            error: function (xhr, status, error) {
+                // Handle error
+                console.log(xhr.responseText); // Log the error in the console
+            }
+        });
+    });
+});
+e
 	</script>
 	<!--===============================================================================================-->
 	<script src="/vendor/jquery/jquery-3.2.1.min.js"></script>

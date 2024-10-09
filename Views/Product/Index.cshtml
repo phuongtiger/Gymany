@@ -199,7 +199,7 @@
 								
 								@using (Html.BeginForm("AddToCart", "Cart", FormMethod.Post))
 								{
-									<input type="hidden" name="productId" value="@item.prod_id" />
+									<input type="hidden" name="prod_id" value="@item.prod_id" />
 									<button type="submit" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2" value="@item.prod_id">
 										<img class="icon-heart1 dis-block trans-04" src="~/images/cart.png" width="30px" height="30px" alt="ICON">
 									</button>
@@ -230,13 +230,13 @@
 			$(".btn-addwish-b2").on("click", function (e) {
 				e.preventDefault(); // Ngăn chặn hành động mặc định của nút submit
 
-				var productId = $(this).siblings('input[name="productId"]').val(); // Lấy giá trị productId từ input ẩn
+				var prod_id = $(this).siblings('input[name="prod_id"]').val(); // Lấy giá trị productId từ input ẩn
 
 				$.ajax({
 					url: '/Cart/AddToCart', // Địa chỉ URL của action trong controller
 					method: 'POST', // Phương thức POST
-					data: { productId: productId,
-					Quantity: 1 
+					data: { prod_id: prod_id,
+					prod_quantity: 1 
 					}, // Dữ liệu gửi đi
 					success: function (response) {
 						// Xử lý dữ liệu trả về sau khi gửi thành công

@@ -38,8 +38,8 @@ namespace Gymany.Controllers
 
         public async Task<List<Cart>> GetCart()
         {
-            string id = HttpContext.Session.GetString("CustomerID");
-            api_CartById = $"https://localhost:5002/api/Cart/cus_id?cus_id={id}";
+            string id = HttpContext.Session.GetString("cus_id");
+            api_CartById = $"https://localhost:5002/api/Cart/CustomerID?CustomerID={id}";
             HttpResponseMessage respone = await client.GetAsync(api_CartById);
             string data = await respone.Content.ReadAsStringAsync();
 
@@ -65,8 +65,8 @@ namespace Gymany.Controllers
 
         public async Task<List<Order>> GetOrder()
         {
-            string id = HttpContext.Session.GetString("CustomerID");
-            api_CartById = $"https://localhost:5002/api/Order/cus_id?cus_id={id}";
+            string id = HttpContext.Session.GetString("cus_id");
+            api_CartById = $"https://localhost:5002/api/Order/CustomerID?CustomerID={id}";
             HttpResponseMessage respone = await client.GetAsync(api_CartById);
             string data = await respone.Content.ReadAsStringAsync();
 
@@ -173,19 +173,23 @@ namespace Gymany.Controllers
             }
             try
             {
-                string id = HttpContext.Session.GetString("CustomerID");
-                api_CartById = $"https://localhost:5002/api/Order/cus_id?cus_id={id}";
+                string id = HttpContext.Session.GetString("cus_id");
+                api_CartById = $"https://localhost:5002/api/Order/CustomerID?customerID={id}";
                 HttpResponseMessage respone = await client.GetAsync(api_CartById);
                 string data = await respone.Content.ReadAsStringAsync();
+                System.Console.WriteLine(data);
                 var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                System.Console.WriteLine(options);
                 List<int> listOrderID = JsonSerializer.Deserialize<List<int>>(data, options);
                 HttpContext.Session.SetObjectAsJson("listOrderID", listOrderID);
+                System.Console.WriteLine("hiiii");
                 if (respone.IsSuccessStatusCode)
                 {
                     return RedirectToAction("Create");
                 }
                 else
                 {
+                    System.Console.WriteLine(("Fail ordercart"));
                     ModelState.AddModelError(string.Empty, "Failed to copy data from Cart to Order.");
                     return View("Error");
                 }
@@ -198,12 +202,12 @@ namespace Gymany.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddToCart(int productId, int quantity)
+        public async Task<IActionResult> AddToCart(int prod_id, int prod_quantity)
         {
             try
             {
-                var customerId = HttpContext.Session.GetString("CustomerID");
-                var response = await client.PostAsync($"api/Cart/CreateCartByCustomerID?cus_id={customerId}&prod_id={productId}&prod_quantity={quantity}", null);
+                var cus_id = HttpContext.Session.GetString("cus_id");
+                var response = await client.PostAsync($"api/Cart/CreateCartByCustomerID?customerID={cus_id}&productID={prod_id}&prod_quantity={prod_quantity}", null);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -224,11 +228,11 @@ namespace Gymany.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> UpdateCartItem(int cartID, int quantity)
+        public async Task<ActionResult> UpdateCartItem(int cart_id, int cart_quantity)
         {
             try
             {
-                var response = await client.PostAsync($"api/Cart/UpdateCartItem?cart_id={cartID}&cart_quantity={quantity}", null);
+                var response = await client.PostAsync($"api/Cart/UpdateCartItem?cartId={cart_id}&quantity={cart_quantity}", null);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -252,9 +256,9 @@ namespace Gymany.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult> Delete(int CartId)
+        public async Task<ActionResult> Delete(int cart_id)
         {
-            api = $"https://localhost:5002/api/Cart/id?id={CartId}";
+            api = $"https://localhost:5002/api/Cart/Id?id={cart_id}";
             try
             {
                 // Tạo yêu cầu DELETE
@@ -284,8 +288,8 @@ namespace Gymany.Controllers
         [HttpPost]
         public bool checkLogin()
         {
-            var username = HttpContext.Session.GetString("Username");
-            var pass = HttpContext.Session.GetString("Password");
+            var username = HttpContext.Session.GetString("cus_username");
+            var pass = HttpContext.Session.GetString("cus_password");
             if (username != null && pass != null)
             {
                 return true;

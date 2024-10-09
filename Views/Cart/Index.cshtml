@@ -167,13 +167,13 @@
     <script src="/vendor/sweetalert/sweetalert.min.js"></script>
     <script>
         function deleteCartItem(button) {
-            var cartID = button.value;
+            var cart_id = button.value;
 
             $.ajax({
                 type: 'POST',
                 url: '@Url.Action("Delete", "Cart")',
                 data: {
-                    cartID: cartID
+                    cart_id: cart_id
                 },
                 success: function (response) {
                     swal("Deleted product!", "Success");
@@ -198,19 +198,19 @@
         function updateCartItemMinus(button, change) {
             var row = button.closest(".table_row");
             var input = row.querySelector(".num-product");
-            var quantity = parseInt(input.value);
+            var cart_quantity = parseInt(input.value);
             var price = parseFloat(input.dataset.price);
             var totalElement = row.querySelector(".column-5");
-            var cartID = button.value;
+            var cart_id = button.value;
 
             // Update quantity based on change
-            quantity += change;
-            if (quantity < 1) quantity = 1; // Ensure minimum quantity is 1
+            cart_quantity += change;
+            if (cart_quantity < 1) cart_quantity = 1; // Ensure minimum quantity is 1
             // Update input value
-            input.value = quantity + 1;
+            input.value = cart_quantity + 1;
 
             // Update total
-            var total = quantity * price;
+            var total = cart_quantity * price;
             totalElement.textContent = "$ " + total.toFixed(2);
 
             // Update subtotal
@@ -222,8 +222,8 @@
                 type: 'POST',
                 url: '@Url.Action("UpdateCartItem", "Cart")',
                 data: {
-                    cartID: cartID,
-                    quantity: quantity
+                    cart_id: cart_id,
+                    cart_quantity: cart_quantity
                 }
             });
         }
@@ -232,19 +232,19 @@
         function updateCartItemPlus(button, change) {
             var row = button.closest(".table_row");
             var input = row.querySelector(".num-product");
-            var quantity = parseInt(input.value);
+            var cart_quantity = parseInt(input.value);
             var price = parseFloat(input.dataset.price);
             var totalElement = row.querySelector(".column-5");
-            var cartID = button.value;
+            var cart_id = button.value;
 
             // Update quantity based on change
-            quantity += change;
-            if (quantity < 1) quantity = 1; // Ensure minimum quantity is 1
+            cart_quantity += change;
+            if (cart_quantity < 1) cart_quantity = 1; // Ensure minimum quantity is 1
             // Update input value
-            input.value = quantity - 1;
+            input.value = cart_quantity - 1;
 
             // Update total
-            var total = quantity * price;
+            var total = cart_quantity * price;
             totalElement.textContent = "$ " + total.toFixed(2);
 
             // Update subtotal
@@ -256,8 +256,8 @@
                 type: 'POST',
                 url: '@Url.Action("UpdateCartItem", "Cart")',
                 data: {
-                    cartID: cartID,
-                    quantity: quantity
+                    cart_id: cart_id,
+                    cart_quantity: cart_quantity
                 }
             });
         }

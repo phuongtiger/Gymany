@@ -44,9 +44,9 @@ namespace Gymany.Controllers
 
         private string api_StaffById;
 
-        private string api_Member;
+        // private string api_Member;
 
-        private string api_MemberById;
+        // private string api_MemberById;
 
         private string api_Payment;
 
@@ -72,8 +72,6 @@ namespace Gymany.Controllers
             this.api_PostById = "https://localhost:5002/api/Post/id";
             this.api_Staff = "https://localhost:5002/api/Staff";
             this.api_StaffById = "https://localhost:5002/api/Staff/api";
-            this.api_Member = "https://localhost:5002/api/Member";
-            this.api_MemberById = "https://localhost:5002/api/Member/id";
             this.api_Payment = "https://localhost:5002/api/Payment";
             this.api_Order = "https://localhost:5002/api/Order";
             this.api_OrderById = $"https://localhost:5002/api/Order/id";

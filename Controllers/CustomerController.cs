@@ -27,7 +27,7 @@ namespace Gymany.Controllers
         private string api_WorkoutPlanByID;
         private string api_MemberByCusID;
         private string api_WorkoutPlanByMemberID;
-        private string apiMember;
+        // private string apiMember;
         private string apiOrder;
         public CustomerController()
         {
@@ -37,9 +37,7 @@ namespace Gymany.Controllers
             this.apiCustomer = "https://localhost:5002/api/Customer";
             this.api_CustomerByID = "https://localhost:5002/api/Customer/id";
             this.api_WorkoutPlanByID = "https://localhost:5002/api/WorkoutPlan/id";
-            this.api_MemberByCusID = "https://localhost:5002/api/Member/customerID";
             this.api_WorkoutPlanByMemberID = "https://localhost:5002/api/WorkoutPlan/memberID";
-            this.apiMember = "https://localhost:5002/api/Member";
             this.apiOrder = "https://localhost:5002/api/Order";
 
         }
@@ -54,7 +52,7 @@ namespace Gymany.Controllers
             {
                 return RedirectToAction("Form");
             }
-            string id = HttpContext.Session.GetString("CustomerID");
+            string id = HttpContext.Session.GetString("cus_id");
             ViewBag.ID = id;
             api_CustomerByID = $"https://localhost:5002/api/Customer/id?id={id}";
             HttpResponseMessage respone = await client.GetAsync(api_CustomerByID);
@@ -270,7 +268,7 @@ namespace Gymany.Controllers
 
         public async Task<List<Order>> GetOrder()
         {
-            string id = HttpContext.Session.GetString("CustomerID");
+            string id = HttpContext.Session.GetString("cus_id");
             apiOrder = $"https://localhost:5002/api/Order/GetCusId?CustomerID={id}";
             HttpResponseMessage respone = await client.GetAsync(apiOrder);
             string data = await respone.Content.ReadAsStringAsync();
@@ -353,8 +351,8 @@ namespace Gymany.Controllers
         [HttpPost]
         public bool checkLogin()
         {
-            var username = HttpContext.Session.GetString("Username");
-            var pass = HttpContext.Session.GetString("Password");
+            var username = HttpContext.Session.GetString("cus_username");
+            var pass = HttpContext.Session.GetString("cus_password");
             if (username != null && pass != null)
             {
                 return true;

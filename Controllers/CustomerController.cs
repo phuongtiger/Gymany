@@ -343,8 +343,6 @@ namespace Gymany.Controllers
             }
         }
 
-
-        [HttpPost]
         public bool checkLogin()
         {
             var token = HttpContext.Session.GetString("token");

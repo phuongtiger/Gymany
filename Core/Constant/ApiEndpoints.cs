@@ -42,5 +42,9 @@ namespace Gymany.Core.Constant
         public const string ORDER_BY_CUSTOMER = "Order/GetCusId?customerID=";
 
         public const string PAYMENT_BY_ID = "Payment/GetCusIdPayment?CustomerID=";
+
+        public const string CART = "Cart";
+        public const string CART_BY_CUSID = "Cart/CustomerID?CustomerID=";
+        public const string CART_BY_ID = "Order/id?id=";
     }
 }

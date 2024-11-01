@@ -1,42 +1,35 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Gymany.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Gymany.Core.Service;
+using Gymany.Core.Constant;
+
 namespace Gymany.Controllers
 {
     [Route("[controller]")]
     public class NotificationController : Controller
     {
-        private readonly HttpClient client = null;
-        private string api;
-        public NotificationController(){
-            client = new HttpClient();
-            var contentType = new MediaTypeWithQualityHeaderValue("application/json");
-            client.DefaultRequestHeaders.Accept.Add(contentType);
-            this.api = "https://localhost:5002/api/Notification";
+        private readonly ApiService _apiService;
+        public NotificationController(ApiService apiService)
+        {
+            _apiService = apiService;
         }
         public async Task<ActionResult> Index()
         {
-            string id = HttpContext.Session.GetString("cus_id");
-            api = $"https://localhost:5002/api/Notification/id?id={id}";
-            HttpResponseMessage respone = await client.GetAsync(api);
-            string data = await respone.Content.ReadAsStringAsync();
-            var options = new JsonSerializerOptions{PropertyNameCaseInsensitive = true};
-            List<Notification> list = JsonSerializer.Deserialize<List<Notification>>(data, options);
-            HttpContext.Session.SetObjectAsJson("Notifications", list);
+            string id = HttpContext.Session.GetString(SessionConstant.CUSTOMER_ID);
+            List<Notification> list = await _apiService.GetAsync<List<Notification>>(ApiEndpoints.NOTIFICATION_BY_ID + id);
+            HttpContext.Session.SetObjectAsJson(SessionConstant.NOTIFICATION_LIST, list);
             int count = 0;
             foreach (var item in list)
             {
                 count++;
             }
-            HttpContext.Session.SetString("NumberNoti", Convert.ToString(count));
+            HttpContext.Session.SetString(SessionConstant.NOTIFICATION_NUMBER, Convert.ToString(count));
             return RedirectToAction("Index", "Home");
         }
     }

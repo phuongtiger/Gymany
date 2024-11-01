@@ -24,6 +24,9 @@ namespace Gymany
         {
             services.AddControllers();
             
+             // Register IHttpContextAccessor to access HTTP context in non-controller classes.
+            services.AddHttpContextAccessor();
+
             // Register the ApiService with HttpClient for making HTTP requests.
             services.AddHttpClient<ApiService>();
 

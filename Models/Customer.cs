@@ -36,5 +36,7 @@ namespace Gymany.Models
         [Required]
         [StringLength(50)]
         public string cus_email { get; set; }
+
+        public string token { get; set; }
     }
 }

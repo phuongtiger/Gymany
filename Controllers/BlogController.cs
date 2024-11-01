@@ -7,6 +7,8 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Gymany.Core.Constant;
+using Gymany.Core.Service;
 using Gymany.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -21,24 +23,17 @@ namespace Gymany.Controllers
     public class BlogController : Controller
     {
 
-        private readonly HttpClient client = null;
-        private string api;
+        private readonly ApiService _apiService;
 
-        public BlogController()
+        public BlogController(ApiService apiService)
         {
-            client = new HttpClient();
-            var contentType = new MediaTypeWithQualityHeaderValue("application/json");
-            client.DefaultRequestHeaders.Accept.Add(contentType);
-            this.api = $"https://localhost:5002/api/Post";
+            _apiService = apiService;
         }
 
 
         public async Task<List<Post>> GetBlog()
         {
-            HttpResponseMessage respone = await client.GetAsync(api);
-            string data = await respone.Content.ReadAsStringAsync();
-            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            List<Post> posts = JsonSerializer.Deserialize<List<Post>>(data, options);
+            List<Post> posts = await _apiService.GetAsync<List<Post>>(ApiEndpoints.BLOG);
             return posts;
         }
 

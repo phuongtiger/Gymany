@@ -25,5 +25,22 @@ namespace Gymany.Core.Constant
 
         public const string NOTIFICATION = "Notification";
         public const string NOTIFICATION_BY_ID = "Notification/id?id=";
+
+        public const string CUSTOMER = "Customer";
+        public const string CUSTOMER_BY_ID = "Customer/id?id=";
+        public const string CUSTOMER_FORGET_PASSWORD = "Customer/forgetpassword?email=";
+        public const string CUSTOMER_CHECK_USERNAME = "Customer/username?username=";
+        public static string GetCustomerCheckLoginUrl(string username, string password)
+        {
+            return $"Customer/checklogin?username={username}&password={password}";
+        }
+
+        public const string BLOG = "Post";
+
+        public const string ORDER = "Order";
+        public const string ORDER_BY_ID = "Order/id?id=";
+        public const string ORDER_BY_CUSTOMER = "Order/GetCusId?customerID=";
+
+        public const string PAYMENT_BY_ID = "Payment/GetCusIdPayment?CustomerID=";
     }
 }

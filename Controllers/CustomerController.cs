@@ -1,46 +1,27 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using System.Xml.Linq;
+using Gymany.Core.Constant;
+using Gymany.Core.Service;
 using Gymany.Models;
+using Gymany.Models.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 
 namespace Gymany.Controllers
 {
     public class CustomerController : Controller
     {
-
-        private readonly HttpClient client = null;
-        private string apiCustomer;
-        private string apiWorkoutPlan;
-        private string api_CustomerByID;
-        private string api_WorkoutPlanByID;
-        private string api_MemberByCusID;
-        private string api_WorkoutPlanByMemberID;
-        private string apiMember;
-        private string apiOrder;
-        public CustomerController()
+        private readonly ApiService _apiService;
+        public CustomerController(ApiService apiService)
         {
-            client = new HttpClient();
-            var contentType = new MediaTypeWithQualityHeaderValue("application/json");
-            client.DefaultRequestHeaders.Accept.Add(contentType);
-            this.apiCustomer = "https://localhost:5002/api/Customer";
-            this.api_CustomerByID = "https://localhost:5002/api/Customer/id";
-            this.api_WorkoutPlanByID = "https://localhost:5002/api/WorkoutPlan/id";
-            this.api_MemberByCusID = "https://localhost:5002/api/Member/customerID";
-            this.api_WorkoutPlanByMemberID = "https://localhost:5002/api/WorkoutPlan/memberID";
-            this.apiMember = "https://localhost:5002/api/Member";
-            this.apiOrder = "https://localhost:5002/api/Order";
+            _apiService = apiService;
 
         }
         public IActionResult Form()
@@ -56,16 +37,12 @@ namespace Gymany.Controllers
             }
             string id = HttpContext.Session.GetString("CustomerID");
             ViewBag.ID = id;
-            api_CustomerByID = $"https://localhost:5002/api/Customer/id?id={id}";
-            HttpResponseMessage respone = await client.GetAsync(api_CustomerByID);
-            string data = await respone.Content.ReadAsStringAsync();
-            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            Customer customernew = JsonSerializer.Deserialize<Customer>(data, options);
+            Customer customer = await _apiService.GetAsync<Customer>(ApiEndpoints.CUSTOMER_BY_ID + id);
             List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
             string number = HttpContext.Session.GetString("NumberNoti");
             var viewModel = new ListModels
             {
-                customer = customernew,
+                customer = customer,
                 Notifications = notifications,
                 NumberNoti = number
             };
@@ -74,18 +51,14 @@ namespace Gymany.Controllers
 
         public async Task<ActionResult> EditProfile(int? id)
         {
-            api_CustomerByID = $"https://localhost:5002/api/Customer/id?id={id}";
-            HttpResponseMessage respone = await client.GetAsync(api_CustomerByID);
-            string data = await respone.Content.ReadAsStringAsync();
-            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            Customer customernew = JsonSerializer.Deserialize<Customer>(data, options);
+            Customer customer = await _apiService.GetAsync<Customer>(ApiEndpoints.CUSTOMER_BY_ID + id);
             List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
             string number = HttpContext.Session.GetString("NumberNoti");
             var viewModel = new ListModels
             {
                 NumberNoti = number,
                 Notifications = notifications,
-                customer = customernew
+                customer = customer
             };
             // ViewBag.CutomerID = await GetSelectItem();
             return View(viewModel);
@@ -94,12 +67,9 @@ namespace Gymany.Controllers
         [HttpPost]
         public async Task<ActionResult> EditProfile(int? id, ListModels obj)
         {
-            api_CustomerByID = $"https://localhost:5002/api/Customer/id?id={id}";
-            Customer customer = obj.customer;
-            string data = JsonSerializer.Serialize(customer);
-            var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
-            HttpResponseMessage respone = await client.PutAsync(api_CustomerByID, content);
-            if (respone.StatusCode == System.Net.HttpStatusCode.Created)
+            CustomerResponse response = await _apiService.PutAsync<CustomerResponse, Customer>(ApiEndpoints
+                .CUSTOMER_BY_ID + id, obj.customer);
+            if (response.StatusCode == System.Net.HttpStatusCode.Created)
             {
                 TempData["SuccessMessage"] = "Your changes have been saved successfully.";
                 return RedirectToAction("EditProfile");
@@ -107,24 +77,60 @@ namespace Gymany.Controllers
             return View(obj);
         }
 
+     // ------------------------------view payment history------------------
+        public async Task<List<Payment>> GetPayment()
+        {
+            string id = HttpContext.Session.GetString("CustomerID");
+            try
+            {
+                List<Payment> payments = await _apiService.GetAsync<List<Payment>>(ApiEndpoints.PAYMENT_BY_ID + id);
+                if (payments == null)
+                {
+                    return new List<Payment>();
+                }
+
+                return payments;
+            }
+            catch (Exception e)
+            {
+                System.Console.WriteLine(e.Message);
+                return  new List<Payment>();
+            }
+        }
+
+
+        public async Task<IActionResult> PaymentHistory()
+        {
+            // Kiểm tra xem người dùng đã đăng nhập chưa
+            if (!checkLogin())
+            {
+                return RedirectToAction("Form", "Customer");
+            }
+
+            // Gọi phương thức GetOrder để lấy danh sách đơn hàng
+            List<Payment> payments = await GetPayment();
+
+            // Tạo viewModel chứa danh sách đơn hàng
+            var viewPayment = new ListModels
+            {
+                Payments = payments
+            };
+
+            // Chuyển đến view "OrderHistory" và truyền viewModel
+            return View("PaymentHistory", viewPayment);
+        }
+
 
         public async Task<ActionResult> Login(string username, string password)
         {
-            apiCustomer = $"https://localhost:5002/api/Customer/checklogin?username={username}&password={password}";
-            var customer = new Customer { cus_username = username, cus_password = password };
-            var content = new StringContent(JsonSerializer.Serialize(customer), Encoding.UTF8, "application/json");
-            HttpResponseMessage response = await client.PostAsync(apiCustomer, content);
-            if (response.IsSuccessStatusCode)
+            var customer = new Customer { cus_username = username, cus_password = password};
+            CustomerResponse response = await _apiService.PostAsync<CustomerResponse, Customer>(ApiEndpoints
+                .GetCustomerCheckLoginUrl(username, password), customer);
+            if (response.StatusCode == HttpStatusCode.OK && response.token != null)
             {
-                string jsonString = await response.Content.ReadAsStringAsync();
-                //lấy tất cả thông tin từ id của customer
-                JObject jsonObject = JObject.Parse(jsonString);
-                string token = (string)jsonObject["token"];
-                HttpContext.Session.SetString("cus_username", username);
-                HttpContext.Session.SetString("cus_password", password);
-                HttpContext.Session.SetString("token", token);
-                // Chuyển hướng đến trang chủ
-                return RedirectToAction("Index", "Notification");
+                HttpContext.Session.SetString("token", response.token);
+                HttpContext.Session.SetString("CustomerID", response.CustomerID.ToString());
+                return RedirectToAction("Index", "Home");
             }
             else
             {
@@ -134,33 +140,33 @@ namespace Gymany.Controllers
         }
 
 
-        public async Task<IActionResult> JoinMember()
-        {
-            if (!checkLogin())
-            {
-                return RedirectToAction("Form");
-            }
-            string id = HttpContext.Session.GetString("CustomerID");
-            ViewBag.cusID = id;
-            List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
-            string number = HttpContext.Session.GetString("NumberNoti");
-            ListModels listModels = new ListModels
-            {
-                NumberNoti = number,
-                Notifications = notifications
+        // public async Task<IActionResult> JoinMember()
+        // {
+        //     if (!checkLogin())
+        //     {
+        //         return RedirectToAction("Form");
+        //     }
+        //     string id = HttpContext.Session.GetString("CustomerID");
+        //     ViewBag.cusID = id;
+        //     List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
+        //     string number = HttpContext.Session.GetString("NumberNoti");
+        //     ListModels listModels = new ListModels
+        //     {
+        //         NumberNoti = number,
+        //         Notifications = notifications
 
-            };
-            api_MemberByCusID = $"https://localhost:5002/api/Member/customerID?customerID={id}";
-            HttpResponseMessage response = await client.GetAsync(api_MemberByCusID);
-            if (response.StatusCode == HttpStatusCode.NotFound)
-            {
-                return View(listModels);
-            }
-            else
-            {
-                return RedirectToAction("Profile", "Customer");
-            }
-        }
+        //     };
+        //     api_MemberByCusID = $"https://localhost:5002/api/Member/customerID?customerID={id}";
+        //     HttpResponseMessage response = await client.GetAsync(api_MemberByCusID);
+        //     if (response.StatusCode == HttpStatusCode.NotFound)
+        //     {
+        //         return View(listModels);
+        //     }
+        //     else
+        //     {
+        //         return RedirectToAction("Profile", "Customer");
+        //     }
+        // }
 
         // [HttpPost]
         // public async Task<IActionResult> JoinMember(ListModels obj)
@@ -223,12 +229,12 @@ namespace Gymany.Controllers
         [HttpPost]
         public async Task<IActionResult> RegisterForm(ListModels obj)
         {
-            if (ModelState.IsValid && IsUsernameExist(obj.customer.cus_username).Result == true)
+            bool isUserNameExist = await IsUsernameExist(obj.customer.cus_username);
+            if (ModelState.IsValid && !isUserNameExist)
             {
-                string data = JsonSerializer.Serialize(obj.customer);
-                var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
-                HttpResponseMessage response = await client.PostAsync(apiCustomer, content);
-                if (response.StatusCode == System.Net.HttpStatusCode.Created){
+                BaseResponse response = await  _apiService.PostAsync<BaseResponse, Customer>(ApiEndpoints.CUSTOMER, obj.customer);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
                     ViewData["Success"] = "Register success";
                     ListModels listModels = new ListModels();
                     return View("Form", listModels);
@@ -239,9 +245,9 @@ namespace Gymany.Controllers
         }
         public async Task<bool> IsUsernameExist(string username)
         {
-            string api_checkUser = $"https://localhost:5002/api/Customer/username?username={username}";
-            HttpResponseMessage response = await client.GetAsync(api_checkUser);
-            if (response.StatusCode == HttpStatusCode.NotFound)
+            BaseResponse response = await _apiService.GetAsync<BaseResponse>(ApiEndpoints.CUSTOMER_CHECK_USERNAME + username);
+
+            if (response.status == 200)
             {
                 return true;
             }
@@ -253,16 +259,8 @@ namespace Gymany.Controllers
         }
 
 
-
-
         public async Task<IActionResult> DeleteSession()
         {
-            // if(HttpContext.Session.GetString("Username")!= null){
-            //     HttpContext.Session.Remove("Username");
-            // }else
-            // {
-            //     return RedirectToAction("Profile");
-            // }
             HttpContext.Session.Clear();
             return RedirectToAction("Index", "Home");
         }
@@ -270,29 +268,20 @@ namespace Gymany.Controllers
         public async Task<List<Order>> GetOrder()
         {
             string id = HttpContext.Session.GetString("CustomerID");
-            apiOrder = $"https://localhost:5002/api/Order/GetCusId?CustomerID={id}";
-            HttpResponseMessage respone = await client.GetAsync(apiOrder);
-            string data = await respone.Content.ReadAsStringAsync();
-            List<Order> orders = new List<Order>();
-            if (respone.StatusCode == HttpStatusCode.NotFound)
+            try
             {
-                Console.WriteLine("Không có dữ liệu trong giỏ hàng.");
-                return new List<Order>();
-            }
-            else
-            {
-                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-                orders = JsonSerializer.Deserialize<List<Order>>(data, options);
+                List<Order> orders = await _apiService.GetAsync<List<Order>>(ApiEndpoints.ORDER_BY_CUSTOMER + id);
                 if (orders == null)
                 {
-                    // Thông báo khi danh sách Orders là null
-                    Console.WriteLine("Danh sách giỏ hàng trống.");
-                    return new List<Order>();
+                    orders = new List<Order>();
                 }
-
                 return orders;
             }
-
+            catch (Exception e)
+            {
+                System.Console.WriteLine(e.Message);
+                return  new List<Order>();
+            }
         }
 
         public async Task<IActionResult> OrderHistory()
@@ -305,7 +294,6 @@ namespace Gymany.Controllers
 
             // Gọi phương thức GetOrder để lấy danh sách đơn hàng
             List<Order> orders = await GetOrder();
-
             // Tạo viewModel chứa danh sách đơn hàng
             List<Notification> notifications = HttpContext.Session.GetObjectFromJson<List<Notification>>("Notifications");
             string number = HttpContext.Session.GetString("NumberNoti");
@@ -328,33 +316,39 @@ namespace Gymany.Controllers
         [HttpPost]
         public async Task<ActionResult> FogotPassword(string email)
         {
-            apiCustomer = $"https://localhost:5002/api/Customer/forgotpassword?email={email}";
-            ListModels listModels = new ListModels();
-            using (HttpClient client = new HttpClient())
-            {
-                HttpResponseMessage response = await client.PostAsync(apiCustomer, null);
+            try {
+                ListModels listModels = new ListModels();
+                BaseResponse response = await _apiService.PostAsync<BaseResponse, string>(ApiEndpoints.CUSTOMER_FORGET_PASSWORD + email, email);
 
-                if (response.IsSuccessStatusCode)
+                if (response != null)
                 {
-                    
                     ViewData["Success"] = "Please check your email to reset password";
                     return View("Form", listModels);
+                }else{
+                    ViewData["Error"] = "Email does not exist";
+                    return View("FogotPassword", listModels);
                 }
             }
-            ViewData["Error"] = "Email is not exist";
-            return View("FogotPassword", listModels);
+            catch (JsonException jsonEx)
+            {
+                // Trả về một view lỗi hoặc thông báo lỗi cho người dùng
+                ViewData["Error"] = jsonEx.ToString();
+                return View("FogotPassword", new ListModels());
+            }
+            catch (Exception ex)
+            {
+                // Trả về một view lỗi hoặc thông báo lỗi cho người dùng
+                ViewData["Error"] = "An error occurred while processing your request. Please try again later.";
+                return View("FogotPassword", new ListModels());
+            }
         }
-
-
-
 
 
         [HttpPost]
         public bool checkLogin()
         {
-            var username = HttpContext.Session.GetString("Username");
-            var pass = HttpContext.Session.GetString("Password");
-            if (username != null && pass != null)
+            var token = HttpContext.Session.GetString("token");
+            if (token != null)
             {
                 return true;
             }

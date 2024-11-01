@@ -4,6 +4,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Gymany.Core.Common;
+using System.Text;
 
 /// <summary>
 /// Represents the service for API configuration.
@@ -52,8 +53,56 @@ namespace Gymany.Core.Service
             
             // Read the response content as a string.
             var responseData = await response.Content.ReadAsStringAsync();
-            
+
+            if (string.IsNullOrWhiteSpace(responseData))
+            {
+                throw new JsonException("The response content is empty.");
+            }
             // Deserialize the response content to the specified type.
+            return JsonSerializer.Deserialize<T>(responseData, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+        }
+
+        /// <summary>
+        /// Makes a POST request to the specified endpoint with the provided data and deserializes the response to the specified type.
+        /// </summary>
+        /// <typeparam name="T">The type to which the response should be deserialized.</typeparam>
+        /// <typeparam name="TData">The type of the data to be sent in the request body.</typeparam>
+        /// <param name="endpoint">The API endpoint to call.</param>
+        /// <param name="data">The data to be sent in the request body.</param>
+        /// <returns>A task representing the asynchronous operation, with a result of the specified type.</returns>
+        public async Task<T> PostAsync<T, TData>(string endpoint, TData data)
+        {
+            var token = _httpContextAccessor.HttpContext.Session.GetString("token");
+            if (!string.IsNullOrEmpty(token))
+            {
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
+
+            var content = new StringContent(JsonSerializer.Serialize(data), Encoding.UTF8, "application/json");
+            var response = await _httpClient.PostAsync($"{_apiSettings.BaseUrl}/{_apiSettings.ApiDomain}/{endpoint}", content);
+            var responseData = await response.Content.ReadAsStringAsync();
+            return JsonSerializer.Deserialize<T>(responseData, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+        }
+
+        /// <summary>
+        /// Makes a PUT request to the specified endpoint with the provided data and deserializes the response to the specified type.
+        /// </summary>
+        /// <typeparam name="T">The type to which the response should be deserialized.</typeparam>
+        /// <typeparam name="TData">The type of the data to be sent in the request body.</typeparam>
+        /// <param name="endpoint">The API endpoint to call.</param>
+        /// <param name="data">The data to be sent in the request body.</param>
+        /// <returns>A task representing the asynchronous operation, with a result of the specified type.</returns>
+        public async Task<T> PutAsync<T, TData>(string endpoint, TData data)
+        {
+            var token = _httpContextAccessor.HttpContext.Session.GetString("token");
+            if (!string.IsNullOrEmpty(token))
+            {
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
+
+            var content = new StringContent(JsonSerializer.Serialize(data), Encoding.UTF8, "application/json");
+            var response = await _httpClient.PutAsync($"{_apiSettings.BaseUrl}/{_apiSettings.ApiDomain}/{endpoint}", content);
+            var responseData = await response.Content.ReadAsStringAsync();
             return JsonSerializer.Deserialize<T>(responseData, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
         }
     }
